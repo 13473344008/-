@@ -1,0 +1,18 @@
+# Pass audited digest-pinned official images when building a release.
+ARG GO_IMAGE
+ARG RUNTIME_IMAGE
+FROM ${GO_IMAGE} AS build
+WORKDIR /src
+COPY admin/go-admin/go.mod admin/go-admin/go.sum ./
+RUN go mod download
+COPY admin/go-admin/ ./
+RUN CGO_ENABLED=1 go build -mod=readonly -tags sqlite3,t4_schema -trimpath -ldflags='-s -w' -o /out/passport-admin . && \
+    CGO_ENABLED=1 go build -mod=readonly -trimpath -ldflags='-s -w' -o /out/passport-ops ./cmd/passport-ops
+FROM ${RUNTIME_IMAGE}
+WORKDIR /app
+COPY --from=build /out/ /app/
+# Migration reads these SQL files at runtime. No settings or databases are copied.
+COPY admin/go-admin/config/*.sql /app/config/
+COPY deploy/production/backend-entrypoint.sh /app/entrypoint.sh
+USER 10001:10001
+ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]

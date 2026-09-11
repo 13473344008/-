@@ -106,6 +106,9 @@ func (s *Reviews) readiness(tx *gorm.DB, id string) (Readiness, ReviewCandidate,
 	if _, e := validateCode(b.BatchCode); e != nil {
 		add("invalid_batch_code", "batch_code", e)
 	}
+	if e := validateBatchRecordCode(b.BatchCode, b.RecordType); e != nil {
+		add("invalid_test_batch_code", "batch_code", e)
+	}
 	content := dto.BatchContent{ProductionDate: b.ProductionDate, ExpiryDate: b.ExpiryDate, QualityStatus: b.QualityStatus, InternalNote: b.InternalNote}
 	if b.ProductionDate == nil {
 		add("missing_production_date", "production_date", fmt.Errorf("请填写生产日期"))

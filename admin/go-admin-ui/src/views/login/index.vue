@@ -163,8 +163,8 @@ export default {
       version,
       codeUrl: '',
       loginForm: {
-        username: 'admin',
-        password: '123456',
+        username: '',
+        password: '',
         code: '',
         uuid: ''
       },

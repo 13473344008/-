@@ -1,4 +1,6 @@
 export default {
+  'testCodeHelp': 'Test batch codes must contain a separate TEST segment, e.g. PRODUCT-TEST-20260911-001.',
+  'invalidCode': 'Use 1–64 letters, digits, underscores or hyphens for the batch code.',
   'notice': 'Internal working preview · Test records are not commercial evidence',
   'create': 'Create batch',
   'clone': 'Clone batch',

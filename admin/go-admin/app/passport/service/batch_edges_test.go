@@ -43,7 +43,7 @@ func TestT6ResolverEdges(t *testing.T) {
 	ptr := func(v string) *string { return &v }
 	var pid, rid, bid string
 	run("MultilingualBaseFixture", func() {
-		pid, e = s.Create(dto.CreateProductRequest{ProductCode: "PF-T6-EDGE-TEST", Content: dto.RevisionContent{SourceLanguage: "en", ProcessSteps: []dto.Step{{StepKey: "wash"}}}, Translations: []dto.TranslationRequest{{LanguageCode: "en", ProductName: "T6 EDGE TEST", TranslationStatus: "approved", StorageConditions: ptr("Base EN"), ProcessLabels: map[string]string{"wash": "Wash"}}, {LanguageCode: "zh-CN", ProductName: "T6 测试", TranslationStatus: "approved", StorageConditions: ptr("模板中文"), ProcessLabels: map[string]string{"wash": "清洗"}}}})
+		pid, e = s.Create(dto.CreateProductRequest{ProductCode: "PF-T6-TEST-EDGE-TEST", Content: dto.RevisionContent{SourceLanguage: "en", ProcessSteps: []dto.Step{{StepKey: "wash"}}}, Translations: []dto.TranslationRequest{{LanguageCode: "en", ProductName: "T6 EDGE TEST", TranslationStatus: "approved", StorageConditions: ptr("Base EN"), ProcessLabels: map[string]string{"wash": "Wash"}}, {LanguageCode: "zh-CN", ProductName: "T6 测试", TranslationStatus: "approved", StorageConditions: ptr("模板中文"), ProcessLabels: map[string]string{"wash": "清洗"}}}})
 		must(e)
 		p, e := s.Get(pid)
 		must(e)
@@ -60,7 +60,7 @@ func TestT6ResolverEdges(t *testing.T) {
 			must(tx.Exec("UPDATE products SET current_revision_id=? WHERE id=?", rid, pid).Error)
 			local := s
 			local.Orm = tx
-			_, e := local.CreateBatch(dto.CreateBatchRequest{ProductID: pid, BatchCode: "PF-T6-CORRUPT-DEFAULT", BatchWork: dto.BatchWork{Overrides: []dto.OverrideInput{}, Inspections: []dto.InspectionInput{}}})
+			_, e := local.CreateBatch(dto.CreateBatchRequest{ProductID: pid, BatchCode: "PF-T6-TEST-CORRUPT-DEFAULT", BatchWork: dto.BatchWork{Overrides: []dto.OverrideInput{}, Inspections: []dto.InspectionInput{}}})
 			assert(e != nil)
 			return rollback
 		})
@@ -74,7 +74,7 @@ func TestT6ResolverEdges(t *testing.T) {
 		must(e)
 		must(s.Seal(pid, rid, dto.TokenRequest{ExpectedToken: v.Token}))
 		must(s.SetDefault(pid, dto.DefaultRequest{RevisionID: rid}))
-		bid, e = s.CreateBatch(dto.CreateBatchRequest{ProductID: pid, BatchCode: "PF-T6-EDGE-BATCH", BatchWork: dto.BatchWork{Overrides: []dto.OverrideInput{{FieldKey: "storage_conditions", Operation: "set", ValueText: ptr("Override EN")}}, Inspections: []dto.InspectionInput{}}})
+		bid, e = s.CreateBatch(dto.CreateBatchRequest{ProductID: pid, BatchCode: "PF-T6-TEST-EDGE-BATCH", BatchWork: dto.BatchWork{Overrides: []dto.OverrideInput{{FieldKey: "storage_conditions", Operation: "set", ValueText: ptr("Override EN")}}, Inspections: []dto.InspectionInput{}}})
 		must(e)
 	})
 	run("OverrideMissingTranslationFallsBackToOverrideSource", func() {
@@ -106,7 +106,7 @@ func TestT6ResolverEdges(t *testing.T) {
 	run("CloneCopiesTranslationButResetsApproval", func() {
 		v, e := s.GetBatch(bid, "")
 		must(e)
-		id, e := s.CloneBatch(bid, dto.CloneBatchRequest{BatchCode: "PF-T6-EDGE-CLONE", ExpectedEditVersion: v.Batch.EditVersion})
+		id, e := s.CloneBatch(bid, dto.CloneBatchRequest{BatchCode: "PF-T6-TEST-EDGE-CLONE", ExpectedEditVersion: v.Batch.EditVersion})
 		must(e)
 		v, e = s.GetBatch(id, "zh-CN")
 		must(e)

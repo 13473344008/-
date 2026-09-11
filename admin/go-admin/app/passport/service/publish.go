@@ -177,6 +177,9 @@ func (s *Publishing) Publish(id string, req PublishRequest) (PublishEntry, error
 		if _, e = validateCode(b.BatchCode); e != nil {
 			return e
 		}
+		if e = validateBatchRecordCode(b.BatchCode, b.RecordType); e != nil {
+			return e
+		}
 		now := stamp()
 		p := models.PassportRevision{ID: uuid.NewString(), CreatedAt: now, CreatedBy: int64(s.Actor), BatchID: id, VersionNumber: b.NextVersionNumber, BaseProductRevisionID: b.BaseProductRevisionID, SourceRevisionID: b.CurrentPassportRevisionID, SourceEditVersion: ptr(b.EditVersion), SourceContentHash: r.CandidateHash, FrozenInput: r.CandidateInput, SchemaVersion: "1.0", BuilderVersion: publishing.BuilderVersion, PublishedBy: int64(s.Actor), ReviewedBy: *r.ReviewedBy, ReviewedAt: *r.ReviewedAt, ReleaseIdentifier: uuid.NewString(), SourceReviewRecordID: &r.ID}
 		rec := models.PublishRecord{ID: uuid.NewString(), CreatedAt: now, CreatedBy: int64(s.Actor), BatchID: id, PassportRevisionID: p.ID, OperationType: "publish", PublishStatus: "pending", IdempotencyKey: req.IdempotencyKey, ReleaseIdentifier: p.ReleaseIdentifier, ExpectedCurrentRevisionID: b.CurrentPassportRevisionID, StartedAt: &now, UpdatedAt: now, AttemptCount: 1, StateVersion: 1, SourceReviewRecordID: &r.ID}

@@ -1,0 +1,15 @@
+ARG NODE_IMAGE
+ARG NGINX_IMAGE
+FROM ${NODE_IMAGE} AS build
+WORKDIR /src/admin/go-admin-ui
+COPY admin/go-admin-ui/package.json admin/go-admin-ui/pnpm-lock.yaml admin/go-admin-ui/.npmrc ./
+RUN npm install --global pnpm@9.15.1 && pnpm install --frozen-lockfile
+COPY admin/go-admin-ui/ ./
+COPY public-site/ /src/public-site/
+ARG PUBLIC_BASE_URL
+RUN test -n "$PUBLIC_BASE_URL" && VUE_APP_BASE_API='' VUE_APP_PUBLIC_MODE=production VUE_APP_PUBLIC_BASE_URL="$PUBLIC_BASE_URL" VUE_APP_GA_ID='' pnpm build:prod
+FROM ${NGINX_IMAGE}
+COPY --from=build /src/admin/go-admin-ui/dist/ /srv/admin/
+COPY deploy/production/nginx-admin.conf /etc/nginx/nginx.conf
+USER 10001:10001
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

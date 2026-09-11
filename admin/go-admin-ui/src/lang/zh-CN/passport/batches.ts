@@ -1,4 +1,6 @@
 export default {
+  'testCodeHelp': '测试记录的批次编码须包含独立的 TEST 段，例如 PRODUCT-TEST-20260911-001。',
+  'invalidCode': '批次编码须为 1–64 位字母、数字、下划线或连字符。',
   'notice': '内部草稿预览 · 测试数据不能用于商业证明',
   'create': '新建批次',
   'clone': '复制批次',

@@ -1,0 +1,15 @@
+# Install only after replacing all placeholders with the verified public project paths.
+@PUBLIC_ROOT@/logs/*.log {
+    daily
+    maxsize 20M
+    rotate 14
+    missingok
+    notifempty
+    compress
+    delaycompress
+    create 0640 10001 10001
+    sharedscripts
+    postrotate
+        /usr/bin/docker compose --env-file @PUBLIC_ROOT@/release.env -f @PUBLIC_ROOT@/docker-compose.yml -p @PUBLIC_PROJECT@ kill -s USR1 public
+    endscript
+}

@@ -329,6 +329,9 @@ func (s *Batches) CreateBatch(req dto.CreateBatchRequest) (string, error) {
 	if req.RecordType != "test" && req.RecordType != "commercial" {
 		return "", invalid("记录类型不正确")
 	}
+	if e = validateBatchRecordCode(code, req.RecordType); e != nil {
+		return "", e
+	}
 	id := uuid.NewString()
 	e = s.Orm.Transaction(func(tx *gorm.DB) error {
 		// Acquire writer before reading the default; serializes with T5 default changes.
@@ -571,6 +574,9 @@ func (s *Batches) CloneBatch(id string, req dto.CloneBatchRequest) (string, erro
 		}
 		b, e := s.batch(tx, id)
 		if e != nil {
+			return e
+		}
+		if e = validateBatchRecordCode(code, b.RecordType); e != nil {
 			return e
 		}
 		if (b.WorkflowStatus != "draft" && b.WorkflowStatus != "published") || b.ActivePublishRecordID != nil {

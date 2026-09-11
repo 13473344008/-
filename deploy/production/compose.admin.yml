@@ -1,0 +1,94 @@
+name: ${ADMIN_PROJECT:?set a dedicated stable project name}
+services:
+  backend:
+    image: ${BACKEND_IMAGE:?set the verified release image}
+    user: "10001:10001"
+    read_only: true
+    restart: unless-stopped
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 768m
+    cpus: 1.0
+    pids_limit: 128
+    stop_grace_period: 45s
+    tmpfs: ["/tmp:size=64m,mode=1777"]
+    environment:
+      PASSPORT_PUBLISH_ROOT: /data/public
+      PASSPORT_RELEASE_WORK_ROOT: /data/work
+      PASSPORT_PRIVATE_MEDIA_ROOT: /data/media
+      PASSPORT_ACCESS_LOG: /data/access/access.log
+      PASSPORT_GEOIP_V4: /data/geo/ip2region_v4.xdb
+      PASSPORT_GEOIP_V6: /data/geo/ip2region_v6.xdb
+      PASSPORT_TRUSTED_PROXIES: ${ADMIN_TRUSTED_PROXIES:-}
+    volumes:
+      - type: bind
+        source: ${ADMIN_ROOT:?}/config
+        target: /run/config
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${ADMIN_ROOT:?}/data/db
+        target: /data/db
+        read_only: false
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${ADMIN_ROOT:?}/data/media
+        target: /data/media
+        read_only: false
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${ADMIN_ROOT:?}/data/logs
+        target: /data/logs
+        read_only: false
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${ADMIN_ROOT:?}/data/geo
+        target: /data/geo
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${PUBLIC_ROOT:?}/data/published
+        target: /data/public
+        read_only: false
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${PUBLIC_ROOT:?}/data/work
+        target: /data/work
+        read_only: false
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${PUBLIC_ROOT:?}/logs
+        target: /data/access
+        read_only: true
+        bind: {create_host_path: false}
+    networks: [admin_private]
+    healthcheck:
+      test: [CMD, /app/passport-ops, probe]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging: {driver: json-file, options: {max-size: "10m", max-file: "3"}}
+  admin:
+    image: ${ADMIN_IMAGE:?set the verified release image}
+    user: "10001:10001"
+    read_only: true
+    restart: unless-stopped
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 128m
+    cpus: 0.25
+    pids_limit: 64
+    tmpfs: ["/tmp:size=32m,mode=1777"]
+    ports: ["127.0.0.1:${ADMIN_PORT:?choose an unused loopback port}:8080"]
+    networks: [admin_private]
+    depends_on: [backend]
+    healthcheck:
+      test: [CMD-SHELL, "wget -q -O /dev/null http://127.0.0.1:8080/api/v1/app-config || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging: {driver: json-file, options: {max-size: "10m", max-file: "3"}}
+networks:
+  admin_private:
+    internal: true

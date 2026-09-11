@@ -29,6 +29,8 @@ settings:
   database:
     # 数据库类型 mysql，sqlite3， postgres
     driver: sqlite3
+    maxOpenConns: 1
+    maxIdleConns: 1
     # 数据库连接sqlite3数据文件的路径
     source: file:./temp/passport.db?_foreign_keys=on&_journal_mode=WAL&_busy_timeout=5000&_synchronous=FULL
   gen:

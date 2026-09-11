@@ -21,3 +21,6 @@
 **/.env*.local
 **/config/settings*.yml
 !**/config/settings*.example.yml
+
+**/__pycache__/
+**/*.pyc

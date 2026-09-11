@@ -80,15 +80,15 @@ func TestT6Batches(t *testing.T) {
 		return nil
 	}
 	var pid, r1, r2, foreign, fr, bid, newid, clone string
-	run("CreateProductFixture", func() { pid, r1 = product("PF-T6-SERVICE-TEST"); foreign, fr = product("PF-T6-OTHER-TEST") })
-	run("NoDefaultRejected", func() { _, e := create(pid, "PF-T6-NODEFAULT"); assert(e != nil) })
+	run("CreateProductFixture", func() { pid, r1 = product("PF-T6-TEST-SERVICE-TEST"); foreign, fr = product("PF-T6-TEST-OTHER-TEST") })
+	run("NoDefaultRejected", func() { _, e := create(pid, "PF-T6-TEST-NODEFAULT"); assert(e != nil) })
 	run("DraftDefaultRejectedByDB", func() { assert(db.Exec("UPDATE products SET current_revision_id=? WHERE id=?", r1, pid).Error != nil) })
 	run("SealAndSetDefault", func() { seal(pid, r1); seal(foreign, fr); must(s.SetDefault(pid, dto.DefaultRequest{RevisionID: r1})) })
 	run("CreateBindsSealedDefault", func() {
-		bid, e = create(pid, " pf-t6-service-a ")
+		bid, e = create(pid, " pf-t6-TEST-service-a ")
 		must(e)
 		v := get(bid)
-		assert(v.Batch.BaseProductRevisionID == r1 && v.Batch.BatchCode == "PF-T6-SERVICE-A" && v.Batch.WorkflowStatus == "draft")
+		assert(v.Batch.BaseProductRevisionID == r1 && v.Batch.BatchCode == "PF-T6-TEST-SERVICE-A" && v.Batch.WorkflowStatus == "draft")
 	})
 	run("ListPaginationSearchProduct", func() {
 		rows, n, e := s.ListBatches(dto.BatchQuery{Search: "SERVICE-A", ProductID: pid, PageIndex: 1, PageSize: 1})
@@ -96,7 +96,7 @@ func TestT6Batches(t *testing.T) {
 		assert(n == 1 && len(rows) == 1)
 	})
 	run("DuplicateCodeBusiness409", func() {
-		_, e := create(pid, "pf-t6-service-a")
+		_, e := create(pid, "pf-t6-TEST-service-a")
 		b, ok := e.(*BusinessError)
 		assert(ok && b.Code == 409)
 	})
@@ -114,7 +114,7 @@ func TestT6Batches(t *testing.T) {
 	})
 	run("DatabaseProductImmutable", func() { assert(db.Exec("UPDATE batches SET product_id=? WHERE id=?", foreign, bid).Error != nil) })
 	run("CrossProductBaseRejected", func() {
-		assert(db.Exec("INSERT INTO batches(id,created_at,created_by,updated_at,updated_by,batch_code,product_id,base_product_revision_id) VALUES('22222222-2222-4222-8222-222222222222',?,1,?,1,'PF-T6-CROSS',?,?)", stamp(), stamp(), pid, fr).Error != nil)
+		assert(db.Exec("INSERT INTO batches(id,created_at,created_by,updated_at,updated_by,batch_code,product_id,base_product_revision_id) VALUES('22222222-2222-4222-8222-222222222222',?,1,?,1,'PF-T6-TEST-CROSS',?,?)", stamp(), stamp(), pid, fr).Error != nil)
 	})
 	run("ReferencedRevisionDeleteRejected", func() { assert(db.Delete(&models.Revision{}, "id=?", r1).Error != nil) })
 	run("InheritResolver", func() { assert(effective(bid, "package_quantity") == "25") })
@@ -236,11 +236,11 @@ func TestT6Batches(t *testing.T) {
 	run("MissingChildListsRejected", func() { assert(update(bid, dto.BatchWork{}) != nil) })
 	run("CreateAuditFailureRollsBack", func() {
 		must(db.Exec("CREATE TRIGGER t6_fail_audit BEFORE INSERT ON passport_audit_events WHEN NEW.event_type='batch_created' BEGIN SELECT RAISE(ABORT,'injected'); END").Error)
-		_, e := create(pid, "PF-T6-ROLLBACK-CREATE")
+		_, e := create(pid, "PF-T6-TEST-ROLLBACK-CREATE")
 		assert(e != nil)
 		must(db.Exec("DROP TRIGGER t6_fail_audit").Error)
 		var n int64
-		must(db.Table("batches").Where("batch_code=?", "PF-T6-ROLLBACK-CREATE").Count(&n).Error)
+		must(db.Table("batches").Where("batch_code=?", "PF-T6-TEST-ROLLBACK-CREATE").Count(&n).Error)
 		assert(n == 0)
 	})
 	run("OverrideAuditFailureRollsBackWholeAggregate", func() {
@@ -264,17 +264,17 @@ func TestT6Batches(t *testing.T) {
 		seal(pid, r2)
 		must(s.SetDefault(pid, dto.DefaultRequest{RevisionID: r2, ExpectedCurrentID: &r1}))
 		assert(get(bid).Batch.BaseProductRevisionID == r1)
-		newid, e = create(pid, "PF-T6-SERVICE-B")
+		newid, e = create(pid, "PF-T6-TEST-SERVICE-B")
 		must(e)
 		assert(get(newid).Batch.BaseProductRevisionID == r2)
 	})
 	run("ClonePreservesOverrideAndBase", func() {
 		w.Overrides = []dto.OverrideInput{{FieldKey: "package_quantity", Operation: "set", ValueText: ptr("20")}}
 		must(update(bid, w))
-		clone, e = s.CloneBatch(bid, dto.CloneBatchRequest{BatchCode: "PF-T6-SERVICE-CLONE", ExpectedEditVersion: get(bid).Batch.EditVersion})
+		clone, e = s.CloneBatch(bid, dto.CloneBatchRequest{BatchCode: "PF-T6-TEST-SERVICE-CLONE", ExpectedEditVersion: get(bid).Batch.EditVersion})
 		must(e)
 		v := get(clone)
-		assert(v.Batch.ID != bid && v.Batch.BaseProductRevisionID == r1 && v.Batch.BatchCode == "PF-T6-SERVICE-CLONE" && effective(clone, "package_quantity") == "20")
+		assert(v.Batch.ID != bid && v.Batch.BaseProductRevisionID == r1 && v.Batch.BatchCode == "PF-T6-TEST-SERVICE-CLONE" && effective(clone, "package_quantity") == "20")
 	})
 	run("CloneClearsProductionFacts", func() {
 		v := get(clone)
@@ -292,19 +292,19 @@ func TestT6Batches(t *testing.T) {
 		}
 	})
 	run("CloneFailureRollsBack", func() {
-		must(db.Exec("CREATE TRIGGER t6_fail_copy BEFORE INSERT ON inspection_items WHEN NEW.batch_id NOT IN (SELECT id FROM batches WHERE batch_code!='PF-T6-ROLLBACK-CLONE') BEGIN SELECT RAISE(ABORT,'injected copy failure'); END").Error)
-		_, e := s.CloneBatch(bid, dto.CloneBatchRequest{BatchCode: "PF-T6-ROLLBACK-CLONE", ExpectedEditVersion: get(bid).Batch.EditVersion})
+		must(db.Exec("CREATE TRIGGER t6_fail_copy BEFORE INSERT ON inspection_items WHEN NEW.batch_id NOT IN (SELECT id FROM batches WHERE batch_code!='PF-T6-TEST-ROLLBACK-CLONE') BEGIN SELECT RAISE(ABORT,'injected copy failure'); END").Error)
+		_, e := s.CloneBatch(bid, dto.CloneBatchRequest{BatchCode: "PF-T6-TEST-ROLLBACK-CLONE", ExpectedEditVersion: get(bid).Batch.EditVersion})
 		assert(e != nil)
 		must(db.Exec("DROP TRIGGER t6_fail_copy").Error)
 		var n int64
-		must(db.Table("batches").Where("batch_code=?", "PF-T6-ROLLBACK-CLONE").Count(&n).Error)
+		must(db.Table("batches").Where("batch_code=?", "PF-T6-TEST-ROLLBACK-CLONE").Count(&n).Error)
 		assert(n == 0)
 	})
 	run("ResetCloneOverride", func() { c := work(); must(update(clone, c)); assert(effective(clone, "package_quantity") == "25") })
 	run("PendingBatchApplicationFreeze", func() {
 		must(db.Exec("UPDATE batches SET workflow_status='archived',archived_at=?,archived_by=1 WHERE id=?", stamp(), clone).Error)
 		assert(update(clone, work()) != nil)
-		_, e := s.CloneBatch(clone, dto.CloneBatchRequest{BatchCode: "PF-T6-FROZEN-CLONE", ExpectedEditVersion: get(clone).Batch.EditVersion})
+		_, e := s.CloneBatch(clone, dto.CloneBatchRequest{BatchCode: "PF-T6-TEST-FROZEN-CLONE", ExpectedEditVersion: get(clone).Batch.EditVersion})
 		assert(e != nil)
 	})
 	run("ConcurrentDifferentCodes", func() {
@@ -312,7 +312,7 @@ func TestT6Batches(t *testing.T) {
 		errs := make(chan error, 5)
 		for i := 0; i < 5; i++ {
 			wg.Add(1)
-			go func(i int) { defer wg.Done(); _, e := create(pid, fmt.Sprintf("PF-T6-CONCURRENT-%d", i)); errs <- e }(i)
+			go func(i int) { defer wg.Done(); _, e := create(pid, fmt.Sprintf("PF-T6-TEST-CONCURRENT-%d", i)); errs <- e }(i)
 		}
 		wg.Wait()
 		close(errs)
@@ -325,7 +325,7 @@ func TestT6Batches(t *testing.T) {
 		errs := make(chan error, 5)
 		for i := 0; i < 5; i++ {
 			wg.Add(1)
-			go func() { defer wg.Done(); _, e := create(pid, "PF-T6-SAME-CODE"); errs <- e }()
+			go func() { defer wg.Done(); _, e := create(pid, "PF-T6-TEST-SAME-CODE"); errs <- e }()
 		}
 		wg.Wait()
 		close(errs)
@@ -348,7 +348,7 @@ func TestT6Batches(t *testing.T) {
 			wg.Add(1)
 			go func(n int) {
 				defer wg.Done()
-				_, e := s.CloneBatch(bid, dto.CloneBatchRequest{BatchCode: fmt.Sprintf("PF-T6-CONCURRENT-CLONE-%d", n), ExpectedEditVersion: version})
+				_, e := s.CloneBatch(bid, dto.CloneBatchRequest{BatchCode: fmt.Sprintf("PF-T6-TEST-CONCURRENT-CLONE-%d", n), ExpectedEditVersion: version})
 				errs <- e
 			}(n)
 		}

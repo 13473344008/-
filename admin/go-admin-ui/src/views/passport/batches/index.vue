@@ -58,7 +58,7 @@
         </el-card>
         <el-button v-permisaction="['passport:batches:write']" native-type="submit" type="primary" :loading="busy" data-testid="save-batch">{{ t('passportBatch.save') }}</el-button>
       </el-form>
-        <el-button v-permisaction="['passport:batches:write']" :disabled="dirty || busy || !canClone" data-testid="clone-batch" @click="showClone">{{ t('passportBatch.clone') }}</el-button>
+      <el-button v-permisaction="['passport:batches:write']" :disabled="dirty || busy || !canClone" data-testid="clone-batch" @click="showClone">{{ t('passportBatch.clone') }}</el-button>
       <el-card class="block effective"><h3>{{ t('passportBatch.effective') }}</h3><div v-for="f in detail.effective" :key="f.field_key" class="effective-row" :data-testid="`effective-${f.field_key}`"><strong>{{ fieldLabel(f.field_key) }}</strong><span>{{ display(f.value) }}</span><el-tag :type="f.source === 'inherited' ? 'info' : 'warning'">{{ label(f.source) }}</el-tag></div></el-card>
       <el-card class="block"><h3>{{ t('passportBatch.history') }}</h3><el-table :data="detail.audit"><el-table-column :label="t('passportBatch.updated')" min-width="100"><template #default="{ row }"><DateCell :value="row.created_at" /></template></el-table-column><el-table-column min-width="180"><template #default="{ row }">{{ label(row.event_type) }}</template></el-table-column><el-table-column prop="actor_user_id" :label="t('passportBatch.actor')" min-width="80" /></el-table></el-card>
       <SectionManager :base="`/api/v1/passport-batches/${detail.batch.id}/sections`" :readonly="readonly || busy" batch @dirty="sectionDirty = $event" @saved="sectionsSaved" />
@@ -68,15 +68,17 @@
       <el-form label-position="top" @submit.prevent="submitCreate">
         <el-form-item v-if="!cloning" :label="t('passportBatch.product')" required><el-select v-model="newProduct" filterable remote :remote-method="findProducts" data-testid="new-batch-product" @change="loadDefault"><el-option v-for="p in products.filter(x => x.lifecycle_status === 'active')" :key="p.id" :value="p.id" :label="p.product_code" /></el-select></el-form-item>
         <p v-if="!cloning" data-testid="new-batch-base">{{ newBase ? `${t('passportBatch.currentDefault')}: R${newBase.revision_number}` : t('passportBatch.noDefault') }}</p>
-        <el-form-item :label="t('passportBatch.code')" required><el-input v-model="newCode" maxlength="64" data-testid="new-batch-code" /></el-form-item>
+        <el-form-item :label="t('passportBatch.code')" :error="newCode ? newCodeError : undefined" required><el-input v-model="newCode" maxlength="64" data-testid="new-batch-code" /></el-form-item>
+        <p v-if="createRecordType === 'test'" data-testid="test-batch-code-help">{{ t('passportBatch.testCodeHelp') }}</p>
         <el-form-item v-for="f in dateFields" :key="f" :label="label(f)"><el-date-picker v-model="newDates[f]" value-format="YYYY-MM-DD" :data-testid="`new-${f}`" /></el-form-item>
         <el-form-item v-if="!cloning" :label="t('passportBatch.recordType')"><el-select v-model="newRecordType"><el-option v-for="v in ['test', 'commercial']" :key="v" :value="v" :label="label(v)" /></el-select></el-form-item>
-        <el-button type="primary" native-type="submit" :disabled="!cloning && !newBase" :loading="busy" data-testid="confirm-batch-create">{{ t(cloning ? 'passportBatch.clone' : 'passportBatch.create') }}</el-button>
+        <el-button type="primary" native-type="submit" :disabled="(!cloning && !newBase) || !!newCodeError" :loading="busy" data-testid="confirm-batch-create">{{ t(cloning ? 'passportBatch.clone' : 'passportBatch.create') }}</el-button>
       </el-form>
     </el-dialog>
   </PageContainer>
 </template>
 <script setup lang="ts">
+import { batchCodeIssue } from '@/utils/batch-code'
 import { useUserStore } from '@/stores/user'
 import ReviewPanel from '../reviews/ReviewPanel.vue'
 import SectionManager from '../sections/SectionManager.vue'
@@ -110,6 +112,8 @@ const canClone = computed(() => canEdit.value && ['draft', 'published'].includes
 const readonly = computed(() => !canEdit.value || detail.value?.batch.workflow_status !== 'draft' || !!detail.value?.batch.active_publish_record_id)
 const dirty = computed(() => !!detail.value && JSON.stringify(work.value) !== saved.value)
 const dialog = ref(false); const cloning = ref(false); const newCode = ref(''); const newProduct = ref(''); const newBase = ref<Revision | null>(null); const newRecordType = ref('test'); const newDates = ref({ production_date: null as string | null, expiry_date: null as string | null })
+const createRecordType = computed(() => cloning.value ? detail.value?.batch.record_type ?? 'test' : newRecordType.value)
+const newCodeError = computed(() => { const issue = batchCodeIssue(newCode.value, createRecordType.value); return issue ? t(`passportBatch.${issue}`) : '' })
 async function findProducts(search = '') { products.value = (await listProducts({ search, pageIndex: 1, pageSize: 100 })).data.list }
 async function loadDefault() { newBase.value = null; const id = newProduct.value; if (!id) return; const p = (await getProduct(id)).data; if (id !== newProduct.value) return; newBase.value = p.revisions.find(r => r.id === p.product.current_revision_id && r.revision_status === 'sealed') ?? null }
 function showCreate() { cloning.value = false; newCode.value = ''; newProduct.value = ''; newBase.value = null; newRecordType.value = 'test'; newDates.value = { production_date: null, expiry_date: null }; dialog.value = true; void findProducts().catch(() => {}) }
@@ -119,7 +123,7 @@ async function open(id: string) { await router.push({ query: { batch: id }}) }
 async function back() { await router.push({ query: {}}); await table.getList() }
 watch(() => route.query.batch, id => { if (typeof id === 'string') void refresh(id).catch(() => {}); else detail.value = null }, { immediate: true })
 async function run(fn: () => Promise<void>) { if (busy.value) return; busy.value = true; try { await fn(); ElMessage.success(t('passportBatch.saved')) } catch { /* interceptor reports once */ } finally { busy.value = false } }
-async function submitCreate() { await run(async() => { const result = cloning.value && detail.value ? await cloneBatch(detail.value.batch.id, { batch_code: newCode.value, ...newDates.value, expected_edit_version: detail.value.batch.edit_version }) : await addBatch({ product_id: newProduct.value, batch_code: newCode.value, record_type: newRecordType.value, ...blankWork(), content: { ...blankWork().content, ...newDates.value }}); dialog.value = false; await open(result.data.id) }) }
+async function submitCreate() { if (newCodeError.value) { ElMessage.error(newCodeError.value); return }; await run(async() => { const result = cloning.value && detail.value ? await cloneBatch(detail.value.batch.id, { batch_code: newCode.value, ...newDates.value, expected_edit_version: detail.value.batch.edit_version }) : await addBatch({ product_id: newProduct.value, batch_code: newCode.value, record_type: newRecordType.value, ...blankWork(), content: { ...blankWork().content, ...newDates.value }}); dialog.value = false; await open(result.data.id) }) }
 async function save() { if (!detail.value || readonly.value) return; await run(async() => { const w: BatchWork = JSON.parse(JSON.stringify(work.value)); w.inspections.forEach((i, n) => { i.sort_order = n; for (const k of Object.keys(i)) if (i[k as keyof InspectionInput] === '' && !['item_code', 'name'].includes(k)) Object.assign(i, { [k]: null }) }); await updateBatch(detail.value!.batch.id, { ...w, expected_edit_version: detail.value!.batch.edit_version }); await refresh(detail.value!.batch.id) }) }
 function override(key: string) { return work.value.overrides.find(o => o.field_key === key) }
 function mode(key: string) { return override(key)?.operation ?? 'inherit' }

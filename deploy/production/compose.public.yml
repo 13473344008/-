@@ -1,0 +1,48 @@
+name: ${PUBLIC_PROJECT:?set a dedicated stable project name}
+services:
+  public:
+    image: ${NGINX_IMAGE:?set the audited nginx image digest}
+    entrypoint: [nginx, -g, "daemon off;"]
+    user: "10001:10001"
+    read_only: true
+    restart: unless-stopped
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 128m
+    cpus: 0.25
+    pids_limit: 64
+    tmpfs: ["/tmp:size=32m,mode=1777"]
+    volumes:
+      - type: bind
+        source: ${PUBLIC_ROOT:?}/nginx.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${PUBLIC_ROOT:?}/site
+        target: /srv/site
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${PUBLIC_ROOT:?}/data/published
+        target: /srv/published
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: ${PUBLIC_ROOT:?}/logs
+        target: /var/log/passport
+        read_only: false
+        bind: {create_host_path: false}
+    networks:
+      edge:
+        aliases: ["${PUBLIC_UPSTREAM:?unique proxy upstream alias}"]
+    healthcheck:
+      test: [CMD-SHELL, "wget -q -O /dev/null http://127.0.0.1:8080/healthz || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging: {driver: json-file, options: {max-size: "10m", max-file: "3"}}
+networks:
+  edge:
+    external: true
+    name: ${PROXY_NETWORK:?must verify the existing proxy network before use}
