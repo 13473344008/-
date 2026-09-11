@@ -14,9 +14,16 @@ COPY --from=build --chmod=0755 /out/ /app/
 # Migration reads these SQL files at runtime. No settings or databases are copied.
 COPY --chmod=0644 admin/go-admin/config/*.sql /app/config/
 COPY --chmod=0555 deploy/production/backend-entrypoint.sh /app/entrypoint.sh
+# COPY modes do not replace explicit directory traversal permissions.
+# Normalize only this image's application tree; it contains no private runtime data.
+RUN find /app -type d -exec chmod 0755 {} + && \
+    chmod 0755 /app/passport-admin /app/passport-ops && \
+    chmod 0555 /app/entrypoint.sh && chmod 0644 /app/config/*.sql
 USER 10001:10001
-# Validate access as the actual runtime user, including restrictive host umasks.
-RUN test -r /app/entrypoint.sh && /bin/sh -n /app/entrypoint.sh && \
-    /app/passport-admin --help >/dev/null && \
-    for f in /app/config/*.sql; do test -r "$f" || exit 1; done
+# Keep checks separate and traced so failures identify the exact path/command.
+RUN set -eux; id; ls -ld /app /app/config; \
+    test -x /app; test -x /app/config; \
+    test -r /app/entrypoint.sh; /bin/sh -n /app/entrypoint.sh
+RUN set -eux; for f in /app/config/*.sql; do test -f "$f"; test -r "$f"; done
+RUN set -eux; /app/passport-admin --help
 ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]
