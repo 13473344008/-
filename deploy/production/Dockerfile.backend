@@ -10,9 +10,13 @@ RUN CGO_ENABLED=1 go build -mod=readonly -tags sqlite3,t4_schema -trimpath -ldfl
     CGO_ENABLED=1 go build -mod=readonly -trimpath -ldflags='-s -w' -o /out/passport-ops ./cmd/passport-ops
 FROM ${RUNTIME_IMAGE}
 WORKDIR /app
-COPY --from=build /out/ /app/
+COPY --from=build --chmod=0755 /out/ /app/
 # Migration reads these SQL files at runtime. No settings or databases are copied.
-COPY admin/go-admin/config/*.sql /app/config/
-COPY deploy/production/backend-entrypoint.sh /app/entrypoint.sh
+COPY --chmod=0644 admin/go-admin/config/*.sql /app/config/
+COPY --chmod=0555 deploy/production/backend-entrypoint.sh /app/entrypoint.sh
 USER 10001:10001
+# Validate access as the actual runtime user, including restrictive host umasks.
+RUN test -r /app/entrypoint.sh && /bin/sh -n /app/entrypoint.sh && \
+    /app/passport-admin --help >/dev/null && \
+    for f in /app/config/*.sql; do test -r "$f" || exit 1; done
 ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]

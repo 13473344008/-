@@ -10,6 +10,9 @@ ARG PUBLIC_BASE_URL
 RUN test -n "$PUBLIC_BASE_URL" && VUE_APP_BASE_API='' VUE_APP_PUBLIC_MODE=production VUE_APP_PUBLIC_BASE_URL="$PUBLIC_BASE_URL" VUE_APP_GA_ID='' pnpm build:prod
 FROM ${NGINX_IMAGE}
 COPY --from=build /src/admin/go-admin-ui/dist/ /srv/admin/
-COPY deploy/production/nginx-admin.conf /etc/nginx/nginx.conf
+COPY --chmod=0644 deploy/production/nginx-admin.conf /etc/nginx/nginx.conf
+RUN chmod -R a+rX /srv/admin
 USER 10001:10001
+RUN test -r /etc/nginx/nginx.conf && test -r /srv/admin/index.html && \
+    find /srv/admin -type f -exec sh -c 'for f do test -r "$f" || exit 1; done' sh {} +
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
