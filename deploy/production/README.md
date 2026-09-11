@@ -97,3 +97,5 @@ python3 deploy/production/backup.py restore --source /absolute/private-backup/ne
 失败时保留现场和最后验证的公开版本，不删除历史文件或全局 prune。回退旧应用前先确认 DB schema 兼容；有迁移的不兼容回退需恢复匹配数据副本，不能自动做向下迁移。业务内容回滚使用应用内安全回滚流程创建新版本。共享 Caddy 的回退也必须按单独审批的增量方案执行。
 
 参考：[Docker Compose services](https://docs.docker.com/reference/compose-file/services/)；[SQLite Backup API](https://www.sqlite.org/backup.html)。
+
+管理入口网络：后端只连接 `admin_private` 内部网络；管理 Nginx 另接本项目的 `admin_access` 普通 bridge，使回环端口可发布。已安装旧单网络测试配置的环境，参见 [管理端口修复报告](ADMIN_NETWORK_FIX.md)，使用有现场检查和备份的 `repair-admin-network.py`，无需重建镜像或重新初始化数据库。

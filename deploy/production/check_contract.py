@@ -9,6 +9,10 @@ assert 'ports' not in s and 'depends_on' not in s
 assert public['networks']['edge']['external'] is True
 assert admin['networks']['admin_private']['internal'] is True
 assert not admin['services']['backend'].get('ports')
+assert admin['services']['backend']['networks']==['admin_private']
+assert set(admin['services']['admin']['networks'])=={'admin_private','admin_access'}
+assert admin['networks']['admin_access']['internal'] is False
+assert not admin['networks']['admin_access'].get('external')
 assert all(p.startswith('127.0.0.1:') for p in admin['services']['admin']['ports'])
 for doc in [admin,public]:
  for name,svc in doc['services'].items():

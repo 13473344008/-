@@ -81,7 +81,7 @@ services:
     pids_limit: 64
     tmpfs: ["/tmp:size=32m,mode=1777"]
     ports: ["127.0.0.1:${ADMIN_PORT:?choose an unused loopback port}:8080"]
-    networks: [admin_private]
+    networks: [admin_private, admin_access]
     depends_on: [backend]
     healthcheck:
       test: [CMD-SHELL, "wget -q -O /dev/null http://127.0.0.1:8080/api/v1/app-config || exit 1"]
@@ -92,3 +92,7 @@ services:
 networks:
   admin_private:
     internal: true
+  # Only the management gateway joins this project-local non-internal bridge.
+  admin_access:
+    driver: bridge
+    internal: false
