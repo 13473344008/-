@@ -1,0 +1,25 @@
+{
+  "identity": {
+    "product_code": "PF-STD",
+    "product_name": "Potato Flakes",
+    "product_name_zh": "马铃薯雪花片",
+    "category": "",
+    "country_of_origin": "",
+    "manufacturer": "",
+    "product_image": ""
+  },
+  "description": { "short_description": "" },
+  "raw_material": { "name": "Potato", "type": "", "origin": "", "description": "" },
+  "manufacturing_process": [
+    "Raw Potato Receiving", "Washing", "Peeling", "Cooking", "Mashing",
+    "Drum Drying", "Flaking", "Inspection", "Packaging"
+  ],
+  "packaging": {
+    "package_size": "", "package_type": "", "inner_material": "",
+    "storage_conditions": "", "shelf_life": ""
+  },
+  "certifications": [
+    { "name": "FSSC 22000", "certificate_number": "", "valid_from": "", "valid_until": "", "status": "UNVERIFIED", "image": "" },
+    { "name": "HALAL", "certificate_number": "", "valid_from": "", "valid_until": "", "status": "UNVERIFIED", "image": "" }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Product record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "product_name_zh": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "country_of_origin": {
+          "type": "string"
+        },
+        "manufacturer": {
+          "type": "string"
+        },
+        "product_image": {
+          "type": "string"
+        },
+        "product_code": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]+(?![\\s\\S])"
+        },
+        "product_name": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "product_name_zh",
+        "category",
+        "country_of_origin",
+        "manufacturer",
+        "product_image",
+        "product_code",
+        "product_name"
+      ]
+    },
+    "description": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "short_description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "short_description"
+      ]
+    },
+    "raw_material": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "origin",
+        "description"
+      ]
+    },
+    "manufacturing_process": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "packaging": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "package_size": {
+          "type": "string"
+        },
+        "package_type": {
+          "type": "string"
+        },
+        "inner_material": {
+          "type": "string"
+        },
+        "storage_conditions": {
+          "type": "string"
+        },
+        "shelf_life": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "package_size",
+        "package_type",
+        "inner_material",
+        "storage_conditions",
+        "shelf_life"
+      ]
+    },
+    "certifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "certificate_number": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "valid_from": {
+            "anyOf": [
+              {
+                "const": ""
+              },
+              {
+                "type": "string",
+                "format": "date"
+              }
+            ]
+          },
+          "valid_until": {
+            "anyOf": [
+              {
+                "const": ""
+              },
+              {
+                "type": "string",
+                "format": "date"
+              }
+            ]
+          },
+          "status": {
+            "enum": [
+              "UNVERIFIED",
+              "VALID",
+              "EXPIRED",
+              "SUSPENDED"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "certificate_number",
+          "image",
+          "valid_from",
+          "valid_until",
+          "status"
+        ]
+      }
+    }
+  },
+  "required": [
+    "identity",
+    "description",
+    "raw_material",
+    "manufacturing_process",
+    "packaging",
+    "certifications"
+  ]
+}

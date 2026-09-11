@@ -1,0 +1,20 @@
+export default {
+  'message1': 'Passport previews and stable links',
+  'message2': 'Internal previews use saved content only.',
+  'message3': 'Preview Draft',
+  'message4': 'Frozen review',
+  'message5': 'Preview Review Candidate',
+  'message6': 'Configure a valid public site base URL',
+  'message7': 'Stable QR target:',
+  'message8': 'Current updates without changing this URL. No QR image is generated here.',
+  'message9': 'LOCAL TEST ONLY — not for production printing',
+  'message10': 'Copy Stable URL',
+  'message11': 'View Published Passport',
+  'message12': 'Historical version',
+  'message13': 'Open Historical Version',
+  'message14': 'Copy Version URL',
+  'message15': 'Internal Preview — NOT PUBLISHED',
+  'message16': 'Preview cannot be safely displayed',
+  'message17': 'URL copied',
+  'message18': 'Clipboard unavailable. Copy the displayed URL manually.'
+}

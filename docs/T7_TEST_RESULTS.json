@@ -1,0 +1,2172 @@
+{
+  "status": "等待人工验收",
+  "generated_at": "2026-09-08T15:10:06.241362+00:00",
+  "total": 385,
+  "pass": 385,
+  "fail": 0,
+  "suites": [
+    {
+      "name": "T7 service",
+      "evidence": "runtime/t7/test-artifacts/go-tests.jsonl",
+      "checks": [
+        {
+          "name": "TestT7Validation/empty_text_is_explicit_content,_not_hide",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/normal_unicode",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/HTML_forbidden",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/nested_unknown",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/null_item",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/duplicate_keys",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/empty_table_columns",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/null_cell",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/null_content",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/trailing_object",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/JSON_title_injection",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/text_exact_limit",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7TransactionsAndCapacity/owner_capacity_100_and_reject_101",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7TransactionsAndCapacity/reorder_failure_rolls_all_rows_and_audit_back",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7TransactionsAndCapacity/clone_audit_failure_rolls_new_revision_and_sections_back",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "T5 T6 service regression",
+      "evidence": "runtime/t7/test-artifacts/regression-go.jsonl",
+      "checks": [
+        {
+          "name": "TestT6ResolverEdges/MultilingualBaseFixture",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/ApplicationRejectsCorruptDraftDefault",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/CreateEdgeBatch",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/OverrideMissingTranslationFallsBackToOverrideSource",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/OverrideOwnTranslationResolves",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/CloneCopiesTranslationButResetsApproval",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/ResetDeletesOverrideTranslations",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/UnopenedAssetOverridePreviewFailsClosed",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/ProcessSetAndClearAreWholeArray",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateProductFixture",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/NoDefaultRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DraftDefaultRejectedByDB",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/SealAndSetDefault",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateBindsSealedDefault",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ListPaginationSearchProduct",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DuplicateCodeBusiness409",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/InvalidBatchCodes",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DatabaseUniqueCode",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DatabaseBaseImmutable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DatabaseProductImmutable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CrossProductBaseRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ReferencedRevisionDeleteRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/InheritResolver",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/SetOverrideResolver",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ClearOverrideResolver",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ResetDeletesOverrideRestoresBase",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_batch_code",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_product_id",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_base_product_revision_id",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_workflow_status",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_quality_status",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_created_by",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_product_name",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_unknown",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_product_image_asset",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/TypedOverrideValidation",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DateValidationAndNullable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateDynamicInspection",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/UpdateInspectionPreservesIdentity",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/UnknownInspectionNoSchemaChange",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/TextInspectionAndAllStatuses",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/InspectionInvalidStatesAndValues",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ExactDecimalComparison",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DeleteDraftInspection",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DuplicateInspectionCodeRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/StaleEditVersionRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/MissingChildListsRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateAuditFailureRollsBack",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/OverrideAuditFailureRollsBackWholeAggregate",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateR2DefaultHistoricalBatchStable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ClonePreservesOverrideAndBase",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CloneClearsProductionFacts",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CloneCopiesDefinitionsNewIDs",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CloneFailureRollsBack",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ResetCloneOverride",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/PendingBatchApplicationFreeze",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ConcurrentDifferentCodes",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ConcurrentSameCodeOneSuccess",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ConcurrentClonesNoDirtyCopies",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/AuditEventsAndAppendOnly",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/IntegrityAndForeignKeys",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/CreateProductRevisionTranslationTransaction",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/DuplicateProductCodeReadable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/CodeValidation",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/RollbackOnTranslationDatabaseFailure",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/RollbackOnAuditFailure",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/DraftEditAndStaleWriteRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/InvalidStructuredFieldsRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SixLanguageUpsert",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/LanguageAndStepLabelValidation",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SealStoresHashAndMetadata",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/FrozenRevisionApplicationRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/FrozenTranslationApplicationRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/FrozenRawSQLRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SetSealedDefaultExplicitly",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/CloneIndependentIDsAndResetSystemFields",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/NewRevisionDoesNotSwitchDefault",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/NewRevisionEditsLeaveHistoryIntact",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/DraftDefaultRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SealRequiresConfirmedSourceLanguage",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SwitchDefaultPreservesR1R2",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/ForeignProductRevisionRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/ConcurrentRevisionNumbers",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/DatabaseUniqueLastDefense",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/ArchivePreservesHistoryAndBlocksWrites",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/AuditEventsInSameDatabase",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/IntegrityAndForeignKeys",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/ListSearchPaginationAndStatus",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Disabled resolver edge cases",
+      "evidence": "runtime/t7/test-artifacts/resolver-edges.jsonl",
+      "checks": [
+        {
+          "name": "TestT7InheritDisabled/inherit",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7InheritDisabled/replace",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7InheritDisabled/hide",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "HTTP and concurrency",
+      "evidence": "runtime/t7/test-artifacts/api-initial.json",
+      "checks": [
+        {
+          "name": "JWT login",
+          "status": "PASS"
+        },
+        {
+          "name": "Create controlled text",
+          "status": "PASS"
+        },
+        {
+          "name": "Create controlled key_value",
+          "status": "PASS"
+        },
+        {
+          "name": "Create controlled table",
+          "status": "PASS"
+        },
+        {
+          "name": "Create controlled asset_gallery",
+          "status": "PASS"
+        },
+        {
+          "name": "Four sections stored",
+          "status": "PASS"
+        },
+        {
+          "name": "Get section text",
+          "status": "PASS"
+        },
+        {
+          "name": "Get section key_value",
+          "status": "PASS"
+        },
+        {
+          "name": "Get section table",
+          "status": "PASS"
+        },
+        {
+          "name": "Get section asset_gallery",
+          "status": "PASS"
+        },
+        {
+          "name": "Reserved or invalid key product",
+          "status": "PASS"
+        },
+        {
+          "name": "Reserved or invalid key product_code",
+          "status": "PASS"
+        },
+        {
+          "name": "Reserved or invalid key publication",
+          "status": "PASS"
+        },
+        {
+          "name": "Reserved or invalid key sys_secret",
+          "status": "PASS"
+        },
+        {
+          "name": "Reserved or invalid key __proto__",
+          "status": "PASS"
+        },
+        {
+          "name": "Reserved or invalid key ABC",
+          "status": "PASS"
+        },
+        {
+          "name": "Reserved or invalid key aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "status": "PASS"
+        },
+        {
+          "name": "Reserved or invalid key bad key",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject unknown type",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject content extra{}",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject content text{}",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject content textNone",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject XSS <script>alert(1)</script>",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject XSS javascript:alert(1)",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject XSS <img src=x onerror=alert(1)>",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject XSS <iframe src=x></iframe>",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject title limit",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject text limit",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject items limit",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject missing item key",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject table width",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject table columns",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject table rows",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject JSON size",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject gallery asset injection",
+          "status": "PASS"
+        },
+        {
+          "name": "Duplicate raw content keys rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Mass assignment id",
+          "status": "PASS"
+        },
+        {
+          "name": "Mass assignment created_by",
+          "status": "PASS"
+        },
+        {
+          "name": "Mass assignment product_revision_id",
+          "status": "PASS"
+        },
+        {
+          "name": "Mass assignment batch_id",
+          "status": "PASS"
+        },
+        {
+          "name": "Mass assignment sealed_at",
+          "status": "PASS"
+        },
+        {
+          "name": "Draft update",
+          "status": "PASS"
+        },
+        {
+          "name": "Stale token rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Translation zh-CN",
+          "status": "PASS"
+        },
+        {
+          "name": "Translation es",
+          "status": "PASS"
+        },
+        {
+          "name": "Translation ar",
+          "status": "PASS"
+        },
+        {
+          "name": "Translation fr",
+          "status": "PASS"
+        },
+        {
+          "name": "Translation de",
+          "status": "PASS"
+        },
+        {
+          "name": "Six translations coexist",
+          "status": "PASS"
+        },
+        {
+          "name": "Translation upsert no duplicate",
+          "status": "PASS"
+        },
+        {
+          "name": "Translation structural alignment",
+          "status": "PASS"
+        },
+        {
+          "name": "Fallback to owner source",
+          "status": "PASS"
+        },
+        {
+          "name": "Reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Stable order",
+          "status": "PASS"
+        },
+        {
+          "name": "Injected custom_section_translations failure",
+          "status": "PASS"
+        },
+        {
+          "name": "Atomic rollback custom_section_translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Injected passport_audit_events failure",
+          "status": "PASS"
+        },
+        {
+          "name": "Atomic rollback passport_audit_events",
+          "status": "PASS"
+        },
+        {
+          "name": "DB translation UNIQUE",
+          "status": "PASS"
+        },
+        {
+          "name": "Concurrent different keys preserved",
+          "status": "PASS"
+        },
+        {
+          "name": "Concurrent same key single row",
+          "status": "PASS"
+        },
+        {
+          "name": "Concurrent translation conflict no duplicates",
+          "status": "PASS"
+        },
+        {
+          "name": "Delete draft section",
+          "status": "PASS"
+        },
+        {
+          "name": "Seal with sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen section update rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen translation rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen delete rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen reorder rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "DB freeze update custom_sections set allow_hide=1 where id=?",
+          "status": "PASS"
+        },
+        {
+          "name": "DB freeze delete from custom_section_translations where custom_section_id=?",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen aggregate unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone all sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone all new section IDs",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone translations and IDs",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone draft editable",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone change does not affect base",
+          "status": "PASS"
+        },
+        {
+          "name": "Batch inherits without copied rows",
+          "status": "PASS"
+        },
+        {
+          "name": "Override effective",
+          "status": "PASS"
+        },
+        {
+          "name": "Base unchanged by override",
+          "status": "PASS"
+        },
+        {
+          "name": "Reset override",
+          "status": "PASS"
+        },
+        {
+          "name": "Hide removes content retains provenance",
+          "status": "PASS"
+        },
+        {
+          "name": "Reset hide",
+          "status": "PASS"
+        },
+        {
+          "name": "Cannot hide mandatory base",
+          "status": "PASS"
+        },
+        {
+          "name": "Cannot bypass hide with replace visibility",
+          "status": "PASS"
+        },
+        {
+          "name": "Cannot bypass hide with disabled status",
+          "status": "PASS"
+        },
+        {
+          "name": "Inherit cannot promote private",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing base override rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Add colliding base key rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Inherit order override",
+          "status": "PASS"
+        },
+        {
+          "name": "Batch-only source",
+          "status": "PASS"
+        },
+        {
+          "name": "Batch-only does not pollute template",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone batch local operations",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone batch old content intact",
+          "status": "PASS"
+        },
+        {
+          "name": "T6 resolver composition",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous GETpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin GETpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous GETpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections/df1f4909-8401-499c-a3d1-17a9063a9835",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin GETpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections/df1f4909-8401-499c-a3d1-17a9063a9835",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous POSTpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin POSTpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous PUTpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections/df1f4909-8401-499c-a3d1-17a9063a9835",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin PUTpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections/df1f4909-8401-499c-a3d1-17a9063a9835",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous DELETEpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections/df1f4909-8401-499c-a3d1-17a9063a9835",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin DELETEpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections/df1f4909-8401-499c-a3d1-17a9063a9835",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous PUTpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin PUTpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous PUTpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections/df1f4909-8401-499c-a3d1-17a9063a9835/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin PUTpassport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections/df1f4909-8401-499c-a3d1-17a9063a9835/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous GETpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin GETpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous GETpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections/e2c2d898-d7f1-4d2c-ab53-22c368333308",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin GETpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections/e2c2d898-d7f1-4d2c-ab53-22c368333308",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous POSTpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin POSTpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous PUTpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections/e2c2d898-d7f1-4d2c-ab53-22c368333308",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin PUTpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections/e2c2d898-d7f1-4d2c-ab53-22c368333308",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous DELETEpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections/e2c2d898-d7f1-4d2c-ab53-22c368333308",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin DELETEpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections/e2c2d898-d7f1-4d2c-ab53-22c368333308",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous PUTpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin PUTpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous PUTpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections/e2c2d898-d7f1-4d2c-ab53-22c368333308/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Casbin PUTpassport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections/e2c2d898-d7f1-4d2c-ab53-22c368333308/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Audits generated",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Permissions and edge regression",
+      "evidence": "runtime/t7/test-artifacts/edges.json",
+      "checks": [
+        {
+          "name": "Owner scope denies foreign read passport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/8ee605b0-b1f9-4426-ac3f-fa34b87be1f5/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Owner scope denies foreign write passport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/8ee605b0-b1f9-4426-ac3f-fa34b87be1f5/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Owner scope denies foreign read passport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Owner scope denies foreign write passport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP rejects null table cell",
+          "status": "PASS"
+        },
+        {
+          "name": "Stable section key immutable",
+          "status": "PASS"
+        },
+        {
+          "name": "Sealed add rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "T6 save with T7 sections",
+          "status": "PASS"
+        },
+        {
+          "name": "T6 save preserves section aggregate",
+          "status": "PASS"
+        },
+        {
+          "name": "Delete audit fault rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Delete rolls translations counters audit back",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Restart persistence",
+      "evidence": "runtime/t7/test-artifacts/api-restart.json",
+      "checks": [
+        {
+          "name": "JWT login",
+          "status": "PASS"
+        },
+        {
+          "name": "Restart persists passport-products/9dd919b6-9251-429e-be74-4e4f2883054b",
+          "status": "PASS"
+        },
+        {
+          "name": "Restart persists passport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/11520082-dcff-40f2-8e7a-88ec99364de7/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Restart persists passport-products/9dd919b6-9251-429e-be74-4e4f2883054b/revisions/8ee605b0-b1f9-4426-ac3f-fa34b87be1f5/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Restart persists passport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c",
+          "status": "PASS"
+        },
+        {
+          "name": "Restart persists passport-batches/7f29c8c5-8d48-48b6-a4e2-5ca37ce1e98c/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Restart persists passport-batches/4a51ed8d-c011-4489-8b08-a8106f249e46/sections",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Browser E2E",
+      "evidence": "runtime/t7/test-artifacts/browser-tests.json",
+      "checks": [
+        {
+          "name": "Browser login",
+          "status": "PASS"
+        },
+        {
+          "name": "Create product draft in browser",
+          "status": "PASS"
+        },
+        {
+          "name": "XSS rejected in browser",
+          "status": "PASS"
+        },
+        {
+          "name": "No injected browser script",
+          "status": "PASS"
+        },
+        {
+          "name": "Arabic editor RTL",
+          "status": "PASS"
+        },
+        {
+          "name": "Section save",
+          "status": "PASS"
+        },
+        {
+          "name": "Structured text builder",
+          "status": "PASS"
+        },
+        {
+          "name": "Section save",
+          "status": "PASS"
+        },
+        {
+          "name": "Structured key_value builder",
+          "status": "PASS"
+        },
+        {
+          "name": "Section save",
+          "status": "PASS"
+        },
+        {
+          "name": "Structured table builder",
+          "status": "PASS"
+        },
+        {
+          "name": "Reorder through UI",
+          "status": "PASS"
+        },
+        {
+          "name": "Sealed module UI read-only",
+          "status": "PASS"
+        },
+        {
+          "name": "Revision clone copies three modules",
+          "status": "PASS"
+        },
+        {
+          "name": "Batch inherited modules in UI",
+          "status": "PASS"
+        },
+        {
+          "name": "Section save",
+          "status": "PASS"
+        },
+        {
+          "name": "Batch override UI",
+          "status": "PASS"
+        },
+        {
+          "name": "Hidden has no original content",
+          "status": "PASS"
+        },
+        {
+          "name": "Reset restores inherited UI",
+          "status": "PASS"
+        },
+        {
+          "name": "Section save",
+          "status": "PASS"
+        },
+        {
+          "name": "Batch-only builder",
+          "status": "PASS"
+        },
+        {
+          "name": "Section save",
+          "status": "PASS"
+        },
+        {
+          "name": "Sections persist after refresh",
+          "status": "PASS"
+        },
+        {
+          "name": "Batch clone local sections new IDs",
+          "status": "PASS"
+        },
+        {
+          "name": "1280 no horizontal overflow",
+          "status": "PASS"
+        },
+        {
+          "name": "No uncaught JS error",
+          "status": "PASS"
+        },
+        {
+          "name": "No XSS dialog",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Fresh browser E2E",
+      "evidence": "runtime/t7/test-artifacts/fresh-browser-tests.json",
+      "checks": [
+        {
+          "name": "Browser login",
+          "status": "PASS"
+        },
+        {
+          "name": "Create product draft in browser",
+          "status": "PASS"
+        },
+        {
+          "name": "XSS rejected in browser",
+          "status": "PASS"
+        },
+        {
+          "name": "No injected browser script",
+          "status": "PASS"
+        },
+        {
+          "name": "Arabic editor RTL",
+          "status": "PASS"
+        },
+        {
+          "name": "Section save",
+          "status": "PASS"
+        },
+        {
+          "name": "Structured text builder",
+          "status": "PASS"
+        },
+        {
+          "name": "Section save",
+          "status": "PASS"
+        },
+        {
+          "name": "Structured key_value builder",
+          "status": "PASS"
+        },
+        {
+          "name": "Section save",
+          "status": "PASS"
+        },
+        {
+          "name": "Structured table builder",
+          "status": "PASS"
+        },
+        {
+          "name": "Reorder through UI",
+          "status": "PASS"
+        },
+        {
+          "name": "Sealed module UI read-only",
+          "status": "PASS"
+        },
+        {
+          "name": "Revision clone copies three modules",
+          "status": "PASS"
+        },
+        {
+          "name": "Batch inherited modules in UI",
+          "status": "PASS"
+        },
+        {
+          "name": "Section save",
+          "status": "PASS"
+        },
+        {
+          "name": "Batch override UI",
+          "status": "PASS"
+        },
+        {
+          "name": "Hidden has no original content",
+          "status": "PASS"
+        },
+        {
+          "name": "Reset restores inherited UI",
+          "status": "PASS"
+        },
+        {
+          "name": "Section save",
+          "status": "PASS"
+        },
+        {
+          "name": "Batch-only builder",
+          "status": "PASS"
+        },
+        {
+          "name": "Section save",
+          "status": "PASS"
+        },
+        {
+          "name": "Sections persist after refresh",
+          "status": "PASS"
+        },
+        {
+          "name": "Batch clone local sections new IDs",
+          "status": "PASS"
+        },
+        {
+          "name": "1280 no horizontal overflow",
+          "status": "PASS"
+        },
+        {
+          "name": "No uncaught JS error",
+          "status": "PASS"
+        },
+        {
+          "name": "No XSS dialog",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Migrations",
+      "evidence": "runtime/t7/test-artifacts/migrations.json",
+      "checks": [
+        {
+          "name": "T6 upgrade preserves every historical business field",
+          "status": "PASS"
+        },
+        {
+          "name": "New allow_hide defaults false",
+          "status": "PASS"
+        },
+        {
+          "name": "T7 recorded once",
+          "status": "PASS"
+        },
+        {
+          "name": "Audit freeze retained",
+          "status": "PASS"
+        },
+        {
+          "name": "Upgrade integrity and foreign keys",
+          "status": "PASS"
+        },
+        {
+          "name": "Upgrade repeat preserves data/schema",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh schema equals upgrade",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh business empty",
+          "status": "PASS"
+        },
+        {
+          "name": "Twelve migrations",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh migration repeat",
+          "status": "PASS"
+        },
+        {
+          "name": "Separate service DB from zero",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Final integrity and protection",
+      "evidence": "runtime/t7/test-artifacts/final.json",
+      "checks": [
+        {
+          "name": "53 original hashes unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "7 site files unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "T4 T5 T6 protected evidence and migrations unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "go-admin locked commit",
+          "status": "PASS"
+        },
+        {
+          "name": "go-admin-ui locked commit",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db integrity ok",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db foreign keys clean",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db UNIQUE product_revision_id,section_key",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db UNIQUE batch_id,section_key",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db UNIQUE custom_section_id,language_code",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db section owner source valid",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db no orphan translations",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db valid override targets",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db no active test fault trigger",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t7.db integrity ok",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t7.db foreign keys clean",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t7.db UNIQUE product_revision_id,section_key",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t7.db UNIQUE batch_id,section_key",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t7.db UNIQUE custom_section_id,language_code",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t7.db section owner source valid",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t7.db no orphan translations",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t7.db valid override targets",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t7.db no active test fault trigger",
+          "status": "PASS"
+        },
+        {
+          "name": "regression.db integrity ok",
+          "status": "PASS"
+        },
+        {
+          "name": "regression.db foreign keys clean",
+          "status": "PASS"
+        },
+        {
+          "name": "regression.db UNIQUE product_revision_id,section_key",
+          "status": "PASS"
+        },
+        {
+          "name": "regression.db UNIQUE batch_id,section_key",
+          "status": "PASS"
+        },
+        {
+          "name": "regression.db UNIQUE custom_section_id,language_code",
+          "status": "PASS"
+        },
+        {
+          "name": "regression.db section owner source valid",
+          "status": "PASS"
+        },
+        {
+          "name": "regression.db no orphan translations",
+          "status": "PASS"
+        },
+        {
+          "name": "regression.db valid override targets",
+          "status": "PASS"
+        },
+        {
+          "name": "regression.db no active test fault trigger",
+          "status": "PASS"
+        },
+        {
+          "name": "service-final.db integrity ok",
+          "status": "PASS"
+        },
+        {
+          "name": "service-final.db foreign keys clean",
+          "status": "PASS"
+        },
+        {
+          "name": "service-final.db UNIQUE product_revision_id,section_key",
+          "status": "PASS"
+        },
+        {
+          "name": "service-final.db UNIQUE batch_id,section_key",
+          "status": "PASS"
+        },
+        {
+          "name": "service-final.db UNIQUE custom_section_id,language_code",
+          "status": "PASS"
+        },
+        {
+          "name": "service-final.db section owner source valid",
+          "status": "PASS"
+        },
+        {
+          "name": "service-final.db no orphan translations",
+          "status": "PASS"
+        },
+        {
+          "name": "service-final.db valid override targets",
+          "status": "PASS"
+        },
+        {
+          "name": "service-final.db no active test fault trigger",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db integrity ok",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db foreign keys clean",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db UNIQUE product_revision_id,section_key",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db UNIQUE batch_id,section_key",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db UNIQUE custom_section_id,language_code",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db section owner source valid",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db no orphan translations",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db valid override targets",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db no active test fault trigger",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t6.db integrity ok",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t6.db foreign keys clean",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t6.db UNIQUE product_revision_id,section_key",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t6.db UNIQUE batch_id,section_key",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t6.db UNIQUE custom_section_id,language_code",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t6.db section owner source valid",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t6.db no orphan translations",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t6.db valid override targets",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t6.db no active test fault trigger",
+          "status": "PASS"
+        },
+        {
+          "name": "19 business tables 309 columns",
+          "status": "PASS"
+        },
+        {
+          "name": "104 freeze and integrity triggers retained",
+          "status": "PASS"
+        },
+        {
+          "name": "14 T7 APIs",
+          "status": "PASS"
+        },
+        {
+          "name": "12 migration versions",
+          "status": "PASS"
+        },
+        {
+          "name": "No formal review publish or snapshots",
+          "status": "PASS"
+        },
+        {
+          "name": "Batches explicitly TEST",
+          "status": "PASS"
+        },
+        {
+          "name": "Local stopped 18099",
+          "status": "PASS"
+        },
+        {
+          "name": "Local stopped 18100",
+          "status": "PASS"
+        },
+        {
+          "name": "Local stopped 19530",
+          "status": "PASS"
+        },
+        {
+          "name": "Local stopped 19531",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend tracked files unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "Only two existing UI locale tracked entries",
+          "status": "PASS"
+        },
+        {
+          "name": "go-admin diff check",
+          "status": "PASS"
+        },
+        {
+          "name": "go-admin-ui diff check",
+          "status": "PASS"
+        }
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "id": 1,
+      "name": "Product Revision Custom Sections 可用。",
+      "status": "PASS"
+    },
+    {
+      "id": 2,
+      "name": "支持多种受控 Section Type。",
+      "status": "PASS"
+    },
+    {
+      "id": 3,
+      "name": "非法 Section Type 被拒绝。",
+      "status": "PASS"
+    },
+    {
+      "id": 4,
+      "name": "Content Schema Validation 生效。",
+      "status": "PASS"
+    },
+    {
+      "id": 5,
+      "name": "未知字段被拒绝。",
+      "status": "PASS"
+    },
+    {
+      "id": 6,
+      "name": "容量限制生效。",
+      "status": "PASS"
+    },
+    {
+      "id": 7,
+      "name": "XSS / dangerous HTML 不可执行。",
+      "status": "PASS"
+    },
+    {
+      "id": 8,
+      "name": "Draft Revision Section 可编辑。",
+      "status": "PASS"
+    },
+    {
+      "id": 9,
+      "name": "Sealed Revision Section Backend 拒改。",
+      "status": "PASS"
+    },
+    {
+      "id": 10,
+      "name": "Sealed Revision Translation Backend 拒改。",
+      "status": "PASS"
+    },
+    {
+      "id": 11,
+      "name": "Revision Clone 正确复制 Sections。",
+      "status": "PASS"
+    },
+    {
+      "id": 12,
+      "name": "Clone 后旧 Revision 不变化。",
+      "status": "PASS"
+    },
+    {
+      "id": 13,
+      "name": "Batch 正确继承 Base Sections。",
+      "status": "PASS"
+    },
+    {
+      "id": 14,
+      "name": "Batch Section Override 可用。",
+      "status": "PASS"
+    },
+    {
+      "id": 15,
+      "name": "Reset 恢复继承。",
+      "status": "PASS"
+    },
+    {
+      "id": 16,
+      "name": "允许 Hide 的 Section 可隐藏。",
+      "status": "PASS"
+    },
+    {
+      "id": 17,
+      "name": "禁止 Hide 的 Section Backend 拒绝。",
+      "status": "PASS"
+    },
+    {
+      "id": 18,
+      "name": "Batch-only Section 可用。",
+      "status": "PASS"
+    },
+    {
+      "id": 19,
+      "name": "Batch-only Section 不污染 Product Revision。",
+      "status": "PASS"
+    },
+    {
+      "id": 20,
+      "name": "统一 Effective Section Resolver 可用。",
+      "status": "PASS"
+    },
+    {
+      "id": 21,
+      "name": "Section 来源清晰。",
+      "status": "PASS"
+    },
+    {
+      "id": 22,
+      "name": "六语言 Translation 共存。",
+      "status": "PASS"
+    },
+    {
+      "id": 23,
+      "name": "Translation UNIQUE 生效。",
+      "status": "PASS"
+    },
+    {
+      "id": 24,
+      "name": "RTL 编辑正常。",
+      "status": "PASS"
+    },
+    {
+      "id": 25,
+      "name": "Translation fallback 正常。",
+      "status": "PASS"
+    },
+    {
+      "id": 26,
+      "name": "Reorder 稳定。",
+      "status": "PASS"
+    },
+    {
+      "id": 27,
+      "name": "多表操作 Transaction。",
+      "status": "PASS"
+    },
+    {
+      "id": 28,
+      "name": "失败完整 Rollback。",
+      "status": "PASS"
+    },
+    {
+      "id": 29,
+      "name": "Audit 产生。",
+      "status": "PASS"
+    },
+    {
+      "id": 30,
+      "name": "所有 API 认证。",
+      "status": "PASS"
+    },
+    {
+      "id": 31,
+      "name": "所有 API 经过 Casbin。",
+      "status": "PASS"
+    },
+    {
+      "id": 32,
+      "name": "DTO / Mass Assignment 防护有效。",
+      "status": "PASS"
+    },
+    {
+      "id": 33,
+      "name": "Clone Batch Section 规则正确。",
+      "status": "PASS"
+    },
+    {
+      "id": 34,
+      "name": "Backend 重启后数据持久。",
+      "status": "PASS"
+    },
+    {
+      "id": 35,
+      "name": "浏览器 E2E 通过。",
+      "status": "PASS"
+    },
+    {
+      "id": 36,
+      "name": "并发不产生重复 Section / Translation。",
+      "status": "PASS"
+    },
+    {
+      "id": 37,
+      "name": "Fresh DB 从零建立。",
+      "status": "PASS"
+    },
+    {
+      "id": 38,
+      "name": "Migration 可重复。",
+      "status": "PASS"
+    },
+    {
+      "id": 39,
+      "name": "integrity_check = ok。",
+      "status": "PASS"
+    },
+    {
+      "id": 40,
+      "name": "foreign_key_check 无异常。",
+      "status": "PASS"
+    },
+    {
+      "id": 41,
+      "name": "原 53 个基线文件不变。",
+      "status": "PASS"
+    },
+    {
+      "id": 42,
+      "name": "site 7 个文件不变。",
+      "status": "PASS"
+    },
+    {
+      "id": 43,
+      "name": "未实现正式审核流程。",
+      "status": "PASS"
+    },
+    {
+      "id": 44,
+      "name": "未实现 Published Snapshot Engine。",
+      "status": "PASS"
+    },
+    {
+      "id": 45,
+      "name": "未进入 T8。",
+      "status": "PASS"
+    }
+  ],
+  "answers": [
+    {
+      "id": 1,
+      "question": "Product Revision 是否能新增 Custom Section？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 2,
+      "question": "支持哪些 Section Type？",
+      "answer": "text / key_value / table / asset_gallery；gallery 当前维护 caption，未开放媒体附件管理。"
+    },
+    {
+      "id": 3,
+      "question": "是否拒绝未知 Section Type？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 4,
+      "question": "是否有每种类型的 Content Schema Validation？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 5,
+      "question": "是否拒绝未知 Content 字段？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 6,
+      "question": "是否设置容量限制？",
+      "answer": "标题 200、文本 10000、键值 100 项、表格 20 列/200 行、译文 JSON 合计 256 KiB、单 owner/有效集合 100 模块。"
+    },
+    {
+      "id": 7,
+      "question": "是否防止危险 HTML/XSS？",
+      "answer": "纯文本；后端拒绝危险标记/脚本协议/事件属性，Vue 插值转义，无 v-html。"
+    },
+    {
+      "id": 8,
+      "question": "Draft Revision Section 是否可编辑？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 9,
+      "question": "Sealed Revision Section 是否后端拒改？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 10,
+      "question": "Sealed Translation 是否拒改？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 11,
+      "question": "Revision Clone 是否复制 Sections？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 12,
+      "question": "Clone 是否复制 Translation？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 13,
+      "question": "Clone 是否生成新 Section IDs？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 14,
+      "question": "修改新 Revision 是否不影响旧 Revision？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 15,
+      "question": "Batch 是否继承 Base Revision Sections？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 16,
+      "question": "是否不会把全部继承 Section 复制进 Batch？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 17,
+      "question": "Batch Override 是否可用？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 18,
+      "question": "Override 是否不修改 Base Section？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 19,
+      "question": "Reset 是否恢复继承？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 20,
+      "question": "Hide 是否有权限/规则限制？",
+      "answer": "Yes；allow_hide 默认 false；hide、关闭 visible、停用 replace 均不能绕过。"
+    },
+    {
+      "id": 21,
+      "question": "禁止隐藏模块是否 Backend 拒绝？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 22,
+      "question": "Batch-only Section 是否可用？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 23,
+      "question": "Batch-only 是否只属于当前 Batch？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 24,
+      "question": "是否存在统一 Effective Section Resolver？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 25,
+      "question": "Effective Resolver 是否区分 inherited/overridden/hidden/batch-only？",
+      "answer": "Yes；hidden 单独保存来源状态且不返回隐藏内容。"
+    },
+    {
+      "id": 26,
+      "question": "是否支持稳定排序？",
+      "answer": "sort_order 升序 + section_key ASCII 字典序。"
+    },
+    {
+      "id": 27,
+      "question": "六语言是否共存？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 28,
+      "question": "Translation 是否 UNIQUE？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 29,
+      "question": "阿拉伯语编辑是否 RTL？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 30,
+      "question": "Translation fallback 是否测试？",
+      "answer": "Yes；目标语言缺失回退所属模块 source_language，测试 FR → EN。"
+    },
+    {
+      "id": 31,
+      "question": "是否禁止普通用户编辑 Raw JSON？",
+      "answer": "Yes；员工使用结构化表单，页面没有 Raw JSON Editor。"
+    },
+    {
+      "id": 32,
+      "question": "是否使用 DTO？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 33,
+      "question": "是否防止 Mass Assignment？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 34,
+      "question": "是否所有业务 API 要求认证？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 35,
+      "question": "是否全部经过 Casbin？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 36,
+      "question": "多表写是否使用 Transaction？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 37,
+      "question": "失败是否整体 Rollback？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 38,
+      "question": "Audit 是否产生？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 39,
+      "question": "Audit 是否与业务写尽量同事务？",
+      "answer": "Yes；模块、翻译、重排、克隆和审计在同一数据库事务。"
+    },
+    {
+      "id": 40,
+      "question": "Clone Batch 是否正确处理 Sections？",
+      "answer": "复制自有 add/replace/hide/inherit 操作及译文，生成新 ID，保持固定 base，模块和译文重置 draft；客户内容须重新核实适用性。"
+    },
+    {
+      "id": 41,
+      "question": "XSS 浏览器负向测试是否通过？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 42,
+      "question": "超限内容是否拒绝？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 43,
+      "question": "并发是否不会产生重复 Section？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 44,
+      "question": "并发 Translation 是否不会重复？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 45,
+      "question": "Backend 重启后数据是否保持？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 46,
+      "question": "浏览器完整 T7 流程是否通过？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 47,
+      "question": "Fresh DB 是否通过？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 48,
+      "question": "Migration 是否重复执行安全？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 49,
+      "question": "integrity_check 是否 ok？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 50,
+      "question": "foreign_key_check 是否无异常？",
+      "answer": "Yes；已实现并有本轮测试证据。"
+    },
+    {
+      "id": 51,
+      "question": "DATA_MODEL 是否变化？",
+      "answer": "Yes；新增 allow_hide；业务表仍 19 张，列由 308 增至 309；关系未变。"
+    },
+    {
+      "id": 52,
+      "question": "如变化是否新增 Migration？",
+      "answer": "Yes；1788998400000_custom_sections.go/.sql，另扩展 audit CHECK 与菜单/API 授权。"
+    },
+    {
+      "id": 53,
+      "question": "是否修改 T4/T5/T6 历史 Migration？",
+      "answer": "No。历史迁移哈希不变。"
+    },
+    {
+      "id": 54,
+      "question": "是否修改上游 tracked files？",
+      "answer": "Yes；仅此前已有改动的两个 UI 语言注册入口继续增加 T7 注册；后端 upstream tracked files 未改。"
+    },
+    {
+      "id": 55,
+      "question": "如修改，具体哪些？",
+      "answer": "admin/go-admin-ui/src/lang/en-US/index.ts、src/lang/zh-CN/index.ts。"
+    },
+    {
+      "id": 56,
+      "question": "原 53 个基线文件 Hash 是否一致？",
+      "answer": "Yes；53 / 53 SHA-256 相同。"
+    },
+    {
+      "id": 57,
+      "question": "site 7 个文件是否未变？",
+      "answer": "Yes；7 / 7 相同。"
+    },
+    {
+      "id": 58,
+      "question": "是否连接服务器？",
+      "answer": "No。"
+    },
+    {
+      "id": 59,
+      "question": "是否修改 Caddy？",
+      "answer": "No。"
+    },
+    {
+      "id": 60,
+      "question": "是否修改 Directus？",
+      "answer": "No。"
+    },
+    {
+      "id": 61,
+      "question": "是否修改生产 Docker？",
+      "answer": "No。"
+    },
+    {
+      "id": 62,
+      "question": "是否实现 Pending Review / Approval？",
+      "answer": "No；翻译 approved 仅表示文字确认，不是 Reviewer 审核。"
+    },
+    {
+      "id": 63,
+      "question": "是否开发 Published Snapshot Engine？",
+      "answer": "No。"
+    },
+    {
+      "id": 64,
+      "question": "是否进入 T8？",
+      "answer": "No。"
+    }
+  ],
+  "upstream_ui_unit_tests": {
+    "pass": 301,
+    "fail": 0,
+    "included_in_business_count": false
+  },
+  "protected_historical_files": 36211,
+  "entered_T8": false,
+  "entered_T9": false,
+  "services_stopped": [
+    18099,
+    18100,
+    19530,
+    19531
+  ]
+}

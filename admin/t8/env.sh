@@ -1,0 +1,9 @@
+T8_ROOT=/path/to/ID
+export PATH="$T8_ROOT/runtime/t4/tools/go/bin:$T8_ROOT/runtime/t4/tools/pnpm/node_modules/.bin:$PATH"
+export GOPATH="$T8_ROOT/runtime/t8/gopath"
+export GOMODCACHE="$T8_ROOT/runtime/t4/gomodcache"
+export GOCACHE="$T8_ROOT/runtime/t8/cache/go"
+export GOTOOLCHAIN=local
+export CGO_ENABLED=1
+export GOPROXY=https://goproxy.cn,direct
+export GOSUMDB=sum.golang.org

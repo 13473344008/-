@@ -1,0 +1,45 @@
+# Local acceptance template only. No proxy, host ports 80/443, TLS or Caddy changes.
+worker_processes 1;
+pid @RUNTIME@/nginx.pid;
+error_log @RUNTIME@/logs/nginx-error.log warn;
+events { worker_connections 128; }
+http {
+  include @SOURCE@/conf/mime.types;
+  types { application/javascript mjs; }
+  default_type application/octet-stream;
+  access_log @RUNTIME@/logs/nginx-access.log;
+  server_tokens off;
+  sendfile on;
+  map $request_uri $unsafe_path { default 0; "~^[^?]*(%|\\\\|/\\.\\.?(/|$))" 1; }
+  map $uri $cache_policy { default "no-cache, max-age=0, must-revalidate"; ~^/(versions|assets)/ "public, max-age=31536000, immutable"; }
+  server {
+    listen 127.0.0.1:19540;
+    server_name localhost;
+    root @SITE@;
+    autoindex off;
+    disable_symlinks on;
+    if ($unsafe_path) { return 404; }
+    add_header Cache-Control $cache_policy always;
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy no-referrer always;
+    add_header X-Robots-Tag "noindex, nofollow" always;
+    add_header Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'" always;
+    error_page 404 /404.html;
+    location = /404.html { internal; }
+    location = /index.html { internal; }
+    location = /robots.txt { }
+    location ~ "^/b/(?<batch>[A-Za-z0-9_-]{1,64})$" {
+      if (!-f @RELEASE@/published/$batch.json) { return 404; }
+      rewrite ^ /index.html last;
+    }
+    location ~ "^/b/(?<batch>[A-Za-z0-9_-]{1,64})/v/(?<version>[1-9][0-9]{0,15})$" {
+      if (!-f @RELEASE@/versions/$batch/v$version.json) { return 404; }
+      rewrite ^ /index.html last;
+    }
+    location ~ "^/published/[A-Za-z0-9_-]{1,64}\.json$" { root @RELEASE@; try_files $uri =404; }
+    location ~ "^/versions/[A-Za-z0-9_-]{1,64}/v[1-9][0-9]{0,15}\.json$" { root @RELEASE@; try_files $uri =404; }
+    location ~ "^/assets/sha256/[a-f0-9]{2}/[a-f0-9]{64}\.png$" { root @RELEASE@; try_files $uri =404; }
+    location ~ "^/(js/[a-z0-9.-]+\.(mjs|js)|css/passport\.css)$" { try_files $uri =404; }
+    location / { return 404; }
+  }
+}

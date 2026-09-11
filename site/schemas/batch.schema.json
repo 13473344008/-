@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Batch record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "record_type": {
+      "enum": [
+        "test",
+        "commercial"
+      ]
+    },
+    "product_code": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]+(?![\\s\\S])"
+    },
+    "batch": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]+(?![\\s\\S])"
+    },
+    "production_date": {
+      "anyOf": [
+        {
+          "const": ""
+        },
+        {
+          "type": "string",
+          "format": "date"
+        }
+      ]
+    },
+    "expiry_date": {
+      "anyOf": [
+        {
+          "const": ""
+        },
+        {
+          "type": "string",
+          "format": "date"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "TEST",
+        "PENDING",
+        "RELEASED",
+        "HOLD",
+        "REJECTED"
+      ]
+    },
+    "record_updated": {
+      "anyOf": [
+        {
+          "const": ""
+        },
+        {
+          "type": "string",
+          "format": "date"
+        }
+      ]
+    },
+    "raw_material_traceability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "raw_material_batch": {
+          "type": "string"
+        },
+        "raw_material_origin": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "raw_material_batch",
+        "raw_material_origin"
+      ]
+    },
+    "inspection": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "specification": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "NOT_TESTED",
+              "PENDING",
+              "PASS",
+              "FAIL"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "specification",
+          "result",
+          "unit",
+          "status"
+        ]
+      }
+    }
+  },
+  "required": [
+    "record_type",
+    "product_code",
+    "batch",
+    "production_date",
+    "expiry_date",
+    "status",
+    "record_updated",
+    "raw_material_traceability",
+    "inspection"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "test"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "batch": {
+            "pattern": "(^|[-_])TEST([-_]|$)"
+          },
+          "status": {
+            "const": "TEST"
+          }
+        }
+      }
+    }
+  ]
+}

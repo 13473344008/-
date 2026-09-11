@@ -1,0 +1,31 @@
+.idea
+.vscode
+.DS_Store
+static/uploadfile
+main.exe
+*.exe
+go-admin
+go-admin.exe
+temp/
+!temp
+vendor
+config/settings.dev.yml
+config/settings.dev.*.yml
+config/settings.dev.*.yml.log
+temp/logs
+config/settings.dev.yml.log
+config/settings.b.dev.yml
+cmd/migrate/migration/version-local/*
+!cmd/migrate/migration/version-local/doc.go
+
+config/settings.deva.yml
+go-admin-server
+CLAUDE.md
+# Everything under .claude is private by default. Skills meant for people using
+# go-admin are re-included one directory at a time, so a personal one dropped in
+# here is never committed by accident.
+.claude/*
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/new-business-module/
+config/settings.local.dev.yml

@@ -1,0 +1,4736 @@
+{
+  "stage": "T9",
+  "status": "awaiting_human_acceptance",
+  "date": "2026-09-10",
+  "gates_pass": 60,
+  "gates_fail": 0,
+  "tests_pass": 1223,
+  "tests_fail": 0,
+  "counting": "Named assertions and leaf Go tests; UI unit test count separate; container Go tests excluded. Repeated byte checks are reported as file assertions.",
+  "suites": {
+    "api": {
+      "evidence": "runtime/t9/test-artifacts/api-initial.json",
+      "checks": [
+        {
+          "name": "Draft publish denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending review publish denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer approves",
+          "status": "PASS"
+        },
+        {
+          "name": "Tampered candidate hash rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Publish role editor",
+          "status": "PASS"
+        },
+        {
+          "name": "Publish role reviewer",
+          "status": "PASS"
+        },
+        {
+          "name": "Publish role viewer",
+          "status": "PASS"
+        },
+        {
+          "name": "Publish role None",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin ready publish V1 succeeds",
+          "status": "PASS"
+        },
+        {
+          "name": "Actual canonical payload SHA256",
+          "status": "PASS"
+        },
+        {
+          "name": "Public schema version",
+          "status": "PASS"
+        },
+        {
+          "name": "Internal values excluded",
+          "status": "PASS"
+        },
+        {
+          "name": "Private inspections omitted",
+          "status": "PASS"
+        },
+        {
+          "name": "Private sections omitted",
+          "status": "PASS"
+        },
+        {
+          "name": "Private assets omitted",
+          "status": "PASS"
+        },
+        {
+          "name": "Normalized image SHA",
+          "status": "PASS"
+        },
+        {
+          "name": "Image metadata stripped",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsafe original name not used publicly",
+          "status": "PASS"
+        },
+        {
+          "name": "Current JSON exact bytes",
+          "status": "PASS"
+        },
+        {
+          "name": "Same idempotency key returns original record",
+          "status": "PASS"
+        },
+        {
+          "name": "Same candidate new request cannot duplicate",
+          "status": "PASS"
+        },
+        {
+          "name": "immutable revision",
+          "status": "PASS"
+        },
+        {
+          "name": "immutable published asset",
+          "status": "PASS"
+        },
+        {
+          "name": "immutable record",
+          "status": "PASS"
+        },
+        {
+          "name": "Source replacement leaves V1 asset unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing source creates failed record",
+          "status": "PASS"
+        },
+        {
+          "name": "Failure preserves approval and no public head",
+          "status": "PASS"
+        },
+        {
+          "name": "Retry separate attempt succeeds",
+          "status": "PASS"
+        },
+        {
+          "name": "Five same-batch publishes produce one success",
+          "status": "PASS"
+        },
+        {
+          "name": "Different batches publish concurrently",
+          "status": "PASS"
+        },
+        {
+          "name": "DB integrity",
+          "status": "PASS"
+        },
+        {
+          "name": "Foreign keys",
+          "status": "PASS"
+        }
+      ],
+      "pass": 32,
+      "fail": 0
+    },
+    "fresh_api": {
+      "evidence": "runtime/t9/fresh/test-artifacts/api-fresh.json",
+      "checks": [
+        {
+          "name": "Draft publish denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending review publish denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer approves",
+          "status": "PASS"
+        },
+        {
+          "name": "Tampered candidate hash rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Publish role editor",
+          "status": "PASS"
+        },
+        {
+          "name": "Publish role reviewer",
+          "status": "PASS"
+        },
+        {
+          "name": "Publish role viewer",
+          "status": "PASS"
+        },
+        {
+          "name": "Publish role None",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin ready publish V1 succeeds",
+          "status": "PASS"
+        },
+        {
+          "name": "Actual canonical payload SHA256",
+          "status": "PASS"
+        },
+        {
+          "name": "Public schema version",
+          "status": "PASS"
+        },
+        {
+          "name": "Internal values excluded",
+          "status": "PASS"
+        },
+        {
+          "name": "Private inspections omitted",
+          "status": "PASS"
+        },
+        {
+          "name": "Private sections omitted",
+          "status": "PASS"
+        },
+        {
+          "name": "Private assets omitted",
+          "status": "PASS"
+        },
+        {
+          "name": "Normalized image SHA",
+          "status": "PASS"
+        },
+        {
+          "name": "Image metadata stripped",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsafe original name not used publicly",
+          "status": "PASS"
+        },
+        {
+          "name": "Current JSON exact bytes",
+          "status": "PASS"
+        },
+        {
+          "name": "Same idempotency key returns original record",
+          "status": "PASS"
+        },
+        {
+          "name": "Same candidate new request cannot duplicate",
+          "status": "PASS"
+        },
+        {
+          "name": "immutable revision",
+          "status": "PASS"
+        },
+        {
+          "name": "immutable published asset",
+          "status": "PASS"
+        },
+        {
+          "name": "immutable record",
+          "status": "PASS"
+        },
+        {
+          "name": "Source replacement leaves V1 asset unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing source creates failed record",
+          "status": "PASS"
+        },
+        {
+          "name": "Failure preserves approval and no public head",
+          "status": "PASS"
+        },
+        {
+          "name": "Retry separate attempt succeeds",
+          "status": "PASS"
+        },
+        {
+          "name": "Five same-batch publishes produce one success",
+          "status": "PASS"
+        },
+        {
+          "name": "Different batches publish concurrently",
+          "status": "PASS"
+        },
+        {
+          "name": "DB integrity",
+          "status": "PASS"
+        },
+        {
+          "name": "Foreign keys",
+          "status": "PASS"
+        }
+      ],
+      "pass": 32,
+      "fail": 0
+    },
+    "edges": {
+      "evidence": "runtime/t9/test-artifacts/edges.json",
+      "checks": [
+        {
+          "name": "Real final DB transaction failure enters recovery",
+          "status": "PASS"
+        },
+        {
+          "name": "After rename actual current is new, DB remains old",
+          "status": "PASS"
+        },
+        {
+          "name": "Recovery lock prevents new attempt",
+          "status": "PASS"
+        },
+        {
+          "name": "Reconcile confirms same original record",
+          "status": "PASS"
+        },
+        {
+          "name": "V1 historical file preserved after DB recovery",
+          "status": "PASS"
+        },
+        {
+          "name": "Source hash fails safely",
+          "status": "PASS"
+        },
+        {
+          "name": "Source hash repaired retry",
+          "status": "PASS"
+        },
+        {
+          "name": "Source symlink fails safely",
+          "status": "PASS"
+        },
+        {
+          "name": "Source symlink repaired retry",
+          "status": "PASS"
+        },
+        {
+          "name": "Source missing fails safely",
+          "status": "PASS"
+        },
+        {
+          "name": "Source missing repaired retry",
+          "status": "PASS"
+        },
+        {
+          "name": "HTML disguised as image rejected before submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Client supplied public JSON forbidden",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 148589e4-e5ab-4e8d-8df2-ff10e2c57f7d",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 7c8ad3e0-df4f-4bb1-9915-f0a95c5ca94f",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot cf40bd43-061c-48d7-9fa4-6f093d838b98",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot bfb352ac-d6d0-4fd4-9f45-1a1a95805210",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 05202284-0df5-45de-bb1e-7a421c6812dc",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 0e24c431-03a6-474e-b3c2-0646c6560d4d",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 0f8e2688-2719-402e-9369-3fb780fa4957",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 3450a072-3540-420e-8999-f69c873749de",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 7c1af84f-93d6-42a4-9b69-44e0861e740d",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 4b9af187-53b0-4e04-9cd1-50399210381c",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 09d1085d-a151-4a0f-8a8a-0865dee07dc5",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot a2a0df60-7b5a-44ed-bd5d-3dd3113a7a45",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 147f1e2a-739b-4d3a-9c41-a6311cbd1654",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot aa7a4209-a9a2-4f13-9051-30bdfd7fb4b2",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot e07c2b1e-fb73-4056-837b-f0da66b7e7b9",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 13cc29fa-a826-4316-906e-ff2db91db2e3",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot a5810c58-a516-4d1e-b0dc-6c3821eb02da",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot edab4629-1403-4aab-a6d9-c89ba4662be6",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot d9e7b885-0603-4d8e-8bd6-cf5c25d6f8e0",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 997a93e6-7cb4-40a9-a9ed-b21177990cc5",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 524a72a5-27e2-4f52-a6c4-8bc97cc08e5b",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 2b7133f1-3ca1-45f7-a9f6-e5313330ab67",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 20810e50-38f8-4edc-afc3-b735a1768a46",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 389207ee-ce9f-4d7a-9a79-f4d1bd0f2ab4",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot c0536a26-1782-4577-b89f-04c66651f290",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 63734ea0-0482-49b8-a249-7476ce9de8f2",
+          "status": "PASS"
+        },
+        {
+          "name": "Persisted actual snapshot 40329a61-24fb-4ea8-9925-3f4b6e33601d",
+          "status": "PASS"
+        },
+        {
+          "name": "Edges integrity",
+          "status": "PASS"
+        },
+        {
+          "name": "Edges foreign keys",
+          "status": "PASS"
+        }
+      ],
+      "pass": 42,
+      "fail": 0
+    },
+    "rich": {
+      "evidence": "runtime/t9/test-artifacts/rich.json",
+      "checks": [
+        {
+          "name": "Rich reviewer approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Rich public publish succeeds",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact numeric decimals normalized",
+          "status": "PASS"
+        },
+        {
+          "name": "Inspection source ordering stable",
+          "status": "PASS"
+        },
+        {
+          "name": "Three structured public modules valid",
+          "status": "PASS"
+        },
+        {
+          "name": "Hidden section omitted",
+          "status": "PASS"
+        },
+        {
+          "name": "Draft language excluded",
+          "status": "PASS"
+        },
+        {
+          "name": "Clear applies to all approved languages",
+          "status": "PASS"
+        },
+        {
+          "name": "Unicode preserved",
+          "status": "PASS"
+        },
+        {
+          "name": "Business JSON no UUID leakage",
+          "status": "PASS"
+        }
+      ],
+      "pass": 10,
+      "fail": 0
+    },
+    "migrations": {
+      "evidence": "runtime/t9/test-artifacts/migrations.json",
+      "checks": [
+        {
+          "name": "T8 all original business columns preserved",
+          "status": "PASS"
+        },
+        {
+          "name": "Upgrade repeated safe",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh equals upgrade schema",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh repeat schema stable",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh has fourteen migrations",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh business starts empty",
+          "status": "PASS"
+        },
+        {
+          "name": "Service DB starts from zero",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t8.db integrity and FK",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db integrity and FK",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db integrity and FK",
+          "status": "PASS"
+        }
+      ],
+      "pass": 10,
+      "fail": 0
+    },
+    "contracts": {
+      "evidence": "runtime/t9/test-artifacts/contracts.json",
+      "checks": [
+        {
+          "name": "PublishedRevision TypeScript properties match PassportRevision",
+          "status": "PASS",
+          "missing": []
+        },
+        {
+          "name": "PublishEntry TypeScript properties match PublishEntry",
+          "status": "PASS",
+          "missing": []
+        },
+        {
+          "name": "PublicationStatus TypeScript properties match PublicationStatus",
+          "status": "PASS",
+          "missing": []
+        },
+        {
+          "name": "PublishRequest TypeScript properties match PublishRequest",
+          "status": "PASS",
+          "missing": []
+        }
+      ],
+      "pass": 4,
+      "fail": 0
+    },
+    "persistence": {
+      "evidence": "runtime/t9/test-artifacts/persistence.json",
+      "checks": [
+        {
+          "name": "t9 exact DB/public/manifests restart persistence",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh exact DB/public/manifests restart persistence",
+          "status": "PASS"
+        }
+      ],
+      "pass": 2,
+      "fail": 0
+    },
+    "post_restart": {
+      "evidence": "runtime/t9/test-artifacts/post-restart.json",
+      "checks": [
+        {
+          "name": "Restart API published current retained",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact repeated request returns same immutable record",
+          "status": "PASS"
+        },
+        {
+          "name": "Idempotency key different hash rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Idempotency key different expected current rejected",
+          "status": "PASS"
+        }
+      ],
+      "pass": 4,
+      "fail": 0
+    },
+    "browser": {
+      "evidence": "runtime/t9/test-artifacts/browser-tests.json",
+      "checks": [
+        {
+          "name": "Browser editor login",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser Editor creates/seals Product",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser Editor creates Draft",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen image reviewed before publish",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser actual logout",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser reviewer login",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer approves actual candidate",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser actual logout",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser editor login",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser editor publish 403",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser actual logout",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser reviewer login",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser reviewer publish 403",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser actual logout",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser admin login",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin sees candidate hash",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser publish result published",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser displayed Publishing",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser published V1/hash/count persist on refresh",
+          "status": "PASS"
+        },
+        {
+          "name": "No horizontal overflow",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser publish result failed",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser displayed Publishing",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser failure keeps old Current and retry available",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser publish result published",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser displayed Publishing",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser explicit retry succeeds",
+          "status": "PASS"
+        },
+        {
+          "name": "No uncaught browser JS errors",
+          "status": "PASS"
+        }
+      ],
+      "pass": 29,
+      "fail": 0
+    },
+    "ui_smoke": {
+      "evidence": "runtime/t9/test-artifacts/ui-smoke.json",
+      "checks": [
+        {
+          "name": "Browser admin login",
+          "status": "PASS"
+        },
+        {
+          "name": "No unresolved publication translation keys",
+          "status": "PASS"
+        },
+        {
+          "name": "Final published panel remains V3",
+          "status": "PASS"
+        },
+        {
+          "name": "Final UI no browser exceptions",
+          "status": "PASS"
+        }
+      ],
+      "pass": 4,
+      "fail": 0
+    },
+    "files": {
+      "evidence": "runtime/t9/test-artifacts/files.json",
+      "checks": [
+        {
+          "name": "t9 integrity",
+          "status": "PASS"
+        },
+        {
+          "name": "t9 foreign keys",
+          "status": "PASS"
+        },
+        {
+          "name": "t9 one successful revision per review",
+          "status": "PASS"
+        },
+        {
+          "name": "t9 unique batch version",
+          "status": "PASS"
+        },
+        {
+          "name": "t9 no unresolved operations",
+          "status": "PASS"
+        },
+        {
+          "name": "t9 no injected DB triggers",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 148589e4-e5ab-4e8d-8df2-ff10e2c57f7d",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 148589e4-e5ab-4e8d-8df2-ff10e2c57f7d",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 148589e4-e5ab-4e8d-8df2-ff10e2c57f7d",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 148589e4-e5ab-4e8d-8df2-ff10e2c57f7d",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 148589e4-e5ab-4e8d-8df2-ff10e2c57f7d",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 9329f8e4-dbc2-417b-a3ac-13e3c220510e",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 148589e4-e5ab-4e8d-8df2-ff10e2c57f7d",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 148589e4-e5ab-4e8d-8df2-ff10e2c57f7d",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 7c8ad3e0-df4f-4bb1-9915-f0a95c5ca94f",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 7c8ad3e0-df4f-4bb1-9915-f0a95c5ca94f",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 7c8ad3e0-df4f-4bb1-9915-f0a95c5ca94f",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 7c8ad3e0-df4f-4bb1-9915-f0a95c5ca94f",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 7c8ad3e0-df4f-4bb1-9915-f0a95c5ca94f",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes a1ebecc7-09b9-4b38-bc5d-d2a0f27ac705",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 7c8ad3e0-df4f-4bb1-9915-f0a95c5ca94f",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 7c8ad3e0-df4f-4bb1-9915-f0a95c5ca94f",
+          "status": "PASS"
+        },
+        {
+          "name": "payload cf40bd43-061c-48d7-9fa4-6f093d838b98",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash cf40bd43-061c-48d7-9fa4-6f093d838b98",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest cf40bd43-061c-48d7-9fa4-6f093d838b98",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest cf40bd43-061c-48d7-9fa4-6f093d838b98",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release cf40bd43-061c-48d7-9fa4-6f093d838b98",
+          "status": "PASS"
+        },
+        {
+          "name": "success record cf40bd43-061c-48d7-9fa4-6f093d838b98",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit cf40bd43-061c-48d7-9fa4-6f093d838b98",
+          "status": "PASS"
+        },
+        {
+          "name": "payload bfb352ac-d6d0-4fd4-9f45-1a1a95805210",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash bfb352ac-d6d0-4fd4-9f45-1a1a95805210",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest bfb352ac-d6d0-4fd4-9f45-1a1a95805210",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest bfb352ac-d6d0-4fd4-9f45-1a1a95805210",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release bfb352ac-d6d0-4fd4-9f45-1a1a95805210",
+          "status": "PASS"
+        },
+        {
+          "name": "success record bfb352ac-d6d0-4fd4-9f45-1a1a95805210",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit bfb352ac-d6d0-4fd4-9f45-1a1a95805210",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 05202284-0df5-45de-bb1e-7a421c6812dc",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 05202284-0df5-45de-bb1e-7a421c6812dc",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 05202284-0df5-45de-bb1e-7a421c6812dc",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 05202284-0df5-45de-bb1e-7a421c6812dc",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 05202284-0df5-45de-bb1e-7a421c6812dc",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 05202284-0df5-45de-bb1e-7a421c6812dc",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 05202284-0df5-45de-bb1e-7a421c6812dc",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 0e24c431-03a6-474e-b3c2-0646c6560d4d",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 0e24c431-03a6-474e-b3c2-0646c6560d4d",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 0e24c431-03a6-474e-b3c2-0646c6560d4d",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 0e24c431-03a6-474e-b3c2-0646c6560d4d",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 0e24c431-03a6-474e-b3c2-0646c6560d4d",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 0e24c431-03a6-474e-b3c2-0646c6560d4d",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 0e24c431-03a6-474e-b3c2-0646c6560d4d",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 0f8e2688-2719-402e-9369-3fb780fa4957",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 0f8e2688-2719-402e-9369-3fb780fa4957",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 0f8e2688-2719-402e-9369-3fb780fa4957",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 0f8e2688-2719-402e-9369-3fb780fa4957",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 0f8e2688-2719-402e-9369-3fb780fa4957",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 4c75d0c2-7f25-4046-a9d5-ab9e2391afa5",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 0f8e2688-2719-402e-9369-3fb780fa4957",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 0f8e2688-2719-402e-9369-3fb780fa4957",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 3450a072-3540-420e-8999-f69c873749de",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 3450a072-3540-420e-8999-f69c873749de",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 3450a072-3540-420e-8999-f69c873749de",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 3450a072-3540-420e-8999-f69c873749de",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 3450a072-3540-420e-8999-f69c873749de",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 2a7c4884-343f-44bc-b21e-a536cad93f5f",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 3450a072-3540-420e-8999-f69c873749de",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 3450a072-3540-420e-8999-f69c873749de",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 7c1af84f-93d6-42a4-9b69-44e0861e740d",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 7c1af84f-93d6-42a4-9b69-44e0861e740d",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 7c1af84f-93d6-42a4-9b69-44e0861e740d",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 7c1af84f-93d6-42a4-9b69-44e0861e740d",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 7c1af84f-93d6-42a4-9b69-44e0861e740d",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes b33e3d47-3f31-4e92-8530-517140aa93d5",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 7c1af84f-93d6-42a4-9b69-44e0861e740d",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 7c1af84f-93d6-42a4-9b69-44e0861e740d",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 4b9af187-53b0-4e04-9cd1-50399210381c",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 4b9af187-53b0-4e04-9cd1-50399210381c",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 4b9af187-53b0-4e04-9cd1-50399210381c",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 4b9af187-53b0-4e04-9cd1-50399210381c",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 4b9af187-53b0-4e04-9cd1-50399210381c",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes ad9abe61-c604-44c8-bf0c-dc012074255c",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 4b9af187-53b0-4e04-9cd1-50399210381c",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 4b9af187-53b0-4e04-9cd1-50399210381c",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 09d1085d-a151-4a0f-8a8a-0865dee07dc5",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 09d1085d-a151-4a0f-8a8a-0865dee07dc5",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 09d1085d-a151-4a0f-8a8a-0865dee07dc5",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 09d1085d-a151-4a0f-8a8a-0865dee07dc5",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 09d1085d-a151-4a0f-8a8a-0865dee07dc5",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 71af7d10-9d93-4dfa-b3a9-d4b893d468d2",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 09d1085d-a151-4a0f-8a8a-0865dee07dc5",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 09d1085d-a151-4a0f-8a8a-0865dee07dc5",
+          "status": "PASS"
+        },
+        {
+          "name": "payload a2a0df60-7b5a-44ed-bd5d-3dd3113a7a45",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash a2a0df60-7b5a-44ed-bd5d-3dd3113a7a45",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest a2a0df60-7b5a-44ed-bd5d-3dd3113a7a45",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest a2a0df60-7b5a-44ed-bd5d-3dd3113a7a45",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release a2a0df60-7b5a-44ed-bd5d-3dd3113a7a45",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes cee62a54-06e0-4277-885b-3ce79642af3d",
+          "status": "PASS"
+        },
+        {
+          "name": "success record a2a0df60-7b5a-44ed-bd5d-3dd3113a7a45",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit a2a0df60-7b5a-44ed-bd5d-3dd3113a7a45",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 147f1e2a-739b-4d3a-9c41-a6311cbd1654",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 147f1e2a-739b-4d3a-9c41-a6311cbd1654",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 147f1e2a-739b-4d3a-9c41-a6311cbd1654",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 147f1e2a-739b-4d3a-9c41-a6311cbd1654",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 147f1e2a-739b-4d3a-9c41-a6311cbd1654",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 130e662b-af0e-471b-87b3-f403f606051c",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 801fc3b7-28ed-43ef-9888-6934faf4a7d2",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 147f1e2a-739b-4d3a-9c41-a6311cbd1654",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 147f1e2a-739b-4d3a-9c41-a6311cbd1654",
+          "status": "PASS"
+        },
+        {
+          "name": "payload aa7a4209-a9a2-4f13-9051-30bdfd7fb4b2",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash aa7a4209-a9a2-4f13-9051-30bdfd7fb4b2",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest aa7a4209-a9a2-4f13-9051-30bdfd7fb4b2",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest aa7a4209-a9a2-4f13-9051-30bdfd7fb4b2",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release aa7a4209-a9a2-4f13-9051-30bdfd7fb4b2",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 3e158909-3859-430c-9792-1b40a0477fb4",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes bf674d02-e225-48c0-82d1-4dbde2e960e8",
+          "status": "PASS"
+        },
+        {
+          "name": "success record aa7a4209-a9a2-4f13-9051-30bdfd7fb4b2",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit aa7a4209-a9a2-4f13-9051-30bdfd7fb4b2",
+          "status": "PASS"
+        },
+        {
+          "name": "payload e07c2b1e-fb73-4056-837b-f0da66b7e7b9",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash e07c2b1e-fb73-4056-837b-f0da66b7e7b9",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest e07c2b1e-fb73-4056-837b-f0da66b7e7b9",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest e07c2b1e-fb73-4056-837b-f0da66b7e7b9",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release e07c2b1e-fb73-4056-837b-f0da66b7e7b9",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes d76f4399-bbe7-440b-9591-99bead5a843e",
+          "status": "PASS"
+        },
+        {
+          "name": "success record e07c2b1e-fb73-4056-837b-f0da66b7e7b9",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit e07c2b1e-fb73-4056-837b-f0da66b7e7b9",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 13cc29fa-a826-4316-906e-ff2db91db2e3",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 13cc29fa-a826-4316-906e-ff2db91db2e3",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 13cc29fa-a826-4316-906e-ff2db91db2e3",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 13cc29fa-a826-4316-906e-ff2db91db2e3",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 13cc29fa-a826-4316-906e-ff2db91db2e3",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes c9e20be2-41f3-4e33-b33f-bea04f929521",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 13cc29fa-a826-4316-906e-ff2db91db2e3",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 13cc29fa-a826-4316-906e-ff2db91db2e3",
+          "status": "PASS"
+        },
+        {
+          "name": "payload a5810c58-a516-4d1e-b0dc-6c3821eb02da",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash a5810c58-a516-4d1e-b0dc-6c3821eb02da",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest a5810c58-a516-4d1e-b0dc-6c3821eb02da",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest a5810c58-a516-4d1e-b0dc-6c3821eb02da",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release a5810c58-a516-4d1e-b0dc-6c3821eb02da",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes dadccac4-4ce2-4c7e-b509-6d3208d537a3",
+          "status": "PASS"
+        },
+        {
+          "name": "success record a5810c58-a516-4d1e-b0dc-6c3821eb02da",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit a5810c58-a516-4d1e-b0dc-6c3821eb02da",
+          "status": "PASS"
+        },
+        {
+          "name": "payload c3fddf74-203c-4018-971c-5f29fedf8cb8",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash c3fddf74-203c-4018-971c-5f29fedf8cb8",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest c3fddf74-203c-4018-971c-5f29fedf8cb8",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest c3fddf74-203c-4018-971c-5f29fedf8cb8",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release c3fddf74-203c-4018-971c-5f29fedf8cb8",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 00e8b133-c20b-4199-9f19-85fbf3c9a732",
+          "status": "PASS"
+        },
+        {
+          "name": "payload edab4629-1403-4aab-a6d9-c89ba4662be6",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash edab4629-1403-4aab-a6d9-c89ba4662be6",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest edab4629-1403-4aab-a6d9-c89ba4662be6",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest edab4629-1403-4aab-a6d9-c89ba4662be6",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release edab4629-1403-4aab-a6d9-c89ba4662be6",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 89adc935-ccd1-4c29-bfc2-9bed5655d2c9",
+          "status": "PASS"
+        },
+        {
+          "name": "success record edab4629-1403-4aab-a6d9-c89ba4662be6",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit edab4629-1403-4aab-a6d9-c89ba4662be6",
+          "status": "PASS"
+        },
+        {
+          "name": "payload d9e7b885-0603-4d8e-8bd6-cf5c25d6f8e0",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash d9e7b885-0603-4d8e-8bd6-cf5c25d6f8e0",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest d9e7b885-0603-4d8e-8bd6-cf5c25d6f8e0",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest d9e7b885-0603-4d8e-8bd6-cf5c25d6f8e0",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release d9e7b885-0603-4d8e-8bd6-cf5c25d6f8e0",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 585f892a-a801-44be-8721-bae9ea3c5c7f",
+          "status": "PASS"
+        },
+        {
+          "name": "success record d9e7b885-0603-4d8e-8bd6-cf5c25d6f8e0",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit d9e7b885-0603-4d8e-8bd6-cf5c25d6f8e0",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 997a93e6-7cb4-40a9-a9ed-b21177990cc5",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 997a93e6-7cb4-40a9-a9ed-b21177990cc5",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 997a93e6-7cb4-40a9-a9ed-b21177990cc5",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 997a93e6-7cb4-40a9-a9ed-b21177990cc5",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 997a93e6-7cb4-40a9-a9ed-b21177990cc5",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes bd8cb1fd-14a5-4921-a6d5-1b82b5d0cf6e",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 997a93e6-7cb4-40a9-a9ed-b21177990cc5",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 997a93e6-7cb4-40a9-a9ed-b21177990cc5",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 524a72a5-27e2-4f52-a6c4-8bc97cc08e5b",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 524a72a5-27e2-4f52-a6c4-8bc97cc08e5b",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 524a72a5-27e2-4f52-a6c4-8bc97cc08e5b",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 524a72a5-27e2-4f52-a6c4-8bc97cc08e5b",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 524a72a5-27e2-4f52-a6c4-8bc97cc08e5b",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 623227ba-496b-48dc-bcaa-0b378c1599c6",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 524a72a5-27e2-4f52-a6c4-8bc97cc08e5b",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 524a72a5-27e2-4f52-a6c4-8bc97cc08e5b",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 2b7133f1-3ca1-45f7-a9f6-e5313330ab67",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 2b7133f1-3ca1-45f7-a9f6-e5313330ab67",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 2b7133f1-3ca1-45f7-a9f6-e5313330ab67",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 2b7133f1-3ca1-45f7-a9f6-e5313330ab67",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 2b7133f1-3ca1-45f7-a9f6-e5313330ab67",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes eb641d60-f144-4e10-9217-de9aacd6c9bc",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 2b7133f1-3ca1-45f7-a9f6-e5313330ab67",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 2b7133f1-3ca1-45f7-a9f6-e5313330ab67",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 20810e50-38f8-4edc-afc3-b735a1768a46",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 20810e50-38f8-4edc-afc3-b735a1768a46",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 20810e50-38f8-4edc-afc3-b735a1768a46",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 20810e50-38f8-4edc-afc3-b735a1768a46",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 20810e50-38f8-4edc-afc3-b735a1768a46",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes ce410e9b-4483-4a11-9ff1-be68a7d3a6d4",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 20810e50-38f8-4edc-afc3-b735a1768a46",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 20810e50-38f8-4edc-afc3-b735a1768a46",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 389207ee-ce9f-4d7a-9a79-f4d1bd0f2ab4",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 389207ee-ce9f-4d7a-9a79-f4d1bd0f2ab4",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 389207ee-ce9f-4d7a-9a79-f4d1bd0f2ab4",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 389207ee-ce9f-4d7a-9a79-f4d1bd0f2ab4",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 389207ee-ce9f-4d7a-9a79-f4d1bd0f2ab4",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes e8f99a52-57b9-4e71-af56-2c554446740f",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 389207ee-ce9f-4d7a-9a79-f4d1bd0f2ab4",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 389207ee-ce9f-4d7a-9a79-f4d1bd0f2ab4",
+          "status": "PASS"
+        },
+        {
+          "name": "payload c0536a26-1782-4577-b89f-04c66651f290",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash c0536a26-1782-4577-b89f-04c66651f290",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest c0536a26-1782-4577-b89f-04c66651f290",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest c0536a26-1782-4577-b89f-04c66651f290",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release c0536a26-1782-4577-b89f-04c66651f290",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes fc4f86d5-20db-4ce9-8787-cf767c6af4fa",
+          "status": "PASS"
+        },
+        {
+          "name": "success record c0536a26-1782-4577-b89f-04c66651f290",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit c0536a26-1782-4577-b89f-04c66651f290",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 63734ea0-0482-49b8-a249-7476ce9de8f2",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 63734ea0-0482-49b8-a249-7476ce9de8f2",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 63734ea0-0482-49b8-a249-7476ce9de8f2",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 63734ea0-0482-49b8-a249-7476ce9de8f2",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 63734ea0-0482-49b8-a249-7476ce9de8f2",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes e53c44e1-2947-4e11-bdef-f43d30b81eba",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 63734ea0-0482-49b8-a249-7476ce9de8f2",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 63734ea0-0482-49b8-a249-7476ce9de8f2",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 40329a61-24fb-4ea8-9925-3f4b6e33601d",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 40329a61-24fb-4ea8-9925-3f4b6e33601d",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 40329a61-24fb-4ea8-9925-3f4b6e33601d",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 40329a61-24fb-4ea8-9925-3f4b6e33601d",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 40329a61-24fb-4ea8-9925-3f4b6e33601d",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 27dfe959-6dac-4973-ad1b-85002fbf6739",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 40329a61-24fb-4ea8-9925-3f4b6e33601d",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 40329a61-24fb-4ea8-9925-3f4b6e33601d",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 9443c661-00bb-4d46-86ea-dd2c35229fb9",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 9443c661-00bb-4d46-86ea-dd2c35229fb9",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 9443c661-00bb-4d46-86ea-dd2c35229fb9",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 9443c661-00bb-4d46-86ea-dd2c35229fb9",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 9443c661-00bb-4d46-86ea-dd2c35229fb9",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 9443c661-00bb-4d46-86ea-dd2c35229fb9",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 9443c661-00bb-4d46-86ea-dd2c35229fb9",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-MAIN-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-MISSING-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-RACE-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-DIFF0-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-DIFF1-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-DIFF2-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTBUILD-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTWRITE-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTCOPY1-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTCOPY2-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTVALIDATION-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTRENAME-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTFINALIZE-140408",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-UI-1789020970850",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-REALDB-141718",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-RICH-142450",
+          "status": "PASS"
+        },
+        {
+          "name": "t9 public tree has only generated public artifacts",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh integrity",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh foreign keys",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh one successful revision per review",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh unique batch version",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh no unresolved operations",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh no injected DB triggers",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 28ed83a6-85ac-4b7f-9e42-821d2abba847",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 28ed83a6-85ac-4b7f-9e42-821d2abba847",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 28ed83a6-85ac-4b7f-9e42-821d2abba847",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 28ed83a6-85ac-4b7f-9e42-821d2abba847",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 28ed83a6-85ac-4b7f-9e42-821d2abba847",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 4e657a93-f6c2-4b5e-bca2-a1fa636a8de9",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 28ed83a6-85ac-4b7f-9e42-821d2abba847",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 28ed83a6-85ac-4b7f-9e42-821d2abba847",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 7031410b-05f4-4a88-ae9e-25e92feb4a2f",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 7031410b-05f4-4a88-ae9e-25e92feb4a2f",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 7031410b-05f4-4a88-ae9e-25e92feb4a2f",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 7031410b-05f4-4a88-ae9e-25e92feb4a2f",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 7031410b-05f4-4a88-ae9e-25e92feb4a2f",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 79b49729-3c8a-46e5-8b7a-a85a569d35db",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 7031410b-05f4-4a88-ae9e-25e92feb4a2f",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 7031410b-05f4-4a88-ae9e-25e92feb4a2f",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 5261c6be-25cb-446e-9f83-55a2a3816ec4",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 5261c6be-25cb-446e-9f83-55a2a3816ec4",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 5261c6be-25cb-446e-9f83-55a2a3816ec4",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 5261c6be-25cb-446e-9f83-55a2a3816ec4",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 5261c6be-25cb-446e-9f83-55a2a3816ec4",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 5261c6be-25cb-446e-9f83-55a2a3816ec4",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 5261c6be-25cb-446e-9f83-55a2a3816ec4",
+          "status": "PASS"
+        },
+        {
+          "name": "payload b1fd2724-28ec-47ba-a417-15fcda3f4c6e",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash b1fd2724-28ec-47ba-a417-15fcda3f4c6e",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest b1fd2724-28ec-47ba-a417-15fcda3f4c6e",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest b1fd2724-28ec-47ba-a417-15fcda3f4c6e",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release b1fd2724-28ec-47ba-a417-15fcda3f4c6e",
+          "status": "PASS"
+        },
+        {
+          "name": "success record b1fd2724-28ec-47ba-a417-15fcda3f4c6e",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit b1fd2724-28ec-47ba-a417-15fcda3f4c6e",
+          "status": "PASS"
+        },
+        {
+          "name": "payload cfd0411f-54f1-498a-9180-0546a322fb40",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash cfd0411f-54f1-498a-9180-0546a322fb40",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest cfd0411f-54f1-498a-9180-0546a322fb40",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest cfd0411f-54f1-498a-9180-0546a322fb40",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release cfd0411f-54f1-498a-9180-0546a322fb40",
+          "status": "PASS"
+        },
+        {
+          "name": "success record cfd0411f-54f1-498a-9180-0546a322fb40",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit cfd0411f-54f1-498a-9180-0546a322fb40",
+          "status": "PASS"
+        },
+        {
+          "name": "payload daa4eeb2-4b46-4a5f-bdc1-2542997e7076",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash daa4eeb2-4b46-4a5f-bdc1-2542997e7076",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest daa4eeb2-4b46-4a5f-bdc1-2542997e7076",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest daa4eeb2-4b46-4a5f-bdc1-2542997e7076",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release daa4eeb2-4b46-4a5f-bdc1-2542997e7076",
+          "status": "PASS"
+        },
+        {
+          "name": "success record daa4eeb2-4b46-4a5f-bdc1-2542997e7076",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit daa4eeb2-4b46-4a5f-bdc1-2542997e7076",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 4cdaa85c-d4b6-4706-b2c0-a657ad486481",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 4cdaa85c-d4b6-4706-b2c0-a657ad486481",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 4cdaa85c-d4b6-4706-b2c0-a657ad486481",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 4cdaa85c-d4b6-4706-b2c0-a657ad486481",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 4cdaa85c-d4b6-4706-b2c0-a657ad486481",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes ff5944d4-3349-4b6f-a62b-a8d4ed9d3bbb",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 4cdaa85c-d4b6-4706-b2c0-a657ad486481",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 4cdaa85c-d4b6-4706-b2c0-a657ad486481",
+          "status": "PASS"
+        },
+        {
+          "name": "payload b2c72d87-9c3d-4adb-bfb1-7b57eced4f44",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash b2c72d87-9c3d-4adb-bfb1-7b57eced4f44",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest b2c72d87-9c3d-4adb-bfb1-7b57eced4f44",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest b2c72d87-9c3d-4adb-bfb1-7b57eced4f44",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release b2c72d87-9c3d-4adb-bfb1-7b57eced4f44",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 538c77c6-22f3-4a2c-ba6d-8e91dd615e5c",
+          "status": "PASS"
+        },
+        {
+          "name": "success record b2c72d87-9c3d-4adb-bfb1-7b57eced4f44",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit b2c72d87-9c3d-4adb-bfb1-7b57eced4f44",
+          "status": "PASS"
+        },
+        {
+          "name": "payload e24e49f3-2356-44d7-b0da-55d101c2859a",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash e24e49f3-2356-44d7-b0da-55d101c2859a",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest e24e49f3-2356-44d7-b0da-55d101c2859a",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest e24e49f3-2356-44d7-b0da-55d101c2859a",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release e24e49f3-2356-44d7-b0da-55d101c2859a",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes c130a929-4fe5-4681-ac93-301d0163fac7",
+          "status": "PASS"
+        },
+        {
+          "name": "success record e24e49f3-2356-44d7-b0da-55d101c2859a",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit e24e49f3-2356-44d7-b0da-55d101c2859a",
+          "status": "PASS"
+        },
+        {
+          "name": "payload a78f4f8d-b918-4e8b-af27-98464350a192",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash a78f4f8d-b918-4e8b-af27-98464350a192",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest a78f4f8d-b918-4e8b-af27-98464350a192",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest a78f4f8d-b918-4e8b-af27-98464350a192",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release a78f4f8d-b918-4e8b-af27-98464350a192",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 441a68e7-73f5-4e84-bc71-c0b5a551b3f4",
+          "status": "PASS"
+        },
+        {
+          "name": "success record a78f4f8d-b918-4e8b-af27-98464350a192",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit a78f4f8d-b918-4e8b-af27-98464350a192",
+          "status": "PASS"
+        },
+        {
+          "name": "payload a239f7a0-e9a0-4237-96bf-e4dd0fe78b6c",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash a239f7a0-e9a0-4237-96bf-e4dd0fe78b6c",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest a239f7a0-e9a0-4237-96bf-e4dd0fe78b6c",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest a239f7a0-e9a0-4237-96bf-e4dd0fe78b6c",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release a239f7a0-e9a0-4237-96bf-e4dd0fe78b6c",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 1138cdd2-0504-4cb9-9305-dec235c78a2f",
+          "status": "PASS"
+        },
+        {
+          "name": "success record a239f7a0-e9a0-4237-96bf-e4dd0fe78b6c",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit a239f7a0-e9a0-4237-96bf-e4dd0fe78b6c",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 5883358c-15b0-46a6-b536-e9e8d7f28964",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 5883358c-15b0-46a6-b536-e9e8d7f28964",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 5883358c-15b0-46a6-b536-e9e8d7f28964",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 5883358c-15b0-46a6-b536-e9e8d7f28964",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 5883358c-15b0-46a6-b536-e9e8d7f28964",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 003409ad-c02b-4b38-bffa-16a04cf02106",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 5883358c-15b0-46a6-b536-e9e8d7f28964",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 5883358c-15b0-46a6-b536-e9e8d7f28964",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 70ec7fdd-2dca-49ab-a26b-6c4de40b108d",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 70ec7fdd-2dca-49ab-a26b-6c4de40b108d",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 70ec7fdd-2dca-49ab-a26b-6c4de40b108d",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 70ec7fdd-2dca-49ab-a26b-6c4de40b108d",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 70ec7fdd-2dca-49ab-a26b-6c4de40b108d",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 302193ef-7f02-41df-8096-934c4c63f8c5",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 723c7085-58f2-4554-aa45-e6970ba52541",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 70ec7fdd-2dca-49ab-a26b-6c4de40b108d",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 70ec7fdd-2dca-49ab-a26b-6c4de40b108d",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 430d69f9-52dc-40c3-8e27-ea5751388937",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 430d69f9-52dc-40c3-8e27-ea5751388937",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 430d69f9-52dc-40c3-8e27-ea5751388937",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 430d69f9-52dc-40c3-8e27-ea5751388937",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 430d69f9-52dc-40c3-8e27-ea5751388937",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes cf9c6547-b1c6-461b-bcc7-1d2137cef80d",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 07b40597-c753-4362-b353-38e44bc9ba2e",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 430d69f9-52dc-40c3-8e27-ea5751388937",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 430d69f9-52dc-40c3-8e27-ea5751388937",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 0c917d97-a892-4b39-8e92-1f55a11ecaa6",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 0c917d97-a892-4b39-8e92-1f55a11ecaa6",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 0c917d97-a892-4b39-8e92-1f55a11ecaa6",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 0c917d97-a892-4b39-8e92-1f55a11ecaa6",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 0c917d97-a892-4b39-8e92-1f55a11ecaa6",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 9e3501f2-393f-45d0-bd7b-5b3945339575",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 0c917d97-a892-4b39-8e92-1f55a11ecaa6",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 0c917d97-a892-4b39-8e92-1f55a11ecaa6",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 10ca3927-8cec-4a85-acee-43b9cc408489",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 10ca3927-8cec-4a85-acee-43b9cc408489",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 10ca3927-8cec-4a85-acee-43b9cc408489",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 10ca3927-8cec-4a85-acee-43b9cc408489",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 10ca3927-8cec-4a85-acee-43b9cc408489",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 6f8bb09c-b7bc-4dbc-8dac-b3cc31143cbb",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 10ca3927-8cec-4a85-acee-43b9cc408489",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 10ca3927-8cec-4a85-acee-43b9cc408489",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 44726013-655b-4db6-928a-7bb9aeeca29a",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 44726013-655b-4db6-928a-7bb9aeeca29a",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 44726013-655b-4db6-928a-7bb9aeeca29a",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 44726013-655b-4db6-928a-7bb9aeeca29a",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 44726013-655b-4db6-928a-7bb9aeeca29a",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes f39b75c4-3e58-4d29-9399-37566bf3ee62",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 44726013-655b-4db6-928a-7bb9aeeca29a",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 44726013-655b-4db6-928a-7bb9aeeca29a",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 6fe34263-219a-4b71-ab34-76a6d09c105a",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 6fe34263-219a-4b71-ab34-76a6d09c105a",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 6fe34263-219a-4b71-ab34-76a6d09c105a",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 6fe34263-219a-4b71-ab34-76a6d09c105a",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 6fe34263-219a-4b71-ab34-76a6d09c105a",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 65890f45-b653-489e-8927-3ebfcd09fe41",
+          "status": "PASS"
+        },
+        {
+          "name": "payload 68f7dde9-6b23-4aa5-91ac-d1c555538fc9",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash 68f7dde9-6b23-4aa5-91ac-d1c555538fc9",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest 68f7dde9-6b23-4aa5-91ac-d1c555538fc9",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest 68f7dde9-6b23-4aa5-91ac-d1c555538fc9",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release 68f7dde9-6b23-4aa5-91ac-d1c555538fc9",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes c708b202-57b4-4162-8dc0-8cc49ff0b786",
+          "status": "PASS"
+        },
+        {
+          "name": "success record 68f7dde9-6b23-4aa5-91ac-d1c555538fc9",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit 68f7dde9-6b23-4aa5-91ac-d1c555538fc9",
+          "status": "PASS"
+        },
+        {
+          "name": "payload f2ed4924-b0d9-4ff9-9071-19012dc3ec19",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash f2ed4924-b0d9-4ff9-9071-19012dc3ec19",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest f2ed4924-b0d9-4ff9-9071-19012dc3ec19",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest f2ed4924-b0d9-4ff9-9071-19012dc3ec19",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release f2ed4924-b0d9-4ff9-9071-19012dc3ec19",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 606fddb5-bf2d-4124-a855-926df93c4c3d",
+          "status": "PASS"
+        },
+        {
+          "name": "success record f2ed4924-b0d9-4ff9-9071-19012dc3ec19",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit f2ed4924-b0d9-4ff9-9071-19012dc3ec19",
+          "status": "PASS"
+        },
+        {
+          "name": "payload a7041018-411e-45f4-9263-640746d582fe",
+          "status": "PASS"
+        },
+        {
+          "name": "content hash a7041018-411e-45f4-9263-640746d582fe",
+          "status": "PASS"
+        },
+        {
+          "name": "asset manifest a7041018-411e-45f4-9263-640746d582fe",
+          "status": "PASS"
+        },
+        {
+          "name": "release manifest a7041018-411e-45f4-9263-640746d582fe",
+          "status": "PASS"
+        },
+        {
+          "name": "temporary release a7041018-411e-45f4-9263-640746d582fe",
+          "status": "PASS"
+        },
+        {
+          "name": "asset bytes 74c8b6e1-7d07-4502-a251-bc1333efdcd2",
+          "status": "PASS"
+        },
+        {
+          "name": "success record a7041018-411e-45f4-9263-640746d582fe",
+          "status": "PASS"
+        },
+        {
+          "name": "success audit a7041018-411e-45f4-9263-640746d582fe",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-MAIN-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-MISSING-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-RACE-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-DIFF0-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-DIFF1-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-DIFF2-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTBUILD-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTWRITE-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTCOPY1-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTCOPY2-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTVALIDATION-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTRENAME-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "head TEST-T9-FAULTFINALIZE-141340",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh public tree has only generated public artifacts",
+          "status": "PASS"
+        },
+        {
+          "name": "53 baseline unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "7 site files unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "36375 historical files including T4-T8 migrations unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend upstream tracked unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "Only existing two UI locale tracked files modified",
+          "status": "PASS"
+        },
+        {
+          "name": "go-admin diff check",
+          "status": "PASS"
+        },
+        {
+          "name": "go-admin-ui diff check",
+          "status": "PASS"
+        }
+      ],
+      "pass": 441,
+      "fail": 0
+    },
+    "independent_schema": {
+      "evidence": "runtime/t9/test-artifacts/independent-schema.json",
+      "checks": [
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-DIFF0-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-DIFF1-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-DIFF2-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTBUILD-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTBUILD-140408/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTCOPY1-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTCOPY1-140408/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTCOPY2-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTCOPY2-140408/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTFINALIZE-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTFINALIZE-140408/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTRENAME-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTRENAME-140408/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTRENAME-140408/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTVALIDATION-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTVALIDATION-140408/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTWRITE-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-FAULTWRITE-140408/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-MAIN-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-MISSING-140408/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-RACE-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-REALDB-141718/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-REALDB-141718/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-REALDB-141718/v4.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-REALDB-141718/v6.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-REALDB-141718/v8.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-RICH-142450/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-UI-1789020970850/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/publish/versions/TEST-T9-UI-1789020970850/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-DIFF0-141340/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-DIFF1-141340/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-DIFF2-141340/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTBUILD-141340/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTBUILD-141340/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTCOPY1-141340/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTCOPY1-141340/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTCOPY2-141340/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTCOPY2-141340/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTFINALIZE-141340/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTFINALIZE-141340/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTRENAME-141340/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTRENAME-141340/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTRENAME-141340/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTVALIDATION-141340/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTVALIDATION-141340/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTWRITE-141340/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-FAULTWRITE-141340/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-MAIN-141340/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-MISSING-141340/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "runtime/t9/fresh/publish/versions/TEST-T9-RACE-141340/v1.json",
+          "status": "PASS"
+        }
+      ],
+      "pass": 50,
+      "fail": 0
+    },
+    "static_backend_off": {
+      "evidence": "runtime/t9/test-artifacts/static-independent.json",
+      "checks": [
+        {
+          "name": "Backend/UI stopped 18103",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend/UI stopped 18104",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend/UI stopped 19534",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend/UI stopped 19535",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static assets/sha256/3f/3ff330b24676d2af614deaf18aebda9539de9d7304619178060f9de2b5cfea2a.png",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static assets/sha256/5f/5fbe62e52265de98a8775a0a2266e8b5543b5e5ebea5cd463cf8a8372b2819ae.png",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-DIFF0-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-DIFF1-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-DIFF2-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-FAULTBUILD-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image published/TEST-T9-FAULTBUILD-140408.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-FAULTCOPY1-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image published/TEST-T9-FAULTCOPY1-140408.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-FAULTCOPY2-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image published/TEST-T9-FAULTCOPY2-140408.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image published/TEST-T9-FAULTCOPY2-140408.json image3",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-FAULTFINALIZE-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image published/TEST-T9-FAULTFINALIZE-140408.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-FAULTRENAME-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image published/TEST-T9-FAULTRENAME-140408.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-FAULTVALIDATION-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image published/TEST-T9-FAULTVALIDATION-140408.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-FAULTWRITE-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image published/TEST-T9-FAULTWRITE-140408.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-MAIN-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image published/TEST-T9-MAIN-140408.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-MISSING-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image published/TEST-T9-MISSING-140408.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-RACE-140408.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-REALDB-141718.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image published/TEST-T9-REALDB-141718.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-RICH-142450.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static published/TEST-T9-UI-1789020970850.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image published/TEST-T9-UI-1789020970850.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-DIFF0-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-DIFF1-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-DIFF2-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTBUILD-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTBUILD-140408/v1.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTBUILD-140408/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTBUILD-140408/v3.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTCOPY1-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTCOPY1-140408/v1.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTCOPY1-140408/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTCOPY1-140408/v3.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTCOPY2-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTCOPY2-140408/v1.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTCOPY2-140408/v1.json image3",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTCOPY2-140408/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTCOPY2-140408/v3.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTCOPY2-140408/v3.json image3",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTFINALIZE-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTFINALIZE-140408/v1.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTFINALIZE-140408/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTFINALIZE-140408/v2.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTRENAME-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTRENAME-140408/v1.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTRENAME-140408/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTRENAME-140408/v2.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTRENAME-140408/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTRENAME-140408/v3.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTVALIDATION-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTVALIDATION-140408/v1.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTVALIDATION-140408/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTVALIDATION-140408/v3.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTWRITE-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTWRITE-140408/v1.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-FAULTWRITE-140408/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-FAULTWRITE-140408/v3.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-MAIN-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-MAIN-140408/v1.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-MISSING-140408/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-MISSING-140408/v2.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-RACE-140408/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-REALDB-141718/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-REALDB-141718/v1.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-REALDB-141718/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-REALDB-141718/v2.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-REALDB-141718/v4.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-REALDB-141718/v4.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-REALDB-141718/v6.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-REALDB-141718/v6.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-REALDB-141718/v8.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-REALDB-141718/v8.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-RICH-142450/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-UI-1789020970850/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-UI-1789020970850/v1.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off static versions/TEST-T9-UI-1789020970850/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend-off referenced image versions/TEST-T9-UI-1789020970850/v3.json image1",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing/unsafe static returns 404 published/TEST-ABSENT.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing/unsafe static returns 404 assets/sha256/aa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.png",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing/unsafe static returns 404 ../private-media/",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing/unsafe static returns 404 %2e%2e/settings.yml",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing/unsafe static returns 404 tmp/",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing/unsafe static returns 404 ",
+          "status": "PASS"
+        }
+      ],
+      "pass": 95,
+      "fail": 0
+    },
+    "stopped": {
+      "evidence": "runtime/t9/test-artifacts/stopped.json",
+      "checks": [
+        {
+          "name": "Stopped localhost:18103",
+          "status": "PASS"
+        },
+        {
+          "name": "Stopped localhost:18104",
+          "status": "PASS"
+        },
+        {
+          "name": "Stopped localhost:19534",
+          "status": "PASS"
+        },
+        {
+          "name": "Stopped localhost:19535",
+          "status": "PASS"
+        },
+        {
+          "name": "Stopped localhost:19536",
+          "status": "PASS"
+        }
+      ],
+      "pass": 5,
+      "fail": 0
+    },
+    "publishing_unit_race": {
+      "evidence": "runtime/t9/test-artifacts/unit-tests.jsonl",
+      "checks": [
+        {
+          "name": "TestBuildDeterministic",
+          "status": "PASS"
+        },
+        {
+          "name": "TestCanonicalVectors",
+          "status": "PASS"
+        },
+        {
+          "name": "TestDecodeRejects/6433383234356366",
+          "status": "PASS"
+        },
+        {
+          "name": "TestDecodeRejects/3263656332626266",
+          "status": "PASS"
+        },
+        {
+          "name": "TestDecodeRejects/6138313030616536",
+          "status": "PASS"
+        },
+        {
+          "name": "TestDecodeRejects/3838366164363234",
+          "status": "PASS"
+        },
+        {
+          "name": "TestDecodeRejects/3164333261353432",
+          "status": "PASS"
+        },
+        {
+          "name": "TestCanonicalRejectsFloatsAndUnsafeInts",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/unknown_root",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/unknown_nested",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/schema_version",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/required",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/missing_marker",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/test_batch_code",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/traversal",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/newline_code",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/invalid_date",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/date_order",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/html_text",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/empty_name",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/decimal_number",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/decimal_trailing_zero",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/decimal_negative_zero",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/negative_quantity",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/integer_bound",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/array_bound",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/duplicate_steps",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/missing_language",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/duplicate_languages",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/source_translation",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/translated_fact",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/translated_new_key",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/unreferenced_asset",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/dangling_asset",
+          "status": "PASS"
+        },
+        {
+          "name": "TestSchemaRejections/table_width",
+          "status": "PASS"
+        },
+        {
+          "name": "TestMediaAndPaths",
+          "status": "PASS"
+        },
+        {
+          "name": "TestImmutableAndAtomicStorage",
+          "status": "PASS"
+        },
+        {
+          "name": "TestApprovedTranslationsAndClear",
+          "status": "PASS"
+        },
+        {
+          "name": "TestHiddenSectionsAndUnknownPrivateFields",
+          "status": "PASS"
+        },
+        {
+          "name": "TestEmbeddedSchemaVocabulary",
+          "status": "PASS"
+        },
+        {
+          "name": "TestAtomicReadersNeverSeePartial",
+          "status": "PASS"
+        },
+        {
+          "name": "TestMalformedAndOversizedImage",
+          "status": "PASS"
+        }
+      ],
+      "pass": 42,
+      "fail": 0
+    },
+    "faults": {
+      "evidence": "runtime/t9/test-artifacts/fault-tests.jsonl",
+      "checks": [
+        {
+          "name": "TestT9FaultRecovery/build",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT9FaultRecovery/write",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT9FaultRecovery/copy1",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT9FaultRecovery/copy2",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT9FaultRecovery/validation",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT9FaultRecovery/rename",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT9FaultRecovery/finalize",
+          "status": "PASS"
+        }
+      ],
+      "pass": 7,
+      "fail": 0
+    },
+    "fresh_faults": {
+      "evidence": "runtime/t9/test-artifacts/fresh-fault-tests.jsonl",
+      "checks": [
+        {
+          "name": "TestT9FaultRecovery/build",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT9FaultRecovery/write",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT9FaultRecovery/copy1",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT9FaultRecovery/copy2",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT9FaultRecovery/validation",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT9FaultRecovery/rename",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT9FaultRecovery/finalize",
+          "status": "PASS"
+        }
+      ],
+      "pass": 7,
+      "fail": 0
+    },
+    "t5_t6_t7_regression": {
+      "evidence": "runtime/t9/test-artifacts/regression-tests.jsonl",
+      "checks": [
+        {
+          "name": "TestT6ResolverEdges/MultilingualBaseFixture",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/ApplicationRejectsCorruptDraftDefault",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/CreateEdgeBatch",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/OverrideMissingTranslationFallsBackToOverrideSource",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/OverrideOwnTranslationResolves",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/CloneCopiesTranslationButResetsApproval",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/ResetDeletesOverrideTranslations",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/UnopenedAssetOverridePreviewFailsClosed",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/ProcessSetAndClearAreWholeArray",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateProductFixture",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/NoDefaultRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DraftDefaultRejectedByDB",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/SealAndSetDefault",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateBindsSealedDefault",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ListPaginationSearchProduct",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DuplicateCodeBusiness409",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/InvalidBatchCodes",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DatabaseUniqueCode",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DatabaseBaseImmutable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DatabaseProductImmutable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CrossProductBaseRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ReferencedRevisionDeleteRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/InheritResolver",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/SetOverrideResolver",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ClearOverrideResolver",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ResetDeletesOverrideRestoresBase",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_batch_code",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_product_id",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_base_product_revision_id",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_workflow_status",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_quality_status",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_created_by",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_product_name",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_unknown",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_product_image_asset",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/TypedOverrideValidation",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DateValidationAndNullable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateDynamicInspection",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/UpdateInspectionPreservesIdentity",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/UnknownInspectionNoSchemaChange",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/TextInspectionAndAllStatuses",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/InspectionInvalidStatesAndValues",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ExactDecimalComparison",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DeleteDraftInspection",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DuplicateInspectionCodeRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/StaleEditVersionRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/MissingChildListsRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateAuditFailureRollsBack",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/OverrideAuditFailureRollsBackWholeAggregate",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateR2DefaultHistoricalBatchStable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ClonePreservesOverrideAndBase",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CloneClearsProductionFacts",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CloneCopiesDefinitionsNewIDs",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CloneFailureRollsBack",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ResetCloneOverride",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/PendingBatchApplicationFreeze",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ConcurrentDifferentCodes",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ConcurrentSameCodeOneSuccess",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ConcurrentClonesNoDirtyCopies",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/AuditEventsAndAppendOnly",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/IntegrityAndForeignKeys",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/CreateProductRevisionTranslationTransaction",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/DuplicateProductCodeReadable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/CodeValidation",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/RollbackOnTranslationDatabaseFailure",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/RollbackOnAuditFailure",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/DraftEditAndStaleWriteRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/InvalidStructuredFieldsRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SixLanguageUpsert",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/LanguageAndStepLabelValidation",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SealStoresHashAndMetadata",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/FrozenRevisionApplicationRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/FrozenTranslationApplicationRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/FrozenRawSQLRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SetSealedDefaultExplicitly",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/CloneIndependentIDsAndResetSystemFields",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/NewRevisionDoesNotSwitchDefault",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/NewRevisionEditsLeaveHistoryIntact",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/DraftDefaultRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SealRequiresConfirmedSourceLanguage",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SwitchDefaultPreservesR1R2",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/ForeignProductRevisionRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/ConcurrentRevisionNumbers",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/DatabaseUniqueLastDefense",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/ArchivePreservesHistoryAndBlocksWrites",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/AuditEventsInSameDatabase",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/IntegrityAndForeignKeys",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/ListSearchPaginationAndStatus",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/empty_text_is_explicit_content,_not_hide",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/normal_unicode",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/HTML_forbidden",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/nested_unknown",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/null_item",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/duplicate_keys",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/empty_table_columns",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/null_cell",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/null_content",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/trailing_object",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/JSON_title_injection",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/text_exact_limit",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7TransactionsAndCapacity/owner_capacity_100_and_reject_101",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7TransactionsAndCapacity/reorder_failure_rolls_all_rows_and_audit_back",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7TransactionsAndCapacity/clone_audit_failure_rolls_new_revision_and_sections_back",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7InheritDisabled/inherit",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7InheritDisabled/replace",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7InheritDisabled/hide",
+          "status": "PASS"
+        }
+      ],
+      "pass": 106,
+      "fail": 0
+    },
+    "ui_upstream_unit": {
+      "evidence": "runtime/t9/logs/ui-unit.log",
+      "pass": 301,
+      "fail": 0,
+      "checks": []
+    }
+  },
+  "gates": [
+    {
+      "gate": 1,
+      "requirement": "只有 ready_for_publish 可发布。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 2,
+      "requirement": "Draft 不能发布。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 3,
+      "requirement": "Pending Review 不能发布。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 4,
+      "requirement": "发布输入来自 Approved Candidate。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 5,
+      "requirement": "Candidate Hash 发布前验证。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 6,
+      "requirement": "Public Payload Builder 独立 ORM。",
+      "status": "PASS",
+      "evidence_suites": [
+        "publishing_unit_race",
+        "contracts"
+      ]
+    },
+    {
+      "gate": 7,
+      "requirement": "Public Whitelist 生效。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 8,
+      "requirement": "Internal 字段无泄漏。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 9,
+      "requirement": "schema_version 正确。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 10,
+      "requirement": "Canonical JSON 稳定。",
+      "status": "PASS",
+      "evidence_suites": [
+        "publishing_unit_race",
+        "files"
+      ]
+    },
+    {
+      "gate": 11,
+      "requirement": "Payload SHA-256 正确。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 12,
+      "requirement": "Passport Revision V1 创建。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 13,
+      "requirement": "Published Passport Revision 不可变。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 14,
+      "requirement": "历史 V1 不会被 V2 覆盖。",
+      "status": "PASS",
+      "evidence_suites": [
+        "faults",
+        "fresh_faults"
+      ]
+    },
+    {
+      "gate": 15,
+      "requirement": "Published Assets 正式冻结。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 16,
+      "requirement": "后台 Media 变化不改变历史 Published Asset。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 17,
+      "requirement": "Asset Hash Freeze 前后匹配。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 18,
+      "requirement": "非法 MIME 被拒绝。",
+      "status": "PASS",
+      "evidence_suites": [
+        "publishing_unit_race",
+        "edges"
+      ]
+    },
+    {
+      "gate": 19,
+      "requirement": "非公开 Asset 不发布。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 20,
+      "requirement": "非公开 Inspection 不发布。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 21,
+      "requirement": "非公开 Section 不发布。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 22,
+      "requirement": "Hidden Section 不发布。",
+      "status": "PASS",
+      "evidence_suites": [
+        "rich",
+        "publishing_unit_race"
+      ]
+    },
+    {
+      "gate": 23,
+      "requirement": "Release Manifest 正确。",
+      "status": "PASS",
+      "evidence_suites": [
+        "files"
+      ]
+    },
+    {
+      "gate": 24,
+      "requirement": "Temporary Release 构建。",
+      "status": "PASS",
+      "evidence_suites": [
+        "files"
+      ]
+    },
+    {
+      "gate": 25,
+      "requirement": "Release Validation 生效。",
+      "status": "PASS",
+      "evidence_suites": [
+        "publishing_unit_race",
+        "faults",
+        "independent_schema"
+      ]
+    },
+    {
+      "gate": 26,
+      "requirement": "Atomic Switch 成功。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 27,
+      "requirement": "Current V1 正确。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 28,
+      "requirement": "V2 切换不改变 V1。",
+      "status": "PASS",
+      "evidence_suites": [
+        "faults",
+        "files"
+      ]
+    },
+    {
+      "gate": 29,
+      "requirement": "Asset Freeze 失败不影响旧版本。",
+      "status": "PASS",
+      "evidence_suites": [
+        "faults",
+        "edges"
+      ]
+    },
+    {
+      "gate": 30,
+      "requirement": "JSON Build 失败不影响旧版本。",
+      "status": "PASS",
+      "evidence_suites": [
+        "faults"
+      ]
+    },
+    {
+      "gate": 31,
+      "requirement": "Validation 失败不影响旧版本。",
+      "status": "PASS",
+      "evidence_suites": [
+        "faults"
+      ]
+    },
+    {
+      "gate": 32,
+      "requirement": "Atomic Switch 失败不影响旧版本。",
+      "status": "PASS",
+      "evidence_suites": [
+        "faults"
+      ]
+    },
+    {
+      "gate": 33,
+      "requirement": "失败 Publish Record 保留。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 34,
+      "requirement": "成功 Publish Record 正确。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 35,
+      "requirement": "Publish 成功后才变 Published。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 36,
+      "requirement": "失败后保持 ready_for_publish 或合法重试状态。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 37,
+      "requirement": "同 Review Candidate 不重复成功发布。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 38,
+      "requirement": "同 Batch 并发 Publish 不产生重复版本。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 39,
+      "requirement": "不同 Batch 并发可正常工作。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 40,
+      "requirement": "Publish 双击安全。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 41,
+      "requirement": "Super Admin Publish 可用。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 42,
+      "requirement": "Editor Publish 被拒绝。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 43,
+      "requirement": "Reviewer Publish 按当前策略被拒绝。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 44,
+      "requirement": "Viewer Publish 被拒绝。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 45,
+      "requirement": "匿名 Publish 被拒绝。",
+      "status": "PASS",
+      "evidence_suites": [
+        "api"
+      ]
+    },
+    {
+      "gate": 46,
+      "requirement": "Path Traversal 防护通过。",
+      "status": "PASS",
+      "evidence_suites": [
+        "publishing_unit_race",
+        "static_backend_off"
+      ]
+    },
+    {
+      "gate": 47,
+      "requirement": "Symlink 边界验证通过。",
+      "status": "PASS",
+      "evidence_suites": [
+        "publishing_unit_race",
+        "edges"
+      ]
+    },
+    {
+      "gate": 48,
+      "requirement": "Backend 重启后发布状态完整。",
+      "status": "PASS",
+      "evidence_suites": [
+        "persistence",
+        "post_restart"
+      ]
+    },
+    {
+      "gate": 49,
+      "requirement": "Fresh DB 全链路通过。",
+      "status": "PASS",
+      "evidence_suites": [
+        "fresh_api",
+        "fresh_faults"
+      ]
+    },
+    {
+      "gate": 50,
+      "requirement": "Migration 重复安全。",
+      "status": "PASS",
+      "evidence_suites": [
+        "migrations"
+      ]
+    },
+    {
+      "gate": 51,
+      "requirement": "integrity_check = ok。",
+      "status": "PASS",
+      "evidence_suites": [
+        "files"
+      ]
+    },
+    {
+      "gate": 52,
+      "requirement": "foreign_key_check 无异常。",
+      "status": "PASS",
+      "evidence_suites": [
+        "files"
+      ]
+    },
+    {
+      "gate": 53,
+      "requirement": "所有成功 JSON Hash 复验一致。",
+      "status": "PASS",
+      "evidence_suites": [
+        "files"
+      ]
+    },
+    {
+      "gate": 54,
+      "requirement": "所有 Published Asset Hash 复验一致。",
+      "status": "PASS",
+      "evidence_suites": [
+        "files"
+      ]
+    },
+    {
+      "gate": 55,
+      "requirement": "Manifest 与 DB/Files 一致。",
+      "status": "PASS",
+      "evidence_suites": [
+        "files"
+      ]
+    },
+    {
+      "gate": 56,
+      "requirement": "原 53 基线文件不变。",
+      "status": "PASS",
+      "evidence_suites": [
+        "files"
+      ]
+    },
+    {
+      "gate": 57,
+      "requirement": "site 7 文件不变。",
+      "status": "PASS",
+      "evidence_suites": [
+        "files"
+      ]
+    },
+    {
+      "gate": 58,
+      "requirement": "未修改 T4-T8 历史 Migration。",
+      "status": "PASS",
+      "evidence_suites": [
+        "files"
+      ]
+    },
+    {
+      "gate": 59,
+      "requirement": "未部署服务器。",
+      "status": "PASS",
+      "evidence_suites": [
+        "local_scope"
+      ]
+    },
+    {
+      "gate": 60,
+      "requirement": "未进入 T10。",
+      "status": "PASS",
+      "evidence_suites": [
+        "local_scope"
+      ]
+    }
+  ],
+  "counts": {
+    "t9": {
+      "published_revisions": 28,
+      "sealed_revisions": 29,
+      "published_asset_rows": 26,
+      "records": 39,
+      "failed_records": 11,
+      "tables": 20,
+      "business_columns": 329,
+      "triggers": 113
+    },
+    "fresh": {
+      "published_revisions": 20,
+      "sealed_revisions": 21,
+      "published_asset_rows": 19,
+      "records": 27,
+      "failed_records": 7,
+      "tables": 20,
+      "business_columns": 329,
+      "triggers": 113
+    }
+  },
+  "changed_source_files": [
+    "admin/go-admin-ui/src/api/passport/reviews.ts",
+    "admin/go-admin-ui/src/lang/en-US/index.ts",
+    "admin/go-admin-ui/src/lang/en-US/passport/reviews.ts",
+    "admin/go-admin-ui/src/lang/zh-CN/index.ts",
+    "admin/go-admin-ui/src/lang/zh-CN/passport/reviews.ts",
+    "admin/go-admin-ui/src/views/passport/reviews/ReviewPanel.vue",
+    "admin/go-admin/app/passport/service/review.go"
+  ],
+  "new_source_files": [
+    "admin/go-admin-ui/src/api/passport/publication.ts",
+    "admin/go-admin-ui/src/lang/en-US/passport/publication.ts",
+    "admin/go-admin-ui/src/lang/zh-CN/passport/publication.ts",
+    "admin/go-admin-ui/src/views/passport/publication/PublishPanel.vue",
+    "admin/go-admin/app/admin/router/passport_publication.go",
+    "admin/go-admin/app/passport/apis/publish.go",
+    "admin/go-admin/app/passport/models/publish.go",
+    "admin/go-admin/app/passport/publishing/builder.go",
+    "admin/go-admin/app/passport/publishing/canonical.go",
+    "admin/go-admin/app/passport/publishing/media.go",
+    "admin/go-admin/app/passport/publishing/publishing_test.go",
+    "admin/go-admin/app/passport/publishing/schema-1.0.json",
+    "admin/go-admin/app/passport/publishing/schema.go",
+    "admin/go-admin/app/passport/publishing/semantics.go",
+    "admin/go-admin/app/passport/publishing/storage.go",
+    "admin/go-admin/app/passport/service/publish.go",
+    "admin/go-admin/app/passport/service/publish_test.go",
+    "admin/go-admin/app/passport/service/review_assets.go",
+    "admin/go-admin/cmd/migrate/migration/version/1789171200000_publish_engine.go",
+    "admin/go-admin/cmd/migrate/migration/version/1789171200000_publish_engine.sql"
+  ],
+  "local_scope": {
+    "server_connection": false,
+    "caddy_changed": false,
+    "directus_changed": false,
+    "production_docker_changed": false,
+    "production_qr_generated": false,
+    "t10_started": false,
+    "t11_started": false,
+    "method": "Reviewed task execution scope; all service endpoints bound to localhost."
+  },
+  "known_tooling_limitations": [
+    {
+      "check": "upstream pnpm check:api",
+      "status": "KNOWN_BASELINE_LIMITATION",
+      "errors": 4,
+      "reason": "Upstream heuristic does not resolve app/passport and its custom DTOs; same four T8 findings. T9 business-specific contracts pass.",
+      "evidence": "runtime/t9/logs/upstream-api-contract.log"
+    },
+    {
+      "check": "pnpm lint",
+      "errors": 0,
+      "warnings": 30,
+      "reason": "Existing upstream component-name warnings"
+    }
+  ],
+  "implementation_limits": [
+    "PNG/JPEG normalized to PNG only; WebP/PDF/certification management not opened",
+    "Local runtime only; no production resource/durability certification",
+    "Explicit reconcile and manual retained-tmp cleanup; no automatic orphan deletion",
+    "switched_at is confirmation observation, audit marks reconstructed",
+    "Manifest version is encoded in snapshot_path; newer local test manifests also have explicit version_number",
+    "Full T10 Published-to-Draft/version compare/rollback and T11 public pages/QR are excluded"
+  ],
+  "all_local_services_stopped": true,
+  "answers": [
+    {
+      "number": 1,
+      "answer": "是，仅当前已批准、未锁定的 ready_for_publish；服务端重验全部关联。"
+    },
+    {
+      "number": 2,
+      "answer": "是，409。"
+    },
+    {
+      "number": 3,
+      "answer": "是，409。"
+    },
+    {
+      "number": 4,
+      "answer": "是，只读冻结 Approved Candidate；不读最新工作数据生成内容。"
+    },
+    {
+      "number": 5,
+      "answer": "是，重算候选原字节 SHA-256 并比较所有提交元数据。"
+    },
+    {
+      "number": 6,
+      "answer": "是，独立 publishing.Build。"
+    },
+    {
+      "number": 7,
+      "answer": "是，公开字段显式映射，ORM 模型不直接序列化到公开 JSON。"
+    },
+    {
+      "number": 8,
+      "answer": "是，闭合 DTO 映射及 additionalProperties:false 校验。"
+    },
+    {
+      "number": 9,
+      "answer": "是，内部备注、ID、存储键及未公开数据通过字节扫描验证无泄漏。"
+    },
+    {
+      "number": 10,
+      "answer": "是。"
+    },
+    {
+      "number": 11,
+      "answer": "1.0；未改变公开结构。"
+    },
+    {
+      "number": 12,
+      "answer": "是，固定编码和排序，含 Unicode/转义测试向量。"
+    },
+    {
+      "number": 13,
+      "answer": "是，重读实际落盘字节计算。"
+    },
+    {
+      "number": 14,
+      "answer": "是，SHA-256。"
+    },
+    {
+      "number": 15,
+      "answer": "是，真实创建并由 DB/文件/UI 验证。"
+    },
+    {
+      "number": 16,
+      "answer": "是，既有 batch_id + version_number UNIQUE 保留。"
+    },
+    {
+      "number": 17,
+      "answer": "是，发布后修订、关联资产、成功记录由 DB 触发器冻结。"
+    },
+    {
+      "number": 18,
+      "answer": "是，V2/V3 使用新路径，V1 原字节保留。"
+    },
+    {
+      "number": 19,
+      "answer": "是，规范化后的 PNG 内容寻址副本，不链接私有原图。"
+    },
+    {
+      "number": 20,
+      "answer": "是，替换/删除私有源图不改变已发布副本。"
+    },
+    {
+      "number": 21,
+      "answer": "是，PublishedAsset.sha256。"
+    },
+    {
+      "number": 22,
+      "answer": "是，规范化输出冻结前后相同；另记录原图 source_asset_sha256。"
+    },
+    {
+      "number": 23,
+      "answer": "是，当前 PNG/JPEG 源图；输出 PNG，其他类型 fail closed。"
+    },
+    {
+      "number": 24,
+      "answer": "是，单源/输出 2 MiB，16 关联，宽高 4096/1600 万像素，候选总计 4 MiB。"
+    },
+    {
+      "number": 25,
+      "answer": "是，双重公开资格和公开所有者过滤。"
+    },
+    {
+      "number": 26,
+      "answer": "是。"
+    },
+    {
+      "number": 27,
+      "answer": "是。"
+    },
+    {
+      "number": 28,
+      "answer": "是。"
+    },
+    {
+      "number": 29,
+      "answer": "是，私有 releases/manifests 下。"
+    },
+    {
+      "number": 30,
+      "answer": "是，版本由 snapshot_path 的 vN 表达，新构建同时有 version_number；清单含三个 Hash 及完整关联。"
+    },
+    {
+      "number": 31,
+      "answer": "是，私有 tmp/<record_id> 写入并 fsync。"
+    },
+    {
+      "number": 32,
+      "answer": "是，Schema、语义、文件、资产及 Manifest 校验后切换。"
+    },
+    {
+      "number": 33,
+      "answer": "是，同文件系统完整文件 Rename 原子替换唯一 Current。"
+    },
+    {
+      "number": 34,
+      "answer": "是，切换前故障旧 Current 字节不变。"
+    },
+    {
+      "number": 35,
+      "answer": "是，含第 1/第 2 张图片故障与旧版本验证。"
+    },
+    {
+      "number": 36,
+      "answer": "是。"
+    },
+    {
+      "number": 37,
+      "answer": "是，rename 前故障旧 Current 不变；rename 后故障进入待对账，不能笼统称旧 Current 不变。"
+    },
+    {
+      "number": 38,
+      "answer": "是，终态失败记录不可删除。"
+    },
+    {
+      "number": 39,
+      "answer": "是，关联审核、修订、资产、Hash、发布人、时间、审计完整。"
+    },
+    {
+      "number": 40,
+      "answer": "是，最终 DB 事务确认成功才设置 Published/current。"
+    },
+    {
+      "number": 41,
+      "answer": "是，切换前失败保留原批准。"
+    },
+    {
+      "number": 42,
+      "answer": "是，切换前失败可重试；待对账必须先恢复原操作。"
+    },
+    {
+      "number": 43,
+      "answer": "是，新幂等键创建新尝试并分配新版本号；旧号不复用。"
+    },
+    {
+      "number": 44,
+      "answer": "是，新增成功修订部分唯一索引。"
+    },
+    {
+      "number": 45,
+      "answer": "是，OS 每批次锁 + DB 活动记录/唯一约束。"
+    },
+    {
+      "number": 46,
+      "answer": "是，跨批次并发构建，SQLite 短事务写入仍串行。"
+    },
+    {
+      "number": 47,
+      "answer": "是，前端 busy、幂等键、后端互斥同时保护。"
+    },
+    {
+      "number": 48,
+      "answer": "是。"
+    },
+    {
+      "number": 49,
+      "answer": "是，403。"
+    },
+    {
+      "number": 50,
+      "answer": "是，当前 Reviewer 策略为 403。"
+    },
+    {
+      "number": 51,
+      "answer": "是，403。"
+    },
+    {
+      "number": 52,
+      "answer": "是，401。"
+    },
+    {
+      "number": 53,
+      "answer": "是，编码白名单、固定生成路径及 os.Root 限定访问。"
+    },
+    {
+      "number": 54,
+      "answer": "是，根与组件符号链接拒绝；真实越界源图验证失败。"
+    },
+    {
+      "number": 55,
+      "answer": "是，本地根由验收用户控制，私有目录/文件受限，公开文件 0644，无任意上传或执行入口。"
+    },
+    {
+      "number": 56,
+      "answer": "是，显式 Admin reconcile，持锁根据新/旧/未知 Current Hash 对账。"
+    },
+    {
+      "number": 57,
+      "answer": "是，保留私有 tmp；仅经 DB 状态/引用/锁和保留期核对后手动清理，不删除历史成功版本或共享 CAS。"
+    },
+    {
+      "number": 58,
+      "answer": "是，实际停止并重启后的业务行及文件逐项一致。"
+    },
+    {
+      "number": 59,
+      "answer": "是，空库迁移后角色、产品、版本、模块、批次、检测、审核、发布全链路通过。"
+    },
+    {
+      "number": 60,
+      "answer": "是。"
+    },
+    {
+      "number": 61,
+      "answer": "是，无异常。"
+    },
+    {
+      "number": 62,
+      "answer": "是，所有已封版 JSON 共 50 份（其中成功 48 份）实际字节复验一致。"
+    },
+    {
+      "number": 63,
+      "answer": "是，PublishedAsset 表中全部 45 行所指字节复验一致（含 2 个失败 prepared 修订的诊断资产行）。"
+    },
+    {
+      "number": 64,
+      "answer": "是，DB、清单、JSON 引用和落盘文件一致。"
+    },
+    {
+      "number": 65,
+      "answer": "是，增加两列审核来源关联及约束。"
+    },
+    {
+      "number": 66,
+      "answer": "是，仅新增 1789171200000_publish_engine.go/.sql。"
+    },
+    {
+      "number": 67,
+      "answer": "No；T4–T8 历史迁移未修改。"
+    },
+    {
+      "number": 68,
+      "answer": "是，追加 T9 实施、原子切换、恢复与清理边界。"
+    },
+    {
+      "number": 69,
+      "answer": "公开 Schema JSON 未改；补充固定编码、校验器和本轮资产子集说明。"
+    },
+    {
+      "number": 70,
+      "answer": "是，仅既有的两个 UI locale 总入口；后端 tracked 文件无改动。"
+    },
+    {
+      "number": 71,
+      "answer": "admin/go-admin-ui/src/lang/en-US/index.ts 与 src/lang/zh-CN/index.ts；本轮增加 publication 导入和注册。"
+    },
+    {
+      "number": 72,
+      "answer": "是，53/53 一致。"
+    },
+    {
+      "number": 73,
+      "answer": "是，7/7 未变。"
+    },
+    {
+      "number": 74,
+      "answer": "No。"
+    },
+    {
+      "number": 75,
+      "answer": "No。"
+    },
+    {
+      "number": 76,
+      "answer": "No。"
+    },
+    {
+      "number": 77,
+      "answer": "No。"
+    },
+    {
+      "number": 78,
+      "answer": "No。"
+    },
+    {
+      "number": 79,
+      "answer": "No；也未进入 T11。"
+    }
+  ]
+}

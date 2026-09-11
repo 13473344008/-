@@ -1,0 +1,20 @@
+export default {
+  'message1': '数字身份证预览与稳定链接',
+  'message2': '内部预览仅使用已保存内容。',
+  'message3': '预览草稿',
+  'message4': '冻结审核记录',
+  'message5': '预览审核快照',
+  'message6': '请配置有效公开站点 Base URL',
+  'message7': '稳定 QR 目标：',
+  'message8': 'Current 更新不改变此 URL；这里不生成二维码文件。',
+  'message9': '仅限本地测试，不能用于生产印刷',
+  'message10': '复制稳定 URL',
+  'message11': '查看正式公开页',
+  'message12': '历史版本',
+  'message13': '打开历史版本',
+  'message14': '复制版本 URL',
+  'message15': '内部预览 — 未发布',
+  'message16': '预览内容无法安全显示',
+  'message17': 'URL 已复制',
+  'message18': '无法访问剪贴板，请手动复制显示的 URL'
+}

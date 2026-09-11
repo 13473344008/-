@@ -1,0 +1,34 @@
+const { chromium, expect } = require('../go-admin-ui/node_modules/@playwright/test');
+const fs = require('fs'), path = require('path');
+const rt = path.resolve(__dirname, '../../runtime/t5');
+(async()=>{
+ const browser = await chromium.launch({executablePath:'/Users/lostar/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing',headless:true});
+ const page=await browser.newPage({viewport:{width:1440,height:1100}});const checks=[],errors=[];let authorization;
+ page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(r.url().startsWith('http://127.0.0.1:18095')&&r.headers().authorization)authorization=r.headers().authorization});
+ await page.route('**/*',route=>{const u=new URL(route.request().url());return ['127.0.0.1','localhost'].includes(u.hostname)||['data:','blob:'].includes(u.protocol)?route.continue():route.abort()});
+ const check=(name,v=true)=>{checks.push({name,status:v?'PASS':'FAIL',time:new Date().toISOString()});if(!v)throw Error(name)};
+ const settle=()=>page.waitForLoadState('networkidle');
+ const clickSave=async(id,fragment)=>{const response=page.waitForResponse(r=>r.url().includes(fragment)&&r.request().method()==='PUT');await page.getByTestId(id).click();const x=await(await response).json();check(id+' API result',x.code===200);await settle()};
+ try {
+ await page.goto('http://127.0.0.1:19528/#/login',{waitUntil:'networkidle'});check('Login page opens',await page.locator('input[name=username]').isVisible());const cred=JSON.parse(fs.readFileSync(rt+'/credentials.json'));
+ await page.locator('input[name=username]').fill(cred.admin_username);await page.locator('input[name=password]').fill(cred.admin_password);for(const el of await page.locator('input').all()){const n=await el.getAttribute('name');if(!['username','password'].includes(n)&&await el.isVisible())await el.fill('0')};await page.locator('button.submit-btn').click();await page.waitForURL(u=>u.hash.includes('/dashboard'));await settle();check('Browser JWT login');
+ await page.getByText('产品数字身份证',{exact:true}).click();await page.getByText('产品模板',{exact:true}).click();await page.getByTestId('create-product').waitFor();check('Products menu and live list opens');await page.screenshot({path:rt+'/test-artifacts/browser-list.png'});
+ await page.getByTestId('create-product').click();await page.getByTestId('new-code').fill('PF-T5-BROWSER-TEST-'+Date.now());await page.getByTestId('new-name').fill('Potato Flakes T5 Browser — TEST RECORD — NOT FOR COMMERCIAL USE');await page.getByTestId('confirm-create').click();await page.getByTestId('selected-revision').waitFor();await settle();check('Create product with initial R1',await page.getByTestId('selected-revision').innerText().then(x=>x.includes('R1')));
+ await page.getByTestId('package_quantity').fill('25');await clickSave('save-content','/revisions/');check('Draft structured content persists',await page.getByTestId('package_quantity').inputValue()==='25');
+ await page.getByTestId('translation-approved').click();await clickSave('save-translation','/translations');
+ await page.getByRole('tab',{name:'简体中文',exact:true}).click();await page.getByTestId('translation-name').fill('T5 浏览器测试马铃薯雪花片 — TEST RECORD — NOT FOR COMMERCIAL USE');await page.getByTestId('translation-approved').click();await clickSave('save-translation','/translations');check('Two languages edited through UI');
+ await page.getByTestId('clone-revision').click();await expect(page.getByTestId('selected-revision')).toContainText('R2');await settle();check('New R2 draft opens',(await page.getByTestId('selected-revision').innerText()).includes('R2'));check('History contains R1 and R2',await page.getByTestId('view-r1').isVisible()&&await page.getByTestId('view-r2').isVisible());
+ await page.getByTestId('package_quantity').fill('20');await clickSave('save-content','/revisions/');await page.getByTestId('view-r1').click();check('R2 edit leaves R1 unchanged',await page.getByTestId('package_quantity').inputValue()==='25');
+ await page.getByTestId('seal-revision').click();await page.locator('.el-message-box__btns .el-button--primary').click();await expect(page.getByTestId('selected-revision')).toContainText('已封版');await settle();check('R1 sealed in UI',(await page.getByTestId('selected-revision').innerText()).includes('已封版'));check('Frozen fields and save disabled',await page.getByTestId('package_quantity').isDisabled()&&await page.getByTestId('save-content').isDisabled()&&await page.getByTestId('save-translation').isDisabled());
+ 
+ const id=new URLSearchParams(page.url().split('?')[1]).get('product');const get=await page.request.get('http://127.0.0.1:18095/api/v1/passport-products/'+id,{headers:{Authorization:authorization}});const data=(await get.json()).data;const r1=data.revisions.find(r=>r.revision_number===1);
+ const denied=await page.request.put(`http://127.0.0.1:18095/api/v1/passport-products/${id}/revisions/${r1.id}`,{headers:{Authorization:authorization},data:{expected_token:r1.token,content:{source_language:'en',process_steps:[],package_quantity:'999'}}});check('Direct HTTP frozen edit rejected from browser session',(await denied.json()).code===409);
+ await page.getByTestId('set-default').click();await expect(page.getByTestId('set-default')).toBeDisabled();await settle();await page.reload({waitUntil:'networkidle'});await page.getByTestId('view-r1').click();check('Default remains after browser refresh',await page.getByTestId('set-default').isDisabled()&&(await page.getByTestId('revision-history').innerText()).includes('★'));check('R1 content remains frozen',await page.getByTestId('package_quantity').inputValue()==='25');
+ await page.getByRole('tab',{name:'العربية',exact:true}).click();check('Arabic input form uses RTL',await page.getByTestId('translation-name').evaluate(e=>e.closest('form').dir)==='rtl');
+ await page.screenshot({path:rt+'/test-artifacts/browser-frozen.png',fullPage:true});
+ // Page may be long, but the two-column form and history remain within a laptop viewport.
+ await page.setViewportSize({width:1280,height:900});check('1280px no document horizontal overflow',await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth));await page.screenshot({path:rt+'/test-artifacts/browser-1280.png'});
+ check('No uncaught browser errors',errors.length===0);fs.writeFileSync(rt+'/test-artifacts/browser-fixtures.json',JSON.stringify({product:id,r1:r1.id},null,2));
+ }catch(e){checks.push({name:'Browser harness completion',status:'FAIL',error:e.message});await page.screenshot({path:rt+'/test-artifacts/browser-failure.png',fullPage:true});process.exitCode=1}
+ finally{fs.writeFileSync(rt+'/test-artifacts/browser-tests.json',JSON.stringify({checks,errors},null,2));console.log(checks);await browser.close()}
+})();

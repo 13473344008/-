@@ -1,0 +1,9 @@
+T7_ROOT=/path/to/ID
+export PATH="$T7_ROOT/runtime/t4/tools/go/bin:$T7_ROOT/runtime/t4/tools/pnpm/node_modules/.bin:$PATH"
+export GOPATH="$T7_ROOT/runtime/t7/gopath"
+export GOMODCACHE="$T7_ROOT/runtime/t4/gomodcache"
+export GOCACHE="$T7_ROOT/runtime/t7/cache/go"
+export GOTOOLCHAIN=local
+export CGO_ENABLED=1
+export GOPROXY=https://goproxy.cn,direct
+export GOSUMDB=sum.golang.org

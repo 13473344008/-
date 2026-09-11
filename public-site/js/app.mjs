@@ -1,0 +1,10 @@
+import {validatePayload,parseRoute} from './schema.mjs';
+import {renderPassport,renderError} from './render.mjs';
+import {languages} from './i18n.mjs';
+const container=document.querySelector('#passport'),selector=document.querySelector('#language');
+let payload=null,language=new URL(location.href).searchParams.get('lang')||'en';if(!languages.includes(language))language='en';selector.value=language;
+async function read(path,signal,cache){const r=await fetch(path,{signal,credentials:'omit',cache});if(!r.ok)throw Error(r.status===404?'not_found':'unavailable');if(!r.headers.get('content-type')?.includes('application/json'))throw Error('invalid_payload');const bytes=await r.arrayBuffer();if(bytes.byteLength>1048576)throw Error('invalid_payload');const raw=new TextDecoder('utf-8',{fatal:true}).decode(bytes);if(new TextEncoder().encode(raw).length>1048576)throw Error('invalid_payload');return raw;}
+function display(){document.documentElement.lang=language;document.documentElement.dir=language==='ar'?'rtl':'ltr';const p=renderPassport(container,payload,{language});document.title=p.product.name+' · '+p.batch.code;}
+async function load(){const control=new AbortController(),timeout=setTimeout(()=>control.abort(),8000);container.setAttribute('aria-busy','true');try{const route=parseRoute(location.pathname);let raw=await read(route.version?`/versions/${route.code}/v${route.version}.json`:`/published/${route.code}.json`,control.signal,route.version?'default':'no-cache');let p=validatePayload(JSON.parse(raw));if(p.batch.code!==route.code||(route.version&&String(p.publication.version_number)!==route.version))throw Error('invalid_payload');if(!route.version){const frozen=await read(`/versions/${route.code}/v${p.publication.version_number}.json`,control.signal,'default');if(raw!==frozen)throw Error('invalid_payload');}payload=p;display();}catch(e){payload=null;renderError(container,e.message,load);}finally{clearTimeout(timeout);}}
+selector.addEventListener('change',()=>{language=selector.value;const u=new URL(location.href);u.searchParams.set('lang',language);history.replaceState(null,'',u);if(payload)display();});
+load();

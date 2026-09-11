@@ -1,0 +1,10 @@
+T9_ROOT=/path/to/ID
+export PATH="$T9_ROOT/runtime/t4/tools/go/bin:$T9_ROOT/runtime/t4/tools/pnpm/node_modules/.bin:$PATH"
+export GOPATH="$T9_ROOT/runtime/t9/gopath"
+export GOMODCACHE="$T9_ROOT/runtime/t4/gomodcache"
+export GOCACHE="$T9_ROOT/runtime/t9/cache/go"
+export GOTOOLCHAIN=local
+export CGO_ENABLED=1
+export PASSPORT_PUBLISH_ROOT="$T9_ROOT/runtime/t9/publish"
+export PASSPORT_PRIVATE_MEDIA_ROOT="$T9_ROOT/runtime/t9/private-media"
+export PASSPORT_RELEASE_WORK_ROOT="$T9_ROOT/runtime/t9/releases"

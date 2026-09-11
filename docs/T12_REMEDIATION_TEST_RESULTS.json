@@ -1,0 +1,4153 @@
+{
+  "phase": "T12 remediation",
+  "status": "awaiting_human_acceptance",
+  "first_result": {
+    "gates_pass": 83,
+    "gates_total": 95,
+    "tests_pass": 638,
+    "tests_fail": 3
+  },
+  "gates_pass": 95,
+  "gates_fail": 0,
+  "tests_pass": 1144,
+  "tests_fail": 0,
+  "categories": {
+    "Media Upload": "PASS",
+    "Media Association": "PASS",
+    "Published Asset E2E": "PASS",
+    "Published Batch Clone": "PASS",
+    "API Contract": "PASS",
+    "Failure Coverage": "PASS",
+    "Fresh E2E": "PASS",
+    "Review": "PASS",
+    "Publish": "PASS",
+    "Rollback": "PASS",
+    "Reconcile": "PASS",
+    "Backup / Restore": "PASS",
+    "Static Restore": "PASS",
+    "Backend Independence": "PASS",
+    "Integrity": "PASS",
+    "Regression": "PASS",
+    "Baseline Protection": "PASS"
+  },
+  "gates": [
+    {
+      "id": 1,
+      "name": "Fresh DB 从零建立。",
+      "status": "PASS",
+      "evidence": "environment.json; logs/migrate-first.log; migration-backup.json"
+    },
+    {
+      "id": 2,
+      "name": "所有 Migration 成功。",
+      "status": "PASS",
+      "evidence": "environment.json; logs/migrate-first.log; migration-backup.json"
+    },
+    {
+      "id": 3,
+      "name": "Migration 重复执行安全。",
+      "status": "PASS",
+      "evidence": "migration-backup.json; upgrade-check.json"
+    },
+    {
+      "id": 4,
+      "name": "四角色可用。",
+      "status": "PASS",
+      "evidence": "working.json; flow-pending.json; media-checks.json; media-workflow-checks.json; concurrency.json"
+    },
+    {
+      "id": 5,
+      "name": "RBAC 核心回归通过。",
+      "status": "PASS",
+      "evidence": "working.json; flow-pending.json; media-checks.json; media-workflow-checks.json; concurrency.json"
+    },
+    {
+      "id": 6,
+      "name": "Product 创建通过。",
+      "status": "PASS",
+      "evidence": "browser-create.json; flow-prepare.json; browser-upload-seal.json; browser-r2.json"
+    },
+    {
+      "id": 7,
+      "name": "Revision 创建通过。",
+      "status": "PASS",
+      "evidence": "browser-create.json; flow-prepare.json; browser-upload-seal.json; browser-r2.json"
+    },
+    {
+      "id": 8,
+      "name": "六语言通过。",
+      "status": "PASS",
+      "evidence": "browser-create.json; flow-prepare.json; browser-upload-seal.json; browser-r2.json"
+    },
+    {
+      "id": 9,
+      "name": "Custom Sections 四类型通过。",
+      "status": "PASS",
+      "evidence": "browser-create.json; flow-prepare.json; browser-upload-seal.json; browser-r2.json"
+    },
+    {
+      "id": 10,
+      "name": "Revision Seal 通过。",
+      "status": "PASS",
+      "evidence": "browser-create.json; flow-prepare.json; browser-upload-seal.json; browser-r2.json"
+    },
+    {
+      "id": 11,
+      "name": "Default Revision 通过。",
+      "status": "PASS",
+      "evidence": "browser-create.json; flow-prepare.json; browser-upload-seal.json; browser-r2.json"
+    },
+    {
+      "id": 12,
+      "name": "Batch 创建绑定正确 Revision。",
+      "status": "PASS",
+      "evidence": "browser-batch.json; browser-inspections.json; working.json; browser-submit.json"
+    },
+    {
+      "id": 13,
+      "name": "Override 通过。",
+      "status": "PASS",
+      "evidence": "browser-batch.json; browser-inspections.json; working.json; browser-submit.json"
+    },
+    {
+      "id": 14,
+      "name": "Inspection 动态模型通过。",
+      "status": "PASS",
+      "evidence": "browser-batch.json; browser-inspections.json; working.json; browser-submit.json"
+    },
+    {
+      "id": 15,
+      "name": "Batch Custom Sections 通过。",
+      "status": "PASS",
+      "evidence": "browser-batch.json; browser-inspections.json; working.json; browser-submit.json"
+    },
+    {
+      "id": 16,
+      "name": "Working Preview 正确。",
+      "status": "PASS",
+      "evidence": "browser-batch.json; browser-inspections.json; working.json; browser-submit.json"
+    },
+    {
+      "id": 17,
+      "name": "Submit 通过。",
+      "status": "PASS",
+      "evidence": "browser-submit.json; browser-reject.json; browser-adjust.json; browser-resubmit.json; browser-approve.json; v2-checks.json"
+    },
+    {
+      "id": 18,
+      "name": "Pending Lock 通过。",
+      "status": "PASS",
+      "evidence": "working.json; flow-pending.json; media-checks.json; media-workflow-checks.json; concurrency.json"
+    },
+    {
+      "id": 19,
+      "name": "Reject 通过。",
+      "status": "PASS",
+      "evidence": "browser-submit.json; browser-reject.json; browser-adjust.json; browser-resubmit.json; browser-approve.json; v2-checks.json"
+    },
+    {
+      "id": 20,
+      "name": "再次 Submit 保留历史。",
+      "status": "PASS",
+      "evidence": "browser-submit.json; browser-reject.json; browser-adjust.json; browser-resubmit.json; browser-approve.json; v2-checks.json"
+    },
+    {
+      "id": 21,
+      "name": "Approve 通过。",
+      "status": "PASS",
+      "evidence": "browser-submit.json; browser-reject.json; browser-adjust.json; browser-resubmit.json; browser-approve.json; v2-checks.json"
+    },
+    {
+      "id": 22,
+      "name": "Self Approval 阻止。",
+      "status": "PASS",
+      "evidence": "working.json; flow-pending.json; media-checks.json; media-workflow-checks.json; concurrency.json"
+    },
+    {
+      "id": 23,
+      "name": "Publish V1 通过。",
+      "status": "PASS",
+      "evidence": "browser-upload-seal.json; browser-publish.json; v1-checks.json; v2-prepare.json; final-verify.json"
+    },
+    {
+      "id": 24,
+      "name": "Public Payload 白名单正确。",
+      "status": "PASS",
+      "evidence": "final-verify.json; offline-verify.json"
+    },
+    {
+      "id": 25,
+      "name": "Published Assets 冻结正确。",
+      "status": "PASS",
+      "evidence": "browser-upload-seal.json; browser-publish.json; v1-checks.json; v2-prepare.json; final-verify.json"
+    },
+    {
+      "id": 26,
+      "name": "Stable URL 显示 V1。",
+      "status": "PASS",
+      "evidence": "public-browser-v1.json"
+    },
+    {
+      "id": 27,
+      "name": "History V1 正确。",
+      "status": "PASS",
+      "evidence": "public-browser-v1.json"
+    },
+    {
+      "id": 28,
+      "name": "六语言 Public 通过。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 29,
+      "name": "Public RTL 通过。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 30,
+      "name": "R2 Default 不改变旧 Batch。",
+      "status": "PASS",
+      "evidence": "v2-prepare.json"
+    },
+    {
+      "id": 31,
+      "name": "新 Batch 使用 R2。",
+      "status": "PASS",
+      "evidence": "v2-prepare.json"
+    },
+    {
+      "id": 32,
+      "name": "Clone Batch 规则正确。",
+      "status": "PASS",
+      "evidence": "browser-clone.json; clone-checks.json; media-workflow-checks.json; v3-checks.json"
+    },
+    {
+      "id": 33,
+      "name": "V2 测试发布通过。",
+      "status": "PASS",
+      "evidence": "browser-v2-edit.json; v2-checks.json; version-compare.json; public-browser-v2.json"
+    },
+    {
+      "id": 34,
+      "name": "V1/V2 历史独立。",
+      "status": "PASS",
+      "evidence": "browser-v2-edit.json; v2-checks.json; version-compare.json; public-browser-v2.json"
+    },
+    {
+      "id": 35,
+      "name": "Version Compare 正确。",
+      "status": "PASS",
+      "evidence": "browser-v2-edit.json; v2-checks.json; version-compare.json; public-browser-v2.json"
+    },
+    {
+      "id": 36,
+      "name": "Rollback 生成新 V3。",
+      "status": "PASS",
+      "evidence": "browser-rollback.json; v3-checks.json; main-history.json; browser-admin-pages.json"
+    },
+    {
+      "id": 37,
+      "name": "Rollback 不覆盖 V1/V2。",
+      "status": "PASS",
+      "evidence": "browser-rollback.json; v3-checks.json; main-history.json; browser-admin-pages.json"
+    },
+    {
+      "id": 38,
+      "name": "Stable URL 显示 V3。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 39,
+      "name": "Review History 完整。",
+      "status": "PASS",
+      "evidence": "browser-submit.json; browser-reject.json; browser-adjust.json; browser-resubmit.json; browser-approve.json; v2-checks.json"
+    },
+    {
+      "id": 40,
+      "name": "Publish History 完整。",
+      "status": "PASS",
+      "evidence": "browser-rollback.json; v3-checks.json; main-history.json; browser-admin-pages.json"
+    },
+    {
+      "id": 41,
+      "name": "Audit Timeline 完整。",
+      "status": "PASS",
+      "evidence": "browser-rollback.json; v3-checks.json; main-history.json; browser-admin-pages.json"
+    },
+    {
+      "id": 42,
+      "name": "V1/V2/V3 Integrity 全部 PASS。",
+      "status": "PASS",
+      "evidence": "browser-rollback.json; v3-checks.json; main-history.json; browser-admin-pages.json"
+    },
+    {
+      "id": 43,
+      "name": "Publish 前故障安全。",
+      "status": "PASS",
+      "evidence": "logs/ordinary-publish-faults.log; faults.json"
+    },
+    {
+      "id": 44,
+      "name": "Switch 前故障安全。",
+      "status": "PASS",
+      "evidence": "logs/ordinary-publish-faults.log; faults.json"
+    },
+    {
+      "id": 45,
+      "name": "Switch 后 DB Fail 正确进入 Reconcile。",
+      "status": "PASS",
+      "evidence": "db-failure.json; browser-reconcile.json; damage-checks.json"
+    },
+    {
+      "id": 46,
+      "name": "Reconcile 恢复一致。",
+      "status": "PASS",
+      "evidence": "db-failure.json; browser-reconcile.json; damage-checks.json"
+    },
+    {
+      "id": 47,
+      "name": "Reconcile 状态阻止 Publish。",
+      "status": "PASS",
+      "evidence": "db-failure.json; browser-reconcile.json; damage-checks.json"
+    },
+    {
+      "id": 48,
+      "name": "Reconcile 状态阻止 Rollback。",
+      "status": "PASS",
+      "evidence": "db-failure.json; browser-reconcile.json; damage-checks.json"
+    },
+    {
+      "id": 49,
+      "name": "损坏 JSON 被检测。",
+      "status": "PASS",
+      "evidence": "damage-checks.json; damage-details.json"
+    },
+    {
+      "id": 50,
+      "name": "损坏 Asset 被检测。",
+      "status": "PASS",
+      "evidence": "damage-checks.json; damage-details.json"
+    },
+    {
+      "id": 51,
+      "name": "损坏版本禁止 Rollback。",
+      "status": "PASS",
+      "evidence": "damage-checks.json; damage-details.json"
+    },
+    {
+      "id": 52,
+      "name": "关键并发测试通过。",
+      "status": "PASS",
+      "evidence": "concurrency.json; final-verify.json"
+    },
+    {
+      "id": 53,
+      "name": "无重复 Revision。",
+      "status": "PASS",
+      "evidence": "concurrency.json; final-verify.json"
+    },
+    {
+      "id": 54,
+      "name": "无重复 Batch Code。",
+      "status": "PASS",
+      "evidence": "concurrency.json; final-verify.json"
+    },
+    {
+      "id": 55,
+      "name": "无双重 Review。",
+      "status": "PASS",
+      "evidence": "concurrency.json; final-verify.json"
+    },
+    {
+      "id": 56,
+      "name": "无重复 Published Version。",
+      "status": "PASS",
+      "evidence": "concurrency.json; final-verify.json"
+    },
+    {
+      "id": 57,
+      "name": "Backup 成功。",
+      "status": "PASS",
+      "evidence": "backup-restore.json"
+    },
+    {
+      "id": 58,
+      "name": "Restore 成功。",
+      "status": "PASS",
+      "evidence": "backup-restore.json"
+    },
+    {
+      "id": 59,
+      "name": "Restore 数据完整。",
+      "status": "PASS",
+      "evidence": "backup-restore.json"
+    },
+    {
+      "id": 60,
+      "name": "Static Release Backup 成功。",
+      "status": "PASS",
+      "evidence": "backup-restore.json"
+    },
+    {
+      "id": 61,
+      "name": "Static Restore 后 Public 正常。",
+      "status": "PASS",
+      "evidence": "backup-restore.json; independence.json; restored-http.json; public-browser-stopped.json"
+    },
+    {
+      "id": 62,
+      "name": "Backend 停止 Public 正常。",
+      "status": "PASS",
+      "evidence": "backup-restore.json; independence.json; restored-http.json; public-browser-stopped.json"
+    },
+    {
+      "id": 63,
+      "name": "SQLite 不可访问 Public 正常。",
+      "status": "PASS",
+      "evidence": "backup-restore.json; independence.json; restored-http.json; public-browser-stopped.json"
+    },
+    {
+      "id": 64,
+      "name": "Nginx 重启 Public 正常。",
+      "status": "PASS",
+      "evidence": "backup-restore.json; independence.json; restored-http.json; public-browser-stopped.json"
+    },
+    {
+      "id": 65,
+      "name": "Current Cache 更新正确。",
+      "status": "PASS",
+      "evidence": "http-checks.json; restored-http.json; public-browser-v1.json; public-browser-v2.json; public-browser-full.json"
+    },
+    {
+      "id": 66,
+      "name": "Version/Asset Immutable Cache 正确。",
+      "status": "PASS",
+      "evidence": "http-checks.json; restored-http.json; public-browser-v1.json; public-browser-v2.json; public-browser-full.json"
+    },
+    {
+      "id": 67,
+      "name": "375px 通过。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 68,
+      "name": "390px 通过。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 69,
+      "name": "430px 通过。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 70,
+      "name": "1280px 通过。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 71,
+      "name": "1440px 通过。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 72,
+      "name": "Admin 关键页面回归通过。",
+      "status": "PASS",
+      "evidence": "browser-rollback.json; v3-checks.json; main-history.json; browser-admin-pages.json"
+    },
+    {
+      "id": 73,
+      "name": "Public Network 无 Admin API。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 74,
+      "name": "Public Network 无 JWT。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 75,
+      "name": "XSS 回归通过。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 76,
+      "name": "Path Traversal 回归通过。",
+      "status": "PASS",
+      "evidence": "http-checks.json; restored-http.json; public-browser-v1.json; public-browser-v2.json; public-browser-full.json"
+    },
+    {
+      "id": 77,
+      "name": "Symlink Escape 回归通过。",
+      "status": "PASS",
+      "evidence": "http-checks.json; restored-http.json; public-browser-v1.json; public-browser-v2.json; public-browser-full.json"
+    },
+    {
+      "id": 78,
+      "name": "Unknown Schema 安全失败。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 79,
+      "name": "Malformed JSON 安全失败。",
+      "status": "PASS",
+      "evidence": "public-browser-full.json; public-browser-stopped.json"
+    },
+    {
+      "id": 80,
+      "name": "integrity_check = ok。",
+      "status": "PASS",
+      "evidence": "final-verify.json; offline-verify.json"
+    },
+    {
+      "id": 81,
+      "name": "foreign_key_check 无异常。",
+      "status": "PASS",
+      "evidence": "final-verify.json; offline-verify.json"
+    },
+    {
+      "id": 82,
+      "name": "JSON Hash 全量一致。",
+      "status": "PASS",
+      "evidence": "final-verify.json; offline-verify.json"
+    },
+    {
+      "id": 83,
+      "name": "Asset Hash 全量一致。",
+      "status": "PASS",
+      "evidence": "final-verify.json; offline-verify.json"
+    },
+    {
+      "id": 84,
+      "name": "Manifest 全量一致。",
+      "status": "PASS",
+      "evidence": "final-verify.json; offline-verify.json"
+    },
+    {
+      "id": 85,
+      "name": "测试服务最终全部停止。",
+      "status": "PASS",
+      "evidence": "stopped.json"
+    },
+    {
+      "id": 86,
+      "name": "原基线保护通过。",
+      "status": "PASS",
+      "evidence": "final-verify.json; offline-verify.json"
+    },
+    {
+      "id": 87,
+      "name": "未连接服务器。",
+      "status": "PASS",
+      "evidence": "本轮仅 localhost 工具操作记录；无服务器/共享组件/生产QR操作；stopped.json"
+    },
+    {
+      "id": 88,
+      "name": "未修改 Caddy。",
+      "status": "PASS",
+      "evidence": "本轮仅 localhost 工具操作记录；无服务器/共享组件/生产QR操作；stopped.json"
+    },
+    {
+      "id": 89,
+      "name": "未修改 Directus。",
+      "status": "PASS",
+      "evidence": "本轮仅 localhost 工具操作记录；无服务器/共享组件/生产QR操作；stopped.json"
+    },
+    {
+      "id": 90,
+      "name": "未修改生产 Docker。",
+      "status": "PASS",
+      "evidence": "本轮仅 localhost 工具操作记录；无服务器/共享组件/生产QR操作；stopped.json"
+    },
+    {
+      "id": 91,
+      "name": "未生成生产正式二维码。",
+      "status": "PASS",
+      "evidence": "本轮仅 localhost 工具操作记录；无服务器/共享组件/生产QR操作；stopped.json"
+    },
+    {
+      "id": 92,
+      "name": "T13 部署前配置清单完成。",
+      "status": "PASS",
+      "evidence": "docs/T13_DEPLOYMENT_PRECHECK.md（历史设计清单）；本报告部署边界补充；未执行部署"
+    },
+    {
+      "id": 93,
+      "name": "T13 部署顺序完成。",
+      "status": "PASS",
+      "evidence": "docs/T13_DEPLOYMENT_PRECHECK.md（历史设计清单）；本报告部署边界补充；未执行部署"
+    },
+    {
+      "id": 94,
+      "name": "部署回退方案完成。",
+      "status": "PASS",
+      "evidence": "docs/T13_DEPLOYMENT_PRECHECK.md（历史设计清单）；本报告部署边界补充；未执行部署"
+    },
+    {
+      "id": 95,
+      "name": "未进入 T13。",
+      "status": "PASS",
+      "evidence": "本轮仅 localhost 工具操作记录；无服务器/共享组件/生产QR操作；stopped.json"
+    }
+  ],
+  "suites": [
+    {
+      "name": "flow-prepare",
+      "pass": 4,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Product and real R1 draft created",
+          "status": "PASS"
+        },
+        {
+          "name": "Six real translations coexist",
+          "status": "PASS"
+        },
+        {
+          "name": "Four section types stored",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh Draft ready for real UI media upload",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/flow-prepare.json"
+    },
+    {
+      "name": "browser-create",
+      "pass": 4,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login editor",
+          "status": "PASS"
+        },
+        {
+          "name": "Real UI creates Product R1",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout editor",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-create.json"
+    },
+    {
+      "name": "browser-upload-seal",
+      "pass": 9,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login editor",
+          "status": "PASS"
+        },
+        {
+          "name": "Editor maintains revision through UI",
+          "status": "PASS"
+        },
+        {
+          "name": "Real Editor browser upload main.png",
+          "status": "PASS"
+        },
+        {
+          "name": "Real Editor browser upload gallery.jpg",
+          "status": "PASS"
+        },
+        {
+          "name": "Seal with actual images",
+          "status": "PASS"
+        },
+        {
+          "name": "Sealed upload controls absent",
+          "status": "PASS"
+        },
+        {
+          "name": "Set R1 default",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout editor",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-upload-seal.json"
+    },
+    {
+      "name": "browser-batch",
+      "pass": 4,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login editor",
+          "status": "PASS"
+        },
+        {
+          "name": "Real Batch creation and20kg override",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout editor",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-batch.json"
+    },
+    {
+      "name": "browser-inspections",
+      "pass": 5,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login editor",
+          "status": "PASS"
+        },
+        {
+          "name": "Five inspections entered through actual UI",
+          "status": "PASS"
+        },
+        {
+          "name": "Actual UI creates ready public Batch-only section",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout editor",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-inspections.json"
+    },
+    {
+      "name": "working",
+      "pass": 14,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Fresh Batch binds sealed R1",
+          "status": "PASS"
+        },
+        {
+          "name": "UI created five inspections",
+          "status": "PASS"
+        },
+        {
+          "name": "20kg override",
+          "status": "PASS"
+        },
+        {
+          "name": "Override reset restores25",
+          "status": "PASS"
+        },
+        {
+          "name": "Inheritance override hide batch-only",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer cannot change Batch",
+          "status": "PASS"
+        },
+        {
+          "name": "viewer cannot change Batch",
+          "status": "PASS"
+        },
+        {
+          "name": "editor cannot publish",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer cannot publish",
+          "status": "PASS"
+        },
+        {
+          "name": "viewer cannot publish",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied passport-batches/5918eb61-8d4f-42d4-82a1-1e3ab67bf947",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied passport-batches/5918eb61-8d4f-42d4-82a1-1e3ab67bf947/preview?kind=working",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied passport-batches/5918eb61-8d4f-42d4-82a1-1e3ab67bf947/publication/history",
+          "status": "PASS"
+        },
+        {
+          "name": "Working preview contains actual image assets",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/working.json"
+    },
+    {
+      "name": "flow-pending",
+      "pass": 8,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Submitted state pending_review",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending batch rejects edit",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending section rejects edit",
+          "status": "PASS"
+        },
+        {
+          "name": "Editor cannot approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer cannot decide",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject requires reason",
+          "status": "PASS"
+        },
+        {
+          "name": "No Passport allocated by Submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen review preview20",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/flow-pending.json"
+    },
+    {
+      "name": "browser-submit",
+      "pass": 5,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login editor",
+          "status": "PASS"
+        },
+        {
+          "name": "Working preview contains uploaded image",
+          "status": "PASS"
+        },
+        {
+          "name": "Real UI submit",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout editor",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-submit.json"
+    },
+    {
+      "name": "browser-reject",
+      "pass": 5,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login reviewer",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer frozen uploaded-image preview",
+          "status": "PASS"
+        },
+        {
+          "name": "Real UI reject",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout reviewer",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-reject.json"
+    },
+    {
+      "name": "browser-adjust",
+      "pass": 4,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login editor",
+          "status": "PASS"
+        },
+        {
+          "name": "Editor adjusts rejected statement through UI",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout editor",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-adjust.json"
+    },
+    {
+      "name": "browser-resubmit",
+      "pass": 5,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login editor",
+          "status": "PASS"
+        },
+        {
+          "name": "Working preview contains uploaded image",
+          "status": "PASS"
+        },
+        {
+          "name": "Real UI resubmit",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout editor",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-resubmit.json"
+    },
+    {
+      "name": "browser-approve",
+      "pass": 5,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login reviewer",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer frozen uploaded-image preview",
+          "status": "PASS"
+        },
+        {
+          "name": "Real UI approve",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout reviewer",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-approve.json"
+    },
+    {
+      "name": "browser-publish",
+      "pass": 4,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login admin",
+          "status": "PASS"
+        },
+        {
+          "name": "Real Admin UI publishes V1 with images",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout admin",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-publish.json"
+    },
+    {
+      "name": "v1-checks",
+      "pass": 3,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real UI V1 published",
+          "status": "PASS"
+        },
+        {
+          "name": "V1 two real uploaded images",
+          "status": "PASS"
+        },
+        {
+          "name": "PNG and JPEG normalized to PNG",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/v1-checks.json"
+    },
+    {
+      "name": "public-browser-v1",
+      "pass": 33,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Public v1 version 1",
+          "status": "PASS"
+        },
+        {
+          "name": "TEST notice visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Public v1 version 1",
+          "status": "PASS"
+        },
+        {
+          "name": "Language en",
+          "status": "PASS"
+        },
+        {
+          "name": "Language zh-CN",
+          "status": "PASS"
+        },
+        {
+          "name": "Language es",
+          "status": "PASS"
+        },
+        {
+          "name": "Language ar",
+          "status": "PASS"
+        },
+        {
+          "name": "Language fr",
+          "status": "PASS"
+        },
+        {
+          "name": "Language de",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered product",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered batch",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered raw_material",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered process",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered inspection",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered packaging",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered storage",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered manufacturer",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-text",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-key_value",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-table",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-asset_gallery",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered assets",
+          "status": "PASS"
+        },
+        {
+          "name": "Nine process steps",
+          "status": "PASS"
+        },
+        {
+          "name": "Five dynamic inspections",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 375",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 390",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 430",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 1280",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 1440",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen images load",
+          "status": "PASS"
+        },
+        {
+          "name": "Below-fold images lazy",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous network only static origin",
+          "status": "PASS"
+        },
+        {
+          "name": "No uncaught JS errors",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/public-browser-v1.json"
+    },
+    {
+      "name": "browser-clone",
+      "pass": 4,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login editor",
+          "status": "PASS"
+        },
+        {
+          "name": "Published source cloned through UI to new R1 Draft",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout editor",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-clone.json"
+    },
+    {
+      "name": "clone-checks",
+      "pass": 12,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Clone leaves Published source byte-for-byte unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone adds no source audit event",
+          "status": "PASS"
+        },
+        {
+          "name": "New Clone Draft keeps Product R1",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone dates reset",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone quality and review reset",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone five inspection structures preserved",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone all results cleared",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone no Passport or publishing",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone allowed override preserved",
+          "status": "PASS"
+        },
+        {
+          "name": "Draft clone supported",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer cannot clone Published",
+          "status": "PASS"
+        },
+        {
+          "name": "viewer cannot clone Published",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/clone-checks.json"
+    },
+    {
+      "name": "browser-r2",
+      "pass": 6,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login editor",
+          "status": "PASS"
+        },
+        {
+          "name": "Real UI clones R1 with working media",
+          "status": "PASS"
+        },
+        {
+          "name": "Real Editor browser upload replacement.png",
+          "status": "PASS"
+        },
+        {
+          "name": "R2 replacement image sealed and default",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout editor",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-r2.json"
+    },
+    {
+      "name": "v2-prepare",
+      "pass": 4,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "R2 sealed default",
+          "status": "PASS"
+        },
+        {
+          "name": "R2 default leaves main on R1",
+          "status": "PASS"
+        },
+        {
+          "name": "New Batch binds R2",
+          "status": "PASS"
+        },
+        {
+          "name": "R2 working image change leaves every V1 release file unchanged",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/v2-prepare.json"
+    },
+    {
+      "name": "browser-v2-edit",
+      "pass": 5,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login editor",
+          "status": "PASS"
+        },
+        {
+          "name": "Real Editor browser upload replacement.png",
+          "status": "PASS"
+        },
+        {
+          "name": "V2 actual UI overrides gallery with newly uploaded image",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout editor",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-v2-edit.json"
+    },
+    {
+      "name": "v2-checks",
+      "pass": 7,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real UI V2 published",
+          "status": "PASS"
+        },
+        {
+          "name": "V1 immutable JSON and assets unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "V2 actual images remain two",
+          "status": "PASS"
+        },
+        {
+          "name": "V2 package22",
+          "status": "PASS"
+        },
+        {
+          "name": "Compare actual asset differences",
+          "status": "PASS"
+        },
+        {
+          "name": "Rejected review preserved exact reason",
+          "status": "PASS"
+        },
+        {
+          "name": "Four separate candidate attempts retained",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/v2-checks.json"
+    },
+    {
+      "name": "public-browser-v2",
+      "pass": 33,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Public v2 version 2",
+          "status": "PASS"
+        },
+        {
+          "name": "TEST notice visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Public v2 version 1",
+          "status": "PASS"
+        },
+        {
+          "name": "Language en",
+          "status": "PASS"
+        },
+        {
+          "name": "Language zh-CN",
+          "status": "PASS"
+        },
+        {
+          "name": "Language es",
+          "status": "PASS"
+        },
+        {
+          "name": "Language ar",
+          "status": "PASS"
+        },
+        {
+          "name": "Language fr",
+          "status": "PASS"
+        },
+        {
+          "name": "Language de",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered product",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered batch",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered raw_material",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered process",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered inspection",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered packaging",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered storage",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered manufacturer",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-text",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-key_value",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-table",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-asset_gallery",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered assets",
+          "status": "PASS"
+        },
+        {
+          "name": "Nine process steps",
+          "status": "PASS"
+        },
+        {
+          "name": "Five dynamic inspections",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 375",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 390",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 430",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 1280",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 1440",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen images load",
+          "status": "PASS"
+        },
+        {
+          "name": "Below-fold images lazy",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous network only static origin",
+          "status": "PASS"
+        },
+        {
+          "name": "No uncaught JS errors",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/public-browser-v2.json"
+    },
+    {
+      "name": "browser-rollback",
+      "pass": 5,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login admin",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin actual UI compares versions",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin actual UI rollback creates V3",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout admin",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-rollback.json"
+    },
+    {
+      "name": "v3-checks",
+      "pass": 8,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Rollback V3 new ID with V1 source",
+          "status": "PASS"
+        },
+        {
+          "name": "Rollback preserves all old immutable JSON and images",
+          "status": "PASS"
+        },
+        {
+          "name": "V1 full integrity with images",
+          "status": "PASS"
+        },
+        {
+          "name": "V2 full integrity with images",
+          "status": "PASS"
+        },
+        {
+          "name": "V3 full integrity with images",
+          "status": "PASS"
+        },
+        {
+          "name": "V1 V2 V3 retained",
+          "status": "PASS"
+        },
+        {
+          "name": "Rolled back Published clone Draft",
+          "status": "PASS"
+        },
+        {
+          "name": "Archived Clone explicitly rejected",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/v3-checks.json"
+    },
+    {
+      "name": "media-checks",
+      "pass": 23,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "PNG actual business upload",
+          "status": "PASS"
+        },
+        {
+          "name": "Media detail MIME SHA size dimensions",
+          "status": "PASS"
+        },
+        {
+          "name": "Media DTO excludes storage_key",
+          "status": "PASS"
+        },
+        {
+          "name": "Stale upload token rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer read image",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer upload forbidden",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer detach forbidden",
+          "status": "PASS"
+        },
+        {
+          "name": "viewer read image",
+          "status": "PASS"
+        },
+        {
+          "name": "viewer upload forbidden",
+          "status": "PASS"
+        },
+        {
+          "name": "viewer detach forbidden",
+          "status": "PASS"
+        },
+        {
+          "name": "bad-content rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "bad-extension rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "bad-mime rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "oversize rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Pixel limit rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Draft detach allowed and keeps source",
+          "status": "PASS"
+        },
+        {
+          "name": "Media audit failure returned",
+          "status": "PASS"
+        },
+        {
+          "name": "Failed upload has no partial DB or private file",
+          "status": "PASS"
+        },
+        {
+          "name": "Private JPEG uploads",
+          "status": "PASS"
+        },
+        {
+          "name": "Explicit nonpublic link saved",
+          "status": "PASS"
+        },
+        {
+          "name": "Sealed template upload denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Sealed template detach denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Cross owner gallery access denied",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/media-checks.json"
+    },
+    {
+      "name": "media-workflow-checks",
+      "pass": 13,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Batch Draft gallery upload persisted",
+          "status": "PASS"
+        },
+        {
+          "name": "Private gallery excluded from public candidate",
+          "status": "PASS"
+        },
+        {
+          "name": "pending_review media upload locked",
+          "status": "PASS"
+        },
+        {
+          "name": "pending_review media detach locked",
+          "status": "PASS"
+        },
+        {
+          "name": "pending_review clone rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Guard Reviewer approve",
+          "status": "PASS"
+        },
+        {
+          "name": "ready_for_publish media upload locked",
+          "status": "PASS"
+        },
+        {
+          "name": "ready_for_publish media detach locked",
+          "status": "PASS"
+        },
+        {
+          "name": "ready_for_publish clone rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Guard image candidate published",
+          "status": "PASS"
+        },
+        {
+          "name": "Published media locked",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone gets new working links to immutable media",
+          "status": "PASS"
+        },
+        {
+          "name": "Clone private flag preserved",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/media-workflow-checks.json"
+    },
+    {
+      "name": "contracts",
+      "pass": 8,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Generic contract full original suite now passes",
+          "status": "PASS"
+        },
+        {
+          "name": "Unknown Passport response field still fails",
+          "status": "PASS"
+        },
+        {
+          "name": "Unknown Passport query still fails",
+          "status": "PASS"
+        },
+        {
+          "name": "MediaItem client exact server response fields",
+          "status": "PASS"
+        },
+        {
+          "name": "Upload client uses all and only explicit multipart parameters",
+          "status": "PASS"
+        },
+        {
+          "name": "Media handlers multipart bound and body capped",
+          "status": "PASS"
+        },
+        {
+          "name": "New scoped media routes JWT live identity Casbin and data scope",
+          "status": "PASS"
+        },
+        {
+          "name": "Upload uses FormData without manual Content-Type",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/contracts.json"
+    },
+    {
+      "name": "fault-prepare",
+      "pass": 8,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "build real image candidate approved",
+          "status": "PASS"
+        },
+        {
+          "name": "write real image candidate approved",
+          "status": "PASS"
+        },
+        {
+          "name": "copy1 real image candidate approved",
+          "status": "PASS"
+        },
+        {
+          "name": "copy2 real image candidate approved",
+          "status": "PASS"
+        },
+        {
+          "name": "validation real image candidate approved",
+          "status": "PASS"
+        },
+        {
+          "name": "manifest real image candidate approved",
+          "status": "PASS"
+        },
+        {
+          "name": "rename real image candidate approved",
+          "status": "PASS"
+        },
+        {
+          "name": "finalize real image candidate approved",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/fault-prepare.json"
+    },
+    {
+      "name": "db-failure",
+      "pass": 8,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Fault main image formal upload",
+          "status": "PASS"
+        },
+        {
+          "name": "Fault gallery formal upload",
+          "status": "PASS"
+        },
+        {
+          "name": "Fault V1 with actual two images",
+          "status": "PASS"
+        },
+        {
+          "name": "Actual ordinary Publish SQLite failure",
+          "status": "PASS"
+        },
+        {
+          "name": "DB failure classified after file switch",
+          "status": "PASS"
+        },
+        {
+          "name": "DB Current still old",
+          "status": "PASS"
+        },
+        {
+          "name": "Recovery blocks new Publish",
+          "status": "PASS"
+        },
+        {
+          "name": "Recovery blocks Rollback",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/db-failure.json"
+    },
+    {
+      "name": "browser-reconcile",
+      "pass": 4,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Real login admin",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin actual UI reconciles original operation",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "Logout admin",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-reconcile.json"
+    },
+    {
+      "name": "damage-checks",
+      "pass": 15,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Browser Reconcile confirms original record",
+          "status": "PASS"
+        },
+        {
+          "name": "Reconcile clears active lock",
+          "status": "PASS"
+        },
+        {
+          "name": "Independent damage fixture has two assets",
+          "status": "PASS"
+        },
+        {
+          "name": "Corrupt JSON Verify fails",
+          "status": "PASS"
+        },
+        {
+          "name": "Corrupt JSON Rollback rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Corrupt JSON cannot change Current",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored JSON integrity verified",
+          "status": "PASS"
+        },
+        {
+          "name": "Corrupt Asset Verify fails",
+          "status": "PASS"
+        },
+        {
+          "name": "Corrupt Asset Rollback rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Corrupt Asset cannot change Current",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored Asset integrity verified",
+          "status": "PASS"
+        },
+        {
+          "name": "Corrupt Manifest Verify fails",
+          "status": "PASS"
+        },
+        {
+          "name": "Corrupt Manifest Rollback rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Corrupt Manifest cannot change Current",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored Manifest integrity verified",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/damage-checks.json"
+    },
+    {
+      "name": "concurrency",
+      "pass": 10,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Concurrent Revision numbers unique",
+          "status": "PASS"
+        },
+        {
+          "name": "Same Batch code one success",
+          "status": "PASS"
+        },
+        {
+          "name": "Concurrent Submit exactly one attempt",
+          "status": "PASS"
+        },
+        {
+          "name": "Concurrent Approve Reject exactly one decision",
+          "status": "PASS"
+        },
+        {
+          "name": "Race rejected candidate reapproved",
+          "status": "PASS"
+        },
+        {
+          "name": "Concurrent Publish exactly one success",
+          "status": "PASS"
+        },
+        {
+          "name": "Concurrent Rollback exactly one success",
+          "status": "PASS"
+        },
+        {
+          "name": "No duplicate Published versions",
+          "status": "PASS"
+        },
+        {
+          "name": "Combined EditorReviewer selfapproval denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Separate fault fixture real API publication",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/concurrency.json"
+    },
+    {
+      "name": "browser-admin-pages",
+      "pass": 10,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "admin actual login",
+          "status": "PASS"
+        },
+        {
+          "name": "Actual Admin page /passport/products?product=41b84043-2346-49a0-92b6-f2867346671b",
+          "status": "PASS"
+        },
+        {
+          "name": "Actual Admin page /passport/batches?batch=5918eb61-8d4f-42d4-82a1-1e3ab67bf947",
+          "status": "PASS"
+        },
+        {
+          "name": "Actual Admin page /passport/reviews?batch=5918eb61-8d4f-42d4-82a1-1e3ab67bf947",
+          "status": "PASS"
+        },
+        {
+          "name": "Published history V1 V2 V3 visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin Verify detail available",
+          "status": "PASS"
+        },
+        {
+          "name": "Publish History visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Audit timeline visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin no browser errors",
+          "status": "PASS"
+        },
+        {
+          "name": "admin logout",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/browser-admin-pages.json"
+    },
+    {
+      "name": "public-browser-full",
+      "pass": 46,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Public full version 3",
+          "status": "PASS"
+        },
+        {
+          "name": "TEST notice visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Language en",
+          "status": "PASS"
+        },
+        {
+          "name": "Language zh-CN",
+          "status": "PASS"
+        },
+        {
+          "name": "Language es",
+          "status": "PASS"
+        },
+        {
+          "name": "Language ar",
+          "status": "PASS"
+        },
+        {
+          "name": "Language fr",
+          "status": "PASS"
+        },
+        {
+          "name": "Language de",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered product",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered batch",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered raw_material",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered process",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered inspection",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered packaging",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered storage",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered manufacturer",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-text",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-key_value",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-table",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-asset_gallery",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered assets",
+          "status": "PASS"
+        },
+        {
+          "name": "Nine process steps",
+          "status": "PASS"
+        },
+        {
+          "name": "Five dynamic inspections",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 375",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 390",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 430",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 1280",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 1440",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen images load",
+          "status": "PASS"
+        },
+        {
+          "name": "Below-fold images lazy",
+          "status": "PASS"
+        },
+        {
+          "name": "Malformed JSON",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsupported schema",
+          "status": "PASS"
+        },
+        {
+          "name": "Current differs from immutable version",
+          "status": "PASS"
+        },
+        {
+          "name": "Dangerous asset rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Network failure finite error",
+          "status": "PASS"
+        },
+        {
+          "name": "Retry recovers",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing asset placeholder",
+          "status": "PASS"
+        },
+        {
+          "name": "DOM safe",
+          "status": "PASS"
+        },
+        {
+          "name": "DOM fallback",
+          "status": "PASS"
+        },
+        {
+          "name": "DOM clear",
+          "status": "PASS"
+        },
+        {
+          "name": "Nginx /b/NO-SUCH-TEST",
+          "status": "PASS"
+        },
+        {
+          "name": "Nginx /b/PF-T12-TEST-DRAFT",
+          "status": "PASS"
+        },
+        {
+          "name": "Nginx /b/PF-T12-TEST-001/v/99",
+          "status": "PASS"
+        },
+        {
+          "name": "Nginx /runtime/t12-fix/credentials.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous network only static origin",
+          "status": "PASS"
+        },
+        {
+          "name": "No uncaught JS errors",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/public-browser-full.json"
+    },
+    {
+      "name": "http-checks",
+      "pass": 28,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "HTTP traversal/restricted /b/../../etc/passwd",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /b/%2e%2e/%2e%2e/etc/passwd",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /b/%252e%252e",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /b/PF%2fTEST",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /b/PF\\TEST",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /b/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /private-media/a.png",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /versions/a.json",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /assets/no.png",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /products/PF-STD.json",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /batches/PF-TEST.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Current JSON MIME",
+          "status": "PASS"
+        },
+        {
+          "name": "Current revalidation",
+          "status": "PASS"
+        },
+        {
+          "name": "Immutable cache /versions/PF-T12-TEST-001/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "ETag 304 /versions/PF-T12-TEST-001/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Immutable cache /assets/sha256/a2/a27b3b48e45fe7c6a7fbbedb24d8e37b012c05d7a453a890c0f3dae6b9ca7d2a.png",
+          "status": "PASS"
+        },
+        {
+          "name": "ETag 304 /assets/sha256/a2/a27b3b48e45fe7c6a7fbbedb24d8e37b012c05d7a453a890c0f3dae6b9ca7d2a.png",
+          "status": "PASS"
+        },
+        {
+          "name": "Immutable cache /assets/sha256/7f/7f98d9cac2b119812651102f8b4d293a6dd74e5aef47020c85be206a05ee94a7.png",
+          "status": "PASS"
+        },
+        {
+          "name": "ETag 304 /assets/sha256/7f/7f98d9cac2b119812651102f8b4d293a6dd74e5aef47020c85be206a05ee94a7.png",
+          "status": "PASS"
+        },
+        {
+          "name": "HTML no-cache",
+          "status": "PASS"
+        },
+        {
+          "name": "CSP without unsafe-inline",
+          "status": "PASS"
+        },
+        {
+          "name": "frame ancestors none",
+          "status": "PASS"
+        },
+        {
+          "name": "nosniff",
+          "status": "PASS"
+        },
+        {
+          "name": "referrer policy",
+          "status": "PASS"
+        },
+        {
+          "name": "No indexing",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing JSON actual404",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing image actual404",
+          "status": "PASS"
+        },
+        {
+          "name": "Nginx symlink escape denied",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/http-checks.json"
+    },
+    {
+      "name": "static-checks",
+      "pass": 49,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "QR exact stable batch code",
+          "status": "PASS"
+        },
+        {
+          "name": "QR has no version or DB ID",
+          "status": "PASS"
+        },
+        {
+          "name": "Config alternate origin",
+          "status": "PASS"
+        },
+        {
+          "name": "Local explicitly allowed",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base http://example.invalid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://localhost",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://localhost.",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://127.0.0.2",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://[::1]",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://x.localhost",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://user:pw@example.invalid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://example.invalid/path",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://example.invalid?x=1",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base javascript:alert(1)",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"../test\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"../test\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"x/y\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"x/y\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"%2e%2e\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"%2e%2e\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"中文\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"中文\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"TEST\\n\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"TEST\\n\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"TEST?x=1\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"TEST?x=1\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"TEST#frag\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"TEST#frag\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"TEST\\\\x\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"TEST\\\\x\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"0\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"-1\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"01\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"1.2\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"1e2\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"9007199254740992\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"1\\n\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Real release schema",
+          "status": "PASS"
+        },
+        {
+          "name": "Historical parse exact",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject payload mutation 41",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject payload mutation 42",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject payload mutation 43",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsafe asset path rejected file:///etc/passwd",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsafe asset path rejected https://example.invalid/a.png",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsafe asset path rejected javascript:alert(1)",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsafe asset path rejected ../../secret",
+          "status": "PASS"
+        },
+        {
+          "name": "Public JS below 150 KiB",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/static-checks.json"
+    },
+    {
+      "name": "migration-backup",
+      "pass": 8,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Repeat Migration preserves all table rows",
+          "status": "PASS"
+        },
+        {
+          "name": "17 migrations applied",
+          "status": "PASS"
+        },
+        {
+          "name": "integrity_check ok",
+          "status": "PASS"
+        },
+        {
+          "name": "foreign_key_check empty",
+          "status": "PASS"
+        },
+        {
+          "name": "Working DB consistent backup matches source",
+          "status": "PASS"
+        },
+        {
+          "name": "Independent restored DB all tables match",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored integrity_check ok",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored FK clean",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/migration-backup.json"
+    },
+    {
+      "name": "upgrade-check",
+      "pass": 4,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Historical T12 copy upgrade preserves business table hashes",
+          "status": "PASS"
+        },
+        {
+          "name": "Original T12 database unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "Upgrade applies 17 migrations",
+          "status": "PASS"
+        },
+        {
+          "name": "Upgrade integrity FK clean",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/upgrade-check.json"
+    },
+    {
+      "name": "final-verify",
+      "pass": 145,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-001/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-001/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-001/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-BUILD/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-BUILD/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-BUILD/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-BUILD/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-BUILD/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-BUILD/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-WRITE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-WRITE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-WRITE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-WRITE/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-WRITE/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-WRITE/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-COPY1/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-COPY1/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-COPY1/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-COPY1/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-COPY1/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-COPY1/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-COPY2/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-COPY2/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-COPY2/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-COPY2/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-COPY2/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-COPY2/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-VALIDATION/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-VALIDATION/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-VALIDATION/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-VALIDATION/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-VALIDATION/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-VALIDATION/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-MANIFEST/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-MANIFEST/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-MANIFEST/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-MANIFEST/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-MANIFEST/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-MANIFEST/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-RENAME/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-RENAME/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-RENAME/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-RENAME/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-RENAME/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Failed prepared diagnostic not publicly listed versions/PF-T12-TEST-FAULT-RENAME/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-RENAME/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-RENAME/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-RENAME/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-FINALIZE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-FINALIZE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-FINALIZE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-FAULT-FINALIZE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-FAULT-FINALIZE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-FAULT-FINALIZE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-001/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-001/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-001/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-003/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-003/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-003/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-RACE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-RACE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-RACE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-RACE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-RACE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-RACE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/TEST-T12-FAULT-204552/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/TEST-T12-FAULT-204552/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/TEST-T12-FAULT-204552/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-001/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-001/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-001/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-DB-FAILURE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-DB-FAILURE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-DB-FAILURE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload bytes Hash versions/PF-T12-TEST-DB-FAILURE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Public whitelist versions/PF-T12-TEST-DB-FAILURE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Server full JSON asset Manifest integrity versions/PF-T12-TEST-DB-FAILURE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Nonempty Published Assets exercised",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes c5539e2d-4a11-4e83-b35a-1f994a90e22f",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes c280f6b9-1941-4afa-8463-ff22e08e20d1",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 077b2cd6-51bd-4e16-96a7-b6ded78395cd",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 225b4f42-17a9-4ab5-8d1b-7a266f92055c",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 66b6caab-f45e-4c1d-836c-d71a3afa688f",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 9fd51c7c-e0f2-4773-b37d-b408bdba6c47",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes aff47b86-4ca9-4eff-8e0f-eea4771d1f84",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes b68264b6-144c-451a-9608-8dc4a278a67f",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes f9c8ffed-b62c-4d60-ab0a-31a309b84069",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 662bf2f4-10f9-4eb4-8cd0-d4a993c88a06",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 7374832d-9872-4d03-8792-bf884f70271b",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes daee9a98-3226-4c49-b24a-ac22829ab479",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes dc3b5a1d-6cdf-4fbb-bd25-22fc78a6b6e9",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 1596ae77-4a37-4a69-8956-925d2415d047",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 859b6f05-9902-4ed5-a427-9ef027060509",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 5f986602-784d-41ed-b5ca-bc1fc5576bb0",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes f135b20f-4b2c-4769-b1cb-e1605d4e3740",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 3dd901fc-7d67-4e59-ad20-d7b0f9bd28f9",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 4872545a-a889-4cba-927a-cc831cd1f252",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 78f3b62e-a9a1-4923-b46f-dffb6c6db30b",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 12ebc8d3-cfdc-450f-a762-52af3783ffa7",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 9ab40976-6cac-49a4-b295-5268bfeaa0bd",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 5ff83b74-39b5-4133-a0ec-024ad64a7f08",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 20fb628d-ea2e-4d9e-88eb-9ce475e310f8",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes d1aef82b-b8f5-4b15-9904-099c42f58903",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes b46d5fb2-c4be-4371-a602-8e6fddd8a1d7",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 25adfc68-b6f4-4f71-bb8e-67023b7b4830",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 42c11b0f-10ee-4912-b796-113c0fbc4222",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes e78133b1-77c9-4a4f-8281-8004c01bc59b",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes cc6e3f40-8a1b-4efc-a4de-f3891c723186",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 7256d66e-666a-42e2-ac5b-c89b0febd829",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 88f4fbc5-d841-415c-b963-aef51ed1178b",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes f5d7e04f-7ce5-4c1e-94ad-a01688cac713",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 696d6d81-3b2f-466f-b084-4fce1619b997",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 3a1e9cdb-f991-4791-b0b7-730d68d5654b",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes da8f2d01-d114-4ea4-b722-db17cbee93fd",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes b25ca175-45a1-4683-a12f-0d7b840ba162",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes f9415cf1-a5f0-4be0-905e-3e88feabfb71",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 935511f1-ba8a-4188-aba6-7e00eb1a2fb1",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes fa54719f-ec2f-4301-bc2b-0732df71a1b4",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes ae01f38e-9512-46f3-9c82-a5dc9fedb419",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 8d8c033a-4702-4e22-9dca-137b2e493027",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 8cea315e-cdeb-4806-9cb8-de10e667fc91",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 832f4331-5078-4324-93b8-7b13b8e12c32",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 4dbdee0a-91e5-4e7c-965a-32f2845b2fe5",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset actual bytes 8832038c-e6bc-4f97-ae66-16436810bd19",
+          "status": "PASS"
+        },
+        {
+          "name": "Private working source SHA e6b1efcc-fb00-4490-a2f5-6806eed64b1b",
+          "status": "PASS"
+        },
+        {
+          "name": "Private working source SHA a808852e-bafb-4965-9401-ee3eb7aa938f",
+          "status": "PASS"
+        },
+        {
+          "name": "Private working source SHA e8c857ff-b6dc-4d6a-8db3-c73c9d4f0be5",
+          "status": "PASS"
+        },
+        {
+          "name": "Private working source SHA c2eb164e-1dfc-473d-b6a6-f5a300d6856f",
+          "status": "PASS"
+        },
+        {
+          "name": "Private working source SHA b447c978-55c2-4acf-b728-b0d4a78ae77e",
+          "status": "PASS"
+        },
+        {
+          "name": "Private working source SHA 7675d557-af04-4eea-9487-481a5c70aebf",
+          "status": "PASS"
+        },
+        {
+          "name": "Private working source SHA 89c3736e-a69b-4edd-b146-689f0babc069",
+          "status": "PASS"
+        },
+        {
+          "name": "Private working source SHA fe9feb7b-06a7-4759-96e9-3d7e072199a9",
+          "status": "PASS"
+        },
+        {
+          "name": "Private working source SHA 474c2e3c-dde3-4e6b-963e-36e0470159a8",
+          "status": "PASS"
+        },
+        {
+          "name": "Final integrity and FK",
+          "status": "PASS"
+        },
+        {
+          "name": "No active or recovery remains",
+          "status": "PASS"
+        },
+        {
+          "name": "No test fault trigger left",
+          "status": "PASS"
+        },
+        {
+          "name": "No duplicate product_revisions",
+          "status": "PASS"
+        },
+        {
+          "name": "No duplicate batches",
+          "status": "PASS"
+        },
+        {
+          "name": "No duplicate passport_revisions",
+          "status": "PASS"
+        },
+        {
+          "name": "No duplicate review_records",
+          "status": "PASS"
+        },
+        {
+          "name": "All 31854 historical protected files unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "53 baseline hashes unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "Original site seven files unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "Original T12 failed reports unchanged",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/final-verify.json"
+    },
+    {
+      "name": "offline-verify",
+      "pass": 69,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-001/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-001/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-BUILD/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-BUILD/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-BUILD/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-BUILD/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-WRITE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-WRITE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-WRITE/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-WRITE/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-COPY1/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-COPY1/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-COPY1/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-COPY1/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-COPY2/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-COPY2/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-COPY2/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-COPY2/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-VALIDATION/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-VALIDATION/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-VALIDATION/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-VALIDATION/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-MANIFEST/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-MANIFEST/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-MANIFEST/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-MANIFEST/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-RENAME/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-RENAME/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-RENAME/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-RENAME/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-RENAME/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-RENAME/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-FINALIZE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-FINALIZE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-FAULT-FINALIZE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-FAULT-FINALIZE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-001/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-001/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-003/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-003/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-RACE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-RACE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-RACE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-RACE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/TEST-T12-FAULT-204552/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/TEST-T12-FAULT-204552/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-001/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-001/v3.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-DB-FAILURE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-DB-FAILURE/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Exact Manifest all fields versions/PF-T12-TEST-DB-FAILURE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Payload Hash versions/PF-T12-TEST-DB-FAILURE/v2.json",
+          "status": "PASS"
+        },
+        {
+          "name": "SQLite final integrity",
+          "status": "PASS"
+        },
+        {
+          "name": "SQLite final FK",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB PF-T12-TEST-001",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB PF-T12-TEST-003",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB PF-T12-TEST-FAULT-BUILD",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB PF-T12-TEST-FAULT-WRITE",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB PF-T12-TEST-FAULT-COPY1",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB PF-T12-TEST-FAULT-COPY2",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB PF-T12-TEST-FAULT-VALIDATION",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB PF-T12-TEST-FAULT-MANIFEST",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB PF-T12-TEST-FAULT-RENAME",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB PF-T12-TEST-FAULT-FINALIZE",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB PF-T12-TEST-RACE",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB TEST-T12-FAULT-204552",
+          "status": "PASS"
+        },
+        {
+          "name": "Current matches confirmed DB PF-T12-TEST-DB-FAILURE",
+          "status": "PASS"
+        },
+        {
+          "name": "T4-T11 protection",
+          "status": "PASS"
+        },
+        {
+          "name": "53 baseline",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/offline-verify.json"
+    },
+    {
+      "name": "backup-restore",
+      "pass": 11,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Final DB Backup all tables identical",
+          "status": "PASS"
+        },
+        {
+          "name": "Independent restored.db all tables identical",
+          "status": "PASS"
+        },
+        {
+          "name": "Restore integrity and FK",
+          "status": "PASS"
+        },
+        {
+          "name": "Backup bytes publish",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored bytes publish",
+          "status": "PASS"
+        },
+        {
+          "name": "Backup bytes private-releases",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored bytes private-releases",
+          "status": "PASS"
+        },
+        {
+          "name": "Backup bytes private-media",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored bytes private-media",
+          "status": "PASS"
+        },
+        {
+          "name": "Backup bytes public-site",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored bytes public-site",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/backup-restore.json"
+    },
+    {
+      "name": "independence",
+      "pass": 4,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Stopped dependency port 18111",
+          "status": "PASS"
+        },
+        {
+          "name": "Stopped dependency port 19543",
+          "status": "PASS"
+        },
+        {
+          "name": "Stopped dependency port 19544",
+          "status": "PASS"
+        },
+        {
+          "name": "Configured SQLite file inaccessible",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/independence.json"
+    },
+    {
+      "name": "public-browser-stopped",
+      "pass": 33,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Public stopped version 3",
+          "status": "PASS"
+        },
+        {
+          "name": "TEST notice visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Public stopped version 1",
+          "status": "PASS"
+        },
+        {
+          "name": "Language en",
+          "status": "PASS"
+        },
+        {
+          "name": "Language zh-CN",
+          "status": "PASS"
+        },
+        {
+          "name": "Language es",
+          "status": "PASS"
+        },
+        {
+          "name": "Language ar",
+          "status": "PASS"
+        },
+        {
+          "name": "Language fr",
+          "status": "PASS"
+        },
+        {
+          "name": "Language de",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered product",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered batch",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered raw_material",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered process",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered inspection",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered packaging",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered storage",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered manufacturer",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-text",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-key_value",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-table",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-asset_gallery",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered assets",
+          "status": "PASS"
+        },
+        {
+          "name": "Nine process steps",
+          "status": "PASS"
+        },
+        {
+          "name": "Five dynamic inspections",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 375",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 390",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 430",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 1280",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 1440",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen images load",
+          "status": "PASS"
+        },
+        {
+          "name": "Below-fold images lazy",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous network only static origin",
+          "status": "PASS"
+        },
+        {
+          "name": "No uncaught JS errors",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/public-browser-stopped.json"
+    },
+    {
+      "name": "restored-http",
+      "pass": 23,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "SQLite configured path remains offline",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend UI unavailable 18111",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend UI unavailable 19543",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored historical V1",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored V1 image image_0d66476576b34dc786c7190e9ba36b32",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored image immutable image_0d66476576b34dc786c7190e9ba36b32",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored V1 image image_fc5861cf77604a2b9e79fa7b6bcf3855",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored image immutable image_fc5861cf77604a2b9e79fa7b6bcf3855",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored historical V2",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored V2 image image_fc5861cf77604a2b9e79fa7b6bcf3855",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored image immutable image_fc5861cf77604a2b9e79fa7b6bcf3855",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored V2 image image_fcb894e61716400284c0c031260da49c",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored image immutable image_fcb894e61716400284c0c031260da49c",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored historical V3",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored V3 image image_0d66476576b34dc786c7190e9ba36b32",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored image immutable image_0d66476576b34dc786c7190e9ba36b32",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored V3 image image_fc5861cf77604a2b9e79fa7b6bcf3855",
+          "status": "PASS"
+        },
+        {
+          "name": "Restored image immutable image_fc5861cf77604a2b9e79fa7b6bcf3855",
+          "status": "PASS"
+        },
+        {
+          "name": "Every restored CAS image reachable 56257b2c18d467f4678900d1ef9589a54ec6ce3afd40197f2a11f2390b92ec99.png",
+          "status": "PASS"
+        },
+        {
+          "name": "Every restored CAS image reachable 0e392ed94cebb1c27a8444428ea1c1bab9ab7fbfe59a3837f475d39c381a7de6.png",
+          "status": "PASS"
+        },
+        {
+          "name": "Every restored CAS image reachable a27b3b48e45fe7c6a7fbbedb24d8e37b012c05d7a453a890c0f3dae6b9ca7d2a.png",
+          "status": "PASS"
+        },
+        {
+          "name": "Every restored CAS image reachable 5ea50575c0ff1970c135d473cf5fe51fc0489fc7ac6a647055a62367e34e23cc.png",
+          "status": "PASS"
+        },
+        {
+          "name": "Every restored CAS image reachable 7f98d9cac2b119812651102f8b4d293a6dd74e5aef47020c85be206a05ee94a7.png",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/restored-http.json"
+    },
+    {
+      "name": "stopped",
+      "pass": 5,
+      "fail": 0,
+      "checks": [
+        {
+          "name": "Offline database restored original name and exact bytes",
+          "status": "PASS"
+        },
+        {
+          "name": "Final local port stopped 18111",
+          "status": "PASS"
+        },
+        {
+          "name": "Final local port stopped 18112",
+          "status": "PASS"
+        },
+        {
+          "name": "Final local port stopped 19543",
+          "status": "PASS"
+        },
+        {
+          "name": "Final local port stopped 19544",
+          "status": "PASS"
+        }
+      ],
+      "evidence": "runtime/t12-fix/test-artifacts/stopped.json"
+    },
+    {
+      "name": "core-regression",
+      "pass": 106,
+      "fail": 0,
+      "tests": [
+        "TestT6ResolverEdges/MultilingualBaseFixture",
+        "TestT6ResolverEdges/ApplicationRejectsCorruptDraftDefault",
+        "TestT6ResolverEdges/CreateEdgeBatch",
+        "TestT6ResolverEdges/OverrideMissingTranslationFallsBackToOverrideSource",
+        "TestT6ResolverEdges/OverrideOwnTranslationResolves",
+        "TestT6ResolverEdges/CloneCopiesTranslationButResetsApproval",
+        "TestT6ResolverEdges/ResetDeletesOverrideTranslations",
+        "TestT6ResolverEdges/UnopenedAssetOverridePreviewFailsClosed",
+        "TestT6ResolverEdges/ProcessSetAndClearAreWholeArray",
+        "TestT6Batches/CreateProductFixture",
+        "TestT6Batches/NoDefaultRejected",
+        "TestT6Batches/DraftDefaultRejectedByDB",
+        "TestT6Batches/SealAndSetDefault",
+        "TestT6Batches/CreateBindsSealedDefault",
+        "TestT6Batches/ListPaginationSearchProduct",
+        "TestT6Batches/DuplicateCodeBusiness409",
+        "TestT6Batches/InvalidBatchCodes",
+        "TestT6Batches/DatabaseUniqueCode",
+        "TestT6Batches/DatabaseBaseImmutable",
+        "TestT6Batches/DatabaseProductImmutable",
+        "TestT6Batches/CrossProductBaseRejected",
+        "TestT6Batches/ReferencedRevisionDeleteRejected",
+        "TestT6Batches/InheritResolver",
+        "TestT6Batches/SetOverrideResolver",
+        "TestT6Batches/ClearOverrideResolver",
+        "TestT6Batches/ResetDeletesOverrideRestoresBase",
+        "TestT6Batches/ForbiddenOverride_batch_code",
+        "TestT6Batches/ForbiddenOverride_product_id",
+        "TestT6Batches/ForbiddenOverride_base_product_revision_id",
+        "TestT6Batches/ForbiddenOverride_workflow_status",
+        "TestT6Batches/ForbiddenOverride_quality_status",
+        "TestT6Batches/ForbiddenOverride_created_by",
+        "TestT6Batches/ForbiddenOverride_product_name",
+        "TestT6Batches/ForbiddenOverride_unknown",
+        "TestT6Batches/ForbiddenOverride_product_image_asset",
+        "TestT6Batches/TypedOverrideValidation",
+        "TestT6Batches/DateValidationAndNullable",
+        "TestT6Batches/CreateDynamicInspection",
+        "TestT6Batches/UpdateInspectionPreservesIdentity",
+        "TestT6Batches/UnknownInspectionNoSchemaChange",
+        "TestT6Batches/TextInspectionAndAllStatuses",
+        "TestT6Batches/InspectionInvalidStatesAndValues",
+        "TestT6Batches/ExactDecimalComparison",
+        "TestT6Batches/DeleteDraftInspection",
+        "TestT6Batches/DuplicateInspectionCodeRejected",
+        "TestT6Batches/StaleEditVersionRejected",
+        "TestT6Batches/MissingChildListsRejected",
+        "TestT6Batches/CreateAuditFailureRollsBack",
+        "TestT6Batches/OverrideAuditFailureRollsBackWholeAggregate",
+        "TestT6Batches/CreateR2DefaultHistoricalBatchStable",
+        "TestT6Batches/ClonePreservesOverrideAndBase",
+        "TestT6Batches/CloneClearsProductionFacts",
+        "TestT6Batches/CloneCopiesDefinitionsNewIDs",
+        "TestT6Batches/CloneFailureRollsBack",
+        "TestT6Batches/ResetCloneOverride",
+        "TestT6Batches/PendingBatchApplicationFreeze",
+        "TestT6Batches/ConcurrentDifferentCodes",
+        "TestT6Batches/ConcurrentSameCodeOneSuccess",
+        "TestT6Batches/ConcurrentClonesNoDirtyCopies",
+        "TestT6Batches/AuditEventsAndAppendOnly",
+        "TestT6Batches/IntegrityAndForeignKeys",
+        "TestT5ProductTemplates/CreateProductRevisionTranslationTransaction",
+        "TestT5ProductTemplates/DuplicateProductCodeReadable",
+        "TestT5ProductTemplates/CodeValidation",
+        "TestT5ProductTemplates/RollbackOnTranslationDatabaseFailure",
+        "TestT5ProductTemplates/RollbackOnAuditFailure",
+        "TestT5ProductTemplates/DraftEditAndStaleWriteRejected",
+        "TestT5ProductTemplates/InvalidStructuredFieldsRejected",
+        "TestT5ProductTemplates/SixLanguageUpsert",
+        "TestT5ProductTemplates/LanguageAndStepLabelValidation",
+        "TestT5ProductTemplates/SealStoresHashAndMetadata",
+        "TestT5ProductTemplates/FrozenRevisionApplicationRejected",
+        "TestT5ProductTemplates/FrozenTranslationApplicationRejected",
+        "TestT5ProductTemplates/FrozenRawSQLRejected",
+        "TestT5ProductTemplates/SetSealedDefaultExplicitly",
+        "TestT5ProductTemplates/CloneIndependentIDsAndResetSystemFields",
+        "TestT5ProductTemplates/NewRevisionDoesNotSwitchDefault",
+        "TestT5ProductTemplates/NewRevisionEditsLeaveHistoryIntact",
+        "TestT5ProductTemplates/DraftDefaultRejected",
+        "TestT5ProductTemplates/SealRequiresConfirmedSourceLanguage",
+        "TestT5ProductTemplates/SwitchDefaultPreservesR1R2",
+        "TestT5ProductTemplates/ForeignProductRevisionRejected",
+        "TestT5ProductTemplates/ConcurrentRevisionNumbers",
+        "TestT5ProductTemplates/DatabaseUniqueLastDefense",
+        "TestT5ProductTemplates/ArchivePreservesHistoryAndBlocksWrites",
+        "TestT5ProductTemplates/AuditEventsInSameDatabase",
+        "TestT5ProductTemplates/IntegrityAndForeignKeys",
+        "TestT5ProductTemplates/ListSearchPaginationAndStatus",
+        "TestT7Validation/empty_text_is_explicit_content,_not_hide",
+        "TestT7Validation/normal_unicode",
+        "TestT7Validation/HTML_forbidden",
+        "TestT7Validation/nested_unknown",
+        "TestT7Validation/null_item",
+        "TestT7Validation/duplicate_keys",
+        "TestT7Validation/empty_table_columns",
+        "TestT7Validation/null_cell",
+        "TestT7Validation/null_content",
+        "TestT7Validation/trailing_object",
+        "TestT7Validation/JSON_title_injection",
+        "TestT7Validation/text_exact_limit",
+        "TestT7TransactionsAndCapacity/owner_capacity_100_and_reject_101",
+        "TestT7TransactionsAndCapacity/reorder_failure_rolls_all_rows_and_audit_back",
+        "TestT7TransactionsAndCapacity/clone_audit_failure_rolls_new_revision_and_sections_back",
+        "TestT7InheritDisabled/inherit",
+        "TestT7InheritDisabled/replace",
+        "TestT7InheritDisabled/hide"
+      ],
+      "evidence": "runtime/t12-fix/logs/core-regression.log"
+    },
+    {
+      "name": "ordinary-publish-faults",
+      "pass": 8,
+      "fail": 0,
+      "tests": [
+        "TestT12FixOrdinaryPublishFaultRecovery/build",
+        "TestT12FixOrdinaryPublishFaultRecovery/write",
+        "TestT12FixOrdinaryPublishFaultRecovery/copy1",
+        "TestT12FixOrdinaryPublishFaultRecovery/copy2",
+        "TestT12FixOrdinaryPublishFaultRecovery/validation",
+        "TestT12FixOrdinaryPublishFaultRecovery/manifest",
+        "TestT12FixOrdinaryPublishFaultRecovery/rename",
+        "TestT12FixOrdinaryPublishFaultRecovery/finalize"
+      ],
+      "evidence": "runtime/t12-fix/logs/ordinary-publish-faults.log"
+    },
+    {
+      "name": "UI unit (301 existing + 4 media)",
+      "pass": 305,
+      "fail": 0,
+      "evidence": "runtime/t12-fix/logs/ui-ci-retry.log"
+    },
+    {
+      "name": "Full CI lint/type/API/i18n",
+      "pass": 4,
+      "fail": 0,
+      "evidence": "runtime/t12-fix/logs/ui-ci-retry.log"
+    },
+    {
+      "name": "UI production build",
+      "pass": 1,
+      "fail": 0,
+      "evidence": "runtime/t12-fix/logs/ui-build.log"
+    }
+  ],
+  "original_failed_gates": [
+    {
+      "id": 25,
+      "original_reason": "正式媒体上传/关联入口不存在，本轮 MediaAsset/PublishedAsset 均为0；未用SQL图片夹具绕过。",
+      "remediation": "新增正式上传/关联入口，真实 PNG/JPEG 随 Candidate 规范化并冻结；替换 R2/V2 工作图片后旧文件全 Hash 不变。",
+      "final_status": "PASS",
+      "evidence": "browser-upload-seal.json; browser-publish.json; v1-checks.json; v2-prepare.json; final-verify.json"
+    },
+    {
+      "id": 32,
+      "original_reason": "按顺序从 Published 主批次 Clone，API409：仅允许编辑未锁定的 Draft 批次；PF-T12-TEST-003未建立。",
+      "remediation": "Clone 从 Draft 写操作改为受权限/版本控制的只读来源复制；允许 Draft/Published，新 Draft 重置状态/实测值，来源 Batch 全行与审计不变。",
+      "final_status": "PASS",
+      "evidence": "browser-clone.json; clone-checks.json; media-workflow-checks.json; v3-checks.json"
+    },
+    {
+      "id": 35,
+      "original_reason": "字段、检验与模块差异已验证，但没有实际图片变更，资产差异子项未覆盖。",
+      "remediation": "V2 通过 UI 覆盖 gallery 并上传新图片；API/UI Compare 出现实际 assets 差异。",
+      "final_status": "PASS",
+      "evidence": "browser-v2-edit.json; v2-checks.json; version-compare.json; public-browser-v2.json"
+    },
+    {
+      "id": 43,
+      "original_reason": "本轮注入了共用发布执行器的 Rollback build 故障；未单独覆盖普通 Publish 构建失败，不提升为完整通过。",
+      "remediation": "普通 Publishing.Publish 实测 build/write/copy:1/copy:2/validation/manifest/rename/finalize，断言注入点确实命中。",
+      "final_status": "PASS",
+      "evidence": "logs/ordinary-publish-faults.log; faults.json"
+    },
+    {
+      "id": 50,
+      "original_reason": "没有真实媒体输入，无法验证损坏 Published Asset。",
+      "remediation": "独立批次真实上传图片形成独立 CAS；损坏后 Verify 失败、Rollback 409、Current 不变，恢复后通过。",
+      "final_status": "PASS",
+      "evidence": "damage-checks.json; damage-details.json"
+    },
+    {
+      "id": 60,
+      "original_reason": "静态JSON、前端与私有Manifest已独立备份；图片备份缺少真实样本。",
+      "remediation": "备份真实 DB、私有源图片、公开 JSON/CAS 图片、Manifest 和前端，逐文件核对。",
+      "final_status": "PASS",
+      "evidence": "backup-restore.json"
+    },
+    {
+      "id": 61,
+      "original_reason": "静态恢复后的无图片页面已通过；图片恢复访问未验证。",
+      "remediation": "独立恢复目录经真实 Nginx 提供 V1/V2/V3 与所有恢复图片。",
+      "final_status": "PASS",
+      "evidence": "backup-restore.json; independence.json; restored-http.json; public-browser-stopped.json"
+    },
+    {
+      "id": 62,
+      "original_reason": "后台停止后的无图片页面通过；图片独立性未验证。",
+      "remediation": "后台/UI 进程停止后真实浏览器图片 naturalWidth>0，HTTP 字节与 Hash 正确。",
+      "final_status": "PASS",
+      "evidence": "backup-restore.json; independence.json; restored-http.json; public-browser-stopped.json"
+    },
+    {
+      "id": 63,
+      "original_reason": "SQLite路径不可访问时无图片页面通过；图片独立性未验证。",
+      "remediation": "配置 DB 主文件/WAL/SHM 移到 offline 名称，公开版本与图片仍可访问；最后恢复原名原字节。",
+      "final_status": "PASS",
+      "evidence": "backup-restore.json; independence.json; restored-http.json; public-browser-stopped.json"
+    },
+    {
+      "id": 64,
+      "original_reason": "Nginx重启及恢复根访问通过；图片子项未验证。",
+      "remediation": "独立 Nginx quit 后从恢复根重新启动，真实图片和页面验收通过。",
+      "final_status": "PASS",
+      "evidence": "backup-restore.json; independence.json; restored-http.json; public-browser-stopped.json"
+    },
+    {
+      "id": 66,
+      "original_reason": "Version immutable/ETag已通过；Asset immutable缺少实际图片响应。",
+      "remediation": "实际 Version/Asset 响应 immutable、ETag 304；恢复图片仍 immutable。",
+      "final_status": "PASS",
+      "evidence": "http-checks.json; restored-http.json; public-browser-v1.json; public-browser-v2.json; public-browser-full.json"
+    },
+    {
+      "id": 83,
+      "original_reason": "资产集合为空，不能以空集遍历声称全量 Asset Hash 验收通过。",
+      "remediation": "非空46条 Published Assets逐条校验 Hash/大小；9个私有媒体源逐条校验；全部Manifest确定编码一致。",
+      "final_status": "PASS",
+      "evidence": "final-verify.json; offline-verify.json"
+    }
+  ],
+  "answers": {
+    "1": "是。新增三个对象范围、九条带 JWT/LiveIdentity/Casbin/数据范围约束的媒体路由；只接收 PNG/JPEG。",
+    "2": "是。普通 Editor 在真实 Chromium 中上传主图 PNG、gallery JPEG，并在 R2/V2 上传替换图片。",
+    "3": "是。新库共9条 MediaAsset，全部通过正式上传 API 建立；含2条解除关联后保留的私有源。",
+    "4": "是。关联 ProductRevision 主图、Product gallery 与 Batch gallery；通过对象归属、Draft锁和乐观Token检查。",
+    "5": "是。Working/Review真实含图预览；提交冻结规范化图像及源Hash，Reviewer浏览器查看。",
+    "6": "是。实际产生46条 PublishedAsset记录；与工作关联隔离，封存后不可变。",
+    "7": "是。V1/V2/V3及恢复副本真实图片加载通过，PNG/JPEG均生成安全PNG公开副本。",
+    "8": "是。R2解除旧主图并上传新图，V2替换gallery；V1/V2已有JSON及图片字节保持不变。",
+    "9": "是。Published来源通过Editor UI克隆成新Draft；Draft及回滚后的Published也通过。",
+    "10": "是。主来源Batch全行及其审计记录前后完全一致；没有解锁或修改来源批次。",
+    "11": "是。新对象无旧Review/Publish/PassportRevision/Current关系；只复制工作模板关联，重新分配关联ID。",
+    "12": "是。五项检验结构保留，numeric/text/tested_on及结论重置；日期默认null，质量pending。",
+    "13": "是。正式媒体入口缺失、Published Clone 409、通用契约检查失败均已修复并补证。",
+    "14": "是。原25/32/35/43/50/60/61/62/63/64/66/83均PASS，逐项证据见下表。",
+    "15": "是。新媒体参数/响应/权限独立契约检查通过，真实正负请求通过，完整test:ci通过。",
+    "16": "是。原日志和失败报告保留四项诊断原文。本轮修正Passport模型/DTO绑定，未删除检查；未知字段/查询注入仍失败。",
+    "17": "是。普通Publish第二张图复制失败实际命中，旧Current不变；另覆盖复制第一张及其余六阶段。",
+    "18": "是。普通Publish的实际SQLite触发器制造finalize失败，file_switched_db_pending阻止新发布/回滚；Admin浏览器Reconcile确认同一记录。",
+    "19": "是。全新T12-fix空库17迁移，图片由正式UI/API输入，完整审核发布、V2、回滚和恢复通过；媒体未用SQL或手工置入私有目录。",
+    "20": "是。后台/UI停止且配置DB文件离线，公开图片仍可访问。",
+    "21": "是。独立恢复公开目录经重启Nginx，V1/V2/V3和全部恢复CAS图片通过HTTP Hash验证。",
+    "22": "是。工作库、独立恢复库与升级副本integrity_check均为ok。",
+    "23": "是。foreign_key_check为空，无悬空外键。",
+    "24": "是。全量已封存JSON、46条PublishedAsset、9个私有源及Manifest均一致。",
+    "25": "No。没有修改T4–T11历史Migration。只新增1789430400000权限迁移，不变更媒体/工作流业务Schema。",
+    "26": "No。没有连接服务器；未访问SERVER_IP、Caddy、Directus、生产Docker、DNS或HTTPS。",
+    "27": "No。未进入T13，T14也未进入。等待本轮人工验收；不以本地通过替代部署授权。"
+  },
+  "counts": {
+    "products": 5,
+    "product_revisions": 11,
+    "batches": 18,
+    "custom_sections": 32,
+    "review_records": 27,
+    "passport_revisions": 32,
+    "publish_records": 32,
+    "media_assets": 9,
+    "asset_links": 10,
+    "published_assets": 46,
+    "passport_audit_events": 271,
+    "unlinked_private_media_retained": 2
+  },
+  "changed_existing_files": [
+    "admin/go-admin/app/passport/service/section.go",
+    "admin/go-admin/app/passport/service/batch.go",
+    "admin/go-admin/app/passport/service/product.go",
+    "admin/go-admin-ui/src/views/passport/sections/SectionManager.vue",
+    "admin/go-admin-ui/src/views/passport/products/index.vue",
+    "admin/go-admin-ui/src/views/passport/batches/index.vue",
+    "admin/go-admin-ui/src/lang/zh-CN/index.ts",
+    "admin/go-admin-ui/src/lang/en-US/index.ts",
+    "admin/go-admin-ui/scripts/check-api-contract.mjs",
+    "docs/TASKS.md"
+  ],
+  "new_code_files": [
+    "admin/go-admin/app/passport/service/media.go",
+    "admin/go-admin/app/passport/apis/media.go",
+    "admin/go-admin/app/admin/router/passport_media.go",
+    "admin/go-admin/cmd/migrate/migration/version/1789430400000_media_permissions.go",
+    "admin/go-admin/app/passport/service/t12_fix_publish_test.go",
+    "admin/go-admin-ui/src/api/passport/media.ts",
+    "admin/go-admin-ui/src/views/passport/media/MediaPanel.vue",
+    "admin/go-admin-ui/src/lang/en-US/passport/media.ts",
+    "admin/go-admin-ui/src/lang/zh-CN/passport/media.ts",
+    "admin/go-admin-ui/tests/unit/components/passport-media.spec.ts"
+  ],
+  "migration": "1789430400000_media_permissions.go; permissions only; 17 total",
+  "test_count_policy": "Only final assertions and Go leaf tests, UI305; command checks separately4+build1. Historical638/3 not included. Failed harness attempts retained and superseded, not counted as unresolved final test failures. Browser phases rerun onV2 use their final successful JSON; earlier actual V1 log evidence retained.",
+  "stopped": true,
+  "server_connected": false,
+  "entered_T13": false
+}

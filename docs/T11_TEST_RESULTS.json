@@ -1,0 +1,2120 @@
+{
+  "stage": "T11",
+  "status": "等待人工验收；全部本地服务已停止；未进入 T12",
+  "generated_at": "2026-09-10T10:09:45.313456+00:00",
+  "gates_pass": 75,
+  "gates_fail": 0,
+  "tests_pass": 600,
+  "tests_fail": 0,
+  "counting": "命名断言与 Go 叶测试；含 301 项上游 UI 单测，不等于同数量独立业务场景。失败调试记录不计入最终 PASS 套件。",
+  "suites": [
+    {
+      "name": "browser-v1",
+      "pass": 5,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/browser-v1.json",
+      "checks": [
+        {
+          "name": "Public v1 version 1",
+          "status": "PASS"
+        },
+        {
+          "name": "TEST notice visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Public v1 version 1",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous network only static origin",
+          "status": "PASS"
+        },
+        {
+          "name": "No uncaught JS errors",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "browser-v2",
+      "pass": 5,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/browser-v2.json",
+      "checks": [
+        {
+          "name": "Public v2 version 2",
+          "status": "PASS"
+        },
+        {
+          "name": "TEST notice visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Public v2 version 1",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous network only static origin",
+          "status": "PASS"
+        },
+        {
+          "name": "No uncaught JS errors",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "browser-rollback",
+      "pass": 5,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/browser-rollback.json",
+      "checks": [
+        {
+          "name": "Public rollback version 3",
+          "status": "PASS"
+        },
+        {
+          "name": "TEST notice visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Public rollback version 1",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous network only static origin",
+          "status": "PASS"
+        },
+        {
+          "name": "No uncaught JS errors",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "browser-full",
+      "pass": 47,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/browser-full.json",
+      "checks": [
+        {
+          "name": "Public full version 3",
+          "status": "PASS"
+        },
+        {
+          "name": "TEST notice visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Language en",
+          "status": "PASS"
+        },
+        {
+          "name": "Language zh-CN",
+          "status": "PASS"
+        },
+        {
+          "name": "Language es",
+          "status": "PASS"
+        },
+        {
+          "name": "Language ar",
+          "status": "PASS"
+        },
+        {
+          "name": "Language fr",
+          "status": "PASS"
+        },
+        {
+          "name": "Language de",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered product",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered batch",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered raw_material",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered process",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered inspection",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered packaging",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered storage",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered manufacturer",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-text",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-key_value",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-table",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-asset_gallery",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered assets",
+          "status": "PASS"
+        },
+        {
+          "name": "Nine process steps",
+          "status": "PASS"
+        },
+        {
+          "name": "Six dynamic inspections",
+          "status": "PASS"
+        },
+        {
+          "name": "All judgement text",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 375",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 390",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 430",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 1280",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 1440",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen images load",
+          "status": "PASS"
+        },
+        {
+          "name": "Below-fold images lazy",
+          "status": "PASS"
+        },
+        {
+          "name": "Malformed JSON",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsupported schema",
+          "status": "PASS"
+        },
+        {
+          "name": "Current differs from immutable version",
+          "status": "PASS"
+        },
+        {
+          "name": "Dangerous asset rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Network failure finite error",
+          "status": "PASS"
+        },
+        {
+          "name": "Retry recovers",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing asset placeholder",
+          "status": "PASS"
+        },
+        {
+          "name": "DOM safe",
+          "status": "PASS"
+        },
+        {
+          "name": "DOM fallback",
+          "status": "PASS"
+        },
+        {
+          "name": "DOM clear",
+          "status": "PASS"
+        },
+        {
+          "name": "Nginx /b/NO-SUCH-TEST",
+          "status": "PASS"
+        },
+        {
+          "name": "Nginx /b/PF-T11-TEST-DRAFT",
+          "status": "PASS"
+        },
+        {
+          "name": "Nginx /b/PF-T11-TEST-001/v/99",
+          "status": "PASS"
+        },
+        {
+          "name": "Nginx /runtime/t11/credentials.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous network only static origin",
+          "status": "PASS"
+        },
+        {
+          "name": "No uncaught JS errors",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "browser-edges",
+      "pass": 9,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/browser-edges.json",
+      "checks": [
+        {
+          "name": "Slow network loading state",
+          "status": "PASS"
+        },
+        {
+          "name": "Slow network resolves",
+          "status": "PASS"
+        },
+        {
+          "name": "Module download failure finite safe fallback",
+          "status": "PASS"
+        },
+        {
+          "name": "No JS static safe fallback",
+          "status": "PASS"
+        },
+        {
+          "name": "Optional module optional",
+          "status": "PASS"
+        },
+        {
+          "name": "Optional module noNull",
+          "status": "PASS"
+        },
+        {
+          "name": "Arabic technical codes LTR",
+          "status": "PASS"
+        },
+        {
+          "name": "Language URL survives refresh",
+          "status": "PASS"
+        },
+        {
+          "name": "Unknown locale defaults EN",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "preview-api",
+      "pass": 21,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/preview-api.json",
+      "checks": [
+        {
+          "name": "Anonymous working denied",
+          "status": "PASS"
+        },
+        {
+          "name": "editor working exact isolated weight",
+          "status": "PASS"
+        },
+        {
+          "name": "editor working watermark kind",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer working exact isolated weight",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer working watermark kind",
+          "status": "PASS"
+        },
+        {
+          "name": "viewer working exact isolated weight",
+          "status": "PASS"
+        },
+        {
+          "name": "viewer working watermark kind",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous review denied",
+          "status": "PASS"
+        },
+        {
+          "name": "editor review exact isolated weight",
+          "status": "PASS"
+        },
+        {
+          "name": "editor review watermark kind",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer review exact isolated weight",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer review watermark kind",
+          "status": "PASS"
+        },
+        {
+          "name": "viewer review exact isolated weight",
+          "status": "PASS"
+        },
+        {
+          "name": "viewer review watermark kind",
+          "status": "PASS"
+        },
+        {
+          "name": "Cross batch review denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Unknown preview kind rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Review ID required",
+          "status": "PASS"
+        },
+        {
+          "name": "Published batch no draft preview",
+          "status": "PASS"
+        },
+        {
+          "name": "Public preview remains 25",
+          "status": "PASS"
+        },
+        {
+          "name": "Preview is read only",
+          "status": "PASS"
+        },
+        {
+          "name": "Preview assets frozen PNG",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "preview-browser",
+      "pass": 21,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/preview-browser.json",
+      "checks": [
+        {
+          "name": "editor working 20kg shared renderer",
+          "status": "PASS"
+        },
+        {
+          "name": "Private watermark working",
+          "status": "PASS"
+        },
+        {
+          "name": "Private builder placeholder not displayed working",
+          "status": "PASS"
+        },
+        {
+          "name": "QR stable code only",
+          "status": "PASS"
+        },
+        {
+          "name": "Clipboard stable",
+          "status": "PASS"
+        },
+        {
+          "name": "Clipboard version",
+          "status": "PASS"
+        },
+        {
+          "name": "Published preview actual static 25kg",
+          "status": "PASS"
+        },
+        {
+          "name": "Published opener detached",
+          "status": "PASS"
+        },
+        {
+          "name": "Clipboard failure shown",
+          "status": "PASS"
+        },
+        {
+          "name": "Actual logout editor",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer review 22kg shared renderer",
+          "status": "PASS"
+        },
+        {
+          "name": "Private watermark review",
+          "status": "PASS"
+        },
+        {
+          "name": "Private builder placeholder not displayed review",
+          "status": "PASS"
+        },
+        {
+          "name": "QR stable code only",
+          "status": "PASS"
+        },
+        {
+          "name": "Clipboard stable",
+          "status": "PASS"
+        },
+        {
+          "name": "Clipboard version",
+          "status": "PASS"
+        },
+        {
+          "name": "Published preview actual static 25kg",
+          "status": "PASS"
+        },
+        {
+          "name": "Published opener detached",
+          "status": "PASS"
+        },
+        {
+          "name": "Clipboard failure shown",
+          "status": "PASS"
+        },
+        {
+          "name": "Actual logout reviewer",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin browser no errors",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "http-checks",
+      "pass": 25,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/http-checks.json",
+      "checks": [
+        {
+          "name": "HTTP traversal/restricted /b/../../etc/passwd",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /b/%2e%2e/%2e%2e/etc/passwd",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /b/%252e%252e",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /b/PF%2fTEST",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /b/PF\\TEST",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /b/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /private-media/a.png",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /versions/a.json",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /assets/no.png",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /products/PF-STD.json",
+          "status": "PASS"
+        },
+        {
+          "name": "HTTP traversal/restricted /batches/PF-TEST.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Current JSON MIME",
+          "status": "PASS"
+        },
+        {
+          "name": "Current revalidation",
+          "status": "PASS"
+        },
+        {
+          "name": "Immutable cache /versions/PF-T11-TEST-001/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "ETag 304 /versions/PF-T11-TEST-001/v1.json",
+          "status": "PASS"
+        },
+        {
+          "name": "Immutable cache /assets/sha256/5f/5fbe62e52265de98a8775a0a2266e8b5543b5e5ebea5cd463cf8a8372b2819ae.png",
+          "status": "PASS"
+        },
+        {
+          "name": "ETag 304 /assets/sha256/5f/5fbe62e52265de98a8775a0a2266e8b5543b5e5ebea5cd463cf8a8372b2819ae.png",
+          "status": "PASS"
+        },
+        {
+          "name": "HTML no-cache",
+          "status": "PASS"
+        },
+        {
+          "name": "CSP without unsafe-inline",
+          "status": "PASS"
+        },
+        {
+          "name": "frame ancestors none",
+          "status": "PASS"
+        },
+        {
+          "name": "nosniff",
+          "status": "PASS"
+        },
+        {
+          "name": "referrer policy",
+          "status": "PASS"
+        },
+        {
+          "name": "No indexing",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing JSON actual404",
+          "status": "PASS"
+        },
+        {
+          "name": "Missing image actual404",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "static-checks",
+      "pass": 48,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/static-checks.json",
+      "checks": [
+        {
+          "name": "QR exact stable batch code",
+          "status": "PASS"
+        },
+        {
+          "name": "QR has no version or DB ID",
+          "status": "PASS"
+        },
+        {
+          "name": "Config alternate origin",
+          "status": "PASS"
+        },
+        {
+          "name": "Local explicitly allowed",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base http://example.invalid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://localhost",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://localhost.",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://127.0.0.2",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://[::1]",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://x.localhost",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://user:pw@example.invalid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://example.invalid/path",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base https://example.invalid?x=1",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR base javascript:alert(1)",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"../test\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"../test\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"x/y\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"x/y\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"%2e%2e\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"%2e%2e\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"中文\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"中文\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"TEST\\n\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"TEST\\n\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"TEST?x=1\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"TEST?x=1\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"TEST#frag\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"TEST#frag\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject QR code \"TEST\\\\x\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject route \"TEST\\\\x\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"0\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"-1\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"01\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"1.2\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"1e2\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"9007199254740992\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject version \"1\\n\"",
+          "status": "PASS"
+        },
+        {
+          "name": "Real release schema",
+          "status": "PASS"
+        },
+        {
+          "name": "Historical parse exact",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject payload mutation 41",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject payload mutation 42",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject payload mutation 43",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject payload mutation 44",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject payload mutation 45",
+          "status": "PASS"
+        },
+        {
+          "name": "Asset CAS exact",
+          "status": "PASS"
+        },
+        {
+          "name": "Public JS below 150 KiB",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "migrations",
+      "pass": 10,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/migrations.json",
+      "checks": [
+        {
+          "name": "T10 all original business columns preserved",
+          "status": "PASS"
+        },
+        {
+          "name": "Upgrade repeated safe",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh equals upgrade schema",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh repeat schema stable",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh has sixteen migrations",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh business starts empty",
+          "status": "PASS"
+        },
+        {
+          "name": "Service DB starts from zero",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t10.db integrity and FK",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db integrity and FK",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db integrity and FK",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "files",
+      "pass": 18,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/files.json",
+      "checks": [
+        {
+          "name": "All protected T4-T10 evidence and migrations unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "T0 baseline 53 files unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "POC seven backup files match",
+          "status": "PASS"
+        },
+        {
+          "name": "SQLite integrity_check ok",
+          "status": "PASS"
+        },
+        {
+          "name": "SQLite foreign_key_check empty",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen payload hash PF-T11-TEST-001 v1",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen asset hash PF-T11-TEST-001 v1",
+          "status": "PASS"
+        },
+        {
+          "name": "Public internal fields excluded PF-T11-TEST-001 v1",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen payload hash PF-T11-TEST-PREVIEW v1",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen asset hash PF-T11-TEST-PREVIEW v1",
+          "status": "PASS"
+        },
+        {
+          "name": "Public internal fields excluded PF-T11-TEST-PREVIEW v1",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen payload hash PF-T11-TEST-001 v2",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen asset hash PF-T11-TEST-001 v2",
+          "status": "PASS"
+        },
+        {
+          "name": "Public internal fields excluded PF-T11-TEST-001 v2",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen payload hash PF-T11-TEST-001 v3",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen asset hash PF-T11-TEST-001 v3",
+          "status": "PASS"
+        },
+        {
+          "name": "Public internal fields excluded PF-T11-TEST-001 v3",
+          "status": "PASS"
+        },
+        {
+          "name": "Public release has no private preview files",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "db-offline",
+      "pass": 3,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/db-offline.json",
+      "checks": [
+        {
+          "name": "Backend/UI stopped 18107",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend/UI stopped 19539",
+          "status": "PASS"
+        },
+        {
+          "name": "Configured SQLite path absent during public E2E",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "browser-stopped",
+      "pass": 34,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/browser-stopped.json",
+      "checks": [
+        {
+          "name": "Public stopped version 3",
+          "status": "PASS"
+        },
+        {
+          "name": "TEST notice visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Public stopped version 1",
+          "status": "PASS"
+        },
+        {
+          "name": "Language en",
+          "status": "PASS"
+        },
+        {
+          "name": "Language zh-CN",
+          "status": "PASS"
+        },
+        {
+          "name": "Language es",
+          "status": "PASS"
+        },
+        {
+          "name": "Language ar",
+          "status": "PASS"
+        },
+        {
+          "name": "Language fr",
+          "status": "PASS"
+        },
+        {
+          "name": "Language de",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered product",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered batch",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered raw_material",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered process",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered inspection",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered packaging",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered storage",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered manufacturer",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-text",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-key_value",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-table",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered custom-asset_gallery",
+          "status": "PASS"
+        },
+        {
+          "name": "Rendered assets",
+          "status": "PASS"
+        },
+        {
+          "name": "Nine process steps",
+          "status": "PASS"
+        },
+        {
+          "name": "Six dynamic inspections",
+          "status": "PASS"
+        },
+        {
+          "name": "All judgement text",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 375",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 390",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 430",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 1280",
+          "status": "PASS"
+        },
+        {
+          "name": "No page overflow 1440",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen images load",
+          "status": "PASS"
+        },
+        {
+          "name": "Below-fold images lazy",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous network only static origin",
+          "status": "PASS"
+        },
+        {
+          "name": "No uncaught JS errors",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "stopped",
+      "pass": 5,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/stopped.json",
+      "checks": [
+        {
+          "name": "Public files unchanged through backend/DB-offline E2E",
+          "status": "PASS"
+        },
+        {
+          "name": "T11 final port stopped 18107",
+          "status": "PASS"
+        },
+        {
+          "name": "T11 final port stopped 18108",
+          "status": "PASS"
+        },
+        {
+          "name": "T11 final port stopped 19539",
+          "status": "PASS"
+        },
+        {
+          "name": "T11 final port stopped 19540",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "publishing_go_race",
+      "pass": 43,
+      "fail": 0,
+      "evidence": "runtime/t11/test-artifacts/go-unit.jsonl"
+    },
+    {
+      "name": "upstream_ui_unit",
+      "pass": 301,
+      "fail": 0,
+      "evidence": "runtime/t11/logs/ui-unit.log"
+    }
+  ],
+  "gates": [
+    {
+      "id": 1,
+      "name": "正式 public-site 与原 POC 分离。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/files.json"
+    },
+    {
+      "id": 2,
+      "name": "Stable Batch URL 可用。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-v1.json"
+    },
+    {
+      "id": 3,
+      "name": "Stable URL 不包含 Version。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/static-checks.json"
+    },
+    {
+      "id": 4,
+      "name": "Stable URL 不包含内部 DB ID。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/static-checks.json"
+    },
+    {
+      "id": 5,
+      "name": "Current Resolution 不查数据库。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-stopped.json"
+    },
+    {
+      "id": 6,
+      "name": "Current Resolution 不调用 Admin API。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-stopped.json"
+    },
+    {
+      "id": 7,
+      "name": "历史 Version URL 可用。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-v1.json"
+    },
+    {
+      "id": 8,
+      "name": "历史 Version 不被 Current 覆盖。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-v2.json"
+    },
+    {
+      "id": 9,
+      "name": "schema_version 路由有效。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/static-checks.json"
+    },
+    {
+      "id": 10,
+      "name": "不支持 Schema 安全失败。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 11,
+      "name": "正式端只读取 Published Snapshot。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-stopped.json"
+    },
+    {
+      "id": 12,
+      "name": "不再读取旧 Product JSON + Batch JSON。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-stopped.json"
+    },
+    {
+      "id": 13,
+      "name": "Product 模块正确。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 14,
+      "name": "Batch 模块正确。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 15,
+      "name": "Process 正确。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 16,
+      "name": "Inspection 动态渲染。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 17,
+      "name": "Custom text 正确安全渲染。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 18,
+      "name": "key_value 正确。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 19,
+      "name": "table 正确。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 20,
+      "name": "asset_gallery 正确。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 21,
+      "name": "Published Assets 只使用冻结路径。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 22,
+      "name": "页面无后台 mutable media URL。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 23,
+      "name": "首屏以下图片懒加载。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 24,
+      "name": "移动端 375px 可用。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 25,
+      "name": "移动端 390px 可用。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 26,
+      "name": "移动端 430px 可用。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 27,
+      "name": "Desktop 1280 可用。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 28,
+      "name": "六语言数据可展示。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-stopped.json"
+    },
+    {
+      "id": 29,
+      "name": "Language Switcher 可用。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-stopped.json"
+    },
+    {
+      "id": 30,
+      "name": "Arabic RTL 正确。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-edges.json"
+    },
+    {
+      "id": 31,
+      "name": "Translation fallback 正确。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 32,
+      "name": "Working Preview 与 Published 分离。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/preview-browser.json"
+    },
+    {
+      "id": 33,
+      "name": "Review Preview 与 Published 分离。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/preview-browser.json"
+    },
+    {
+      "id": 34,
+      "name": "Published Preview 读取真正 Release。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/preview-browser.json"
+    },
+    {
+      "id": 35,
+      "name": "三种 Preview 内容不串。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/preview-browser.json"
+    },
+    {
+      "id": 36,
+      "name": "Stable QR Target Builder 可用。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/static-checks.json"
+    },
+    {
+      "id": 37,
+      "name": "QR Target 使用 Batch Code。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/static-checks.json"
+    },
+    {
+      "id": 38,
+      "name": "QR Target 不使用 Version。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/static-checks.json"
+    },
+    {
+      "id": 39,
+      "name": "Base URL 可配置。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/static-checks.json"
+    },
+    {
+      "id": 40,
+      "name": "不存在正式 localhost 硬编码。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/static-checks.json"
+    },
+    {
+      "id": 41,
+      "name": "不存在 Batch 404 正确。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 42,
+      "name": "非法 Batch Code 拒绝。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/static-checks.json"
+    },
+    {
+      "id": 43,
+      "name": "不存在 Version 404。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 44,
+      "name": "损坏 JSON 安全失败。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 45,
+      "name": "不支持 schema 安全失败。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 46,
+      "name": "Client XSS 不执行。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 47,
+      "name": "危险 Asset URL 不加载。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 48,
+      "name": "Path Traversal 防护。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/http-checks.json"
+    },
+    {
+      "id": 49,
+      "name": "公开浏览器匿名可访问 Published。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-v1.json"
+    },
+    {
+      "id": 50,
+      "name": "匿名不可访问 Working Preview。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/preview-api.json"
+    },
+    {
+      "id": 51,
+      "name": "Network 不请求 Admin API。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-stopped.json"
+    },
+    {
+      "id": 52,
+      "name": "Backend 停止公开 Stable URL 正常。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-stopped.json"
+    },
+    {
+      "id": 53,
+      "name": "Backend 停止 Version URL 正常。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-stopped.json"
+    },
+    {
+      "id": 54,
+      "name": "Backend 停止 Assets 正常。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-stopped.json"
+    },
+    {
+      "id": 55,
+      "name": "SQLite 不可访问公开端仍正常。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/db-offline.json"
+    },
+    {
+      "id": 56,
+      "name": "V1→V2 Stable URL 更新到 V2。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-v2.json"
+    },
+    {
+      "id": 57,
+      "name": "V1 历史 URL 仍显示 V1。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-v2.json"
+    },
+    {
+      "id": 58,
+      "name": "Rollback Current 后 Stable URL 显示新 rollback version。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-rollback.json"
+    },
+    {
+      "id": 59,
+      "name": "Public JSON Internal 字段仍无泄漏。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/files.json"
+    },
+    {
+      "id": 60,
+      "name": "TEST RECORD 标识正确。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-full.json"
+    },
+    {
+      "id": 61,
+      "name": "公开页性能保持轻量。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/static-checks.json"
+    },
+    {
+      "id": 62,
+      "name": "Nginx 本地 Route 验证通过。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/http-checks.json"
+    },
+    {
+      "id": 63,
+      "name": "Fresh DB→Review→Publish→Public 完整通过。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-v1.json"
+    },
+    {
+      "id": 64,
+      "name": "Rollback Fixture Public 验证通过。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-rollback.json"
+    },
+    {
+      "id": 65,
+      "name": "浏览器无未捕获 JS Error。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/browser-stopped.json"
+    },
+    {
+      "id": 66,
+      "name": "integrity_check 仍 ok。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/files.json"
+    },
+    {
+      "id": 67,
+      "name": "foreign_key_check 无异常。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/files.json"
+    },
+    {
+      "id": 68,
+      "name": "原 53 个 T0 基线文件保留证据完整。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/files.json"
+    },
+    {
+      "id": 69,
+      "name": "原 site POC 未被无记录破坏。",
+      "status": "PASS",
+      "evidence": "runtime/t11/test-artifacts/files.json"
+    },
+    {
+      "id": 70,
+      "name": "未连接服务器。",
+      "status": "PASS",
+      "evidence": "Execution scope: local T11 only; tool/action audit and protected baseline. No server or production action executed."
+    },
+    {
+      "id": 71,
+      "name": "未修改 Caddy。",
+      "status": "PASS",
+      "evidence": "Execution scope: local T11 only; tool/action audit and protected baseline. No server or production action executed."
+    },
+    {
+      "id": 72,
+      "name": "未修改 Directus。",
+      "status": "PASS",
+      "evidence": "Execution scope: local T11 only; tool/action audit and protected baseline. No server or production action executed."
+    },
+    {
+      "id": 73,
+      "name": "未修改生产 Docker。",
+      "status": "PASS",
+      "evidence": "Execution scope: local T11 only; tool/action audit and protected baseline. No server or production action executed."
+    },
+    {
+      "id": 74,
+      "name": "未生成生产正式 QR 文件。",
+      "status": "PASS",
+      "evidence": "Execution scope: local T11 only; tool/action audit and protected baseline. No server or production action executed."
+    },
+    {
+      "id": 75,
+      "name": "未进入 T12。",
+      "status": "PASS",
+      "evidence": "Execution scope: local T11 only; tool/action audit and protected baseline. No server or production action executed."
+    }
+  ],
+  "sizes_bytes": {
+    "html": 1417,
+    "css": 5632,
+    "js": 35159,
+    "json": 8189,
+    "images": 80
+  },
+  "protection": {
+    "protected_files": 37126,
+    "changed": [],
+    "t0_files": 53,
+    "poc_files": 7
+  },
+  "answers": [
+    {
+      "id": 1,
+      "question": "是否建立正式 public-site？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 2,
+      "question": "是否保留原 POC？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 3,
+      "question": "Stable Batch URL 是否实现？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 4,
+      "question": "URL 是否使用 Batch Code？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 5,
+      "question": "URL 是否不含 DB ID？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 6,
+      "question": "URL 是否不含 Version？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 7,
+      "question": "Current 是否纯静态解析？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 8,
+      "question": "是否完全不查 SQLite？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 9,
+      "question": "是否完全不调用 Admin API？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 10,
+      "question": "历史 Version URL 是否可用？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 11,
+      "question": "V1 是否不会被 V2 覆盖？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 12,
+      "question": "Rollback 后 Current 是否显示新版本？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 13,
+      "question": "是否根据 schema_version 解析？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 14,
+      "question": "当前支持哪个 schema？",
+      "answer": "1.0；未知版本安全失败，未来版本需独立注册解析器。"
+    },
+    {
+      "id": 15,
+      "question": "不支持 schema 是否安全失败？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 16,
+      "question": "是否只读取 Published Snapshot？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 17,
+      "question": "是否停止使用旧 Product JSON？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 18,
+      "question": "是否停止使用旧 Batch JSON？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 19,
+      "question": "Product 信息是否正确显示？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 20,
+      "question": "Batch 信息是否正确显示？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 21,
+      "question": "Process 是否正确显示？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 22,
+      "question": "Inspection 是否动态渲染？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 23,
+      "question": "Custom text 是否支持？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 24,
+      "question": "key_value 是否支持？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 25,
+      "question": "table 是否支持？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 26,
+      "question": "asset_gallery 是否支持？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 27,
+      "question": "是否仅加载 Published Asset？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 28,
+      "question": "是否不存在后台 Media URL？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 29,
+      "question": "是否使用 lazy loading？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 30,
+      "question": "是否避免严重 CLS？",
+      "answer": "稳定 aspect-ratio 容器及 width/height；未进行实验室 CLS 压测。"
+    },
+    {
+      "id": 31,
+      "question": "是否支持 EN？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 32,
+      "question": "是否支持 ZH-CN？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 33,
+      "question": "是否支持 ES？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 34,
+      "question": "是否支持 AR？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 35,
+      "question": "是否支持 FR？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 36,
+      "question": "是否支持 DE？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 37,
+      "question": "Arabic 是否 RTL？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 38,
+      "question": "Translation fallback 是否正常？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 39,
+      "question": "Working Preview 是否与 Published 分离？",
+      "answer": "是；认证 API 读取已保存、符合公开构建条件的 Draft，未就绪返回 422。"
+    },
+    {
+      "id": 40,
+      "question": "Review Preview 是否与 Published 分离？",
+      "answer": "是；按指定 review_id 读取并验 Hash 的冻结 Candidate。"
+    },
+    {
+      "id": 41,
+      "question": "Published Preview 是否读取真实 Release？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 42,
+      "question": "三种 Preview 是否内容隔离？",
+      "answer": "是；Editor Working 20kg、Reviewer Review 22kg、匿名 Published 25kg。"
+    },
+    {
+      "id": 43,
+      "question": "Working Preview 是否禁止匿名？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 44,
+      "question": "Stable QR Target 是否生成？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 45,
+      "question": "QR Target 是否不含 Version？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 46,
+      "question": "QR Target 是否不含 DB ID？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 47,
+      "question": "Base URL 是否可配置？",
+      "answer": "是；VUE_APP_PUBLIC_BASE_URL 与 VUE_APP_PUBLIC_MODE。"
+    },
+    {
+      "id": 48,
+      "question": "是否没有硬编码正式域名？",
+      "answer": "是，没有硬编码正式域名。"
+    },
+    {
+      "id": 49,
+      "question": "是否没有把 localhost 当正式 URL？",
+      "answer": "是，local 模式明确标记测试；production 拒绝 localhost/loopback 和 HTTP。"
+    },
+    {
+      "id": 50,
+      "question": "不存在 Batch 是否 404/安全错误？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 51,
+      "question": "不存在 Version 是否安全错误？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 52,
+      "question": "损坏 JSON 是否不白屏？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 53,
+      "question": "Missing Asset 是否安全处理？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 54,
+      "question": "Client XSS 是否不执行？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 55,
+      "question": "危险 Asset URL 是否拒绝？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 56,
+      "question": "Path Traversal 是否阻止？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 57,
+      "question": "匿名 Published 是否正常？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 58,
+      "question": "Network 是否不请求 Admin API？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 59,
+      "question": "Network 是否不带 JWT？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 60,
+      "question": "Backend 停止后 Stable URL 是否正常？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 61,
+      "question": "Backend 停止后历史 URL 是否正常？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 62,
+      "question": "SQLite 不可访问是否仍正常？",
+      "answer": "是；后台/UI 停止且配置 SQLite 路径不存在时真实浏览器通过。"
+    },
+    {
+      "id": 63,
+      "question": "V1→V2 Stable URL 是否更新？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 64,
+      "question": "V1 历史 URL 是否仍 V1？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 65,
+      "question": "Rollback Current 是否正确？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 66,
+      "question": "TEST RECORD 是否明显显示？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 67,
+      "question": "移动端 375 是否通过？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 68,
+      "question": "390 是否通过？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 69,
+      "question": "430 是否通过？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 70,
+      "question": "Desktop 1280 是否通过？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 71,
+      "question": "是否真实使用本地 Nginx 验收？",
+      "answer": "是，项目目录内编译的 Nginx 1.30.4，仅 127.0.0.1:19540。"
+    },
+    {
+      "id": 72,
+      "question": "Fresh DB→Review→Publish→Public 是否通过？",
+      "answer": "是，独立空库经 16 次迁移，真实产品/版本/批次/审核/发布/匿名页面链通过。"
+    },
+    {
+      "id": 73,
+      "question": "Rollback Fixture 是否通过？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 74,
+      "question": "是否无未捕获 JS Error？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 75,
+      "question": "Public 页面是否保持轻量？",
+      "answer": "是，公开端 Vanilla JS，无管理端框架 bundle。"
+    },
+    {
+      "id": 76,
+      "question": "HTML/CSS/JS 体积是多少？",
+      "answer": "HTML 1417 B；CSS 5632 B；JS 合计 35159 B（含内嵌 Schema）。"
+    },
+    {
+      "id": 77,
+      "question": "Public JSON 测试体积是多少？",
+      "answer": "Current V3 JSON 8189 B；测试 PNG 80 B。"
+    },
+    {
+      "id": 78,
+      "question": "是否制定 immutable asset cache 策略？",
+      "answer": "是，版本 JSON 和内容寻址 PNG：max-age=31536000, immutable。"
+    },
+    {
+      "id": 79,
+      "question": "是否制定 current cache 策略？",
+      "answer": "是，Current、HTML 与未指纹化脚本样式：no-cache, max-age=0, must-revalidate。"
+    },
+    {
+      "id": 80,
+      "question": "是否明确 robots/indexing 策略？",
+      "answer": "是，robots Disallow /、meta/X-Robots-Tag noindex,nofollow；不作为访问控制。"
+    },
+    {
+      "id": 81,
+      "question": "是否有基础 CSP/security header 方案？",
+      "answer": "是，CSP self-only / frame-ancestors none、nosniff、no-referrer。"
+    },
+    {
+      "id": 82,
+      "question": "是否加载第三方 JS/CDN？",
+      "answer": "否，不加载第三方 JS/CDN、字体、追踪或外部图片。"
+    },
+    {
+      "id": 83,
+      "question": "是否修改 DATA_MODEL？",
+      "answer": "否，业务 DATA_MODEL 不变。"
+    },
+    {
+      "id": 84,
+      "question": "是否需要新 Migration？",
+      "answer": "是，新增 1789344000000_private_preview.go，仅授权菜单/API。"
+    },
+    {
+      "id": 85,
+      "question": "是否修改 T4-T10 历史 Migration？",
+      "answer": "否，历史迁移 Hash 全部不变。"
+    },
+    {
+      "id": 86,
+      "question": "是否更新 TASKS？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 87,
+      "question": "是否新增 T11 文档？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 88,
+      "question": "原 53 个 T0 基线文件证据是否保留？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 89,
+      "question": "原 site 7 文件是否保留或有明确迁移记录？",
+      "answer": "是，已通过本地验收。"
+    },
+    {
+      "id": 90,
+      "question": "是否连接业务服务器？",
+      "answer": "否。"
+    },
+    {
+      "id": 91,
+      "question": "是否修改 Caddy？",
+      "answer": "否。"
+    },
+    {
+      "id": 92,
+      "question": "是否修改 Directus？",
+      "answer": "否。"
+    },
+    {
+      "id": 93,
+      "question": "是否修改生产 Docker？",
+      "answer": "否。"
+    },
+    {
+      "id": 94,
+      "question": "是否生成生产正式 QR PNG/SVG？",
+      "answer": "否。"
+    },
+    {
+      "id": 95,
+      "question": "是否进入 T12？",
+      "answer": "否，T12 未开始。"
+    }
+  ],
+  "not_executed": [
+    "T12",
+    "T13",
+    "SSH",
+    "server deployment",
+    "Caddy",
+    "Directus",
+    "production Docker",
+    "DNS",
+    "TLS issuance",
+    "production QR files"
+  ],
+  "limitations": [
+    "Browser executed on Chromium only; Safari/WebKit not installed or executed.",
+    "Current/history byte coherence is not a signature; relies on T9/T10 verified immutable release storage.",
+    "Published-to-Draft transition used an explicitly documented T11-only fixture, not a new business API.",
+    "Tiny controlled PNG tests are not production image/bandwidth performance benchmarks."
+  ]
+}

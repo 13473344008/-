@@ -1,0 +1,552 @@
+{
+  "status": "等待人工验收",
+  "total": 99,
+  "pass": 99,
+  "fail": 0,
+  "suites": {
+    "Schema / Python SQLite": [
+      {
+        "name": "19 business tables exist",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "foreign_keys enabled",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "Product code UNIQUE",
+        "status": "PASS",
+        "detail": "UNIQUE constraint failed: products.product_code"
+      },
+      {
+        "name": "Product revision UNIQUE",
+        "status": "PASS",
+        "detail": "UNIQUE constraint failed: product_revisions.product_id, product_revisions.revision_number"
+      },
+      {
+        "name": "six translations coexist",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "Translation UNIQUE",
+        "status": "PASS",
+        "detail": "UNIQUE constraint failed: product_revision_translations.product_revision_id, product_revision_translations.language_code"
+      },
+      {
+        "name": "Batch code UNIQUE",
+        "status": "PASS",
+        "detail": "UNIQUE constraint failed: batches.batch_code"
+      },
+      {
+        "name": "Batch base NOT NULL",
+        "status": "PASS",
+        "detail": "batch requires sealed matching template"
+      },
+      {
+        "name": "Batch cross-product base rejected",
+        "status": "PASS",
+        "detail": "batch requires sealed matching template"
+      },
+      {
+        "name": "Referenced template delete rejected",
+        "status": "PASS",
+        "detail": "product_revisions frozen"
+      },
+      {
+        "name": "Referenced product FK delete rejected",
+        "status": "PASS",
+        "detail": "FOREIGN KEY constraint failed"
+      },
+      {
+        "name": "New R2 does not change Batch R1",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "Batch rebind rejected",
+        "status": "PASS",
+        "detail": "identity or bytes immutable"
+      },
+      {
+        "name": "Frozen template body update",
+        "status": "PASS",
+        "detail": "product_revisions frozen"
+      },
+      {
+        "name": "Frozen template translation update",
+        "status": "PASS",
+        "detail": "parent frozen"
+      },
+      {
+        "name": "Frozen section update",
+        "status": "PASS",
+        "detail": "parent frozen"
+      },
+      {
+        "name": "Frozen section translation delete",
+        "status": "PASS",
+        "detail": "parent frozen"
+      },
+      {
+        "name": "Frozen child insert rejected",
+        "status": "PASS",
+        "detail": "parent frozen"
+      },
+      {
+        "name": "Override inherit/set/clear",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "Cancel override restores inheritance",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "Override whitelist rejects workflow_status",
+        "status": "PASS",
+        "detail": "CHECK constraint failed: (field_key='raw_material_name' AND value_kind='text') OR (field_key='raw_material_type' AND value_kind='text') OR (field_key='raw_material_origin' AND value_kind='text') OR (field_key='raw_material_description' AND value_kind='text') OR (field_key='package_description' AND value_kind='text') OR (field_key='inner_material' AND value_kind='text') OR (field_key='package_unit' AND value_kind='text') OR (field_key='package_type_code' AND value_kind='text') OR (field_key='storage_conditions' AND value_kind='text') OR (field_key='shelf_life_description' AND value_kind='text') OR (field_key='package_quantity' AND value_kind='decimal') OR (field_key='shelf_life_days' AND value_kind='integer') OR (field_key='process' AND value_kind='json') OR (field_key='product_image_asset' AND value_kind='asset')"
+      },
+      {
+        "name": "Unknown inspection added without ALTER",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "four inspection judgements persisted",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "Pass without value rejected",
+        "status": "PASS",
+        "detail": "CHECK constraint failed: judgement NOT IN ('pass','fail','informational') OR numeric_value IS NOT NULL OR COALESCE(length(text_value),0)>0"
+      },
+      {
+        "name": "Audit persisted",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "Audit update forbidden",
+        "status": "PASS",
+        "detail": "passport_audit_events frozen"
+      },
+      {
+        "name": "Passport version UNIQUE",
+        "status": "PASS",
+        "detail": "UNIQUE constraint failed: passport_revisions.batch_id, passport_revisions.version_number"
+      },
+      {
+        "name": "Published revision update forbidden",
+        "status": "PASS",
+        "detail": "passport revision frozen"
+      },
+      {
+        "name": "Published revision delete forbidden",
+        "status": "PASS",
+        "detail": "passport revision frozen"
+      },
+      {
+        "name": "Published asset update forbidden",
+        "status": "PASS",
+        "detail": "parent frozen"
+      },
+      {
+        "name": "Media delete does not cascade",
+        "status": "PASS",
+        "detail": "FOREIGN KEY constraint failed"
+      },
+      {
+        "name": "V1 frozen image A hash unchanged",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "V1 V2 V3 retained; V4 rollback source V2",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "Transaction deliberate failure",
+        "status": "PASS",
+        "detail": "UNIQUE constraint failed: inspection_items.batch_id, inspection_items.item_code"
+      },
+      {
+        "name": "Failed transaction leaves zero Batch",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "Transaction all 4 records commit",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "10 writers / 50 transactions",
+        "status": "PASS",
+        "detail": {
+          "concurrency": 10,
+          "attempted": 50,
+          "success": 50,
+          "failed": 0,
+          "retries": 0,
+          "busy_timeout_ms": 5000,
+          "journal_mode": "wal",
+          "max_latency_ms": 620.31
+        }
+      },
+      {
+        "name": "Concurrent writes no lost Batch/Inspection/Audit",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "integrity_check",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "name": "foreign_key_check",
+        "status": "PASS",
+        "detail": null
+      }
+    ],
+    "首次 API / RBAC": [
+      {
+        "name": "admin JWT login",
+        "status": "PASS"
+      },
+      {
+        "name": "JWT authenticated getinfo",
+        "status": "PASS"
+      },
+      {
+        "name": "invalid JWT denied",
+        "status": "PASS"
+      },
+      {
+        "name": "create test role API",
+        "status": "PASS"
+      },
+      {
+        "name": "create test user API",
+        "status": "PASS"
+      },
+      {
+        "name": "test JWT login",
+        "status": "PASS"
+      },
+      {
+        "name": "reader granted role GET",
+        "status": "PASS"
+      },
+      {
+        "name": "reader ungranted user GET denied",
+        "status": "PASS"
+      },
+      {
+        "name": "role user link in SQLite",
+        "status": "PASS"
+      },
+      {
+        "name": "Casbin persisted policies",
+        "status": "PASS"
+      },
+      {
+        "name": "role menu relation persisted",
+        "status": "PASS"
+      }
+    ],
+    "重启 API / RBAC": [
+      {
+        "name": "admin JWT login",
+        "status": "PASS"
+      },
+      {
+        "name": "JWT authenticated getinfo",
+        "status": "PASS"
+      },
+      {
+        "name": "invalid JWT denied",
+        "status": "PASS"
+      },
+      {
+        "name": "test JWT login",
+        "status": "PASS"
+      },
+      {
+        "name": "reader granted role GET",
+        "status": "PASS"
+      },
+      {
+        "name": "reader ungranted user GET denied",
+        "status": "PASS"
+      },
+      {
+        "name": "role user link in SQLite",
+        "status": "PASS"
+      },
+      {
+        "name": "Casbin persisted policies",
+        "status": "PASS"
+      },
+      {
+        "name": "role menu relation persisted",
+        "status": "PASS"
+      }
+    ],
+    "UI": [
+      {
+        "name": "Login page opens",
+        "status": "PASS"
+      },
+      {
+        "name": "UI login enters admin",
+        "status": "PASS"
+      },
+      {
+        "name": "User management",
+        "status": "PASS"
+      },
+      {
+        "name": "Role management",
+        "status": "PASS"
+      },
+      {
+        "name": "Menu permission management",
+        "status": "PASS"
+      },
+      {
+        "name": "No uncaught UI errors",
+        "status": "PASS"
+      }
+    ],
+    "Fresh DB": [
+      {
+        "name": "Dedicated disposable fresh DB removed",
+        "status": "PASS"
+      },
+      {
+        "name": "Fresh all migrations same 19 business and system schema",
+        "status": "PASS"
+      },
+      {
+        "name": "Repeat migration schema and versions unchanged",
+        "status": "PASS"
+      },
+      {
+        "name": "Fresh integrity and foreign keys",
+        "status": "PASS"
+      }
+    ],
+    "Backup / Restore": [
+      {
+        "name": "Consistent backup created",
+        "status": "PASS"
+      },
+      {
+        "name": "Original changed after backup",
+        "status": "PASS"
+      },
+      {
+        "name": "Restore all table rows and logical hashes match backup",
+        "status": "PASS"
+      },
+      {
+        "name": "Restore integrity_check",
+        "status": "PASS"
+      },
+      {
+        "name": "Restore foreign_key_check",
+        "status": "PASS"
+      }
+    ],
+    "最终基线 / Schema / 停止核验": [
+      {
+        "name": "All 53 frozen baseline hashes match",
+        "status": "PASS"
+      },
+      {
+        "name": "All 7 site baseline hashes match",
+        "status": "PASS"
+      },
+      {
+        "name": "All 19 table column lists match T3 catalog",
+        "status": "PASS"
+      },
+      {
+        "name": "Final main integrity_check",
+        "status": "PASS"
+      },
+      {
+        "name": "Final main foreign_key_check",
+        "status": "PASS"
+      },
+      {
+        "name": "Backend upstream tracked files unchanged",
+        "status": "PASS"
+      },
+      {
+        "name": "UI upstream tracked files unchanged",
+        "status": "PASS"
+      },
+      {
+        "name": "Local service stopped port 18094",
+        "status": "PASS"
+      },
+      {
+        "name": "Local service stopped port 19527",
+        "status": "PASS"
+      }
+    ],
+    "Go/GORM 实际驱动": [
+      {
+        "name": "TestT4ActualGoDriver/ProductUnique",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/BatchCodeUnique",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/ProductRevisionUnique",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/PassportVersionUnique",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/FrozenTranslationInsert",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/ReferencedProductFK",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/FrozenTemplate",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/FrozenChild",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/FixedBatchBase",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/PublishedHistory",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/PublishedAsset",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/ConnectionPragmas",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/FourTableRollback",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/FiveWriters25Transactions",
+        "status": "PASS"
+      },
+      {
+        "name": "TestT4ActualGoDriver/Integrity",
+        "status": "PASS"
+      }
+    ]
+  },
+  "gates": [
+    {
+      "gate": 1,
+      "name": "Backend 使用 SQLite 启动",
+      "result": "PASS"
+    },
+    {
+      "gate": 2,
+      "name": "UI 连接后端并登录",
+      "result": "PASS"
+    },
+    {
+      "gate": 3,
+      "name": "官方空库 Migration",
+      "result": "PASS"
+    },
+    {
+      "gate": 4,
+      "name": "重启后 RBAC / Casbin",
+      "result": "PASS"
+    },
+    {
+      "gate": 5,
+      "name": "T3 19 表建立",
+      "result": "PASS"
+    },
+    {
+      "gate": 6,
+      "name": "主要 FK / UNIQUE",
+      "result": "PASS"
+    },
+    {
+      "gate": 7,
+      "name": "Batch 固定 Revision",
+      "result": "PASS"
+    },
+    {
+      "gate": 8,
+      "name": "Passport 历史版本",
+      "result": "PASS"
+    },
+    {
+      "gate": 9,
+      "name": "Published Asset 冻结",
+      "result": "PASS"
+    },
+    {
+      "gate": 10,
+      "name": "Transaction Rollback",
+      "result": "PASS"
+    },
+    {
+      "gate": 11,
+      "name": "低并发写入",
+      "result": "PASS"
+    },
+    {
+      "gate": 12,
+      "name": "Backup",
+      "result": "PASS"
+    },
+    {
+      "gate": 13,
+      "name": "Restore",
+      "result": "PASS"
+    },
+    {
+      "gate": 14,
+      "name": "Integrity Check",
+      "result": "PASS"
+    },
+    {
+      "gate": 15,
+      "name": "Fresh DB 重建",
+      "result": "PASS"
+    },
+    {
+      "gate": 16,
+      "name": "无需大量侵入修改框架",
+      "result": "PASS"
+    }
+  ],
+  "entered_T5": false
+}

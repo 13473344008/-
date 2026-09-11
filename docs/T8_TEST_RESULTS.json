@@ -1,0 +1,2735 @@
+{
+  "status": "等待人工验收",
+  "generated_at": "2026-09-09T11:12:30.498233+00:00",
+  "total": 498,
+  "pass": 498,
+  "fail": 0,
+  "ui_unit_tests": {
+    "total": 301,
+    "pass": 301,
+    "fail": 0
+  },
+  "gate_pass": 50,
+  "gate_total": 50,
+  "suites": [
+    {
+      "name": "Main API",
+      "evidence": "runtime/t8/test-artifacts/api-initial.json",
+      "checks": [
+        {
+          "name": "JWT admin login",
+          "status": "PASS"
+        },
+        {
+          "name": "editor user login and role exists",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer user login and role exists",
+          "status": "PASS"
+        },
+        {
+          "name": "viewer user login and role exists",
+          "status": "PASS"
+        },
+        {
+          "name": "editor_reviewer user login and role exists",
+          "status": "PASS"
+        },
+        {
+          "name": "Editor creates sealed Product and Batch",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-products",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-products",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-products/:id/archive",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-products/:id/archive",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-products/:id/revisions",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-products/:id/revisions",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id/revisions/:rid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id/revisions/:rid",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id/revisions/:rid/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id/revisions/:rid/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-products/:id/revisions/:rid/seal",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-products/:id/revisions/:rid/seal",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id/default-revision",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id/default-revision",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-batches",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-batches/:id",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-batches/:id",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/clone",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-batches/:id/clone",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-products/:id/revisions/:rid/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-products/:id/revisions/:rid/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id/revisions/:rid/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id/revisions/:rid/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied DELETE /api/v1/passport-products/:id/revisions/:rid/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit DELETE /api/v1/passport-products/:id/revisions/:rid/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id/revisions/:rid/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id/revisions/:rid/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id/revisions/:rid/sections/:sid/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id/revisions/:rid/sections/:sid/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-batches/:id/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-batches/:id/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-batches/:id/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied DELETE /api/v1/passport-batches/:id/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit DELETE /api/v1/passport-batches/:id/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-batches/:id/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-batches/:id/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-batches/:id/sections/:sid/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-batches/:id/sections/:sid/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied GET /api/v1/passport-batches/:id/review",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied GET /api/v1/passport-batches/:id/review/readiness",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/review/submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied POST /api/v1/passport-batches/:id/review/submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/review/approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied POST /api/v1/passport-batches/:id/review/approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/review/reject",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied POST /api/v1/passport-batches/:id/review/reject",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/review/return",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied POST /api/v1/passport-batches/:id/review/return",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/review/archive",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied POST /api/v1/passport-batches/:id/review/archive",
+          "status": "PASS"
+        },
+        {
+          "name": "Editor denied approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Editor denied reject",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer reads batch",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer queue accessible",
+          "status": "PASS"
+        },
+        {
+          "name": "Editor no queue",
+          "status": "PASS"
+        },
+        {
+          "name": "Structured missing dates prevents Submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Optional languages and private Draft section ready",
+          "status": "PASS"
+        },
+        {
+          "name": "submit audit failure fails",
+          "status": "PASS"
+        },
+        {
+          "name": "submit exact transaction rollback",
+          "status": "PASS"
+        },
+        {
+          "name": "Draft to Pending frozen input",
+          "status": "PASS"
+        },
+        {
+          "name": "Candidate SHA256 stored",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending rejects PUTpassport-batches/2d52aa59-5614-42d4-9514-37430032da71",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending rejects POSTpassport-batches/2d52aa59-5614-42d4-9514-37430032da71/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending rejects PUTpassport-batches/2d52aa59-5614-42d4-9514-37430032da71/sections/1196055e-99e4-4358-8970-05f7c0ade656",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending rejects DELETEpassport-batches/2d52aa59-5614-42d4-9514-37430032da71/sections/1196055e-99e4-4358-8970-05f7c0ade656",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending rejects PUTpassport-batches/2d52aa59-5614-42d4-9514-37430032da71/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending rejects PUTpassport-batches/2d52aa59-5614-42d4-9514-37430032da71/sections/1196055e-99e4-4358-8970-05f7c0ade656/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Repeated submit conflict",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject reason required",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsafe comment rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsafe comment rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "reject audit failure fails",
+          "status": "PASS"
+        },
+        {
+          "name": "reject exact transaction rollback",
+          "status": "PASS"
+        },
+        {
+          "name": "approve audit failure fails",
+          "status": "PASS"
+        },
+        {
+          "name": "approve exact transaction rollback",
+          "status": "PASS"
+        },
+        {
+          "name": "Default change leaves frozen candidate byte-identical",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin cannot disable product under review",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer rejects",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject returns Draft and keeps reason",
+          "status": "PASS"
+        },
+        {
+          "name": "Resubmit distinct immutable history",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer approves",
+          "status": "PASS"
+        },
+        {
+          "name": "Approved is locked Ready for Publish",
+          "status": "PASS"
+        },
+        {
+          "name": "Approved rejects edits",
+          "status": "PASS"
+        },
+        {
+          "name": "Repeated approve conflict",
+          "status": "PASS"
+        },
+        {
+          "name": "No public records",
+          "status": "PASS"
+        },
+        {
+          "name": "DB freeze update review_records set comment=? where id=?",
+          "status": "PASS"
+        },
+        {
+          "name": "DB freeze delete from review_records where id=?",
+          "status": "PASS"
+        },
+        {
+          "name": "DB freeze update batches set submitted_content_hash=? where id=?",
+          "status": "PASS"
+        },
+        {
+          "name": "DB freeze update custom_section_translations set title=? where custom_section_id=?",
+          "status": "PASS"
+        },
+        {
+          "name": "DB freeze update batches set internal_note=? where id=?",
+          "status": "PASS"
+        },
+        {
+          "name": "Return requires reason",
+          "status": "PASS"
+        },
+        {
+          "name": "Return clears candidate pointer preserves approval history",
+          "status": "PASS"
+        },
+        {
+          "name": "New attempt after return",
+          "status": "PASS"
+        },
+        {
+          "name": "Five concurrent approve exactly one success",
+          "status": "PASS"
+        },
+        {
+          "name": "Five concurrent mixed exactly one success",
+          "status": "PASS"
+        },
+        {
+          "name": "Five concurrent submit exactly one success",
+          "status": "PASS"
+        },
+        {
+          "name": "Composite cannot self approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Composite cannot self reject",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin self review also forbidden",
+          "status": "PASS"
+        },
+        {
+          "name": "Disabled account stale JWT denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Role downgrade stale JWT write denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Integrity",
+          "status": "PASS"
+        },
+        {
+          "name": "No foreign key errors",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Fresh API",
+      "evidence": "runtime/t8/test-artifacts/api-fresh.json",
+      "checks": [
+        {
+          "name": "JWT admin login",
+          "status": "PASS"
+        },
+        {
+          "name": "editor user login and role exists",
+          "status": "PASS"
+        },
+        {
+          "name": "reviewer user login and role exists",
+          "status": "PASS"
+        },
+        {
+          "name": "viewer user login and role exists",
+          "status": "PASS"
+        },
+        {
+          "name": "editor_reviewer user login and role exists",
+          "status": "PASS"
+        },
+        {
+          "name": "Editor creates sealed Product and Batch",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-products",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-products",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-products/:id/archive",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-products/:id/archive",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-products/:id/revisions",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-products/:id/revisions",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id/revisions/:rid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id/revisions/:rid",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id/revisions/:rid/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id/revisions/:rid/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-products/:id/revisions/:rid/seal",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-products/:id/revisions/:rid/seal",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id/default-revision",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id/default-revision",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-batches",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-batches/:id",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-batches/:id",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/clone",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-batches/:id/clone",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-products/:id/revisions/:rid/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-products/:id/revisions/:rid/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id/revisions/:rid/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id/revisions/:rid/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied DELETE /api/v1/passport-products/:id/revisions/:rid/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit DELETE /api/v1/passport-products/:id/revisions/:rid/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id/revisions/:rid/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id/revisions/:rid/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-products/:id/revisions/:rid/sections/:sid/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-products/:id/revisions/:rid/sections/:sid/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit POST /api/v1/passport-batches/:id/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-batches/:id/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-batches/:id/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied DELETE /api/v1/passport-batches/:id/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit DELETE /api/v1/passport-batches/:id/sections/:sid",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-batches/:id/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-batches/:id/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied PUT /api/v1/passport-batches/:id/sections/:sid/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer denied edit PUT /api/v1/passport-batches/:id/sections/:sid/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied GET /api/v1/passport-batches/:id/review",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied GET /api/v1/passport-batches/:id/review/readiness",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/review/submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied POST /api/v1/passport-batches/:id/review/submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/review/approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied POST /api/v1/passport-batches/:id/review/approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/review/reject",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied POST /api/v1/passport-batches/:id/review/reject",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/review/return",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied POST /api/v1/passport-batches/:id/review/return",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer denied POST /api/v1/passport-batches/:id/review/archive",
+          "status": "PASS"
+        },
+        {
+          "name": "Anonymous denied POST /api/v1/passport-batches/:id/review/archive",
+          "status": "PASS"
+        },
+        {
+          "name": "Editor denied approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Editor denied reject",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer reads batch",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer queue accessible",
+          "status": "PASS"
+        },
+        {
+          "name": "Editor no queue",
+          "status": "PASS"
+        },
+        {
+          "name": "Structured missing dates prevents Submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Optional languages and private Draft section ready",
+          "status": "PASS"
+        },
+        {
+          "name": "submit audit failure fails",
+          "status": "PASS"
+        },
+        {
+          "name": "submit exact transaction rollback",
+          "status": "PASS"
+        },
+        {
+          "name": "Draft to Pending frozen input",
+          "status": "PASS"
+        },
+        {
+          "name": "Candidate SHA256 stored",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending rejects PUTpassport-batches/a86f7b5a-9b27-483a-a369-8408b21d6d8e",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending rejects POSTpassport-batches/a86f7b5a-9b27-483a-a369-8408b21d6d8e/sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending rejects PUTpassport-batches/a86f7b5a-9b27-483a-a369-8408b21d6d8e/sections/052cd149-2369-4f12-95ac-3002e53ae31b",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending rejects DELETEpassport-batches/a86f7b5a-9b27-483a-a369-8408b21d6d8e/sections/052cd149-2369-4f12-95ac-3002e53ae31b",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending rejects PUTpassport-batches/a86f7b5a-9b27-483a-a369-8408b21d6d8e/sections/reorder",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending rejects PUTpassport-batches/a86f7b5a-9b27-483a-a369-8408b21d6d8e/sections/052cd149-2369-4f12-95ac-3002e53ae31b/translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Repeated submit conflict",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject reason required",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsafe comment rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsafe comment rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "reject audit failure fails",
+          "status": "PASS"
+        },
+        {
+          "name": "reject exact transaction rollback",
+          "status": "PASS"
+        },
+        {
+          "name": "approve audit failure fails",
+          "status": "PASS"
+        },
+        {
+          "name": "approve exact transaction rollback",
+          "status": "PASS"
+        },
+        {
+          "name": "Default change leaves frozen candidate byte-identical",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin cannot disable product under review",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer rejects",
+          "status": "PASS"
+        },
+        {
+          "name": "Reject returns Draft and keeps reason",
+          "status": "PASS"
+        },
+        {
+          "name": "Resubmit distinct immutable history",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer approves",
+          "status": "PASS"
+        },
+        {
+          "name": "Approved is locked Ready for Publish",
+          "status": "PASS"
+        },
+        {
+          "name": "Approved rejects edits",
+          "status": "PASS"
+        },
+        {
+          "name": "Repeated approve conflict",
+          "status": "PASS"
+        },
+        {
+          "name": "No public records",
+          "status": "PASS"
+        },
+        {
+          "name": "DB freeze update review_records set comment=? where id=?",
+          "status": "PASS"
+        },
+        {
+          "name": "DB freeze delete from review_records where id=?",
+          "status": "PASS"
+        },
+        {
+          "name": "DB freeze update batches set submitted_content_hash=? where id=?",
+          "status": "PASS"
+        },
+        {
+          "name": "DB freeze update custom_section_translations set title=? where custom_section_id=?",
+          "status": "PASS"
+        },
+        {
+          "name": "DB freeze update batches set internal_note=? where id=?",
+          "status": "PASS"
+        },
+        {
+          "name": "Return requires reason",
+          "status": "PASS"
+        },
+        {
+          "name": "Return clears candidate pointer preserves approval history",
+          "status": "PASS"
+        },
+        {
+          "name": "New attempt after return",
+          "status": "PASS"
+        },
+        {
+          "name": "Five concurrent approve exactly one success",
+          "status": "PASS"
+        },
+        {
+          "name": "Five concurrent mixed exactly one success",
+          "status": "PASS"
+        },
+        {
+          "name": "Five concurrent submit exactly one success",
+          "status": "PASS"
+        },
+        {
+          "name": "Composite cannot self approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Composite cannot self reject",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin self review also forbidden",
+          "status": "PASS"
+        },
+        {
+          "name": "Disabled account stale JWT denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Role downgrade stale JWT write denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Integrity",
+          "status": "PASS"
+        },
+        {
+          "name": "No foreign key errors",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Readiness and freeze edges",
+      "evidence": "runtime/t8/test-artifacts/edges.json",
+      "checks": [
+        {
+          "name": "Public draft section fails readiness",
+          "status": "PASS"
+        },
+        {
+          "name": "Source-only ready public section accepted",
+          "status": "PASS"
+        },
+        {
+          "name": "Readiness invalid_override",
+          "status": "PASS"
+        },
+        {
+          "name": "Readiness invalid_inspection",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen numeric precision",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen override provenance",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen public custom section",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending DB freeze batch_overrides",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending DB freeze inspection_items",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending DB freeze custom_sections",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending DB freeze custom_section_translations",
+          "status": "PASS"
+        },
+        {
+          "name": "Candidate mismatch rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Stale attempt rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "Mismatch keeps pending",
+          "status": "PASS"
+        },
+        {
+          "name": "Other reviewer may approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Creator cannot review someone else submission",
+          "status": "PASS"
+        },
+        {
+          "name": "Editor archive forbidden",
+          "status": "PASS"
+        },
+        {
+          "name": "Admin archives draft",
+          "status": "PASS"
+        },
+        {
+          "name": "Archived submit conflict",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending archive conflict",
+          "status": "PASS"
+        },
+        {
+          "name": "Strict review DTO submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Strict review DTO approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Strict review DTO reject",
+          "status": "PASS"
+        },
+        {
+          "name": "Strict review DTO return",
+          "status": "PASS"
+        },
+        {
+          "name": "History candidate is current only",
+          "status": "PASS"
+        },
+        {
+          "name": "Approval metadata persists",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Migrations",
+      "evidence": "runtime/t8/test-artifacts/migrations.json",
+      "checks": [
+        {
+          "name": "T7 upgrade preserves every historical business field",
+          "status": "PASS"
+        },
+        {
+          "name": "Review pointer initially null",
+          "status": "PASS"
+        },
+        {
+          "name": "T8 recorded once",
+          "status": "PASS"
+        },
+        {
+          "name": "Audit freeze retained",
+          "status": "PASS"
+        },
+        {
+          "name": "Upgrade integrity and foreign keys",
+          "status": "PASS"
+        },
+        {
+          "name": "Upgrade repeat preserves data/schema",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh schema equals upgrade",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh business empty",
+          "status": "PASS"
+        },
+        {
+          "name": "Thirteen migrations",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh migration repeat",
+          "status": "PASS"
+        },
+        {
+          "name": "Separate service DB from zero",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Go T5-T7 regression",
+      "evidence": "runtime/t8/test-artifacts/go-regression.json",
+      "checks": [
+        {
+          "name": "TestT6ResolverEdges/MultilingualBaseFixture",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/ApplicationRejectsCorruptDraftDefault",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/CreateEdgeBatch",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/OverrideMissingTranslationFallsBackToOverrideSource",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/OverrideOwnTranslationResolves",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/CloneCopiesTranslationButResetsApproval",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/ResetDeletesOverrideTranslations",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/UnopenedAssetOverridePreviewFailsClosed",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6ResolverEdges/ProcessSetAndClearAreWholeArray",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateProductFixture",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/NoDefaultRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DraftDefaultRejectedByDB",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/SealAndSetDefault",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateBindsSealedDefault",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ListPaginationSearchProduct",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DuplicateCodeBusiness409",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/InvalidBatchCodes",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DatabaseUniqueCode",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DatabaseBaseImmutable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DatabaseProductImmutable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CrossProductBaseRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ReferencedRevisionDeleteRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/InheritResolver",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/SetOverrideResolver",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ClearOverrideResolver",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ResetDeletesOverrideRestoresBase",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_batch_code",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_product_id",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_base_product_revision_id",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_workflow_status",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_quality_status",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_created_by",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_product_name",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_unknown",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ForbiddenOverride_product_image_asset",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/TypedOverrideValidation",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DateValidationAndNullable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateDynamicInspection",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/UpdateInspectionPreservesIdentity",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/UnknownInspectionNoSchemaChange",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/TextInspectionAndAllStatuses",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/InspectionInvalidStatesAndValues",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ExactDecimalComparison",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DeleteDraftInspection",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/DuplicateInspectionCodeRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/StaleEditVersionRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/MissingChildListsRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateAuditFailureRollsBack",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/OverrideAuditFailureRollsBackWholeAggregate",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CreateR2DefaultHistoricalBatchStable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ClonePreservesOverrideAndBase",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CloneClearsProductionFacts",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CloneCopiesDefinitionsNewIDs",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/CloneFailureRollsBack",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ResetCloneOverride",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/PendingBatchApplicationFreeze",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ConcurrentDifferentCodes",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ConcurrentSameCodeOneSuccess",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/ConcurrentClonesNoDirtyCopies",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/AuditEventsAndAppendOnly",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT6Batches/IntegrityAndForeignKeys",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/CreateProductRevisionTranslationTransaction",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/DuplicateProductCodeReadable",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/CodeValidation",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/RollbackOnTranslationDatabaseFailure",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/RollbackOnAuditFailure",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/DraftEditAndStaleWriteRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/InvalidStructuredFieldsRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SixLanguageUpsert",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/LanguageAndStepLabelValidation",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SealStoresHashAndMetadata",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/FrozenRevisionApplicationRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/FrozenTranslationApplicationRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/FrozenRawSQLRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SetSealedDefaultExplicitly",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/CloneIndependentIDsAndResetSystemFields",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/NewRevisionDoesNotSwitchDefault",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/NewRevisionEditsLeaveHistoryIntact",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/DraftDefaultRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SealRequiresConfirmedSourceLanguage",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/SwitchDefaultPreservesR1R2",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/ForeignProductRevisionRejected",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/ConcurrentRevisionNumbers",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/DatabaseUniqueLastDefense",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/ArchivePreservesHistoryAndBlocksWrites",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/AuditEventsInSameDatabase",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/IntegrityAndForeignKeys",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT5ProductTemplates/ListSearchPaginationAndStatus",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/empty_text_is_explicit_content,_not_hide",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/normal_unicode",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/HTML_forbidden",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/nested_unknown",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/null_item",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/duplicate_keys",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/empty_table_columns",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/null_cell",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/null_content",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/trailing_object",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/JSON_title_injection",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7Validation/text_exact_limit",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7TransactionsAndCapacity/owner_capacity_100_and_reject_101",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7TransactionsAndCapacity/reorder_failure_rolls_all_rows_and_audit_back",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7TransactionsAndCapacity/clone_audit_failure_rolls_new_revision_and_sections_back",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7InheritDisabled/inherit",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7InheritDisabled/replace",
+          "status": "PASS"
+        },
+        {
+          "name": "TestT7InheritDisabled/hide",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Browser workflow",
+      "evidence": "runtime/t8/test-artifacts/browser-tests.json",
+      "checks": [
+        {
+          "name": "Browser editor login",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser Editor creates Product",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser seal and set default",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser Editor creates Batch",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser custom module",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsaved changes block submission",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending form locked",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser viewer login",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer readonly browser",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser reviewer login",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer actual queue",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen custom preview visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser reject",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser editor login",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser reject edit resubmit",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser reviewer login",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser approved not published",
+          "status": "PASS"
+        },
+        {
+          "name": "No document horizontal overflow",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser editor_reviewer login",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser approve self denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Composite self approval rejected through browser",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser exceptions",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Fresh browser workflow",
+      "evidence": "runtime/t8/test-artifacts/fresh-browser-tests.json",
+      "checks": [
+        {
+          "name": "Browser editor login",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser Editor creates Product",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser seal and set default",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser Editor creates Batch",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser custom module",
+          "status": "PASS"
+        },
+        {
+          "name": "Unsaved changes block submission",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Pending form locked",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser viewer login",
+          "status": "PASS"
+        },
+        {
+          "name": "Viewer readonly browser",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser reviewer login",
+          "status": "PASS"
+        },
+        {
+          "name": "Reviewer actual queue",
+          "status": "PASS"
+        },
+        {
+          "name": "Frozen custom preview visible",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser reject",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser editor login",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser submit",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser reject edit resubmit",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser reviewer login",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser approve",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser approved not published",
+          "status": "PASS"
+        },
+        {
+          "name": "No document horizontal overflow",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser editor_reviewer login",
+          "status": "PASS"
+        },
+        {
+          "name": "Browser approve self denied",
+          "status": "PASS"
+        },
+        {
+          "name": "Composite self approval rejected through browser",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser exceptions",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Post-restart UI",
+      "evidence": "runtime/t8/test-artifacts/ui-smoke.json",
+      "checks": [
+        {
+          "name": "Main corrected frozen review UI after restart",
+          "status": "PASS"
+        },
+        {
+          "name": "Fresh corrected frozen review UI after restart",
+          "status": "PASS"
+        },
+        {
+          "name": "No browser exceptions or missing locale keys",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Restart persistence",
+      "evidence": "runtime/t8/test-artifacts/restart.json",
+      "checks": [
+        {
+          "name": "passport-admin-t8.db restart exact batches",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db restart exact review_records",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db restart exact passport_audit_events",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db restart exact batches",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db restart exact review_records",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db restart exact passport_audit_events",
+          "status": "PASS"
+        },
+        {
+          "name": "initial restart API exact review 2d52aa59-5614-42d4-9514-37430032da71",
+          "status": "PASS"
+        },
+        {
+          "name": "initial restart API exact review 6b9e8fe2-cf9f-4fb5-b890-4f3099f2cc54",
+          "status": "PASS"
+        },
+        {
+          "name": "initial restart API exact review d040c3c0-5ec2-4507-b599-51d726e11a43",
+          "status": "PASS"
+        },
+        {
+          "name": "initial browser approved history survives restart",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh restart API exact review a86f7b5a-9b27-483a-a369-8408b21d6d8e",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh restart API exact review 50e8a74d-7ee0-42fc-9fe3-ad133dea89c3",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh restart API exact review 251f3f80-c894-4988-b621-4876ee000f55",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh browser approved history survives restart",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Business API contracts",
+      "evidence": "runtime/t8/test-artifacts/contracts.json",
+      "checks": [
+        {
+          "name": "QueueRow TypeScript properties match ReviewQueueRow",
+          "status": "PASS",
+          "missing": []
+        },
+        {
+          "name": "Review TypeScript properties match ReviewView",
+          "status": "PASS",
+          "missing": []
+        },
+        {
+          "name": "ReviewDetail TypeScript properties match ReviewDetail",
+          "status": "PASS",
+          "missing": []
+        },
+        {
+          "name": "Readiness TypeScript properties match Readiness",
+          "status": "PASS",
+          "missing": []
+        },
+        {
+          "name": "Candidate TypeScript properties match ReviewCandidate",
+          "status": "PASS",
+          "missing": []
+        }
+      ]
+    },
+    {
+      "name": "Tooling",
+      "evidence": "runtime/t8/test-artifacts/tooling.json",
+      "checks": [
+        {
+          "name": "TypeScript type-check",
+          "status": "PASS"
+        },
+        {
+          "name": "ESLint zero errors (30 upstream warnings)",
+          "status": "PASS"
+        },
+        {
+          "name": "Production UI build",
+          "status": "PASS"
+        },
+        {
+          "name": "301 UI unit tests",
+          "status": "PASS"
+        },
+        {
+          "name": "i18n metadata check",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend build",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "Final integrity and protection",
+      "evidence": "runtime/t8/test-artifacts/final.json",
+      "checks": [
+        {
+          "name": "53 original hashes unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "7 site files unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "36278 historical protected files and T4-T7 migrations unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "go-admin locked commit",
+          "status": "PASS"
+        },
+        {
+          "name": "go-admin-ui locked commit",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db integrity ok",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db foreign keys clean",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db unique review attempt",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db one pending attempt per batch",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db no orphan review",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db no leftover injected trigger",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db locked candidate matches review",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db all candidate hashes verified",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db no self decisions",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db no public snapshots or published assets",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-acceptance.db approved history audited",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db integrity ok",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db foreign keys clean",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db unique review attempt",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db one pending attempt per batch",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db no orphan review",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db no leftover injected trigger",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db locked candidate matches review",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db all candidate hashes verified",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db no self decisions",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db no public snapshots or published assets",
+          "status": "PASS"
+        },
+        {
+          "name": "passport-admin-t8.db approved history audited",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db integrity ok",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db foreign keys clean",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db unique review attempt",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db one pending attempt per batch",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db no orphan review",
+          "status": "PASS"
+        },
+        {
+          "name": "service-test.db no leftover injected trigger",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t7.db integrity ok",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t7.db foreign keys clean",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t7.db unique review attempt",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t7.db one pending attempt per batch",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t7.db no orphan review",
+          "status": "PASS"
+        },
+        {
+          "name": "upgrade-from-t7.db no leftover injected trigger",
+          "status": "PASS"
+        },
+        {
+          "name": "20 business tables 327 columns",
+          "status": "PASS"
+        },
+        {
+          "name": "109 integrity and freeze triggers",
+          "status": "PASS"
+        },
+        {
+          "name": "8 new review APIs",
+          "status": "PASS"
+        },
+        {
+          "name": "13 migrations",
+          "status": "PASS"
+        },
+        {
+          "name": "Backend tracked files unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "Only two UI locale tracked entries",
+          "status": "PASS"
+        },
+        {
+          "name": "go-admin diff check",
+          "status": "PASS"
+        },
+        {
+          "name": "go-admin-ui diff check",
+          "status": "PASS"
+        },
+        {
+          "name": "Local stopped 18101",
+          "status": "PASS"
+        },
+        {
+          "name": "Local stopped 18102",
+          "status": "PASS"
+        },
+        {
+          "name": "Local stopped 19532",
+          "status": "PASS"
+        },
+        {
+          "name": "Local stopped 19533",
+          "status": "PASS"
+        }
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "id": 1,
+      "requirement": "四角色建立并可用。",
+      "status": "PASS"
+    },
+    {
+      "id": 2,
+      "requirement": "Editor 权限正确。",
+      "status": "PASS"
+    },
+    {
+      "id": 3,
+      "requirement": "Reviewer 权限正确。",
+      "status": "PASS"
+    },
+    {
+      "id": 4,
+      "requirement": "Viewer 只读。",
+      "status": "PASS"
+    },
+    {
+      "id": 5,
+      "requirement": "Super Admin 权限正确。",
+      "status": "PASS"
+    },
+    {
+      "id": 6,
+      "requirement": "所有权限 Backend/Casbin 强制。",
+      "status": "PASS"
+    },
+    {
+      "id": 7,
+      "requirement": "Submit for Review 可用。",
+      "status": "PASS"
+    },
+    {
+      "id": 8,
+      "requirement": "提交前 Readiness Validation 生效。",
+      "status": "PASS"
+    },
+    {
+      "id": 9,
+      "requirement": "不合格 Batch 无法提交。",
+      "status": "PASS"
+    },
+    {
+      "id": 10,
+      "requirement": "Draft → Pending Review 正确。",
+      "status": "PASS"
+    },
+    {
+      "id": 11,
+      "requirement": "Pending Review 锁定业务数据。",
+      "status": "PASS"
+    },
+    {
+      "id": 12,
+      "requirement": "Reviewer 不能编辑业务内容。",
+      "status": "PASS"
+    },
+    {
+      "id": 13,
+      "requirement": "Reject 可用。",
+      "status": "PASS"
+    },
+    {
+      "id": 14,
+      "requirement": "Reject Reason 必填。",
+      "status": "PASS"
+    },
+    {
+      "id": 15,
+      "requirement": "Reject → Draft 正确。",
+      "status": "PASS"
+    },
+    {
+      "id": 16,
+      "requirement": "再次提交产生新的审核记录。",
+      "status": "PASS"
+    },
+    {
+      "id": 17,
+      "requirement": "Approve 可用。",
+      "status": "PASS"
+    },
+    {
+      "id": 18,
+      "requirement": "Approve 后不是 Published。",
+      "status": "PASS"
+    },
+    {
+      "id": 19,
+      "requirement": "Approved / Ready for Publish 状态明确。",
+      "status": "PASS"
+    },
+    {
+      "id": 20,
+      "requirement": "Approve 后业务数据继续锁定。",
+      "status": "PASS"
+    },
+    {
+      "id": 21,
+      "requirement": "Self Approval 默认禁止。",
+      "status": "PASS"
+    },
+    {
+      "id": 22,
+      "requirement": "角色组合不能绕过 Self Approval。",
+      "status": "PASS"
+    },
+    {
+      "id": 23,
+      "requirement": "Review History 完整保留。",
+      "status": "PASS"
+    },
+    {
+      "id": 24,
+      "requirement": "Audit 完整产生。",
+      "status": "PASS"
+    },
+    {
+      "id": 25,
+      "requirement": "Audit 与业务状态变更同事务。",
+      "status": "PASS"
+    },
+    {
+      "id": 26,
+      "requirement": "Submit 事务失败完整回滚。",
+      "status": "PASS"
+    },
+    {
+      "id": 27,
+      "requirement": "Reject 事务失败完整回滚。",
+      "status": "PASS"
+    },
+    {
+      "id": 28,
+      "requirement": "Approve 事务失败完整回滚。",
+      "status": "PASS"
+    },
+    {
+      "id": 29,
+      "requirement": "并发 Approve 只有一个成功。",
+      "status": "PASS"
+    },
+    {
+      "id": 30,
+      "requirement": "Approve/Reject 竞态只有一个成功。",
+      "status": "PASS"
+    },
+    {
+      "id": 31,
+      "requirement": "重复 Submit 不产生重复有效审核。",
+      "status": "PASS"
+    },
+    {
+      "id": 32,
+      "requirement": "Pending Review 时 Product Default 变化不影响审核内容。",
+      "status": "PASS"
+    },
+    {
+      "id": 33,
+      "requirement": "Pending Review 时 Batch 内容不可修改。",
+      "status": "PASS"
+    },
+    {
+      "id": 34,
+      "requirement": "Viewer 写操作全部拒绝。",
+      "status": "PASS"
+    },
+    {
+      "id": 35,
+      "requirement": "Editor Approve/Reject 全部拒绝。",
+      "status": "PASS"
+    },
+    {
+      "id": 36,
+      "requirement": "Reviewer 普通业务编辑拒绝。",
+      "status": "PASS"
+    },
+    {
+      "id": 37,
+      "requirement": "所有新 API 认证。",
+      "status": "PASS"
+    },
+    {
+      "id": 38,
+      "requirement": "所有新 API 经过 Casbin。",
+      "status": "PASS"
+    },
+    {
+      "id": 39,
+      "requirement": "浏览器完整 Editor→Reviewer 流程通过。",
+      "status": "PASS"
+    },
+    {
+      "id": 40,
+      "requirement": "Self Approval 浏览器测试通过。",
+      "status": "PASS"
+    },
+    {
+      "id": 41,
+      "requirement": "Backend 重启后审核状态和历史保持。",
+      "status": "PASS"
+    },
+    {
+      "id": 42,
+      "requirement": "Fresh DB 从零建立。",
+      "status": "PASS"
+    },
+    {
+      "id": 43,
+      "requirement": "Migration 重复执行安全。",
+      "status": "PASS"
+    },
+    {
+      "id": 44,
+      "requirement": "integrity_check = ok。",
+      "status": "PASS"
+    },
+    {
+      "id": 45,
+      "requirement": "foreign_key_check 无异常。",
+      "status": "PASS"
+    },
+    {
+      "id": 46,
+      "requirement": "原 53 个基线文件不变。",
+      "status": "PASS"
+    },
+    {
+      "id": 47,
+      "requirement": "site 7 个文件不变。",
+      "status": "PASS"
+    },
+    {
+      "id": 48,
+      "requirement": "未生成 Published Snapshot。",
+      "status": "PASS"
+    },
+    {
+      "id": 49,
+      "requirement": "未冻结正式 Published Assets。",
+      "status": "PASS"
+    },
+    {
+      "id": 50,
+      "requirement": "未进入 T9。",
+      "status": "PASS"
+    }
+  ],
+  "answers": [
+    {
+      "number": 1,
+      "question": "是否实现 Super Admin？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 2,
+      "question": "是否实现 Editor？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 3,
+      "question": "是否实现 Reviewer？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 4,
+      "question": "是否实现 Viewer？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 5,
+      "question": "Viewer 是否真正只读？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 6,
+      "question": "Editor 是否不能 Approve？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 7,
+      "question": "Editor 是否不能 Reject？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 8,
+      "question": "Reviewer 是否不能修改业务数据？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 9,
+      "question": "是否全部通过 Casbin 强制？",
+      "answer": "是；业务路由统一 JWT → LiveIdentity → 上游 AuthCheckRole/Casbin → PermissionAction；admin 保留上游超级管理员规则。"
+    },
+    {
+      "number": 10,
+      "question": "是否存在前端隐藏但后端可绕过的权限？",
+      "answer": "未发现；全部业务写路由逐条实测权限拒绝，普通员工表单也禁用。"
+    },
+    {
+      "number": 11,
+      "question": "Submit for Review 是否可用？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 12,
+      "question": "是否存在 Readiness Validation？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 13,
+      "question": "不完整数据是否被拒绝提交？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 14,
+      "question": "Draft 是否正确进入 Pending Review？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 15,
+      "question": "Pending Review 是否锁定 Batch？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 16,
+      "question": "Pending Review 是否锁定 Override？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 17,
+      "question": "Pending Review 是否锁定 Inspection？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 18,
+      "question": "Pending Review 是否锁定 Custom Sections？",
+      "answer": "是；包括模块本体及译文，API/DB 双重锁定。"
+    },
+    {
+      "number": 19,
+      "question": "Reject 是否可用？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 20,
+      "question": "Reject Reason 是否必填？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 21,
+      "question": "Reject 后是否回 Draft？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 22,
+      "question": "Reject 历史是否保留？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 23,
+      "question": "是否可以再次 Submit？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 24,
+      "question": "第二次审核是否不会覆盖第一次记录？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 25,
+      "question": "Approve 是否可用？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 26,
+      "question": "Approve 后是否不会直接变 Published？",
+      "answer": "是；只到 ready_for_publish，未建立公开版本或发布记录。"
+    },
+    {
+      "number": 27,
+      "question": "是否存在 Approved / Ready for Publish 等明确状态？",
+      "answer": "是；pending_review + 当前审核 approved 派生 ready_for_publish，不改旧枚举。"
+    },
+    {
+      "number": 28,
+      "question": "Approved 后是否锁定？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 29,
+      "question": "是否禁止 Self Approval？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 30,
+      "question": "Editor+Reviewer 同一用户是否仍不能审核自己？",
+      "answer": "是；上游单角色 ID 下以 Editor + Reviewer 组合角色实现权限并集，Service/DB 仍禁止自审。"
+    },
+    {
+      "number": 31,
+      "question": "如实现 Super Admin Override，是否强制理由和 Audit？",
+      "answer": "未实现 Override；Super Admin 同样不能自审，因此无例外理由入口。"
+    },
+    {
+      "number": 32,
+      "question": "是否存在 Review Record / Review Attempt？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 33,
+      "question": "是否与 Publish Record 分离？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 34,
+      "question": "是否保留完整 Review History？",
+      "answer": "是；每轮独立存储并保留决定、意见、理由、用户和时间；UI 列出所有轮次。"
+    },
+    {
+      "number": 35,
+      "question": "是否保存 submitted_by？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 36,
+      "question": "是否保存 submitted_at？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 37,
+      "question": "是否保存 reviewed_by？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 38,
+      "question": "是否保存 reviewed_at？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 39,
+      "question": "是否保存 rejection_reason？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 40,
+      "question": "是否存在 Review Candidate Hash 或等价冻结机制？",
+      "answer": "是；冻结受控 review-v1 输入及 SHA-256，内部 preview_hash 相同。"
+    },
+    {
+      "number": 41,
+      "question": "Reviewer 看到的数据是否与提交时一致？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 42,
+      "question": "Product Default 改变是否不影响待审核内容？",
+      "answer": "是；固定 base_revision_id 和候选字节，不读取新的默认模板。"
+    },
+    {
+      "number": 43,
+      "question": "并发 Approve 是否只有一个成功？",
+      "answer": "是；5 个并发批准仅 1 成功，其余 409。"
+    },
+    {
+      "number": 44,
+      "question": "Approve/Reject 竞态是否只有一个成功？",
+      "answer": "是；5 个批准/驳回混合请求仅 1 成功。"
+    },
+    {
+      "number": 45,
+      "question": "重复 Submit 是否安全？",
+      "answer": "是；5 个并发提交仅 1 成功。"
+    },
+    {
+      "number": 46,
+      "question": "重复 Approve 是否安全？",
+      "answer": "是；重复批准 409，保留冲突审计。"
+    },
+    {
+      "number": 47,
+      "question": "Submit 是否 Transaction？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 48,
+      "question": "Reject 是否 Transaction？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 49,
+      "question": "Approve 是否 Transaction？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 50,
+      "question": "Audit 是否与业务事务一致？",
+      "answer": "是；业务转移与审计同事务，注入审计失败精确回滚；409 冲突另记失败尝试事件。"
+    },
+    {
+      "number": 51,
+      "question": "Viewer 写 API 是否全部拒绝？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 52,
+      "question": "Editor 审核 API 是否拒绝？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 53,
+      "question": "Reviewer 编辑 API 是否拒绝？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 54,
+      "question": "匿名是否无法访问？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 55,
+      "question": "浏览器 Editor→Reject→修改→再次 Submit→Approve 是否通过？",
+      "answer": "是；主库与 Fresh DB 均通过真实 Chromium 完整操作。"
+    },
+    {
+      "number": 56,
+      "question": "Self Approval 浏览器测试是否通过？",
+      "answer": "是；组合角色实际点击批准收到 403。"
+    },
+    {
+      "number": 57,
+      "question": "Backend 重启后状态是否保持？",
+      "answer": "是；两库批次、审核、审计逐行不变，API 历史及浏览器批准状态一致。"
+    },
+    {
+      "number": 58,
+      "question": "Fresh DB 是否通过？",
+      "answer": "是；从空库跑全量迁移、真实用户/产品/封版/批次/审核/API/浏览器。"
+    },
+    {
+      "number": 59,
+      "question": "Migration 是否重复安全？",
+      "answer": "是；空库、T7 升级和重复执行通过。"
+    },
+    {
+      "number": 60,
+      "question": "integrity_check 是否 ok？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 61,
+      "question": "foreign_key_check 是否无异常？",
+      "answer": "是；已实现并有本轮本地验收证据。"
+    },
+    {
+      "number": 62,
+      "question": "DATA_MODEL 是否变化？",
+      "answer": "是；新增 review_records、批次当前审核指针及两个审计事件，校准内部预览摘要和批准/发布分离。"
+    },
+    {
+      "number": 63,
+      "question": "如变化是否新增 Migration？",
+      "answer": "是；1789084800000_review_workflow.go/.sql。"
+    },
+    {
+      "number": 64,
+      "question": "是否修改 T4/T5/T6/T7 历史 Migration？",
+      "answer": "否；T4–T7 历史 Migration Hash 均不变。"
+    },
+    {
+      "number": 65,
+      "question": "是否修改上游 tracked files？",
+      "answer": "是；仅前端两个语言入口存在 tracked 变化，后端 0。"
+    },
+    {
+      "number": 66,
+      "question": "如修改，具体哪些？",
+      "answer": "src/lang/en-US/index.ts、src/lang/zh-CN/index.ts；本轮各新增一处 passportReview 注册，累计相对上游各 +5/-1。"
+    },
+    {
+      "number": 67,
+      "question": "原 53 个基线文件 Hash 是否一致？",
+      "answer": "是；53 个文件 Hash 全部一致。"
+    },
+    {
+      "number": 68,
+      "question": "site 7 文件是否未变？",
+      "answer": "是；site 7 个文件 Hash 全部一致。"
+    },
+    {
+      "number": 69,
+      "question": "是否连接服务器？",
+      "answer": "否；仅 localhost 验收，未连接业务服务器。"
+    },
+    {
+      "number": 70,
+      "question": "是否修改 Caddy？",
+      "answer": "否。"
+    },
+    {
+      "number": 71,
+      "question": "是否修改 Directus？",
+      "answer": "否。"
+    },
+    {
+      "number": 72,
+      "question": "是否修改生产 Docker？",
+      "answer": "否。"
+    },
+    {
+      "number": 73,
+      "question": "是否生成 Published JSON Snapshot？",
+      "answer": "否；passport_revisions/publish_records/published_assets 为 0。"
+    },
+    {
+      "number": 74,
+      "question": "是否实现正式 Published Assets Freeze？",
+      "answer": "否；正式资产冻结仍属 T9。"
+    },
+    {
+      "number": 75,
+      "question": "是否进入 T9？",
+      "answer": "否；已停止，等待 T8 人工验收。"
+    }
+  ],
+  "diagnostics": [
+    {
+      "command": "pnpm check:api",
+      "status": "UNSUPPORTED_BUSINESS_MODULE",
+      "exit_code": 1,
+      "details": "上游脚本只扫描 app/admin/demo/jobs/other 等目录，未扫描 app/passport；误将 Product 识别为 DemoProduct，并无法解析 Batch/QueueRow，产生 4 项诊断。未更改上游脚本或绕过退出码。T8 独立契约检查 5 PASS，真实 API 验收覆盖业务。"
+    },
+    {
+      "command": "pnpm lint",
+      "status": "PASS_WITH_EXISTING_WARNINGS",
+      "errors": 0,
+      "warnings": 30
+    }
+  ],
+  "scope": {
+    "server_connected": false,
+    "published_snapshot_generated": false,
+    "published_assets_frozen": false,
+    "t9_started": false,
+    "local_services_stopped": true
+  }
+}

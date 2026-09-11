@@ -1,0 +1,2688 @@
+{
+  "status": "等待人工验收",
+  "generated_at": "2026-09-08T10:00:12.237431+00:00",
+  "total": 239,
+  "pass": 239,
+  "fail": 0,
+  "suites": {
+    "Go/GORM business tests": [
+      {
+        "name": "MultilingualBaseFixture",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.200097+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ApplicationRejectsCorruptDraftDefault",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.203675+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "CreateEdgeBatch",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.207271+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "OverrideMissingTranslationFallsBackToOverrideSource",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.207973+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "OverrideOwnTranslationResolves",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.209239+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "CloneCopiesTranslationButResetsApproval",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.21404+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ResetDeletesOverrideTranslations",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.216775+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "UnopenedAssetOverridePreviewFailsClosed",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.217003+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ProcessSetAndClearAreWholeArray",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.222159+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "CreateProductFixture",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.23188+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "NoDefaultRejected",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.232029+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "DraftDefaultRejectedByDB",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.232139+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "SealAndSetDefault",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.235268+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "CreateBindsSealedDefault",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.237482+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ListPaginationSearchProduct",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.237684+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "DuplicateCodeBusiness409",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.237965+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "InvalidBatchCodes",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.238002+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "DatabaseUniqueCode",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.238261+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "DatabaseBaseImmutable",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.238384+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "DatabaseProductImmutable",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.238484+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "CrossProductBaseRejected",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.238625+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ReferencedRevisionDeleteRejected",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.238738+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "InheritResolver",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.239152+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "SetOverrideResolver",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.242545+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ClearOverrideResolver",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.246677+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ResetDeletesOverrideRestoresBase",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.249953+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ForbiddenOverride_batch_code",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.25078+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ForbiddenOverride_product_id",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.25133+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ForbiddenOverride_base_product_revision_id",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.251727+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ForbiddenOverride_workflow_status",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.252135+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ForbiddenOverride_quality_status",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.252498+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ForbiddenOverride_created_by",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.25284+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ForbiddenOverride_product_name",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.253179+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ForbiddenOverride_unknown",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.253527+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ForbiddenOverride_product_image_asset",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.253868+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "TypedOverrideValidation",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.255348+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "DateValidationAndNullable",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.257685+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "CreateDynamicInspection",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.260897+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "UpdateInspectionPreservesIdentity",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.264624+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "UnknownInspectionNoSchemaChange",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.268092+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "TextInspectionAndAllStatuses",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.268152+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "InspectionInvalidStatesAndValues",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.268189+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ExactDecimalComparison",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.268209+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "DeleteDraftInspection",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.273549+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "DuplicateInspectionCodeRejected",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.274075+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "StaleEditVersionRejected",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.278356+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "MissingChildListsRejected",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.278903+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "CreateAuditFailureRollsBack",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.28056+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "OverrideAuditFailureRollsBackWholeAggregate",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.283744+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "CreateR2DefaultHistoricalBatchStable",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.290415+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ClonePreservesOverrideAndBase",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.299162+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "CloneClearsProductionFacts",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.299597+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "CloneCopiesDefinitionsNewIDs",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.300418+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "CloneFailureRollsBack",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.303212+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ResetCloneOverride",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.307409+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "PendingBatchApplicationFreeze",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.310423+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ConcurrentDifferentCodes",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.351554+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ConcurrentSameCodeOneSuccess",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.383309+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "ConcurrentClonesNoDirtyCopies",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.410404+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "AuditEventsAndAppendOnly",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.410492+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      },
+      {
+        "name": "IntegrityAndForeignKeys",
+        "category": "Go/GORM business tests",
+        "status": "PASS",
+        "time": "2026-09-08T17:33:08.415133+08:00",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/service-final-tests.jsonl"
+      }
+    ],
+    "HTTP API / Casbin": [
+      {
+        "name": "JWT login admin",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.654873+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Create product PF-T6-API-TEST",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.661455+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Seal product PF-T6-API-TEST",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.665332+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Default product PF-T6-API-TEST",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.666598+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Create batch HTTP",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.670206+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Saved fixed base R1",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.672252+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Duplicate normalized code409",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.673657+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Anonymous denied GET",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.675469+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Anonymous denied POST",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.675879+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Anonymous denied GET/31cb9ce8-a92d-482d-8234-41bbdb35786d",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.676264+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Anonymous denied PUT/31cb9ce8-a92d-482d-8234-41bbdb35786d",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.676859+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Anonymous denied POST/31cb9ce8-a92d-482d-8234-41bbdb35786d/clone",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.677316+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Update mass assignment rejected id",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.677784+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Update mass assignment rejected product_id",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.678301+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Update mass assignment rejected base_product_revision_id",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.678744+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Update mass assignment rejected batch_code",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.679111+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Update mass assignment rejected workflow_status",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.679488+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Update mass assignment rejected created_by",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.679879+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Update mass assignment rejected reviewed_by",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.680290+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Update mass assignment rejected current_passport_revision_id",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.680669+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Create supplied base rejected",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.681079+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Duplicate JSON keys rejected",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.681470+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "No ordinary batch delete",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.681881+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Forbidden override HTTP product_code",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.683709+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Forbidden override HTTP batch_code",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.684838+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Forbidden override HTTP product_id",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.685965+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Forbidden override HTTP base_product_revision_id",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.687123+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Forbidden override HTTP workflow_status",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.688398+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Forbidden override HTTP created_by",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.689536+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Forbidden override HTTP product_name",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.690668+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "wrong numeric",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.691807+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "clear with value",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.692902+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "asset clear unavailable",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.694628+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Aggregate override save",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.699752+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Effective20",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.700606+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Create role t6_none",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.703777+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Create user t6-no-access",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.784065+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "JWT login t6-no-access",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.861156+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "No Casbin grant denied",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.863414+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Create role t6_owner",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.865787+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Create user t6-owner",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:39.945555+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "JWT login t6-owner",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.022300+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Create product PF-T6-OWNER-TEST",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.024712+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Seal product PF-T6-OWNER-TEST",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.027648+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Default product PF-T6-OWNER-TEST",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.028928+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Owner creates batch",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.031054+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Owner sees own",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.032091+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Owner cannot see others",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.033358+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Owner cannot edit others",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.035371+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Owner list filters",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.036131+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Create role t6_view",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.037355+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Create user t6-view",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.116866+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "JWT login t6-view",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.190626+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Read-only role can list",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.191908+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Read-only role cannot write",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.192665+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "T5 clone R2 regression",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.195464+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "T5 confirm R2",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.197482+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "T5 seal R2",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.199199+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "T5 switch default",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.200098+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Old batch still R1 HTTP",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.200987+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "New batch uses R2",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.203839+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "HTTP clone",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.212029+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      },
+      {
+        "name": "Clone keeps R1",
+        "status": "PASS",
+        "time": "2026-09-08T09:19:40.213428+00:00",
+        "category": "HTTP API / Casbin",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-initial.json"
+      }
+    ],
+    "Backend restart": [
+      {
+        "name": "JWT login admin",
+        "status": "PASS",
+        "time": "2026-09-08T09:46:02.072936+00:00",
+        "category": "Backend restart",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-restart.json"
+      },
+      {
+        "name": "Product revisions persist",
+        "status": "PASS",
+        "time": "2026-09-08T09:46:02.075978+00:00",
+        "category": "Backend restart",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-restart.json"
+      },
+      {
+        "name": "Batch aggregate effective audit persist PF-T6-API-A",
+        "status": "PASS",
+        "time": "2026-09-08T09:46:02.077612+00:00",
+        "category": "Backend restart",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-restart.json"
+      },
+      {
+        "name": "Batch aggregate effective audit persist PF-T6-API-B",
+        "status": "PASS",
+        "time": "2026-09-08T09:46:02.078640+00:00",
+        "category": "Backend restart",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-restart.json"
+      },
+      {
+        "name": "Batch aggregate effective audit persist PF-T6-API-CLONE",
+        "status": "PASS",
+        "time": "2026-09-08T09:46:02.079519+00:00",
+        "category": "Backend restart",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/api-restart.json"
+      }
+    ],
+    "Browser aggregate and permissions restart": [
+      {
+        "method": "read-only Go service after actual HTTP backend restart",
+        "name": "Browser-created complete aggregate and resolver unchanged after backend restart",
+        "status": "PASS",
+        "time": "2026-09-08T09:57:45.845201Z",
+        "category": "Browser aggregate and permissions restart",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/restart-extra.json"
+      },
+      {
+        "method": "read-only Go service after actual HTTP backend restart",
+        "name": "Test role persists t6_none",
+        "status": "PASS",
+        "time": "2026-09-08T09:57:45.845268Z",
+        "category": "Browser aggregate and permissions restart",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/restart-extra.json"
+      },
+      {
+        "method": "read-only Go service after actual HTTP backend restart",
+        "name": "Test role persists t6_owner",
+        "status": "PASS",
+        "time": "2026-09-08T09:57:45.84528Z",
+        "category": "Browser aggregate and permissions restart",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/restart-extra.json"
+      },
+      {
+        "method": "read-only Go service after actual HTTP backend restart",
+        "name": "Test role persists t6_view",
+        "status": "PASS",
+        "time": "2026-09-08T09:57:45.845291Z",
+        "category": "Browser aggregate and permissions restart",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/restart-extra.json"
+      },
+      {
+        "method": "read-only Go service after actual HTTP backend restart",
+        "name": "Owner batch Casbin grants persist",
+        "status": "PASS",
+        "time": "2026-09-08T09:57:45.845316Z",
+        "category": "Browser aggregate and permissions restart",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/restart-extra.json"
+      },
+      {
+        "method": "read-only Go service after actual HTTP backend restart",
+        "name": "Ungrant role has no batch policy after restart",
+        "status": "PASS",
+        "time": "2026-09-08T09:57:45.845331Z",
+        "category": "Browser aggregate and permissions restart",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/restart-extra.json"
+      }
+    ],
+    "Browser E2E": [
+      {
+        "name": "Browser login",
+        "status": "PASS",
+        "time": "2026-09-08T09:34:56.014Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "T5 Product created through browser",
+        "status": "PASS",
+        "time": "2026-09-08T09:34:57.655Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "save-content succeeds",
+        "status": "PASS",
+        "time": "2026-09-08T09:34:57.919Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "save-translation succeeds",
+        "status": "PASS",
+        "time": "2026-09-08T09:34:58.373Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "R1 sealed default in UI",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:00.528Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "save-content succeeds",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:01.902Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "save-translation succeeds",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:02.351Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "R2 sealed without implicit default change",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:03.541Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Batch menu and list",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:04.639Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Create dialog displays R1",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:05.528Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Batch A binds R1",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:05.716Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Effective inherited25",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:05.717Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "save-batch succeeds",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:06.688Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Override20 effective source",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:06.709Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "save-batch succeeds",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:07.686Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Clear rendered",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:07.707Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "save-batch succeeds",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:08.687Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Reset restored inherit",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:08.709Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "save-batch succeeds",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:11.734Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Four dynamic items survive reload",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:13.226Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Numeric persisted",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:13.227Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Text persisted",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:13.229Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Unsaved navigation cancellation retains page",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:13.645Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "save-batch succeeds",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:14.618Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Default switched to R2 through UI",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:15.888Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Old batch stays R1 after default switch",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:16.824Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Create dialog displays R2",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:17.825Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Batch B binds R2",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:18.008Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "New batch inherits R2 quantity30",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:18.009Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "save-batch succeeds",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:19.144Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Clone keeps R1 and override20",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:20.673Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Clone copies four item definitions",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:20.674Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Clone clears actual results and judgement",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:20.674Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Clone clears batch dates",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:20.674Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "save-batch succeeds",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:22.122Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "Clone new measured result persists",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:23.241Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "1280 detail no document overflow",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:23.468Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "1280 list no document overflow",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:23.629Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      },
+      {
+        "name": "No uncaught JavaScript errors",
+        "status": "PASS",
+        "time": "2026-09-08T09:35:24.324Z",
+        "category": "Browser E2E",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/browser-tests.json"
+      }
+    ],
+    "Migration": [
+      {
+        "name": "T5 populated schema upgrades without losing 19-table data",
+        "status": "PASS",
+        "time": "2026-09-08T09:23:29.896170+00:00",
+        "category": "Migration",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/migration-tests.json"
+      },
+      {
+        "name": "T6 version recorded once",
+        "status": "PASS",
+        "time": "2026-09-08T09:23:29.900296+00:00",
+        "category": "Migration",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/migration-tests.json"
+      },
+      {
+        "name": "Audit immutability retained after rebuild",
+        "status": "PASS",
+        "time": "2026-09-08T09:23:29.900362+00:00",
+        "category": "Migration",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/migration-tests.json"
+      },
+      {
+        "name": "Upgrade integrity and FK",
+        "status": "PASS",
+        "time": "2026-09-08T09:23:29.904433+00:00",
+        "category": "Migration",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/migration-tests.json"
+      },
+      {
+        "name": "Upgrade repeat preserves data and schema",
+        "status": "PASS",
+        "time": "2026-09-08T09:23:29.966444+00:00",
+        "category": "Migration",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/migration-tests.json"
+      },
+      {
+        "name": "Fresh schema equals upgraded schema",
+        "status": "PASS",
+        "time": "2026-09-08T09:23:30.204864+00:00",
+        "category": "Migration",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/migration-tests.json"
+      },
+      {
+        "name": "Fresh business tables empty",
+        "status": "PASS",
+        "time": "2026-09-08T09:23:30.209594+00:00",
+        "category": "Migration",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/migration-tests.json"
+      },
+      {
+        "name": "Fresh all 11 versions recorded",
+        "status": "PASS",
+        "time": "2026-09-08T09:23:30.209621+00:00",
+        "category": "Migration",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/migration-tests.json"
+      },
+      {
+        "name": "Fresh integrity and FK",
+        "status": "PASS",
+        "time": "2026-09-08T09:23:30.214309+00:00",
+        "category": "Migration",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/migration-tests.json"
+      },
+      {
+        "name": "Fresh repeat same schema",
+        "status": "PASS",
+        "time": "2026-09-08T09:23:30.272119+00:00",
+        "category": "Migration",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/migration-tests.json"
+      }
+    ],
+    "Fresh HTTP": [
+      {
+        "name": "JWT login admin",
+        "status": "PASS",
+        "time": "2026-09-08T09:27:37.623909+00:00",
+        "category": "Fresh HTTP",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-http-tests.json"
+      },
+      {
+        "name": "Fresh Products opens empty",
+        "status": "PASS",
+        "time": "2026-09-08T09:27:37.626691+00:00",
+        "category": "Fresh HTTP",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-http-tests.json"
+      },
+      {
+        "name": "Fresh Batches opens empty",
+        "status": "PASS",
+        "time": "2026-09-08T09:27:37.628257+00:00",
+        "category": "Fresh HTTP",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-http-tests.json"
+      },
+      {
+        "name": "Create product PF-T6-FRESH-TEST",
+        "status": "PASS",
+        "time": "2026-09-08T09:27:37.631773+00:00",
+        "category": "Fresh HTTP",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-http-tests.json"
+      },
+      {
+        "name": "Seal product PF-T6-FRESH-TEST",
+        "status": "PASS",
+        "time": "2026-09-08T09:27:37.636831+00:00",
+        "category": "Fresh HTTP",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-http-tests.json"
+      },
+      {
+        "name": "Default product PF-T6-FRESH-TEST",
+        "status": "PASS",
+        "time": "2026-09-08T09:27:37.637871+00:00",
+        "category": "Fresh HTTP",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-http-tests.json"
+      },
+      {
+        "name": "Fresh create aggregate",
+        "status": "PASS",
+        "time": "2026-09-08T09:27:37.641671+00:00",
+        "category": "Fresh HTTP",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-http-tests.json"
+      },
+      {
+        "name": "Fresh persisted base",
+        "status": "PASS",
+        "time": "2026-09-08T09:27:37.643901+00:00",
+        "category": "Fresh HTTP",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-http-tests.json"
+      },
+      {
+        "name": "Fresh persisted real dates",
+        "status": "PASS",
+        "time": "2026-09-08T09:27:37.643907+00:00",
+        "category": "Fresh HTTP",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-http-tests.json"
+      },
+      {
+        "name": "Fresh override20",
+        "status": "PASS",
+        "time": "2026-09-08T09:27:37.643914+00:00",
+        "category": "Fresh HTTP",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-http-tests.json"
+      },
+      {
+        "name": "Fresh dynamic inspection",
+        "status": "PASS",
+        "time": "2026-09-08T09:27:37.643916+00:00",
+        "category": "Fresh HTTP",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-http-tests.json"
+      },
+      {
+        "name": "Fresh transactional audit",
+        "status": "PASS",
+        "time": "2026-09-08T09:27:37.643918+00:00",
+        "category": "Fresh HTTP",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-http-tests.json"
+      }
+    ],
+    "Fresh browser": [
+      {
+        "name": "Fresh backend browser login",
+        "status": "PASS",
+        "time": "2026-09-08T09:47:31.949Z",
+        "category": "Fresh browser",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-browser-tests.json"
+      },
+      {
+        "name": "Fresh Products page reads actual DB",
+        "status": "PASS",
+        "time": "2026-09-08T09:47:33.121Z",
+        "category": "Fresh browser",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-browser-tests.json"
+      },
+      {
+        "name": "Fresh Batches page reads actual DB",
+        "status": "PASS",
+        "time": "2026-09-08T09:47:34.026Z",
+        "category": "Fresh browser",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-browser-tests.json"
+      },
+      {
+        "name": "Fresh detail fixed R1",
+        "status": "PASS",
+        "time": "2026-09-08T09:47:34.207Z",
+        "category": "Fresh browser",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-browser-tests.json"
+      },
+      {
+        "name": "Fresh effective override20",
+        "status": "PASS",
+        "time": "2026-09-08T09:47:34.215Z",
+        "category": "Fresh browser",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-browser-tests.json"
+      },
+      {
+        "name": "Fresh inspection visible",
+        "status": "PASS",
+        "time": "2026-09-08T09:47:34.218Z",
+        "category": "Fresh browser",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-browser-tests.json"
+      },
+      {
+        "name": "Fresh browser aggregate save",
+        "status": "PASS",
+        "time": "2026-09-08T09:47:34.310Z",
+        "category": "Fresh browser",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-browser-tests.json"
+      },
+      {
+        "name": "Fresh browser edit persisted",
+        "status": "PASS",
+        "time": "2026-09-08T09:47:35.645Z",
+        "category": "Fresh browser",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-browser-tests.json"
+      },
+      {
+        "name": "Fresh browser date persisted",
+        "status": "PASS",
+        "time": "2026-09-08T09:47:35.648Z",
+        "category": "Fresh browser",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-browser-tests.json"
+      },
+      {
+        "name": "Fresh browser no uncaught errors",
+        "status": "PASS",
+        "time": "2026-09-08T09:47:35.648Z",
+        "category": "Fresh browser",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/fresh-browser-tests.json"
+      }
+    ],
+    "Final protection and integrity": [
+      {
+        "name": "Original 53 baseline hashes unchanged",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:03.988110+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "All 7 site files unchanged",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:03.988470+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "T4 T5 protected evidence code and historical migrations unchanged",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.192347+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "go-admin commit remains locked",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.213200+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "go-admin-ui commit remains locked",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.224632+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "passport-admin-t6.db integrity_check ok",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.235096+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "passport-admin-t6.db foreign_key_check empty",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.235237+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "fresh-acceptance.db integrity_check ok",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.242773+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "fresh-acceptance.db foreign_key_check empty",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.242881+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "service-final.db integrity_check ok",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.251035+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "service-final.db foreign_key_check empty",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.251134+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "upgrade-from-t5.db integrity_check ok",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.260115+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "upgrade-from-t5.db foreign_key_check empty",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.260230+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "No duplicates batches",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.262187+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "No duplicates batch_overrides",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.262216+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "No duplicates inspection_items",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.262232+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "No invalid fixed base relation",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.262264+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "No orphan batch ownership batch_overrides",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.262287+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "No orphan batch ownership inspection_items",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.262303+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "No orphan batch ownership passport_audit_events",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.268441+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "No formal review or publish data in T6 working DB",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.268518+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "Five Batch business APIs registered",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.268553+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "All 11 migrations recorded",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.268562+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "19 business tables and 308 columns unchanged",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.269323+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "104 business triggers retained",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.269369+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "T6 work records explicitly test",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.269380+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "T6 local service stopped 18097",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.269597+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "T6 local service stopped 18098",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.269701+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "T6 local service stopped 19529",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.269769+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "Backend upstream tracked files unchanged",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.287841+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "Only two UI locale entrypoints modified",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.302974+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "go-admin diff check",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.315150+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      },
+      {
+        "name": "go-admin-ui diff check",
+        "status": "PASS",
+        "time": "2026-09-08T10:00:04.328975+00:00",
+        "category": "Final protection and integrity",
+        "error": null,
+        "evidence": "runtime/t6/test-artifacts/final-tests.json"
+      }
+    ]
+  },
+  "gates": [
+    {
+      "number": 1,
+      "name": "Batch 列表真实可用。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Batch 创建真实可用。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Batch Code UNIQUE 应用层 + DB 层生效。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 4,
+      "name": "创建 Batch 自动绑定正确 Default Sealed Revision。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 5,
+      "name": "无有效 Default Revision 时创建被拒绝。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Batch 创建后 base_product_revision_id 不可普通修改。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Product 不可通过普通 Batch Edit 换绑。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Product Default Revision 后续变化不会改变历史 Batch。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 9,
+      "name": "新 Batch 使用新的 Current Default Revision。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 10,
+      "name": "删除已被 Batch 引用 Revision 被阻止。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Override inherit / set / clear 三态真实可用。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Override 白名单 Backend 生效。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 13,
+      "name": "禁止字段 Override 负向测试通过。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 14,
+      "name": "Reset Override 能真正恢复继承。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 15,
+      "name": "Effective Resolver 结果正确。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 16,
+      "name": "Inspection 动态项目真实可用。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 17,
+      "name": "新增未知 Inspection 项目无需 Schema 修改。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 18,
+      "name": "Inspection 状态 Validation 生效。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 19,
+      "name": "Batch 多表保存使用 Transaction。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 20,
+      "name": "Transaction 失败完整 Rollback。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 21,
+      "name": "Clone Batch 真实可用。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 22,
+      "name": "Clone 默认保持源 Batch Base Revision。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 23,
+      "name": "Clone 不错误复制旧批次实测结果。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 24,
+      "name": "Clone Override 行为符合设计。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 25,
+      "name": "Clone 多表写入使用 Transaction。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 26,
+      "name": "所有 Batch API 要求认证并走 Casbin。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 27,
+      "name": "DTO / 字段白名单 / Mass Assignment 防护通过。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 28,
+      "name": "Batch Audit 正常产生。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 29,
+      "name": "Backend 重启后 Batch 数据完整。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 30,
+      "name": "浏览器完整 T6 流程通过。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 31,
+      "name": "并发创建不存在重复 Batch Code。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 32,
+      "name": "Fresh DB 从零建立成功。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 33,
+      "name": "Migration 可重复运行。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 34,
+      "name": "integrity_check = ok。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 35,
+      "name": "foreign_key_check 无异常。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 36,
+      "name": "原 53 个 T0 基线文件不变。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 37,
+      "name": "site 7 个文件不变。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 38,
+      "name": "未开发正式审核发布流程。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 39,
+      "name": "未开发 Published Snapshot Engine。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    },
+    {
+      "number": 40,
+      "name": "未进入 T7。",
+      "status": "PASS",
+      "evidence": [
+        "docs/T6_BATCH_MANAGEMENT.md",
+        "runtime/t6/test-artifacts/"
+      ]
+    }
+  ],
+  "answers": [
+    {
+      "number": 1,
+      "question": "Batch 列表是否真实可用？",
+      "answer": "Yes；分页、批次编码搜索、产品/工作流筛选。"
+    },
+    {
+      "number": 2,
+      "question": "Batch 创建是否真实可用？",
+      "answer": "Yes；真实 API 与浏览器已验证。"
+    },
+    {
+      "number": 3,
+      "question": "Batch Code 是否业务层校验 UNIQUE？",
+      "answer": "Yes；trim/大写规范化，冲突返回 409。"
+    },
+    {
+      "number": 4,
+      "question": "DB UNIQUE 是否仍生效？",
+      "answer": "Yes；DB UNIQUE 负向通过。"
+    },
+    {
+      "number": 5,
+      "question": "创建 Batch 是否真实保存 base_product_revision_id？",
+      "answer": "Yes；写入 Batch 行，不在读取时查当前默认。"
+    },
+    {
+      "number": 6,
+      "question": "base_product_revision_id 是否来自正确 Product？",
+      "answer": "Yes；应用检查加组合 FK。"
+    },
+    {
+      "number": 7,
+      "question": "默认是否只接受合法 Sealed Revision？",
+      "answer": "Yes；同产品 sealed，且 Product active。"
+    },
+    {
+      "number": 8,
+      "question": "没有 Default Revision 是否拒绝创建？",
+      "answer": "Yes；清晰拒绝，不选最新/R1 兜底。"
+    },
+    {
+      "number": 9,
+      "question": "Draft Revision 是否不能作为 Base？",
+      "answer": "Yes；应用与数据库都拒绝。"
+    },
+    {
+      "number": 10,
+      "question": "其他 Product 的 Revision 是否不能绑定？",
+      "answer": "Yes；本阶段 Create DTO 不接受手选 base，DB 跨产品关系也拒绝。"
+    },
+    {
+      "number": 11,
+      "question": "Batch 创建后能否通过普通 API 修改 Base Revision？",
+      "answer": "No。"
+    },
+    {
+      "number": 12,
+      "question": "Batch 创建后能否通过普通 API修改 Product？",
+      "answer": "No。"
+    },
+    {
+      "number": 13,
+      "question": "Product 默认 Revision 改变是否不会改变旧 Batch？",
+      "answer": "Yes；旧批次保持 R1。"
+    },
+    {
+      "number": 14,
+      "question": "新 Batch 是否使用新 Default Revision？",
+      "answer": "Yes；切默认后新批次绑定 R2。"
+    },
+    {
+      "number": 15,
+      "question": "删除被引用 Product Revision 是否被阻止？",
+      "answer": "Yes；sealed 保护与 FK 保留。"
+    },
+    {
+      "number": 16,
+      "question": "Override 是否支持 inherit？",
+      "answer": "Yes；无行表示 inherit。"
+    },
+    {
+      "number": 17,
+      "question": "Override 是否支持 set？",
+      "answer": "Yes；按白名单类型 set。"
+    },
+    {
+      "number": 18,
+      "question": "Override 是否支持 clear？",
+      "answer": "Yes；遵循 T3 各字段 NULL/空数组规则。"
+    },
+    {
+      "number": 19,
+      "question": "Reset 是否真正恢复 inherit？",
+      "answer": "Yes；删除覆盖及译文，读取固定 base。"
+    },
+    {
+      "number": 20,
+      "question": "Override 白名单是否 Backend 强制执行？",
+      "answer": "Yes；拒绝未知、系统字段与未开放资产类型。"
+    },
+    {
+      "number": 21,
+      "question": "batch_code 是否不能 Override？",
+      "answer": "Yes。"
+    },
+    {
+      "number": 22,
+      "question": "product_id 是否不能 Override？",
+      "answer": "Yes。"
+    },
+    {
+      "number": 23,
+      "question": "base_product_revision_id 是否不能 Override？",
+      "answer": "Yes。"
+    },
+    {
+      "number": 24,
+      "question": "workflow_status 是否不能 Override？",
+      "answer": "Yes。"
+    },
+    {
+      "number": 25,
+      "question": "clear 是否也有合法性检查？",
+      "answer": "Yes；检查字段许可、allow_clear 和无附带值。T3 已开放的 13 个非资产字段均允许 clear。"
+    },
+    {
+      "number": 26,
+      "question": "是否存在统一 Effective Resolver？",
+      "answer": "Yes；ResolveEffectiveBatch。"
+    },
+    {
+      "number": 27,
+      "question": "页面是否显示 inherited / overridden / cleared 来源？",
+      "answer": "Yes；页面三种来源标签。"
+    },
+    {
+      "number": 28,
+      "question": "Inspection 是否为动态模型？",
+      "answer": "Yes；逐行 inspection_items。"
+    },
+    {
+      "number": 29,
+      "question": "Bulk Density 是否无需 Schema 修改即可增加？",
+      "answer": "Yes；服务和浏览器均新增。"
+    },
+    {
+      "number": 30,
+      "question": "Black Specks 是否无需 Schema 修改即可增加？",
+      "answer": "Yes；服务和浏览器均新增。"
+    },
+    {
+      "number": 31,
+      "question": "Inspection Status Validation 是否生效？",
+      "answer": "Yes；六个既有枚举，数值/状态一致性检查。"
+    },
+    {
+      "number": 32,
+      "question": "Batch 保存多表操作是否使用 Transaction？",
+      "answer": "Yes；一次 PUT 保存基础信息、覆盖、检测、Audit。"
+    },
+    {
+      "number": 33,
+      "question": "Transaction 中途失败是否完整 Rollback？",
+      "answer": "Yes；实际错误注入全回滚。"
+    },
+    {
+      "number": 34,
+      "question": "Clone Batch 是否真实可用？",
+      "answer": "Yes；仅未锁定可见 Draft，要求版本前置条件。"
+    },
+    {
+      "number": 35,
+      "question": "Clone 是否生成新的 Batch ID？",
+      "answer": "Yes；主/子行 UUID 全新。"
+    },
+    {
+      "number": 36,
+      "question": "Clone 是否要求新的 Batch Code？",
+      "answer": "Yes；用户输入新的稳定编码。"
+    },
+    {
+      "number": 37,
+      "question": "Clone 默认是否保持源 Batch Base Revision？",
+      "answer": "Yes；保持源 base。"
+    },
+    {
+      "number": 38,
+      "question": "Clone 是否避免隐式切换到 Product 当前最新 Revision？",
+      "answer": "Yes；不查当前默认来重绑。"
+    },
+    {
+      "number": 39,
+      "question": "Clone 是否没有复制旧批次真实检测值？",
+      "answer": "Yes；清空 numeric/text/result_display_text、检测日期及事实备注，判定 not_tested。"
+    },
+    {
+      "number": 40,
+      "question": "Clone 是否正确复制允许的检测项目结构？",
+      "answer": "Yes；复制代码/名称/单位/规格/限值/方法/排序/公开候选标志。"
+    },
+    {
+      "number": 41,
+      "question": "Clone Override 是否符合已定义规则？",
+      "answer": "Yes；保留允许覆盖和译文，译文状态回 draft，可 reset。"
+    },
+    {
+      "number": 42,
+      "question": "Clone 多表写是否使用 Transaction？",
+      "answer": "Yes。"
+    },
+    {
+      "number": 43,
+      "question": "Clone 失败是否整体 Rollback？",
+      "answer": "Yes；Inspection Copy 失败注入通过。"
+    },
+    {
+      "number": 44,
+      "question": "Batch API 是否全部要求认证？",
+      "answer": "Yes；全部 5 条 API 匿名拒绝。"
+    },
+    {
+      "number": 45,
+      "question": "是否全部经过 Casbin？",
+      "answer": "Yes；JWT/AuthCheckRole/PermissionAction，上游 admin 特权逻辑保持。"
+    },
+    {
+      "number": 46,
+      "question": "是否使用明确 DTO？",
+      "answer": "Yes；明确聚合 DTO。"
+    },
+    {
+      "number": 47,
+      "question": "是否防止 Mass Assignment？",
+      "answer": "Yes；未知/重复字段和系统字段拒绝。"
+    },
+    {
+      "number": 48,
+      "question": "Batch Audit 是否产生？",
+      "answer": "Yes；追加到 passport_audit_events。"
+    },
+    {
+      "number": 49,
+      "question": "Audit 是否尽量与业务修改同事务？",
+      "answer": "Yes；本模块全部写操作与 Audit 同事务。"
+    },
+    {
+      "number": 50,
+      "question": "Backend 重启后 Batch 数据是否保持？",
+      "answer": "Yes；API 样本及浏览器完整聚合重启一致。"
+    },
+    {
+      "number": 51,
+      "question": "浏览器完整流程是否通过？",
+      "answer": "Yes；39 项主流程通过。"
+    },
+    {
+      "number": 52,
+      "question": "Default Revision 改变场景是否浏览器实测？",
+      "answer": "Yes；实际 UI 切默认后核验旧 A/R1、新 B/R2。"
+    },
+    {
+      "number": 53,
+      "question": "Clone Batch 是否浏览器实测？",
+      "answer": "Yes；克隆后新测值保存刷新通过。"
+    },
+    {
+      "number": 54,
+      "question": "并发同 Batch Code 是否不会出现重复？",
+      "answer": "Yes；5 个同码并发仅 1 成功，其余 409。"
+    },
+    {
+      "number": 55,
+      "question": "是否发生不可接受的 SQLite Lock？",
+      "answer": "No；本次不同码、同码和 Clone 并发均无不可接受锁/超时；不代表生产无限容量。"
+    },
+    {
+      "number": 56,
+      "question": "Fresh DB 是否能够从零建立？",
+      "answer": "Yes；全 11 迁移、HTTP 和真实浏览器通过。"
+    },
+    {
+      "number": 57,
+      "question": "Migration 是否可重复？",
+      "answer": "Yes；升级库及空库重复执行保持数据/Schema。"
+    },
+    {
+      "number": 58,
+      "question": "integrity_check 是否为 ok？",
+      "answer": "Yes；主库/新库/服务测试库/升级副本均 ok。"
+    },
+    {
+      "number": 59,
+      "question": "foreign_key_check 是否无异常？",
+      "answer": "Yes；均无异常行。"
+    },
+    {
+      "number": 60,
+      "question": "DATA_MODEL 是否发生变化？",
+      "answer": "Yes；仅审计 event_type CHECK 新增 override_reset，19 表/308 列/ERD 关系不变。"
+    },
+    {
+      "number": 61,
+      "question": "如发生变化是否通过新增 Migration？",
+      "answer": "Yes；1788912000000 新迁移。"
+    },
+    {
+      "number": 62,
+      "question": "是否修改 T4/T5 历史 Migration？",
+      "answer": "No。"
+    },
+    {
+      "number": 63,
+      "question": "是否修改上游 tracked files？",
+      "answer": "Yes；仍仅 UI 两个语言入口，后端 0。"
+    },
+    {
+      "number": 64,
+      "question": "如修改，具体哪些及原因？",
+      "answer": "src/lang/zh-CN/index.ts、src/lang/en-US/index.ts：在 T5 基础上注册 passportBatch 语言包。"
+    },
+    {
+      "number": 65,
+      "question": "原 53 个基线文件 Hash 是否一致？",
+      "answer": "Yes。"
+    },
+    {
+      "number": 66,
+      "question": "site 7 个文件是否全部未变？",
+      "answer": "Yes。"
+    },
+    {
+      "number": 67,
+      "question": "是否连接业务服务器？",
+      "answer": "No。"
+    },
+    {
+      "number": 68,
+      "question": "是否修改 Caddy？",
+      "answer": "No。"
+    },
+    {
+      "number": 69,
+      "question": "是否修改 Directus？",
+      "answer": "No。"
+    },
+    {
+      "number": 70,
+      "question": "是否修改生产 Docker？",
+      "answer": "No。"
+    },
+    {
+      "number": 71,
+      "question": "是否实现正式 Pending Review / Approval？",
+      "answer": "No。"
+    },
+    {
+      "number": 72,
+      "question": "是否开发 Published Snapshot Engine？",
+      "answer": "No。"
+    },
+    {
+      "number": 73,
+      "question": "是否开发正式 QR？",
+      "answer": "No。"
+    },
+    {
+      "number": 74,
+      "question": "是否进入 T7？",
+      "answer": "No。"
+    }
+  ],
+  "upstream_ui_unit_tests": {
+    "pass": 301,
+    "fail": 0,
+    "included_in_business_total": false,
+    "evidence": "runtime/t6/logs/ui-unit.log"
+  },
+  "entered_T7": false,
+  "entered_T8": false,
+  "entered_T9": false
+}

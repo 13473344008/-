@@ -1,0 +1,13 @@
+{
+  "record_type": "test",
+  "product_code": "PF-STD",
+  "batch": "PF-TEST-001",
+  "production_date": "",
+  "expiry_date": "",
+  "status": "TEST",
+  "record_updated": "",
+  "raw_material_traceability": { "raw_material_batch": "", "raw_material_origin": "" },
+  "inspection": [
+    { "name": "Moisture", "specification": "", "result": "", "unit": "%", "status": "NOT_TESTED" }
+  ]
+}

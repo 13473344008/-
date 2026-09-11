@@ -1,0 +1,170 @@
+{
+  "checked_on": "2026-09-07",
+  "scope": "T1 read-only upstream inspection; no application startup, Go build or DB migration",
+  "selected": [
+    {
+      "component": "backend",
+      "repository": "https://github.com/go-admin-team/go-admin",
+      "tag": "v2.6.0",
+      "commit_sha": "595c4a6be5b1aade8dc30fe2b90ea13dfba61b05",
+      "commit_time": "2026-08-31T15:01:42+08:00",
+      "release_listing": "https://github.com/go-admin-team/go-admin/releases",
+      "license": "MIT",
+      "inspected_files": [
+        {
+          "path": "go.mod",
+          "sha256": "14e298adba5b6755851f9f0dd1ca7e05ebb0cac012844ecd4ebaa1c1784bdf4e",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/go.mod"
+        },
+        {
+          "path": "go.sum",
+          "sha256": "ca572cbb5afacd4513df9c8654206caae1a83ec06850b69e1aadb78962586189",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/go.sum"
+        },
+        {
+          "path": "LICENSE.md",
+          "sha256": "e1bd2eb01e4ddae9a0634b9d529f3a572e4772c40eeac2d37e7f9b8b19e77572",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/LICENSE.md"
+        },
+        {
+          "path": "common/database/open.go",
+          "sha256": "d1f540db127d39f2d4dd3d261eb05187fae5d9420dcda5fed62dbd55e5cbd469",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/common/database/open.go"
+        },
+        {
+          "path": "common/database/open_sqlite3.go",
+          "sha256": "848c09b8b043a623d205961ad9f36081ca05215cffa29aeb6d716109b5f93c78",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/common/database/open_sqlite3.go"
+        },
+        {
+          "path": "common/database/initialize.go",
+          "sha256": "eb3929acd129d8da6a3fa253e024d2595f6e6decfee0433301bcf99e8cbe7d3c",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/common/database/initialize.go"
+        },
+        {
+          "path": "config/settings.sqlite.yml",
+          "sha256": "f32a787701cd524c5889ae8f303a54bfb5a20d74432e6027147db627bf24fee4",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/config/settings.sqlite.yml"
+        },
+        {
+          "path": "cmd/migrate/server.go",
+          "sha256": "0be8de2eee442fffeb3ad2f028fd834aa9cea2e141a429fab250f5751825a3b7",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/cmd/migrate/server.go"
+        },
+        {
+          "path": "cmd/migrate/migration/version/1599190683659_tables.go",
+          "sha256": "7b608ab4c8cd9b0020645ad5a4c7d2c41c04ad186fc7b9d876d50721a654c5fc",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/cmd/migrate/migration/version/1599190683659_tables.go"
+        },
+        {
+          "path": "cmd/migrate/migration/version/1786700003000_soft_delete_marker_test.go",
+          "sha256": "d131128b36b0374db17c31fe7ea226b3992f6e6fe523ce630120eedc005ad67a",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/cmd/migrate/migration/version/1786700003000_soft_delete_marker_test.go"
+        },
+        {
+          "path": "app/other/models/tools/db_tables.go",
+          "sha256": "3500244d2a8250290fb503b567f33b2abe98b008201a9b1e5303de62c7153871",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/app/other/models/tools/db_tables.go"
+        },
+        {
+          "path": "app/other/models/tools/db_columns.go",
+          "sha256": "6792bdb898f4f76d51f1a1723d1c326a00f5f6df9499b46e3f8b41dc3d6c8b8a",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/app/other/models/tools/db_columns.go"
+        },
+        {
+          "path": "common/middleware/auth.go",
+          "sha256": "2f3410c6e8c08e53c2c1fc1c3ffc80f01fc1512bd5460019bf37e58652066311",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/common/middleware/auth.go"
+        },
+        {
+          "path": "common/middleware/permission.go",
+          "sha256": "a2bd388dedb821165ecd2b743c8d17c0ca3ba32bae0d1602923d812b064d9a8a",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/common/middleware/permission.go"
+        },
+        {
+          "path": "common/actions/permission.go",
+          "sha256": "2d8763c970dd61dd1916aa2c881f807a2cd4ff704beabf0c4fa0739a7d3d5898",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/common/actions/permission.go"
+        },
+        {
+          "path": "Dockerfile",
+          "sha256": "9900e270e2380b136f6b02ecf437c924b234bb24d6ff7b48514fd14a21bb96b5",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/Dockerfile"
+        },
+        {
+          "path": "scripts/Dockerfile",
+          "sha256": "d132693ac081a27a304e72f9a1587e59f76411cb078e953125af6a0bd4ed82ed",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/scripts/Dockerfile"
+        },
+        {
+          "path": "docker-compose.yml",
+          "sha256": "ecd248fca9012c18615a69c87ade8d5bd6995d6e9ddcb84c2f3fb1049fa77d89",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/docker-compose.yml"
+        },
+        {
+          "path": ".github/workflows/build.yml",
+          "sha256": "e8202ebb43adbd9dee9c7ffc93fd4f231b569df686804d7d7820613e67177f56",
+          "source": "https://github.com/go-admin-team/go-admin/blob/595c4a6be5b1aade8dc30fe2b90ea13dfba61b05/.github/workflows/build.yml"
+        }
+      ]
+    },
+    {
+      "component": "ui",
+      "repository": "https://github.com/go-admin-team/go-admin-ui",
+      "tag": "v3.2.0",
+      "commit_sha": "e106f68d362d3a7aaa43244eb74cede1a83f4da5",
+      "commit_time": "2026-08-31T21:28:27+08:00",
+      "release_listing": "https://github.com/go-admin-team/go-admin-ui/releases",
+      "license": "MIT",
+      "inspected_files": [
+        {
+          "path": "package.json",
+          "sha256": "22e1d35b718dddea0bae2db39f3d1650e67b90e6a1657f0cbf0e2ee15265ed07",
+          "source": "https://github.com/go-admin-team/go-admin-ui/blob/e106f68d362d3a7aaa43244eb74cede1a83f4da5/package.json"
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "sha256": "94fbdac26d93e0ca31fd64170261e868dfa33f7113e1df6c4d33b951ad29b183",
+          "source": "https://github.com/go-admin-team/go-admin-ui/blob/e106f68d362d3a7aaa43244eb74cede1a83f4da5/pnpm-lock.yaml"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "17fc190f24df57f5d85a39a587636e3d783d3e130df5270c71bafb843f58e0a1",
+          "source": "https://github.com/go-admin-team/go-admin-ui/blob/e106f68d362d3a7aaa43244eb74cede1a83f4da5/LICENSE"
+        },
+        {
+          "path": "Dockerfile",
+          "sha256": "c5fd2fa1c24923a6354d7ad92b46a6b977977fb816dc91598883cc11dda676b6",
+          "source": "https://github.com/go-admin-team/go-admin-ui/blob/e106f68d362d3a7aaa43244eb74cede1a83f4da5/Dockerfile"
+        },
+        {
+          "path": "scripts/check-api-contract.mjs",
+          "sha256": "9f3401ef53386f00bfafa78608f35671865a931cd7eb6c37e2454bb51eb93503",
+          "source": "https://github.com/go-admin-team/go-admin-ui/blob/e106f68d362d3a7aaa43244eb74cede1a83f4da5/scripts/check-api-contract.mjs"
+        },
+        {
+          "path": ".github/workflows/nodejs.yml",
+          "sha256": "bcc8d0a31cba7d50594322a1607ed14e32da87db9bb885ddb24ff626a7e21c58",
+          "source": "https://github.com/go-admin-team/go-admin-ui/blob/e106f68d362d3a7aaa43244eb74cede1a83f4da5/.github/workflows/nodejs.yml"
+        }
+      ]
+    }
+  ],
+  "runtime_requirements": {
+    "go_mod": "1.26.5",
+    "node_engine": ">=22",
+    "recommended_node_major": 24,
+    "pnpm": "9.15.1"
+  },
+  "checks": {
+    "api_contract": {
+      "result": "PASS",
+      "command": "GO_ADMIN_PATH=/tmp/pdi-t012-research/backend node /tmp/pdi-t012-research/ui/scripts/check-api-contract.mjs --require-models",
+      "output": "API contract ok: 8 fixtures, 15 migrated pages, 3 Options-API pages, and the declarations in types/admin.ts"
+    },
+    "backend_build": "NOT_RUN_T4",
+    "database_migration": "NOT_RUN_T4",
+    "runtime_ui_backend_integration": "NOT_RUN_T4",
+    "github_api": "403 rate limited; used official release webpages and Git tag resolution instead"
+  }
+}

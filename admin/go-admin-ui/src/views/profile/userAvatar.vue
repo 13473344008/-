@@ -1,0 +1,147 @@
+<template>
+  <div>
+    <img :src="options.img" :title="$t('profile.avatar.hint')" class="img-circle img-lg" @click="editCropper()">
+    <el-dialog v-model="open" :title="title" width="800px" :close-on-click-modal="false">
+      <el-row>
+        <el-col :xs="24" :md="12" :style="{height: '350px'}">
+          <vue-cropper
+            ref="cropper"
+            :img="options.img"
+            :info="true"
+            :auto-crop="options.autoCrop"
+            :auto-crop-width="options.autoCropWidth"
+            :auto-crop-height="options.autoCropHeight"
+            :fixed-box="options.fixedBox"
+            @real-time="realTime"
+          />
+        </el-col>
+        <el-col :xs="24" :md="12" :style="{height: '350px'}">
+          <div class="avatar-upload-preview">
+            <img :src="previews.url" :style="previews.img">
+          </div>
+        </el-col>
+      </el-row>
+      <br>
+      <el-row>
+        <el-col :lg="2" :md="2">
+          <el-upload action="#" :http-request="requestUpload" :show-file-list="false" :before-upload="beforeUpload">
+            <el-button size="small">
+              {{ $t('profile.avatar.upload') }}
+              <i class="ri-upload-line el-icon--right" />
+            </el-button>
+          </el-upload>
+        </el-col>
+        <el-col :lg="{span: 1, offset: 2}" :md="2">
+          <el-button size="small" @click="changeScale(1)" />
+        </el-col>
+        <el-col :lg="{span: 1, offset: 1}" :md="2">
+          <el-button size="small" @click="changeScale(-1)" />
+        </el-col>
+        <el-col :lg="{span: 1, offset: 1}" :md="2">
+          <el-button size="small" @click="rotateLeft()" />
+        </el-col>
+        <el-col :lg="{span: 1, offset: 1}" :md="2">
+          <el-button size="small" @click="rotateRight()" />
+        </el-col>
+        <el-col :lg="{span: 2, offset: 6}" :md="2">
+          <el-button type="primary" size="small" @click="uploadImg()">{{ $t('profile.avatar.submit') }}</el-button>
+        </el-col>
+      </el-row>
+    </el-dialog>
+  </div>
+</template>
+
+<script>
+import { useUserStore } from '@/stores/user'
+import { VueCropper } from 'vue-cropper'
+import { uploadAvatar } from '@/api/admin/sys-user'
+
+export default {
+  components: { VueCropper },
+  props: {
+    // eslint-disable-next-line vue/require-default-prop
+    user: { type: Object }
+  },
+  data() {
+    return {
+      // 是否显示弹出层
+      open: false,
+      options: {
+        img: useUserStore().avatar, // 裁剪图片的地址
+        autoCrop: true, // 是否默认生成截图框
+        autoCropWidth: 200, // 默认生成截图框宽度
+        autoCropHeight: 200, // 默认生成截图框高度
+        fixedBox: true // 固定截图框大小 不允许改变
+      },
+      previews: {}
+    }
+  },
+  computed: {
+    /**
+     * The dialog title, which used to live in data(). That runs once, so a
+     * title built from t() there would keep the language the page was opened
+     * in -- and this dialog is opened long after that.
+     */
+    title() {
+      return this.$t('profile.avatar.dialogTitle')
+    }
+  },
+  methods: {
+    // 编辑头像
+    editCropper() {
+      this.open = true
+    },
+    // 覆盖默认的上传行为
+    requestUpload() {
+    },
+    // 向左旋转
+    rotateLeft() {
+      this.$refs.cropper.rotateLeft()
+    },
+    // 向右旋转
+    rotateRight() {
+      this.$refs.cropper.rotateRight()
+    },
+    // 图片缩放
+    changeScale(num) {
+      num = num || 1
+      this.$refs.cropper.changeScale(num)
+    },
+    // 上传预处理
+    beforeUpload(file) {
+      if (file.type.indexOf('image/') === -1) {
+        this.msgError(this.$t('profile.avatar.wrongType'))
+      } else {
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onload = () => {
+          this.options.img = reader.result
+        }
+      }
+    },
+    // 上传图片
+    uploadImg() {
+      this.$refs.cropper.getCropBlob(data => {
+        const formData = new FormData()
+        formData.append('upload[]', data)
+        uploadAvatar(formData).then(response => {
+          if (response.code === 200) {
+            this.open = false
+            // 后端返回的是不带前导斜杠的相对路径 static/uploadfile/xxx.jpg，
+            // 直接拼接会得到 http://host:8001static/... 这样的非法地址
+            this.options.img = process.env.VUE_APP_BASE_API + '/' + response.data
+            this.msgSuccess(response.msg)
+          } else {
+            this.msgError(response.msg)
+          }
+          this.$refs.cropper.clearCrop()
+        })
+      })
+    },
+    // 实时预览
+    realTime(data) {
+      this.previews = data
+    }
+  }
+}
+</script>

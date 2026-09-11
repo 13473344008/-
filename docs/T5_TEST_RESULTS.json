@@ -1,0 +1,1110 @@
+{
+  "status": "等待人工验收",
+  "generated_at": "2026-09-08T05:31:46.573764+00:00",
+  "pass": 135,
+  "fail": 0,
+  "total": 135,
+  "suites": {
+    "Go/GORM Service": [
+      {
+        "name": "CreateProductRevisionTranslationTransaction",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.143976+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "DuplicateProductCodeReadable",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.144018+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "CodeValidation",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.14404+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "RollbackOnTranslationDatabaseFailure",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.14481+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "RollbackOnAuditFailure",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.145523+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "DraftEditAndStaleWriteRejected",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.146543+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "InvalidStructuredFieldsRejected",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.146636+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "SixLanguageUpsert",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.151539+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "LanguageAndStepLabelValidation",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.152071+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "SealStoresHashAndMetadata",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.152954+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "FrozenRevisionApplicationRejected",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.15321+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "FrozenTranslationApplicationRejected",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.153483+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "FrozenRawSQLRejected",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.153559+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "SetSealedDefaultExplicitly",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.154177+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "CloneIndependentIDsAndResetSystemFields",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.155615+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "NewRevisionDoesNotSwitchDefault",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.155877+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "NewRevisionEditsLeaveHistoryIntact",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.157989+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "DraftDefaultRejected",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.15835+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "SealRequiresConfirmedSourceLanguage",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.160102+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "SwitchDefaultPreservesR1R2",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.160922+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "ForeignProductRevisionRejected",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.161704+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "ConcurrentRevisionNumbers",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.1968+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "DatabaseUniqueLastDefense",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.197143+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "ArchivePreservesHistoryAndBlocksWrites",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.199155+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "AuditEventsInSameDatabase",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.199193+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "IntegrityAndForeignKeys",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.201367+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      },
+      {
+        "name": "ListSearchPaginationAndStatus",
+        "status": "PASS",
+        "time": "2026-09-08T13:09:10.201617+08:00",
+        "evidence": "runtime/t5/test-artifacts/service-tests.jsonl"
+      }
+    ],
+    "HTTP API and permissions": [
+      {
+        "name": "JWT login admin",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.082302+00:00"
+      },
+      {
+        "name": "HTTP product initial aggregate create",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.087467+00:00"
+      },
+      {
+        "name": "Product identity separated from R1",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.089342+00:00"
+      },
+      {
+        "name": "Duplicate code readable error",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.089980+00:00"
+      },
+      {
+        "name": "Reject mass assignment id",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.090657+00:00"
+      },
+      {
+        "name": "Reject mass assignment created_by",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.091077+00:00"
+      },
+      {
+        "name": "Reject mass assignment current_revision_id",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.091465+00:00"
+      },
+      {
+        "name": "Reject duplicate JSON keys",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.091951+00:00"
+      },
+      {
+        "name": "Immutable code update rejected",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.092362+00:00"
+      },
+      {
+        "name": "Anonymous denied GET ",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.092962+00:00"
+      },
+      {
+        "name": "Anonymous denied POST ",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.093310+00:00"
+      },
+      {
+        "name": "Anonymous denied GET /48d78b18-0d7b-41f4-b0c1-8b7acb3a6728",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.095458+00:00"
+      },
+      {
+        "name": "Anonymous denied PUT /48d78b18-0d7b-41f4-b0c1-8b7acb3a6728",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.095895+00:00"
+      },
+      {
+        "name": "Anonymous denied POST /48d78b18-0d7b-41f4-b0c1-8b7acb3a6728/archive",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.096249+00:00"
+      },
+      {
+        "name": "Anonymous denied GET /48d78b18-0d7b-41f4-b0c1-8b7acb3a6728/revisions",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.096676+00:00"
+      },
+      {
+        "name": "Anonymous denied POST /48d78b18-0d7b-41f4-b0c1-8b7acb3a6728/revisions",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.096993+00:00"
+      },
+      {
+        "name": "Anonymous denied GET /48d78b18-0d7b-41f4-b0c1-8b7acb3a6728/revisions/24880356-fd76-4a2a-ad5b-daec1479f7bb",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.097298+00:00"
+      },
+      {
+        "name": "Anonymous denied PUT /48d78b18-0d7b-41f4-b0c1-8b7acb3a6728/revisions/24880356-fd76-4a2a-ad5b-daec1479f7bb",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.097607+00:00"
+      },
+      {
+        "name": "Anonymous denied PUT /48d78b18-0d7b-41f4-b0c1-8b7acb3a6728/revisions/24880356-fd76-4a2a-ad5b-daec1479f7bb/translations",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.097933+00:00"
+      },
+      {
+        "name": "Anonymous denied POST /48d78b18-0d7b-41f4-b0c1-8b7acb3a6728/revisions/24880356-fd76-4a2a-ad5b-daec1479f7bb/seal",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.098223+00:00"
+      },
+      {
+        "name": "Anonymous denied PUT /48d78b18-0d7b-41f4-b0c1-8b7acb3a6728/default-revision",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.098526+00:00"
+      },
+      {
+        "name": "No ordinary hard delete route",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.098858+00:00"
+      },
+      {
+        "name": "Create permission test role t5_none",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.101817+00:00"
+      },
+      {
+        "name": "Create permission test user t5-no-access",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.171738+00:00"
+      },
+      {
+        "name": "JWT login t5-no-access",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.236824+00:00"
+      },
+      {
+        "name": "Authenticated without Casbin grant denied",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.238308+00:00"
+      },
+      {
+        "name": "Create permission test role t5_owner",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.240146+00:00"
+      },
+      {
+        "name": "Create permission test user t5-owner",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.307718+00:00"
+      },
+      {
+        "name": "JWT login t5-owner",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.372892+00:00"
+      },
+      {
+        "name": "Granted non-admin creates own product",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.375015+00:00"
+      },
+      {
+        "name": "Own data scope permits own detail",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.376359+00:00"
+      },
+      {
+        "name": "Own data scope hides others detail",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.377286+00:00"
+      },
+      {
+        "name": "Own data scope blocks others writes",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.377973+00:00"
+      },
+      {
+        "name": "Own data scope list filtered",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.378889+00:00"
+      },
+      {
+        "name": "Translation HTTP en",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.380509+00:00"
+      },
+      {
+        "name": "Translation HTTP zh-CN",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.383241+00:00"
+      },
+      {
+        "name": "Translation HTTP es",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.384894+00:00"
+      },
+      {
+        "name": "Translation HTTP ar",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.386418+00:00"
+      },
+      {
+        "name": "Translation HTTP fr",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.388024+00:00"
+      },
+      {
+        "name": "Translation HTTP de",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.389495+00:00"
+      },
+      {
+        "name": "Seal via HTTP",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.391271+00:00"
+      },
+      {
+        "name": "Set R1 default via HTTP",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.392047+00:00"
+      },
+      {
+        "name": "Frozen translation HTTP rejection",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.393265+00:00"
+      },
+      {
+        "name": "Frozen revision HTTP rejection",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.393869+00:00"
+      },
+      {
+        "name": "Clone HTTP",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.395352+00:00"
+      },
+      {
+        "name": "Clone defaults and six copied translations",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.396064+00:00"
+      },
+      {
+        "name": "Confirm R2 source language",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.397058+00:00"
+      },
+      {
+        "name": "Seal R2 HTTP",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.398724+00:00"
+      },
+      {
+        "name": "Switch R2 default HTTP",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.399557+00:00"
+      },
+      {
+        "name": "R1 and R2 retained over HTTP",
+        "status": "PASS",
+        "time": "2026-09-08T05:10:58.400601+00:00"
+      }
+    ],
+    "Backend restart": [
+      {
+        "name": "JWT login admin",
+        "status": "PASS",
+        "time": "2026-09-08T05:20:03.639316+00:00"
+      },
+      {
+        "name": "Product persists after backend restart",
+        "status": "PASS",
+        "time": "2026-09-08T05:20:03.641565+00:00"
+      },
+      {
+        "name": "Revision and six translations persist",
+        "status": "PASS",
+        "time": "2026-09-08T05:20:03.641574+00:00"
+      },
+      {
+        "name": "Default persists",
+        "status": "PASS",
+        "time": "2026-09-08T05:20:03.641576+00:00"
+      },
+      {
+        "name": "All business detail bytes unchanged after restart",
+        "status": "PASS",
+        "time": "2026-09-08T05:20:03.641585+00:00"
+      }
+    ],
+    "Browser E2E": [
+      {
+        "name": "Login page opens",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:27.371Z"
+      },
+      {
+        "name": "Browser JWT login",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:27.562Z"
+      },
+      {
+        "name": "Products menu and live list opens",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:28.954Z"
+      },
+      {
+        "name": "Create product with initial R1",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:29.591Z"
+      },
+      {
+        "name": "save-content API result",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:29.893Z"
+      },
+      {
+        "name": "Draft structured content persists",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:29.896Z"
+      },
+      {
+        "name": "save-translation API result",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:30.359Z"
+      },
+      {
+        "name": "save-translation API result",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:30.860Z"
+      },
+      {
+        "name": "Two languages edited through UI",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:30.861Z"
+      },
+      {
+        "name": "New R2 draft opens",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:31.820Z"
+      },
+      {
+        "name": "History contains R1 and R2",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:31.822Z"
+      },
+      {
+        "name": "save-content API result",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:32.224Z"
+      },
+      {
+        "name": "R2 edit leaves R1 unchanged",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:33.153Z"
+      },
+      {
+        "name": "R1 sealed in UI",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:33.476Z"
+      },
+      {
+        "name": "Frozen fields and save disabled",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:33.479Z"
+      },
+      {
+        "name": "Direct HTTP frozen edit rejected from browser session",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:33.488Z"
+      },
+      {
+        "name": "Default remains after browser refresh",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:35.416Z"
+      },
+      {
+        "name": "R1 content remains frozen",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:35.417Z"
+      },
+      {
+        "name": "Arabic input form uses RTL",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:35.477Z"
+      },
+      {
+        "name": "1280px no document horizontal overflow",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:35.823Z"
+      },
+      {
+        "name": "No uncaught browser errors",
+        "status": "PASS",
+        "time": "2026-09-08T05:17:35.873Z"
+      }
+    ],
+    "Migrations": [
+      {
+        "name": "T4 populated schema upgrades without losing 19-table data",
+        "status": "PASS",
+        "time": "2026-09-08T05:15:09.696247+00:00"
+      },
+      {
+        "name": "T5 version recorded once",
+        "status": "PASS",
+        "time": "2026-09-08T05:15:09.698556+00:00"
+      },
+      {
+        "name": "Audit immutability retained after rebuild",
+        "status": "PASS",
+        "time": "2026-09-08T05:15:09.698602+00:00"
+      },
+      {
+        "name": "Upgrade integrity and FK",
+        "status": "PASS",
+        "time": "2026-09-08T05:15:09.703005+00:00"
+      },
+      {
+        "name": "Upgrade repeat preserves data and schema",
+        "status": "PASS",
+        "time": "2026-09-08T05:15:09.742053+00:00"
+      },
+      {
+        "name": "Fresh schema equals upgraded schema",
+        "status": "PASS",
+        "time": "2026-09-08T05:15:09.863127+00:00"
+      },
+      {
+        "name": "Fresh business tables empty",
+        "status": "PASS",
+        "time": "2026-09-08T05:15:09.865196+00:00"
+      },
+      {
+        "name": "Fresh all 10 versions recorded",
+        "status": "PASS",
+        "time": "2026-09-08T05:15:09.865211+00:00"
+      },
+      {
+        "name": "Fresh integrity and FK",
+        "status": "PASS",
+        "time": "2026-09-08T05:15:09.866866+00:00"
+      },
+      {
+        "name": "Fresh repeat same schema",
+        "status": "PASS",
+        "time": "2026-09-08T05:15:09.897519+00:00"
+      }
+    ],
+    "Fresh HTTP": [
+      {
+        "name": "Fresh database actual login",
+        "status": "PASS",
+        "time": "2026-09-08T05:18:43.153396+00:00"
+      },
+      {
+        "name": "Fresh products API initially empty",
+        "status": "PASS",
+        "time": "2026-09-08T05:18:43.154782+00:00"
+      },
+      {
+        "name": "Fresh product creation through HTTP",
+        "status": "PASS",
+        "time": "2026-09-08T05:18:43.156426+00:00"
+      },
+      {
+        "name": "Fresh R1 and translation usable",
+        "status": "PASS",
+        "time": "2026-09-08T05:18:43.157279+00:00"
+      }
+    ],
+    "Final integrity and baseline": [
+      {
+        "name": "Original 53 baseline hashes unchanged",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.169709+00:00"
+      },
+      {
+        "name": "All 7 site files unchanged",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.172241+00:00"
+      },
+      {
+        "name": "T4 protected runtime evidence and migrations unchanged",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.365791+00:00"
+      },
+      {
+        "name": "go-admin commit remains locked",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.379254+00:00"
+      },
+      {
+        "name": "go-admin-ui commit remains locked",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.389850+00:00"
+      },
+      {
+        "name": "Final integrity_check ok",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.399808+00:00"
+      },
+      {
+        "name": "Final foreign_key_check empty",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.399917+00:00"
+      },
+      {
+        "name": "No duplicate keys products",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.399956+00:00"
+      },
+      {
+        "name": "No duplicate keys product_revisions",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.399981+00:00"
+      },
+      {
+        "name": "No duplicate keys product_revision_translations",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.400004+00:00"
+      },
+      {
+        "name": "No Batch or Passport development data",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.400059+00:00"
+      },
+      {
+        "name": "12 business APIs registered",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.400102+00:00"
+      },
+      {
+        "name": "Direct SQL duplicate language rejected on draft revision",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.402592+00:00"
+      },
+      {
+        "name": "T5 service stopped 18095",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.402665+00:00"
+      },
+      {
+        "name": "T5 service stopped 18096",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.402700+00:00"
+      },
+      {
+        "name": "T5 service stopped 19528",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.402779+00:00"
+      },
+      {
+        "name": "Backend tracked files unchanged",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.417390+00:00"
+      },
+      {
+        "name": "Only two UI locale entrypoints modified",
+        "status": "PASS",
+        "time": "2026-09-08T05:31:40.431035+00:00"
+      }
+    ]
+  },
+  "gates": [
+    {
+      "gate": 1,
+      "name": "Products 列表",
+      "status": "PASS"
+    },
+    {
+      "gate": 2,
+      "name": "Product 创建",
+      "status": "PASS"
+    },
+    {
+      "gate": 3,
+      "name": "Product Code 应用及 DB 唯一",
+      "status": "PASS"
+    },
+    {
+      "gate": 4,
+      "name": "初始 Revision",
+      "status": "PASS"
+    },
+    {
+      "gate": 5,
+      "name": "创建事务",
+      "status": "PASS"
+    },
+    {
+      "gate": 6,
+      "name": "失败全回滚",
+      "status": "PASS"
+    },
+    {
+      "gate": 7,
+      "name": "Draft 编辑",
+      "status": "PASS"
+    },
+    {
+      "gate": 8,
+      "name": "新版本不改历史",
+      "status": "PASS"
+    },
+    {
+      "gate": 9,
+      "name": "冻结主体 API 拒绝",
+      "status": "PASS"
+    },
+    {
+      "gate": 10,
+      "name": "冻结翻译 API 拒绝",
+      "status": "PASS"
+    },
+    {
+      "gate": 11,
+      "name": "Clone",
+      "status": "PASS"
+    },
+    {
+      "gate": 12,
+      "name": "Revision Number 唯一",
+      "status": "PASS"
+    },
+    {
+      "gate": 13,
+      "name": "显式默认切换",
+      "status": "PASS"
+    },
+    {
+      "gate": 14,
+      "name": "默认合法性",
+      "status": "PASS"
+    },
+    {
+      "gate": 15,
+      "name": "六语言 API",
+      "status": "PASS"
+    },
+    {
+      "gate": 16,
+      "name": "Translation 唯一",
+      "status": "PASS"
+    },
+    {
+      "gate": 17,
+      "name": "Archive 保留历史",
+      "status": "PASS"
+    },
+    {
+      "gate": 18,
+      "name": "业务 API 认证",
+      "status": "PASS"
+    },
+    {
+      "gate": 19,
+      "name": "业务审计",
+      "status": "PASS"
+    },
+    {
+      "gate": 20,
+      "name": "重启持久化",
+      "status": "PASS"
+    },
+    {
+      "gate": 21,
+      "name": "浏览器全流程",
+      "status": "PASS"
+    },
+    {
+      "gate": 22,
+      "name": "Fresh DB",
+      "status": "PASS"
+    },
+    {
+      "gate": 23,
+      "name": "integrity_check",
+      "status": "PASS"
+    },
+    {
+      "gate": 24,
+      "name": "foreign_key_check",
+      "status": "PASS"
+    },
+    {
+      "gate": 25,
+      "name": "53 文件基线",
+      "status": "PASS"
+    },
+    {
+      "gate": 26,
+      "name": "site 7 文件",
+      "status": "PASS"
+    }
+  ],
+  "answers": [
+    {
+      "number": 1,
+      "question": "Products 列表真实可用？",
+      "answer": "Yes；分页、编码/名称搜索、状态筛选及详情通过。"
+    },
+    {
+      "number": 2,
+      "question": "Product 创建真实可用？",
+      "answer": "Yes；同时建立 Product、R1、源语言翻译。"
+    },
+    {
+      "number": 3,
+      "question": "重复编码被业务层拒绝？",
+      "answer": "Yes；trim/大写规范化后返回 409 和清晰提示。"
+    },
+    {
+      "number": 4,
+      "question": "DB UNIQUE 最后保护？",
+      "answer": "Yes；直接 SQL 重复编码/版本/翻译被拒。"
+    },
+    {
+      "number": 5,
+      "question": "Product 与 Revision 真正分离？",
+      "answer": "Yes；稳定 UUID 身份与独立多版本行。"
+    },
+    {
+      "number": 6,
+      "question": "初始 Revision 创建？",
+      "answer": "Yes；Create Product 事务创建 R1 Draft。"
+    },
+    {
+      "number": 7,
+      "question": "三表创建使用 Transaction？",
+      "answer": "Yes，另含业务 Audit。"
+    },
+    {
+      "number": 8,
+      "question": "中途失败全回滚？",
+      "answer": "Yes；注入翻译 INSERT 错误及 Audit INSERT 错误均验证。"
+    },
+    {
+      "number": 9,
+      "question": "Draft 可编辑？",
+      "answer": "Yes；内容令牌检测旧稿冲突。"
+    },
+    {
+      "number": 10,
+      "question": "冻结主体 Backend 拒绝？",
+      "answer": "Yes，409；DB 触发器也保留。"
+    },
+    {
+      "number": 11,
+      "question": "冻结 Translation Backend 拒绝？",
+      "answer": "Yes，409；DB 触发器也保留。"
+    },
+    {
+      "number": 12,
+      "question": "新 Revision 不修改旧版？",
+      "answer": "Yes，旧聚合逐字节比较通过。"
+    },
+    {
+      "number": 13,
+      "question": "R1/R2 完整保留？",
+      "answer": "Yes。"
+    },
+    {
+      "number": 14,
+      "question": "Revision Number 不重复？",
+      "answer": "Yes；取得写锁后事务分配，5 个并发请求生成 R3–R7。"
+    },
+    {
+      "number": 15,
+      "question": "Clone 复制允许内容？",
+      "answer": "Yes；结构化模板及全部已存在译文；未开放子系统存在时明确拒绝。"
+    },
+    {
+      "number": 16,
+      "question": "Clone 系统字段重置？",
+      "answer": "Yes；新 ID/actor/时间，draft、sealed_* / hash 清空；译文重置 draft。"
+    },
+    {
+      "number": 17,
+      "question": "默认 Revision 可设置？",
+      "answer": "Yes，独立显式 API。"
+    },
+    {
+      "number": 18,
+      "question": "默认必须属于 Product？",
+      "answer": "Yes。"
+    },
+    {
+      "number": 19,
+      "question": "默认状态校验？",
+      "answer": "Yes，只允许 sealed。"
+    },
+    {
+      "number": 20,
+      "question": "切默认不修改历史？",
+      "answer": "Yes；仅更新 products 指针和元数据，写审计，不写 Batch/旧 Revision。"
+    },
+    {
+      "number": 21,
+      "question": "六语言共存？",
+      "answer": "Yes；en、zh-CN、es、ar、fr、de。"
+    },
+    {
+      "number": 22,
+      "question": "同版本同语言不能重复？",
+      "answer": "Yes；API upsert，DB UNIQUE。"
+    },
+    {
+      "number": 23,
+      "question": "Archive 不破坏历史？",
+      "answer": "Yes；默认指针及所有版本保留。"
+    },
+    {
+      "number": 24,
+      "question": "普通 Hard Delete 破坏历史路径？",
+      "answer": "本模块没有 DELETE API，只有归档。"
+    },
+    {
+      "number": 25,
+      "question": "全部业务 API 要求认证？",
+      "answer": "Yes；12 条路由匿名负向测试。"
+    },
+    {
+      "number": 26,
+      "question": "绕过 Casbin？",
+      "answer": "No；使用上游 JWT、AuthCheckRole 和菜单/API 权限；保留上游 admin 特权逻辑。"
+    },
+    {
+      "number": 27,
+      "question": "使用 Request DTO/白名单？",
+      "answer": "Yes；严格解码，拒绝未知和重复字段。"
+    },
+    {
+      "number": 28,
+      "question": "避免 Mass Assignment？",
+      "answer": "Yes；系统 ID/actor/状态等不能通过内容 DTO 覆盖。"
+    },
+    {
+      "number": 29,
+      "question": "业务 Audit 产生？",
+      "answer": "Yes；沿用既有审计表及合适事件，新增 7 个注册事件。"
+    },
+    {
+      "number": 30,
+      "question": "Audit 与业务同事务？",
+      "answer": "Yes，全部本模块写操作。"
+    },
+    {
+      "number": 31,
+      "question": "重启后业务数据存在？",
+      "answer": "Yes；产品详情聚合与重启前完全一致。"
+    },
+    {
+      "number": 32,
+      "question": "浏览器完整流程？",
+      "answer": "PASS，21 项断言。"
+    },
+    {
+      "number": 33,
+      "question": "并发版本无重复？",
+      "answer": "PASS，5 个写入者全部成功，无重试。"
+    },
+    {
+      "number": 34,
+      "question": "Fresh DB 从零建立？",
+      "answer": "Yes；全部 10 个迁移后登录并创建产品。"
+    },
+    {
+      "number": 35,
+      "question": "Migration 重复运行？",
+      "answer": "Yes；升级库及 Fresh 库重复执行不改变数据/Schema。"
+    },
+    {
+      "number": 36,
+      "question": "integrity_check=ok？",
+      "answer": "Yes。"
+    },
+    {
+      "number": 37,
+      "question": "foreign_key_check？",
+      "answer": "PASS，无异常行。"
+    },
+    {
+      "number": 38,
+      "question": "修改 DATA_MODEL Schema？",
+      "answer": "仅扩展审计 event_type CHECK；业务 19 表/308 列及关系不变。"
+    },
+    {
+      "number": 39,
+      "question": "通过新 Migration？",
+      "answer": "Yes，1788825600000；T4 历史迁移未改。"
+    },
+    {
+      "number": 40,
+      "question": "修改上游 tracked files？",
+      "answer": "Yes，UI 2 文件；Backend 0 文件。"
+    },
+    {
+      "number": 41,
+      "question": "具体哪些及原因？",
+      "answer": "src/lang/zh-CN/index.ts、src/lang/en-US/index.ts，仅注册新增 passport 语言包。"
+    },
+    {
+      "number": 42,
+      "question": "53 基线 Hash 一致？",
+      "answer": "Yes。"
+    },
+    {
+      "number": 43,
+      "question": "site 7 文件未变？",
+      "answer": "Yes。"
+    },
+    {
+      "number": 44,
+      "question": "连接业务服务器？",
+      "answer": "No。"
+    },
+    {
+      "number": 45,
+      "question": "修改 Caddy？",
+      "answer": "No。"
+    },
+    {
+      "number": 46,
+      "question": "修改 Directus？",
+      "answer": "No。"
+    },
+    {
+      "number": 47,
+      "question": "修改生产 Docker？",
+      "answer": "No。"
+    },
+    {
+      "number": 48,
+      "question": "开发 Batch 正式管理？",
+      "answer": "No。"
+    },
+    {
+      "number": 49,
+      "question": "开发 Published Snapshot Engine？",
+      "answer": "No。"
+    },
+    {
+      "number": 50,
+      "question": "进入 T6？",
+      "answer": "No。"
+    }
+  ],
+  "entered_T6": false
+}
