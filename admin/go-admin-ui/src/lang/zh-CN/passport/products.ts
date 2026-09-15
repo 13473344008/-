@@ -35,7 +35,7 @@ export default {
   'addStep': '添加步骤',
   'saveContent': '保存模板内容',
   'translations': '产品内容翻译',
-  'translationHelp': '按语言分别保存。草稿不要求六语言齐全；封版前需确认源语言。步骤删除前请清除各语言对应标签。',
+  'translationHelp': '仅支持简体中文和英文，按语言分别保存。封版前需确认源语言；工艺步骤名称在上方填写。',
   'stepLabel': '工艺说明',
   'approved': '此语言文字已确认',
   'saveTranslation': '保存此语言',

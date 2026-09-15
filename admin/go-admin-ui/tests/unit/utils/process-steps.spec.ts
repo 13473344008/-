@@ -6,7 +6,7 @@ describe('stable process keys', () => {
   })
   it('does not use translated names as identifiers', () => {
     const keys: string[] = []
-    for (const _name of ['清洗', '清洗', 'Washing']) keys.push(nextStepKey(keys))
+    Array.from({ length: 3 }).forEach(() => keys.push(nextStepKey(keys)))
     expect(new Set(keys).size).toBe(3)
     expect(keys.every(x => /^[A-Za-z0-9_-]{1,64}$/.test(x))).toBe(true)
   })

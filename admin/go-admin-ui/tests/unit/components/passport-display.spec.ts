@@ -1,0 +1,23 @@
+import { describe, expect, it, vi } from 'vitest'
+vi.mock('../../../../../public-site/js/schema.mjs', () => ({ validatePayload: (p: unknown) => p, assetPath: () => '/image.png' }))
+import { renderPassport } from '../../../../../public-site/js/render.mjs'
+const payload = () => ({ record_type: 'test', product: { name: '马铃薯雪花粉', category_code: '001', country_of_origin: 'CN' }, batch: { code: 'TEST-001', record_type: 'test', production_date: '2026-09-01', quality_status: 'pending' }, notice: 'TEST RECORD — NOT FOR COMMERCIAL USE', raw_material: { origin: '自有基地' }, packaging: { type_code: 'bag' }, storage: { conditions: '气调储存' }, manufacturer: { name: '测试企业' }, process: Array.from({ length: 19 }, (_, i) => ({ step_key: `STEP_${i}`, label: `工艺${i + 1}` })), inspection: [], certifications: [], custom_sections: [], assets: [{ key: 'photo', role: 'section_image', display_target: 'process:STEP_0', label: '工艺1' }], localization: { translations: [] }})
+describe('passport language and compact process', () => {
+  it('uses Chinese field labels and notices in Chinese preview', () => {
+    const main = document.createElement('main'); renderPassport(main, payload(), { language: 'zh-CN', previewKind: 'review' })
+    for (const text of ['产品分类', '原产国', '中国', '生产日期', '质量状态', '袋装', '审核预览 · 尚未发布', '测试记录 · 不用于商业用途']) expect(main.textContent).toContain(text)
+    for (const text of ['Category code', 'Country of origin', 'REVIEW PREVIEW', 'TEST RECORD', 'PRODUCT DIGITAL IDENTITY']) expect(main.textContent).not.toContain(text)
+  })
+  it('retains all steps but initially folds the process and each image', () => {
+    const main = document.createElement('main'); renderPassport(main, payload(), { language: 'zh-CN' })
+    expect(main.querySelectorAll('.process li')).toHaveLength(19)
+    expect(main.querySelector('.process-fold')?.hasAttribute('open')).toBe(false)
+    expect(main.querySelector('.step-detail')?.hasAttribute('open')).toBe(false)
+    expect(main.querySelector('.process-fold>summary')?.textContent).toContain('19 个步骤')
+    expect(main.querySelectorAll('img')).toHaveLength(1)
+  })
+  it('uses English interface labels when English is selected', () => {
+    const main = document.createElement('main'); renderPassport(main, payload(), { language: 'en', previewKind: 'review' })
+    expect(main.textContent).toContain('Review preview · Not published'); expect(main.textContent).toContain('View process steps'); expect(main.textContent).toContain('19 steps')
+  })
+})

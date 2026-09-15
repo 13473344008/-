@@ -1,4 +1,5 @@
 import schema10 from './schema-1.0.mjs';
+import schema11 from './schema-1.1.mjs';
 export const CODE = /^[A-Za-z0-9_-]{1,64}$/;
 export const VERSION = /^[1-9][0-9]{0,15}$/;
 export function safeCode(code) { return typeof code === 'string' && CODE.test(code) && !/\s/.test(code); }
@@ -35,11 +36,12 @@ function matches(s,v,root,depth=0) {
  }
  return true;
 }
-const schemas=new Map([['1.0',schema10]]); // Future dialects get independent validators/renderers, never a permissive fallback.
+const schemas=new Map([['1.0',schema10],['1.1',schema11]]); // Future dialects get independent validators/renderers, never a permissive fallback.
 export function validatePayload(p) {
  const schema=schemas.get(p?.schema_version);if(!schema)throw Error('unsupported_schema');
  if(!matches(schema,p,schema)||!safeCode(p.batch.code))throw Error('invalid_payload');
  const keys=new Set();for(const a of p.assets){assetPath(a);if(keys.has(a.key))throw Error('invalid_payload');keys.add(a.key);}
+ for(const a of p.assets){if(a.display_target&&a.role!=='section_image')throw Error('invalid_payload');if(a.display_target?.startsWith('process:')&&!p.process.some(s=>'process:'+s.step_key===a.display_target))throw Error('invalid_payload');}
  for(const s of [...p.custom_sections,...p.inspection,...p.certifications])for(const k of s.asset_keys??[])if(!keys.has(k))throw Error('invalid_payload');
  if(p.publication.kind==='rollback'&&!(p.publication.source_version_number<p.publication.version_number))throw Error('invalid_payload');
  if(p.record_type==='test'&&p.notice!=='TEST RECORD — NOT FOR COMMERCIAL USE')throw Error('invalid_payload');

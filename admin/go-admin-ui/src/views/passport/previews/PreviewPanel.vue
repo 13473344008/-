@@ -22,7 +22,7 @@
     </template>
     <el-dialog v-model="opened" :title="t('passportPreview.message15')" width="min(1100px, 96vw)" destroy-on-close @opened="draw">
       <p v-if="result"><code>{{ result.kind }} · {{ result.source_hash }}</code></p>
-      <label>Language <select v-model="language" @change="draw"><option v-for="l in ['en','zh-CN']" :key="l" :value="l">{{ l }}</option></select></label>
+      <label>{{ publicLabel('language', language) }} <select v-model="language" @change="draw"><option v-for="l in ['en','zh-CN']" :key="l" :value="l">{{ LOCALES.find(item => item.value === (l === 'en' ? 'en-US' : l))?.label }}</option></select></label>
       <div ref="mount" data-testid="private-passport" />
     </el-dialog>
   </el-card>
@@ -36,15 +36,17 @@ import type { Preview } from '@/api/passport/preview'
 import { getBatch } from '@/api/passport/batches'
 import { getHistory } from '@/api/passport/history'
 import type { ReviewHistoryItem } from '@/api/passport/history'
+import { LOCALES } from '@/lang/locales'
+import { label as publicLabel } from '../../../../../../public-site/js/i18n.mjs'
 import { renderPassport } from '../../../../../../public-site/js/render.mjs'
 import { publicURL } from '../../../../../../public-site/js/urls.mjs'
 import css from '../../../../../../public-site/css/passport.css?inline'
 const props = defineProps<{ batchId: string; state: string; dirty?: boolean; editVersion?: number }>()
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const mode = import.meta.env.VUE_APP_PUBLIC_MODE || 'production'
 const base = import.meta.env.VUE_APP_PUBLIC_BASE_URL || ''
 const code = ref(''); const reviews = ref<ReviewHistoryItem[]>([]); const reviewId = ref(''); const versions = ref<number[]>([]); const version = ref<number | null>(null)
-const result = ref<Preview | null>(null); const opened = ref(false); const busy = ref(false); const mount = ref<HTMLElement>(); const language = ref('en')
+const result = ref<Preview | null>(null); const opened = ref(false); const busy = ref(false); const mount = ref<HTMLElement>(); const language = ref(locale.value === 'zh-CN' ? 'zh-CN' : 'en')
 const urlError = ref(false)
 const stable = computed(() => { try { return publicURL(base, code.value, null, mode) } catch { return '' } })
 const versionLink = computed(() => { try { return version.value ? publicURL(base, code.value, version.value, mode) : '' } catch { return '' } })

@@ -1,5 +1,14 @@
 export default {
-  'title': 'Working images',
+  optionalImages: 'Images (optional)',
+  optionalCaption: 'Caption (optional)',
+  addOptionalImage: 'Add image',
+  customerImage: 'Show to customers after review and publication',
+  internalImage: 'Internal only',
+  inlineHelp: 'Shared by Chinese and English. PNG/JPEG, up to 2 MiB; 4 images per location. Images are optional.',
+  loadFailed: 'Images could not be loaded. Reopen the page.',
+  uploadFailed: 'Image operation failed. Check the message and retry.',
+
+  'title': 'Images (optional)',
   'help': 'PNG/JPEG only, up to 2 MiB, 4096 pixels per side. Replace by removing the Draft link and uploading a new image; published copies stay unchanged.',
   'label': 'Image label',
   'public': 'Eligible for public review',
