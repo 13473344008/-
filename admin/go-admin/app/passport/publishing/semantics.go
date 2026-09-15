@@ -39,6 +39,22 @@ func rat(v interface{}) *big.Rat {
 }
 func validateSemantics(p map[string]interface{}) error {
 	fail := func(s string) error { return fmt.Errorf("public semantics: %s", s) }
+	for _, value := range arr(p["assets"]) {
+		a := obj(value)
+		target := str(a["display_target"])
+		if target != "" && a["role"] != "section_image" {
+			return fail("contextual image role")
+		}
+		if strings.HasPrefix(target, "process:") {
+			found := false
+			for _, step := range arr(p["process"]) {
+				found = found || str(obj(step)["step_key"]) == strings.TrimPrefix(target, "process:")
+			}
+			if !found {
+				return fail("contextual image step missing")
+			}
+		}
+	}
 	b := obj(p["batch"])
 	if str(b["expiry_date"]) < str(b["production_date"]) {
 		return fail("date order")
@@ -96,6 +112,9 @@ func validateSemantics(p map[string]interface{}) error {
 	refs := map[string]bool{}
 	productImages := 0
 	for key, a := range sets["assets"] {
+		if str(a["display_target"]) != "" {
+			refs[key] = true
+		}
 		hash := str(a["sha256"])
 		ext := map[string]string{"image/png": "png", "image/jpeg": "jpg", "image/webp": "webp", "application/pdf": "pdf"}[str(a["mime_type"])]
 		if len(hash) != 64 || str(a["path"]) != "assets/sha256/"+hash[:2]+"/"+hash+"."+ext {

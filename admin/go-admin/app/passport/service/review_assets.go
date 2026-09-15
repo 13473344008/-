@@ -8,6 +8,7 @@ import (
 )
 
 type ReviewAsset struct {
+	DisplayTarget      string `json:"display_target,omitempty"`
 	SourceMediaID      string `json:"source_media_id"`
 	StorageKey         string `json:"storage_key"`
 	OriginalFilename   string `json:"original_filename"`
@@ -30,12 +31,12 @@ type ReviewAsset struct {
 
 func freezeReviewAssets(tx *gorm.DB, c *ReviewCandidate) error {
 	rows := []ReviewAsset{}
-	e := tx.Table("asset_links a").Joins("JOIN media_assets m ON m.id=a.media_asset_id").Select("m.id AS source_media_id,m.storage_key,m.original_filename,m.mime_type,m.file_size,m.sha256,m.availability_status,m.is_public_eligible,a.asset_key,a.asset_role,a.public_label,a.is_public,COALESCE(a.product_revision_id,a.inspection_item_id,a.custom_section_id) AS owner_id").Where(`a.product_revision_id=? OR a.inspection_item_id IN (SELECT id FROM inspection_items WHERE batch_id=?) OR a.custom_section_id IN (SELECT id FROM custom_sections WHERE batch_id=? OR product_revision_id=?)`, c.Base.ID, c.Batch.ID, c.Batch.ID, c.Base.ID).Order("a.sort_order,a.asset_key,a.id").Scan(&rows).Error
+	e := tx.Table("asset_links a").Joins("JOIN media_assets m ON m.id=a.media_asset_id").Select("m.id AS source_media_id,m.storage_key,m.original_filename,m.mime_type,m.file_size,m.sha256,m.availability_status,m.is_public_eligible,a.asset_key,a.display_target,a.asset_role,a.public_label,a.is_public,COALESCE(a.product_revision_id,a.inspection_item_id,a.custom_section_id) AS owner_id").Where(`a.product_revision_id=? OR a.inspection_item_id IN (SELECT id FROM inspection_items WHERE batch_id=?) OR a.custom_section_id IN (SELECT id FROM custom_sections WHERE batch_id=? OR product_revision_id=?)`, c.Base.ID, c.Batch.ID, c.Batch.ID, c.Base.ID).Order("a.sort_order,a.asset_key,a.id").Scan(&rows).Error
 	if e != nil {
 		return e
 	}
-	if len(rows) > 16 {
-		return fmt.Errorf("审核资产关联不得超过 16 项")
+	if len(rows) > 64 {
+		return fmt.Errorf("审核资产关联不得超过 64 项")
 	}
 	owners := map[string]bool{c.Base.ID: true}
 	for _, i := range c.Inspections {
@@ -58,7 +59,7 @@ func freezeReviewAssets(tx *gorm.DB, c *ReviewCandidate) error {
 		if !safeSectionText(a.PublicLabel, 200, true) {
 			return fmt.Errorf("公开资产标签必须为非空纯文本")
 		}
-		if a.OwnerID == c.Base.ID && a.AssetRole != "product_image" {
+		if a.OwnerID == c.Base.ID && a.AssetRole != "product_image" && (a.DisplayTarget == "" || a.AssetRole != "section_image") {
 			return fmt.Errorf("模板独立资产必须为产品主图")
 		}
 		if a.AvailabilityStatus != "ready" {

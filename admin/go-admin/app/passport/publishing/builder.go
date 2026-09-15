@@ -33,7 +33,7 @@ func Build(frozen []byte, version int64, issued string) (BuildResult, error) {
 		fields[str(f["field_key"])] = f["value"]
 	}
 	p := core(fields)
-	p["schema_version"] = "1.0"
+	p["schema_version"] = FrozenSchemaVersion(frozen)
 	p["record_type"] = batch["record_type"]
 	p["notice"] = nil
 	if batch["record_type"] == "test" {
@@ -58,6 +58,9 @@ func Build(frozen []byte, version int64, issued string) (BuildResult, error) {
 			return result, fmt.Errorf("invalid approved asset hash")
 		}
 		out := map[string]interface{}{"key": a["asset_key"], "role": a["asset_role"], "label": a["public_label"], "path": "assets/sha256/" + hash[:2] + "/" + hash + ".png", "mime_type": "image/png", "file_size": a["normalized_size"], "sha256": hash}
+		if target := str(a["display_target"]); target != "" {
+			out["display_target"] = target
+		}
 		assets = append(assets, out)
 		owner := str(a["owner_id"])
 		byOwner[owner] = append(byOwner[owner], a["asset_key"])
@@ -318,4 +321,18 @@ func sectionContent(kind string, c map[string]interface{}) map[string]interface{
 		out["rows"] = rows
 	}
 	return out
+}
+
+// Old frozen inputs keep their original schema, payload and hash on retry.
+func FrozenSchemaVersion(frozen []byte) string {
+	v, e := Decode(frozen)
+	if e != nil {
+		return "1.0"
+	}
+	for _, a := range arr(obj(v)["assets"]) {
+		if str(obj(a)["display_target"]) != "" && obj(a)["publish"] == true {
+			return "1.1"
+		}
+	}
+	return "1.0"
 }

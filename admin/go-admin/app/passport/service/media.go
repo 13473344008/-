@@ -16,24 +16,26 @@ import (
 // Media is scoped to an accessible template or batch gallery, never a global file browser.
 type Media struct{ Sections }
 type MediaItem struct {
-	ID          string `json:"id"`
-	MediaID     string `json:"media_id"`
-	AssetKey    string `json:"asset_key"`
-	PublicLabel string `json:"public_label"`
-	IsPublic    bool   `json:"is_public"`
-	MimeType    string `json:"mime_type"`
-	FileSize    int64  `json:"file_size"`
-	SHA256      string `json:"sha256"`
-	Width       int    `json:"width" gorm:"-"`
-	Height      int    `json:"height" gorm:"-"`
-	Preview     string `json:"preview" gorm:"-"`
-	StorageKey  string `json:"-"`
+	DisplayTarget string `json:"display_target"`
+	ID            string `json:"id"`
+	MediaID       string `json:"media_id"`
+	AssetKey      string `json:"asset_key"`
+	PublicLabel   string `json:"public_label"`
+	IsPublic      bool   `json:"is_public"`
+	MimeType      string `json:"mime_type"`
+	FileSize      int64  `json:"file_size"`
+	SHA256        string `json:"sha256"`
+	Width         int    `json:"width" gorm:"-"`
+	Height        int    `json:"height" gorm:"-"`
+	Preview       string `json:"preview" gorm:"-"`
+	StorageKey    string `json:"-"`
 }
 type MediaSet struct {
 	Token string      `json:"token"`
 	Items []MediaItem `json:"items"`
 }
 type MediaUpload struct {
+	DisplayTarget string
 	ExpectedToken string
 	PublicLabel   string
 	IsPublic      bool
@@ -50,7 +52,7 @@ func mediaColumn(rid, sid string) (string, string) {
 }
 func mediaRows(tx *gorm.DB, column, id string) ([]MediaItem, error) {
 	rows := []MediaItem{}
-	e := tx.Table("asset_links a").Joins("JOIN media_assets m ON m.id=a.media_asset_id").Select("a.id,m.id media_id,a.asset_key,a.public_label,a.is_public,m.mime_type,m.file_size,m.sha256,m.storage_key").Where("a."+column+"=?", id).Order("a.asset_key").Scan(&rows).Error
+	e := tx.Table("asset_links a").Joins("JOIN media_assets m ON m.id=a.media_asset_id").Select("a.id,m.id media_id,a.asset_key,a.display_target,a.public_label,a.is_public,m.mime_type,m.file_size,m.sha256,m.storage_key").Where("a."+column+"=?", id).Order("a.asset_key").Scan(&rows).Error
 	return rows, e
 }
 func mediaOwner(set SectionSet, rid, bid, sid string) error {
@@ -70,7 +72,7 @@ func mediaOwner(set SectionSet, rid, bid, sid string) error {
 	}
 	return &BusinessError{404, "图片模块不存在或不属于当前对象"}
 }
-func (s *Media) ListMedia(pid, rid, bid, sid string) (MediaSet, error) {
+func (s *Media) ListMedia(pid, rid, bid, sid string, targets ...string) (MediaSet, error) {
 	out := MediaSet{Items: []MediaItem{}}
 	e := s.Orm.Transaction(func(tx *gorm.DB) error {
 		set, e := s.sectionSet(tx, pid, rid, bid, "")
@@ -84,6 +86,15 @@ func (s *Media) ListMedia(pid, rid, bid, sid string) (MediaSet, error) {
 		out.Items, e = mediaRows(tx, col, id)
 		if e != nil {
 			return e
+		}
+		if len(targets) > 0 {
+			filtered := []MediaItem{}
+			for _, item := range out.Items {
+				if item.DisplayTarget == targets[0] {
+					filtered = append(filtered, item)
+				}
+			}
+			out.Items = filtered
 		}
 		out.Token = set.Token
 		for i := range out.Items {
@@ -135,12 +146,21 @@ func (s *Media) UploadMedia(pid, rid, bid, sid string, q MediaUpload) (string, e
 		if e := mediaOwner(set, rid, bid, sid); e != nil {
 			return e
 		}
+		if e := validateMediaTarget(tx, rid, sid, q.DisplayTarget); e != nil {
+			return e
+		}
 		col, id := mediaColumn(rid, sid)
 		rows, e := mediaRows(tx, col, id)
 		if e != nil {
 			return e
 		}
-		if len(rows) >= 16 || sid == "" && len(rows) > 0 {
+		count := 0
+		for _, item := range rows {
+			if item.DisplayTarget == q.DisplayTarget {
+				count++
+			}
+		}
+		if len(rows) >= 64 || count >= 4 || sid == "" && q.DisplayTarget == "" && count > 0 {
 			return conflict("图片数量已达上限；主图请先解除原关联")
 		}
 		rr, e := os.OpenRoot(root)
@@ -168,11 +188,11 @@ func (s *Media) UploadMedia(pid, rid, bid, sid string, q MediaUpload) (string, e
 			return e
 		}
 		role := "section_image"
-		if sid == "" {
+		if sid == "" && q.DisplayTarget == "" {
 			role = "product_image"
 		}
 		assetKey := "image_" + strings.ReplaceAll(uuid.NewString(), "-", "")
-		if e = tx.Table("asset_links").Create(map[string]interface{}{"id": linkID, "created_at": now, "created_by": s.Actor, "updated_at": now, "updated_by": s.Actor, col: id, "media_asset_id": mediaID, "asset_key": assetKey, "asset_role": role, "public_label": q.PublicLabel, "is_public": q.IsPublic}).Error; e != nil {
+		if e = tx.Table("asset_links").Create(map[string]interface{}{"id": linkID, "created_at": now, "created_by": s.Actor, "updated_at": now, "updated_by": s.Actor, col: id, "media_asset_id": mediaID, "asset_key": assetKey, "asset_role": role, "display_target": q.DisplayTarget, "public_label": q.PublicLabel, "is_public": q.IsPublic}).Error; e != nil {
 			return e
 		}
 		return s.mediaAudit(tx, bid, linkID, now, []string{"upload", "attach"}, mediaID)
@@ -213,6 +233,7 @@ func (s *Media) DetachMedia(pid, rid, bid, sid, id, token string) error {
 
 // Stored links are immutable references to source bytes; copies get new relation IDs.
 type workingLink struct {
+	DisplayTarget     string
 	ID                string
 	CreatedAt         string
 	CreatedBy         int
@@ -242,7 +263,7 @@ func validateManagedMedia(tx *gorm.DB, col string, ids []string) error {
 	}
 	for _, link := range links {
 		role := "section_image"
-		if col == "product_revision_id" {
+		if col == "product_revision_id" && link.DisplayTarget == "" {
 			role = "product_image"
 		}
 		if link.AssetRole != role {

@@ -181,7 +181,7 @@ func (s *Publishing) Publish(id string, req PublishRequest) (PublishEntry, error
 			return e
 		}
 		now := stamp()
-		p := models.PassportRevision{ID: uuid.NewString(), CreatedAt: now, CreatedBy: int64(s.Actor), BatchID: id, VersionNumber: b.NextVersionNumber, BaseProductRevisionID: b.BaseProductRevisionID, SourceRevisionID: b.CurrentPassportRevisionID, SourceEditVersion: ptr(b.EditVersion), SourceContentHash: r.CandidateHash, FrozenInput: r.CandidateInput, SchemaVersion: "1.0", BuilderVersion: publishing.BuilderVersion, PublishedBy: int64(s.Actor), ReviewedBy: *r.ReviewedBy, ReviewedAt: *r.ReviewedAt, ReleaseIdentifier: uuid.NewString(), SourceReviewRecordID: &r.ID}
+		p := models.PassportRevision{ID: uuid.NewString(), CreatedAt: now, CreatedBy: int64(s.Actor), BatchID: id, VersionNumber: b.NextVersionNumber, BaseProductRevisionID: b.BaseProductRevisionID, SourceRevisionID: b.CurrentPassportRevisionID, SourceEditVersion: ptr(b.EditVersion), SourceContentHash: r.CandidateHash, FrozenInput: r.CandidateInput, SchemaVersion: publishing.FrozenSchemaVersion([]byte(r.CandidateInput)), BuilderVersion: publishing.BuilderVersion, PublishedBy: int64(s.Actor), ReviewedBy: *r.ReviewedBy, ReviewedAt: *r.ReviewedAt, ReleaseIdentifier: uuid.NewString(), SourceReviewRecordID: &r.ID}
 		rec := models.PublishRecord{ID: uuid.NewString(), CreatedAt: now, CreatedBy: int64(s.Actor), BatchID: id, PassportRevisionID: p.ID, OperationType: "publish", PublishStatus: "pending", IdempotencyKey: req.IdempotencyKey, ReleaseIdentifier: p.ReleaseIdentifier, ExpectedCurrentRevisionID: b.CurrentPassportRevisionID, StartedAt: &now, UpdatedAt: now, AttemptCount: 1, StateVersion: 1, SourceReviewRecordID: &r.ID}
 		if e = tx.Create(&p).Error; e != nil {
 			return e
@@ -304,7 +304,7 @@ func (s *Publishing) build(store *publishing.Store, v *PublishEntry) error {
 		if e != nil || publishing.Hash(actual) != a.NormalizedSHA256 {
 			return fmt.Errorf("published asset verification failed")
 		}
-		rows = append(rows, models.PublishedAsset{ID: uuid.NewString(), CreatedAt: stamp(), CreatedBy: int64(s.Actor), PassportRevisionID: p.ID, SourceMediaAssetID: a.SourceMediaID, AssetKey: a.AssetKey, AssetRole: a.AssetRole, OriginalFilename: a.OriginalFilename, PublicLabel: a.PublicLabel, PublishedFilename: path.Base(assetPath), MimeType: "image/png", FileSize: int64(len(actual)), SHA256: publishing.Hash(actual), PublishedPath: assetPath, TransformVersion: a.TransformVersion, SourceAssetSHA256: a.SHA256})
+		rows = append(rows, models.PublishedAsset{ID: uuid.NewString(), CreatedAt: stamp(), CreatedBy: int64(s.Actor), PassportRevisionID: p.ID, SourceMediaAssetID: a.SourceMediaID, AssetKey: a.AssetKey, AssetRole: a.AssetRole, DisplayTarget: a.DisplayTarget, OriginalFilename: a.OriginalFilename, PublicLabel: a.PublicLabel, PublishedFilename: path.Base(assetPath), MimeType: "image/png", FileSize: int64(len(actual)), SHA256: publishing.Hash(actual), PublishedPath: assetPath, TransformVersion: a.TransformVersion, SourceAssetSHA256: a.SHA256})
 	}
 	return s.sealBuilt(store, v, built, rows, c.Batch.BatchCode)
 }
@@ -458,6 +458,9 @@ func (s *Publishing) verifyPrepared(store *publishing.Store, v PublishEntry) ([]
 			return nil, "", fmt.Errorf("published asset missing or changed")
 		}
 		manifest = append(manifest, map[string]interface{}{"key": a.AssetKey, "role": a.AssetRole, "label": a.PublicLabel, "path": a.PublishedPath, "mime_type": a.MimeType, "file_size": a.FileSize, "sha256": a.SHA256})
+		if a.DisplayTarget != "" {
+			manifest[len(manifest)-1].(map[string]interface{})["display_target"] = a.DisplayTarget
+		}
 	}
 	m, e := publishing.Canonical(manifest)
 	if e != nil {

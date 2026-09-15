@@ -35,7 +35,7 @@ func (e Media) List(c *gin.Context) {
 		return
 	}
 	pid, rid, bid := sectionOwner(c)
-	v, err := s.ListMedia(pid, rid, bid, c.Param("sid"))
+	v, err := s.ListMedia(pid, rid, bid, c.Param("sid"), c.Query("display_target"))
 	e.result(v, err)
 }
 
@@ -69,7 +69,7 @@ func (e Media) Upload(c *gin.Context) {
 	defer c.Request.MultipartForm.RemoveAll()
 	form := c.Request.MultipartForm
 	for k, values := range form.Value {
-		if (k != "expected_token" && k != "public_label" && k != "is_public") || len(values) != 1 {
+		if (k != "expected_token" && k != "public_label" && k != "is_public" && k != "display_target") || len(values) != 1 {
 			e.Error(422, nil, "上传参数不正确")
 			return
 		}
@@ -91,7 +91,7 @@ func (e Media) Upload(c *gin.Context) {
 		return
 	}
 	pid, rid, bid := sectionOwner(c)
-	id, err := s.UploadMedia(pid, rid, bid, c.Param("sid"), service.MediaUpload{ExpectedToken: c.PostForm("expected_token"), PublicLabel: c.PostForm("public_label"), IsPublic: c.PostForm("is_public") == "true", Filename: h.Filename, MIME: h.Header.Get("Content-Type"), Bytes: raw})
+	id, err := s.UploadMedia(pid, rid, bid, c.Param("sid"), service.MediaUpload{DisplayTarget: c.PostForm("display_target"), ExpectedToken: c.PostForm("expected_token"), PublicLabel: c.PostForm("public_label"), IsPublic: c.PostForm("is_public") == "true", Filename: h.Filename, MIME: h.Header.Get("Content-Type"), Bytes: raw})
 	e.result(map[string]string{"id": id}, err)
 }
 

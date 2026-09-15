@@ -57,6 +57,7 @@ type PublishRecord struct {
 func (PublishRecord) TableName() string { return "publish_records" }
 
 type PublishedAsset struct {
+	DisplayTarget      string `gorm:"column:display_target" json:"display_target,omitempty"`
 	ID                 string `gorm:"column:id;primaryKey" json:"id"`
 	CreatedAt          string `gorm:"column:created_at" json:"created_at"`
 	CreatedBy          int64  `gorm:"column:created_by" json:"created_by"`

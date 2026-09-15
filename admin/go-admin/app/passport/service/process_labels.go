@@ -85,6 +85,17 @@ func (s *Products) updateStepLabels(tx *gorm.DB, rid string, v *RevisionView, re
 			}
 		}
 	}
+	var contextual []workingLink
+	if e := tx.Table("asset_links").Where("product_revision_id=? AND display_target LIKE 'process:%'", rid).Find(&contextual).Error; e != nil {
+		return e
+	}
+	for _, link := range contextual {
+		if !allowed[strings.TrimPrefix(link.DisplayTarget, "process:")] {
+			if e := tx.Exec("DELETE FROM asset_links WHERE id=?", link.ID).Error; e != nil {
+				return e
+			}
+		}
+	}
 	updated, e := s.revision(tx, v.ProductID, rid)
 	if e != nil {
 		return e

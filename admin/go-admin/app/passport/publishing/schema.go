@@ -15,8 +15,12 @@ import (
 
 //go:embed schema-1.0.json
 var Schema10 []byte
+
+//go:embed schema-1.1.json
+var Schema11 []byte
 var schemaOnce sync.Once
 var schemaRoot map[string]interface{}
+var schemaRoot11 map[string]interface{}
 var schemaLoadError error
 
 // ValidatePayload implements the closed keyword vocabulary used by the embedded 1.0 contract.
@@ -36,27 +40,37 @@ func ValidatePayload(data []byte) error {
 			return
 		}
 		schemaRoot = v.(map[string]interface{})
+		v, e = Decode(Schema11)
+		if e != nil {
+			schemaLoadError = e
+			return
+		}
+		schemaRoot11 = v.(map[string]interface{})
 	})
 	if schemaLoadError != nil {
 		return schemaLoadError
 	}
-	if e = validateNode(schemaRoot, value, "$"); e != nil {
+	root := schemaRoot
+	if obj(value)["schema_version"] == "1.1" {
+		root = schemaRoot11
+	}
+	if e = validateNode(root, root, value, "$"); e != nil {
 		return e
 	}
 	return validateSemantics(value.(map[string]interface{}))
 }
-func validateNode(schema map[string]interface{}, value interface{}, path string) error {
+func validateNode(root, schema map[string]interface{}, value interface{}, path string) error {
 	fail := func(rule string) error { return fmt.Errorf("public schema %s: %s", path, rule) }
 	if ref, ok := schema["$ref"].(string); ok {
 		if !strings.HasPrefix(ref, "#/$defs/") {
 			return fail("unsupported reference")
 		}
-		defs := schemaRoot["$defs"].(map[string]interface{})
+		defs := root["$defs"].(map[string]interface{})
 		target, ok := defs[strings.TrimPrefix(ref, "#/$defs/")].(map[string]interface{})
 		if !ok {
 			return fail("missing definition")
 		}
-		if e := validateNode(target, value, path); e != nil {
+		if e := validateNode(root, target, value, path); e != nil {
 			return e
 		}
 	}
@@ -76,7 +90,7 @@ func validateNode(schema map[string]interface{}, value interface{}, path string)
 		if list, ok := schema[kind].([]interface{}); ok {
 			n := 0
 			for _, s := range list {
-				if validateNode(s.(map[string]interface{}), value, path) == nil {
+				if validateNode(root, s.(map[string]interface{}), value, path) == nil {
 					n++
 				}
 			}
@@ -87,11 +101,11 @@ func validateNode(schema map[string]interface{}, value interface{}, path string)
 	}
 	if cond, ok := schema["if"].(map[string]interface{}); ok {
 		key := "else"
-		if validateNode(cond, value, path) == nil {
+		if validateNode(root, cond, value, path) == nil {
 			key = "then"
 		}
 		if next, ok := schema[key].(map[string]interface{}); ok {
-			if e := validateNode(next, value, path); e != nil {
+			if e := validateNode(root, next, value, path); e != nil {
 				return e
 			}
 		}
@@ -132,7 +146,7 @@ func validateNode(schema map[string]interface{}, value interface{}, path string)
 		props, _ := schema["properties"].(map[string]interface{})
 		for k, v := range obj {
 			if sub, ok := props[k].(map[string]interface{}); ok {
-				if e := validateNode(sub, v, path+"."+k); e != nil {
+				if e := validateNode(root, sub, v, path+"."+k); e != nil {
 					return e
 				}
 			} else if schema["additionalProperties"] == false {
@@ -150,7 +164,7 @@ func validateNode(schema map[string]interface{}, value interface{}, path string)
 		seen := map[string]bool{}
 		for i, v := range arr {
 			if sub, ok := schema["items"].(map[string]interface{}); ok {
-				if e := validateNode(sub, v, fmt.Sprintf("%s[%d]", path, i)); e != nil {
+				if e := validateNode(root, sub, v, fmt.Sprintf("%s[%d]", path, i)); e != nil {
 					return e
 				}
 			}
