@@ -442,6 +442,9 @@ func (s *Sections) DeleteSection(pid, rid, bid, id, token string) error {
 	})
 }
 func (s *Sections) TranslateSection(pid, rid, bid, id string, req dto.SectionTranslate) error {
+	if !activeLanguage(req.Translation.LanguageCode) {
+		return invalid("仅支持中文和英文")
+	}
 	return s.sectionWrite(pid, rid, bid, req.ExpectedToken, func(tx *gorm.DB, set SectionSet, now string) error {
 		for _, v := range set.Sections {
 			if v.ID == id {

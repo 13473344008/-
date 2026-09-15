@@ -248,6 +248,9 @@ func (s *Products) Create(req dto.CreateProductRequest) (string, error) {
 	seen := map[string]bool{}
 	for i := range req.Translations {
 		t := &req.Translations[i]
+		if !activeLanguage(t.LanguageCode) {
+			return "", invalid("仅支持中文和英文")
+		}
 		if e = validateTranslation(t, req.Content); e != nil {
 			return "", e
 		}
@@ -440,6 +443,11 @@ func (s *Products) UpdateRevision(pid, rid string, req dto.UpdateRevisionRequest
 				return invalid("已有模块时不能更换源语言，请在新增模块前选择源语言")
 			}
 		}
+		if req.ProcessLabels != nil {
+			if e = s.updateStepLabels(tx, rid, &v, req, now); e != nil {
+				return e
+			}
+		}
 		hasSource := false
 		for _, t := range v.Translations {
 			d := viewTranslation(t)
@@ -461,6 +469,9 @@ func (s *Products) UpdateRevision(pid, rid string, req dto.UpdateRevisionRequest
 	})
 }
 func (s *Products) Translate(pid, rid string, req dto.UpdateTranslationRequest) error {
+	if !activeLanguage(req.Translation.LanguageCode) {
+		return invalid("仅支持中文和英文")
+	}
 	return s.write(pid, func(tx *gorm.DB, p models.Product, now string) error {
 		v, e := s.revision(tx, pid, rid)
 		if e != nil {

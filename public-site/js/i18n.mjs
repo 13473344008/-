@@ -1,4 +1,4 @@
-export const languages=['en','zh-CN','es','ar','fr','de'];
+export const languages=['en','zh-CN'];
 const keys=['product','raw_material','process','batch','inspection','certifications','packaging','storage','manufacturer','assets','publication','version','issued_at','schema_version','retry','missing_image','pass','fail','not_tested','not_applicable','pending','informational'];
 const rows={
 en:['Product information','Raw material','Process','Batch information','Inspection / Quality','Certifications','Packaging','Storage','Manufacturer / Company','Published assets','Publication information','Published version','Published date','Schema','Retry','Image unavailable','Pass','Fail','Not tested','Not applicable','Pending','Informational'],

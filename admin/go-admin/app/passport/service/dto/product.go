@@ -37,8 +37,9 @@ type CreateProductRequest struct {
 	Translations []TranslationRequest `json:"translations"`
 }
 type UpdateRevisionRequest struct {
-	ExpectedToken string          `json:"expected_token"`
-	Content       RevisionContent `json:"content"`
+	ProcessLabels map[string]map[string]string `json:"process_labels,omitempty"`
+	ExpectedToken string                       `json:"expected_token"`
+	Content       RevisionContent              `json:"content"`
 }
 type UpdateTranslationRequest struct {
 	ExpectedToken string             `json:"expected_token"`

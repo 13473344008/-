@@ -22,7 +22,7 @@
     </template>
     <el-dialog v-model="opened" :title="t('passportPreview.message15')" width="min(1100px, 96vw)" destroy-on-close @opened="draw">
       <p v-if="result"><code>{{ result.kind }} · {{ result.source_hash }}</code></p>
-      <label>Language <select v-model="language" @change="draw"><option v-for="l in ['en','zh-CN','es','ar','fr','de']" :key="l" :value="l">{{ l }}</option></select></label>
+      <label>Language <select v-model="language" @change="draw"><option v-for="l in ['en','zh-CN']" :key="l" :value="l">{{ l }}</option></select></label>
       <div ref="mount" data-testid="private-passport" />
     </el-dialog>
   </el-card>

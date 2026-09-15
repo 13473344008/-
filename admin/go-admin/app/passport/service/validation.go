@@ -23,6 +23,8 @@ var decimalPattern = regexp.MustCompile(`^[0-9]{1,18}(\.[0-9]{1,9})?$`)
 var countryPattern = regexp.MustCompile(`^[A-Z]{2}$`)
 var languages = map[string]bool{"en": true, "zh-CN": true, "es": true, "ar": true, "fr": true, "de": true}
 
+func activeLanguage(lang string) bool { return lang == "en" || lang == "zh-CN" }
+
 func validateCode(s string) (string, error) {
 	s = strings.ToUpper(strings.TrimSpace(s))
 	if !codePattern.MatchString(s) {
@@ -34,7 +36,7 @@ func validateContent(c *dto.RevisionContent) error {
 	if c.SourceLanguage == "" {
 		c.SourceLanguage = "en"
 	}
-	if !languages[c.SourceLanguage] {
+	if !activeLanguage(c.SourceLanguage) {
 		return invalid("请选择支持的源语言")
 	}
 	for _, v := range []*string{c.CategoryCode, c.PackageTypeCode} {

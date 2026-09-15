@@ -27,7 +27,7 @@ export const addProduct = (data: CreateProduct) => request<ApiResponse<{ id: str
 export const updateProduct = (id: string, lifecycle_status: string) => request<ApiResponse<null>>({ url: `${base}/${id}`, method: 'put', data: { lifecycle_status }})
 export const archiveProduct = (id: string) => request<ApiResponse<null>>({ url: `${base}/${id}/archive`, method: 'post', data: {}})
 export const cloneRevision = (id: string, source_revision_id: string) => request<ApiResponse<{ id: string }>>({ url: `${base}/${id}/revisions`, method: 'post', data: { source_revision_id }})
-export const updateRevision = (id: string, rid: string, expected_token: string, content: Content) => request<ApiResponse<null>>({ url: `${base}/${id}/revisions/${rid}`, method: 'put', data: { expected_token, content }})
+export const updateRevision = (id: string, rid: string, expected_token: string, content: Content, process_labels?: Record<string, Record<string, string>>) => request<ApiResponse<null>>({ url: `${base}/${id}/revisions/${rid}`, method: 'put', data: { expected_token, content, process_labels }})
 export const updateTranslation = (id: string, rid: string, expected_token: string, translation: Translation) => request<ApiResponse<null>>({ url: `${base}/${id}/revisions/${rid}/translations`, method: 'put', data: { expected_token, translation }})
 export const sealRevision = (id: string, rid: string, expected_token: string) => request<ApiResponse<null>>({ url: `${base}/${id}/revisions/${rid}/seal`, method: 'post', data: { expected_token }})
 export const setDefault = (id: string, revision_id: string, expected_current_revision_id: string | null) => request<ApiResponse<null>>({ url: `${base}/${id}/default-revision`, method: 'put', data: { revision_id, expected_current_revision_id }})

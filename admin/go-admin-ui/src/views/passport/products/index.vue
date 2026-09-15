@@ -52,7 +52,7 @@
             <el-form-item :label="t('passport.products.fields.shelf_life_days')"><el-input-number v-model="content.shelf_life_days" :min="0" :max="36500" :precision="0" /></el-form-item>
           </div>
           <el-form-item :label="t('passport.products.fields.internal_note')"><el-input v-model="content.internal_note" type="textarea" maxlength="2000" /></el-form-item>
-          <el-form-item :label="t('passport.products.steps')"><div class="steps"><div v-for="(step, i) in content.process_steps" :key="i" class="step"><el-input v-model="step.step_key" :placeholder="t('passport.products.stepKey')" /><el-button @click="content.process_steps.splice(i, 1)">{{ t('passport.products.removeStep') }}</el-button></div><el-button @click="content.process_steps.push({ step_key: '' })">{{ t('passport.products.addStep') }}</el-button></div></el-form-item>
+          <el-form-item :label="t('passport.products.steps')"><div class="steps"><div v-for="(step, i) in content.process_steps" :key="step.step_key" class="step"><span>{{ i + 1 }}</span><el-input v-model="stepNames['zh-CN'][step.step_key]" :placeholder="t('passport.products.stepChinese')" :aria-label="t('passport.products.stepChinese')" maxlength="200" /><el-input v-model="stepNames.en[step.step_key]" :placeholder="t('passport.products.stepEnglish')" :aria-label="t('passport.products.stepEnglish')" maxlength="200" /><el-button @click="content.process_steps.splice(i, 1)">{{ t('passport.products.removeStep') }}</el-button></div><el-button @click="addStep">{{ t('passport.products.addStep') }}</el-button></div></el-form-item>
           <el-button v-permisaction="['passport:products:write']" type="primary" :disabled="readonly" data-testid="save-content" @click="saveContent">{{ t('passport.products.saveContent') }}</el-button>
         </el-form>
         <h4>{{ t('passport.products.translations') }}</h4><p>{{ t('passport.products.translationHelp') }}</p>
@@ -60,7 +60,7 @@
         <el-form label-position="top" :disabled="readonly || busy" :dir="language === 'ar' ? 'rtl' : 'ltr'">
           <el-form-item :label="t('passport.products.name')" required><el-input v-model="translation.product_name" maxlength="200" data-testid="translation-name" /></el-form-item>
           <div class="fields"><el-form-item v-for="field in translationFields" :key="field" :label="t(`passport.products.fields.${field}`)"><el-input v-model="translation[field]" type="textarea" :rows="2" maxlength="4000" /></el-form-item></div>
-          <el-form-item v-for="step in selected.process_steps" :key="step.step_key" :label="`${t('passport.products.stepLabel')} · ${step.step_key}`"><el-input v-model="translation.process_labels[step.step_key]" maxlength="4000" /></el-form-item>
+          <p>{{ t('passport.products.stepNamesHelp') }}</p>
           <el-form-item><el-checkbox v-model="approved" data-testid="translation-approved">{{ t('passport.products.approved') }}</el-checkbox></el-form-item>
           <el-button v-permisaction="['passport:products:write']" type="primary" :disabled="readonly" data-testid="save-translation" @click="saveTranslation">{{ t('passport.products.saveTranslation') }}</el-button>
         </el-form>
@@ -80,6 +80,7 @@
 </template>
 
 <script setup lang="ts">
+import { nextStepKey } from '@/utils/process-steps'
 import { useUserStore } from '@/stores/user'
 import MediaPanel from '../media/MediaPanel.vue'
 import SectionManager from '../sections/SectionManager.vue'
@@ -96,7 +97,7 @@ import type { Content, Translation, Revision, ProductDetail, Product, ProductQue
 defineOptions({ name: 'PassportProducts' })
 const { t } = useI18n()
 const router = useRouter(); const route = useRoute()
-const languages = computed(() => (['en', 'zh-CN', 'es', 'ar', 'fr', 'de'] as Language[]).map(value => ({ value, label: t(`passport.products.languages.${value}`) })))
+const languages = computed(() => (['zh-CN', 'en'] as Language[]).map(value => ({ value, label: t(`passport.products.languages.${value}`) })))
 const statuses = ['active', 'disabled', 'archived']
 const statusLabel = (s: string) => t(`passport.products.states.${s}`)
 const table = useTable<Product, ProductQuery>({ api: listProducts, idKey: 'id', defaultQuery: () => ({ search: undefined, status: undefined }) })
@@ -104,6 +105,9 @@ const detail = ref<ProductDetail | null>(null); const selected = ref<Revision | 
 const newCode = ref(''); const newName = ref(''); const language = ref<Language>('en')
 const blankContent = (): Content => ({ source_language: 'en', category_code: null, origin_country_code: null, package_quantity: null, package_unit: null, package_type_code: null, shelf_life_days: null, internal_note: null, process_steps: [] })
 const content = ref<Content>(blankContent())
+const stepNames = ref<Record<string, Record<string, string>>>({ en: {}, 'zh-CN': {}})
+const issuedKeys = new Set<string>()
+function addStep() { const key = nextStepKey([...issuedKeys]); issuedKeys.add(key); content.value.process_steps.push({ step_key: key }); stepNames.value.en[key] = ''; stepNames.value['zh-CN'][key] = '' }
 const contentTextFields = ['category_code', 'origin_country_code', 'package_quantity', 'package_unit', 'package_type_code'] as const
 const translation = ref<Translation>({ language_code: 'en', translation_status: 'draft', product_name: '', process_labels: {}})
 const approved = computed({ get: () => translation.value.translation_status === 'approved', set: (v: boolean) => { translation.value.translation_status = v ? 'approved' : 'draft' } })
@@ -114,14 +118,14 @@ const readonly = computed(() => !canEdit.value || archived.value || selected.val
 const defaultLabel = computed(() => sourceLabel(detail.value?.product.current_revision_id ?? null))
 function sourceLabel(id: string | null) { const r = detail.value?.revisions.find(r => r.id === id); return r ? `R${r.revision_number}` : '—' }
 function loadTranslation() { const old = selected.value?.translations.find(x => x.language_code === language.value); translation.value = old ? JSON.parse(JSON.stringify(old)) : { language_code: language.value, product_name: '', translation_status: 'draft', process_labels: {}} }
-function selectRevision(r: Revision) { selected.value = r; const c = blankContent(); for (const k of Object.keys(c) as (keyof Content)[]) Object.assign(c, { [k]: JSON.parse(JSON.stringify(r[k])) }); content.value = c; loadTranslation() }
+function selectRevision(r: Revision) { selected.value = r; const c = blankContent(); for (const k of Object.keys(c) as (keyof Content)[]) Object.assign(c, { [k]: JSON.parse(JSON.stringify(r[k])) }); content.value = c; issuedKeys.clear(); c.process_steps.forEach(x => issuedKeys.add(x.step_key)); stepNames.value = { en: {}, 'zh-CN': {}}; for (const l of ['en', 'zh-CN']) stepNames.value[l] = { ...(r.translations.find(x => x.language_code === l)?.process_labels ?? {}) }; loadTranslation() }
 async function refresh(id: string, rid?: string) { loading.value = true; try { detail.value = (await getProduct(id)).data; const r = detail.value.revisions.find(r => r.id === rid) ?? detail.value.revisions[0]; if (r) selectRevision(r) } finally { loading.value = false } }
 async function open(id: string) { await router.push({ query: { product: id }}) }
 async function back() { await router.push({ query: {}}); detail.value = null; selected.value = null; await table.getList() }
 watch(() => route.query.product, id => { if (typeof id === 'string') void refresh(id).catch(() => {}); else detail.value = null }, { immediate: true })
 async function run(fn: () => Promise<void>) { if (busy.value) return; busy.value = true; try { await fn(); ElMessage.success(t('passport.products.saved')) } catch { /* request interceptor reports business errors once */ } finally { busy.value = false } }
 async function create() { await run(async() => { const result = await addProduct({ product_code: newCode.value, content: blankContent(), translations: [{ language_code: 'en', translation_status: 'draft', product_name: newName.value, process_labels: {}}] }); createVisible.value = false; newCode.value = ''; newName.value = ''; await open(result.data.id) }) }
-async function saveContent() { if (!detail.value || !selected.value || readonly.value) return; await run(async() => { const c = JSON.parse(JSON.stringify(content.value)) as Content; for (const k of contentTextFields) if (c[k] === '') c[k] = null; await updateRevision(detail.value!.product.id, selected.value!.id, selected.value!.token, c); await refresh(detail.value!.product.id, selected.value!.id) }) }
+async function saveContent() { if (!detail.value || !selected.value || readonly.value) return; await run(async() => { const c = JSON.parse(JSON.stringify(content.value)) as Content; for (const k of contentTextFields) if (c[k] === '') c[k] = null; await updateRevision(detail.value!.product.id, selected.value!.id, selected.value!.token, c, Object.fromEntries(['en', 'zh-CN'].map(l => [l, Object.fromEntries(c.process_steps.map(x => [x.step_key, stepNames.value[l][x.step_key] ?? '']))]))); await refresh(detail.value!.product.id, selected.value!.id) }) }
 async function saveTranslation() { if (!detail.value || !selected.value || readonly.value) return; await run(async() => { const v: Translation = { language_code: language.value, translation_status: translation.value.translation_status, product_name: translation.value.product_name, process_labels: Object.fromEntries(Object.entries(translation.value.process_labels).filter(([, v]) => v.trim())) }; for (const f of translationFields) v[f] = translation.value[f] ?? null; await updateTranslation(detail.value!.product.id, selected.value!.id, selected.value!.token, v); await refresh(detail.value!.product.id, selected.value!.id) }) }
 async function clone() { if (!detail.value || !selected.value) return; await run(async() => { const r = await cloneRevision(detail.value!.product.id, selected.value!.id); await refresh(detail.value!.product.id, r.data.id) }) }
 async function seal() { if (!detail.value || !selected.value) return; try { await ElMessageBox.confirm(t('passport.products.sealConfirm'), t('passport.products.seal'), { confirmButtonText: t('common.dialogConfirm'), cancelButtonText: t('common.dialogCancel') }) } catch { return } await run(async() => { await sealRevision(detail.value!.product.id, selected.value!.id, selected.value!.token); await refresh(detail.value!.product.id, selected.value!.id) }) }

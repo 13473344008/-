@@ -78,7 +78,7 @@ import SectionPreview from './SectionPreview.vue'
 const props = defineProps<{ base: string; readonly: boolean; batch?: boolean }>()
 const emit = defineEmits<{ saved: []; dirty: [value: boolean] }>()
 const { t } = useI18n()
-const languages: Language[] = ['en', 'zh-CN', 'es', 'ar', 'fr', 'de']; const types: SectionType[] = ['text', 'key_value', 'table', 'asset_gallery']
+const languages: Language[] = ['zh-CN', 'en']; const types: SectionType[] = ['text', 'key_value', 'table', 'asset_gallery']
 const set = ref<SectionSet>(); const busy = ref(false); const editing = ref(false); const editingId = ref(''); const inherited = ref(false)
 const language = ref<Language>('en'); const previewLanguage = ref<Language>('en')
 const body = (type: SectionType): SectionBody => type === 'text' ? { text: '' } : type === 'asset_gallery' ? { caption: '' } : type === 'key_value' ? { items: [] } : { columns: [{ key: 'column_1', label: '' }], rows: [] }
