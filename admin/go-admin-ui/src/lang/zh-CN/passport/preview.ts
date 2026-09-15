@@ -6,7 +6,7 @@ export default {
   'message5': '预览审核快照',
   'message6': '请配置有效公开站点 Base URL',
   'message7': '稳定 QR 目标：',
-  'message8': 'Current 更新不改变此 URL；这里不生成二维码文件。',
+  'message8': '更新发布内容不会改变此稳定 URL，同一批次可继续使用原二维码。',
   'message9': '仅限本地测试，不能用于生产印刷',
   'message10': '复制稳定 URL',
   'message11': '查看正式公开页',
@@ -16,5 +16,14 @@ export default {
   'message15': '内部预览 — 未发布',
   'message16': '预览内容无法安全显示',
   'message17': 'URL 已复制',
-  'message18': '无法访问剪贴板，请手动复制显示的 URL'
+  'message18': '无法访问剪贴板，请手动复制显示的 URL',
+  'qrOpen': '预览 / 下载二维码',
+  'qrTitle': '批次二维码',
+  'qrPublishFirst': '发布后可下载二维码',
+  'qrTest': '测试二维码，仅供验收，请勿用于正式包装。',
+  'qrLoading': '正在生成二维码…',
+  'qrError': '二维码生成失败，请关闭后重试。',
+  'qrHint': '二维码使用稳定链接。下载后请用手机扫码核对批次。',
+  'qrPNG': '下载 PNG',
+  'qrSVG': '下载 SVG'
 }

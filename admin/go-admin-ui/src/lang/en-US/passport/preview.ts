@@ -6,7 +6,7 @@ export default {
   'message5': 'Preview Review Candidate',
   'message6': 'Configure a valid public site base URL',
   'message7': 'Stable QR target:',
-  'message8': 'Current updates without changing this URL. No QR image is generated here.',
+  'message8': 'Publishing updates keeps this stable URL unchanged. Reuse the same QR code for this batch.',
   'message9': 'LOCAL TEST ONLY — not for production printing',
   'message10': 'Copy Stable URL',
   'message11': 'View Published Passport',
@@ -16,5 +16,14 @@ export default {
   'message15': 'Internal Preview — NOT PUBLISHED',
   'message16': 'Preview cannot be safely displayed',
   'message17': 'URL copied',
-  'message18': 'Clipboard unavailable. Copy the displayed URL manually.'
+  'message18': 'Clipboard unavailable. Copy the displayed URL manually.',
+  'qrOpen': 'Preview / Download QR',
+  'qrTitle': 'Batch QR code',
+  'qrPublishFirst': 'Publish this batch to download its QR code',
+  'qrTest': 'Test QR code. Do not use on commercial packaging.',
+  'qrLoading': 'Generating QR code…',
+  'qrError': 'Could not generate QR code. Close and try again.',
+  'qrHint': 'Uses the stable URL. Scan the downloaded code to verify the batch.',
+  'qrPNG': 'Download PNG',
+  'qrSVG': 'Download SVG'
 }

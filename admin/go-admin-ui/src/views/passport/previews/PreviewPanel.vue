@@ -13,6 +13,7 @@
       <p>{{ t('passportPreview.message8') }}</p>
       <el-alert v-if="mode === 'local'" :title="t('passportPreview.message9')" type="warning" :closable="false" />
       <div class="controls">
+        <BatchQRCode :url="stable" :batch-code="code" :published="versions.length > 0" :test="isTest" :local="mode === 'local'" />
         <el-button data-testid="copy-stable" @click="copy(stable)">{{ t('passportPreview.message10') }}</el-button>
         <a v-if="versions.length" :href="stable" target="_blank" rel="noopener noreferrer" data-testid="view-published">{{ t('passportPreview.message11') }}</a>
         <label v-if="versions.length">{{ t('passportPreview.message12') }}<select v-model="version" data-testid="preview-version-select"><option v-for="v in versions" :key="v" :value="v">V{{ v }}</option></select></label>
@@ -28,6 +29,7 @@
   </el-card>
 </template>
 <script setup lang="ts">
+import BatchQRCode from './BatchQRCode.vue'
 import { ref, computed, watch, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { ElMessage } from 'element-plus'
@@ -48,11 +50,12 @@ const base = import.meta.env.VUE_APP_PUBLIC_BASE_URL || ''
 const code = ref(''); const reviews = ref<ReviewHistoryItem[]>([]); const reviewId = ref(''); const versions = ref<number[]>([]); const version = ref<number | null>(null)
 const result = ref<Preview | null>(null); const opened = ref(false); const busy = ref(false); const mount = ref<HTMLElement>(); const language = ref(locale.value === 'zh-CN' ? 'zh-CN' : 'en')
 const urlError = ref(false)
+const isTest = ref(true)
 const stable = computed(() => { try { return publicURL(base, code.value, null, mode) } catch { return '' } })
 const versionLink = computed(() => { try { return version.value ? publicURL(base, code.value, version.value, mode) : '' } catch { return '' } })
 watch(() => [props.batchId, props.state, props.editVersion], async() => {
-  opened.value = false; result.value = null
-  try { const [b, h] = await Promise.all([getBatch(props.batchId), getHistory(props.batchId)]); code.value = b.data.batch.batch_code; reviews.value = h.data.reviews; reviewId.value = reviews.value.at(-1)?.id || ''; versions.value = h.data.versions.map(v => v.revision.version_number); version.value = versions.value[0] || null; urlError.value = !stable.value } catch { /* API reports errors */ }
+  opened.value = false; result.value = null; code.value = ''; versions.value = []; version.value = null
+  try { const [b, h] = await Promise.all([getBatch(props.batchId), getHistory(props.batchId)]); code.value = b.data.batch.batch_code; isTest.value = b.data.batch.record_type === 'test'; reviews.value = h.data.reviews; reviewId.value = reviews.value.at(-1)?.id || ''; versions.value = h.data.versions.map(v => v.revision.version_number); version.value = versions.value[0] || null; urlError.value = !stable.value } catch { /* API reports errors */ }
 }, { immediate: true })
 async function preview(kind: Preview['kind']) { if (busy.value || (kind === 'working' && props.dirty)) return; busy.value = true; try { result.value = (await getPreview(props.batchId, kind, kind === 'review' ? reviewId.value : undefined)).data; opened.value = true; await nextTick(); draw() } catch { /* API reports errors */ } finally { busy.value = false } }
 function draw() { if (!mount.value || !result.value) return; const shadow = mount.value.shadowRoot || mount.value.attachShadow({ mode: 'open' }); const style = document.createElement('style'); style.textContent = ':host{display:block;color:#193d35;background:#f6f7f2;padding:20px;font-family:Arial,sans-serif}' + css; const main = document.createElement('main'); shadow.replaceChildren(style, main); try { renderPassport(main, result.value.payload, { language: language.value, previewKind: result.value.kind, privateAssets: result.value.assets }) } catch { main.textContent = t('passportPreview.message16') } }
