@@ -2,17 +2,18 @@
   <div class="inline-images" data-testid="inline-images">
     <div class="image-heading">{{ t('passportMedia.optionalImages') }}</div>
     <p v-if="error" role="alert">{{ error }}</p>
+    <el-button v-if="error || needsRefresh" :disabled="busy" data-testid="media-refresh" @click="refresh">{{ t('passportMedia.refresh') }}</el-button>
     <div class="image-list">
       <figure v-for="item in data?.items ?? []" :key="item.id">
         <img :src="item.preview" :alt="item.public_label" loading="lazy">
         <figcaption>{{ item.public_label }} · {{ t(item.is_public ? 'passportMedia.customerImage' : 'passportMedia.internalImage') }}</figcaption>
-        <el-button v-if="!readonly" :disabled="busy" size="small" type="danger" plain @click="remove(item.id)">{{ t('passportMedia.remove') }}</el-button>
+        <el-button v-if="!readonly" :disabled="busy || needsRefresh" size="small" type="danger" plain @click="remove(item.id)">{{ t('passportMedia.remove') }}</el-button>
       </figure>
     </div>
     <div v-if="!readonly" v-permisaction="['passport:media:write']" class="image-upload">
-      <el-input v-model="caption" :placeholder="t('passportMedia.optionalCaption')" :disabled="busy" maxlength="200" />
-      <el-checkbox v-model="customer" :disabled="busy">{{ t('passportMedia.customerImage') }}</el-checkbox>
-      <label class="choose">{{ t('passportMedia.addOptionalImage') }}<input type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg" :disabled="busy" @change="upload"></label>
+      <el-input v-model="caption" :placeholder="t('passportMedia.optionalCaption')" :disabled="busy || needsRefresh" maxlength="200" />
+      <el-checkbox v-model="customer" :disabled="busy || needsRefresh">{{ t('passportMedia.customerImage') }}</el-checkbox>
+      <label class="choose">{{ t('passportMedia.addOptionalImage') }}<input type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg" :disabled="busy || needsRefresh" @change="upload"></label>
       <small>{{ t('passportMedia.inlineHelp') }}</small>
     </div>
   </div>
@@ -25,22 +26,39 @@ const props = defineProps<{ base: string; target: string; label: string; readonl
 const emit = defineEmits<{ saved: [] }>()
 const { t } = useI18n()
 const data = ref<MediaSet>(); const busy = ref(false); const caption = ref(''); const customer = ref(true); const error = ref('')
-async function load() { const base = props.base; const target = props.target; const result = (await listMedia(base, target)).data; if (base === props.base && target === props.target) data.value = result }
-watch(() => [props.base, props.target], () => { data.value = undefined; void load().catch(() => { error.value = t('passportMedia.loadFailed') }) }, { immediate: true })
+const needsRefresh = ref(false)
+async function load() {
+  const key = props.base + '|' + props.target; const result = (await listMedia(props.base, props.target)).data
+  if (key !== (props.base + '|' + props.target)) return
+  data.value = result; needsRefresh.value = false; error.value = ''
+}
+async function refresh() {
+  if (busy.value) return
+  busy.value = true
+  try { await load() } catch { needsRefresh.value = true; error.value = t('passportMedia.loadFailed') } finally { busy.value = false }
+}
+watch(() => props.base + '|' + props.target, () => { data.value = undefined; needsRefresh.value = true; void load().catch(() => { error.value = t('passportMedia.loadFailed') }) }, { immediate: true })
 async function upload(event: Event) {
   const input = event.target as HTMLInputElement; const file = input.files?.[0]
-  if (!file || busy.value || props.readonly) return
+  if (!file || busy.value || props.readonly || needsRefresh.value) return
   busy.value = true; error.value = ''
+  let submitted = false; let saved = false
+  const base = props.base
   try {
     await props.beforeUpload?.(); await load()
-    await uploadMedia(props.base, file, data.value!.token, caption.value.trim() || props.label, customer.value, props.target)
-    await load(); emit('saved'); caption.value = ''
-  } catch { error.value = t('passportMedia.uploadFailed') } finally { busy.value = false; input.value = '' }
+    submitted = true
+    await uploadMedia(base, file, data.value!.token, caption.value.trim() || props.label, customer.value, props.target)
+    saved = true; caption.value = ''; emit('saved')
+    await load()
+  } catch {
+    needsRefresh.value = true
+    error.value = t(saved ? 'passportMedia.savedPreviewFailed' : submitted ? 'passportMedia.operationUncertain' : 'passportMedia.loadFailed')
+  } finally { busy.value = false; input.value = '' }
 }
 async function remove(id: string) {
-  if (busy.value || props.readonly) return
+  if (busy.value || props.readonly || needsRefresh.value) return
   busy.value = true; error.value = ''
-  try { await load(); await detachMedia(props.base, id, data.value!.token); await load(); emit('saved') } catch { error.value = t('passportMedia.uploadFailed') } finally { busy.value = false }
+  try { await load(); await detachMedia(props.base, id, data.value!.token); emit('saved'); await load() } catch { needsRefresh.value = true; error.value = t('passportMedia.operationUncertain') } finally { busy.value = false }
 }
 </script>
 <style scoped>

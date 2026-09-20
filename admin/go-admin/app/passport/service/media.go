@@ -106,14 +106,14 @@ func (s *Media) ListMedia(pid, rid, bid, sid string, targets ...string) (MediaSe
 			if publishing.Hash(raw) != v.SHA256 || int64(len(raw)) != v.FileSize {
 				return conflict("工作图片摘要不符")
 			}
-			png, e := publishing.Normalize(raw, v.MimeType)
+			preview, e := publishing.PreviewJPEG(raw, v.MimeType)
 			if e != nil {
 				return conflict("工作图片无效")
 			}
 			cfg, _, _ := image.DecodeConfig(bytes.NewReader(raw))
 			v.Width = cfg.Width
 			v.Height = cfg.Height
-			v.Preview = "data:image/png;base64," + base64.StdEncoding.EncodeToString(png)
+			v.Preview = "data:image/jpeg;base64," + base64.StdEncoding.EncodeToString(preview)
 		}
 		return nil
 	})

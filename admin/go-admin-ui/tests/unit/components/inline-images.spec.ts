@@ -17,4 +17,17 @@ describe('optional contextual images', () => {
   it('does not upload if saving the new step failed', async() => {
     const w = mount(false, vi.fn().mockRejectedValue(new Error('stale'))); await flushPromises(); const input = w.get('input[type=file]'); Object.defineProperty(input.element, 'files', { value: [new File(['x'], 'x.png')] }); await input.trigger('change'); await flushPromises(); expect(api.uploadMedia).not.toHaveBeenCalled(); expect(w.emitted('saved')).toBeUndefined()
   })
+  it('reports saved when only the following preview fails, and refresh never uploads again', async() => {
+    const w = mount(); await flushPromises()
+    api.listMedia.mockResolvedValueOnce({ data: { token: 'fresh', items: [] }}).mockRejectedValueOnce(new Error('timeout'))
+    const input = w.get('input[type=file]'); Object.defineProperty(input.element, 'files', { value: [new File(['x'], 'x.png', { type: 'image/png' })] })
+    await input.trigger('change'); await flushPromises()
+    expect(w.emitted('saved')).toHaveLength(1)
+    expect(w.text()).toContain('passportMedia.savedPreviewFailed')
+    expect(input.attributes('disabled')).toBeDefined()
+    api.listMedia.mockResolvedValue({ data: { token: 'after-save', items: [] }})
+    await w.get('[data-testid=media-refresh]').trigger('click'); await flushPromises()
+    expect(api.uploadMedia).toHaveBeenCalledTimes(1)
+    expect(w.find('[role=alert]').exists()).toBe(false)
+  })
 })

@@ -2,18 +2,20 @@
   <el-card v-loading="busy" class="media-panel" data-testid="media-panel">
     <h4>{{ t('passportMedia.title') }}</h4>
     <p>{{ t('passportMedia.help') }}</p>
+    <p v-if="error" role="alert">{{ error }}</p>
+    <el-button v-if="error || needsRefresh" :disabled="busy" data-testid="media-refresh" @click="refresh">{{ t('passportMedia.refresh') }}</el-button>
     <template v-if="!readonly">
       <div v-permisaction="['passport:media:write']">
-        <el-input v-model="label" :disabled="busy" :placeholder="t('passportMedia.label')" maxlength="200" data-testid="media-label" />
-        <el-checkbox v-model="isPublic" :disabled="busy" data-testid="media-public">{{ t('passportMedia.public') }}</el-checkbox>
-        <label class="upload-label">{{ t('passportMedia.upload') }}<input type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg" :disabled="busy || !label.trim()" data-testid="media-upload" @change="upload"></label>
+        <el-input v-model="label" :disabled="busy || needsRefresh" :placeholder="t('passportMedia.label')" maxlength="200" data-testid="media-label" />
+        <el-checkbox v-model="isPublic" :disabled="busy || needsRefresh" data-testid="media-public">{{ t('passportMedia.public') }}</el-checkbox>
+        <label class="upload-label">{{ t('passportMedia.upload') }}<input type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg" :disabled="busy || needsRefresh || !label.trim()" data-testid="media-upload" @change="upload"></label>
       </div>
     </template>
     <figure v-for="item in data?.items ?? []" :key="item.id" :data-testid="`media-item-${item.asset_key}`">
       <img :src="item.preview" :alt="item.public_label" loading="lazy">
       <figcaption>{{ item.public_label }} · {{ t(item.is_public ? 'passportMedia.public' : 'passportMedia.private') }}</figcaption>
       <p>{{ item.mime_type }} · {{ item.file_size }} B · {{ item.width }} × {{ item.height }}</p><small>{{ item.sha256 }}</small>
-      <template v-if="!readonly"><el-button v-permisaction="['passport:media:write']" :disabled="busy" type="danger" plain data-testid="media-remove" @click="remove(item.id)">{{ t('passportMedia.remove') }}</el-button></template>
+      <template v-if="!readonly"><el-button v-permisaction="['passport:media:write']" :disabled="busy || needsRefresh" type="danger" plain data-testid="media-remove" @click="remove(item.id)">{{ t('passportMedia.remove') }}</el-button></template>
     </figure>
     <p v-if="data && !data.items.length">{{ t('passportMedia.empty') }}</p>
   </el-card>
@@ -25,18 +27,39 @@ import { listMedia, uploadMedia, detachMedia, type MediaSet } from '@/api/passpo
 const props = defineProps<{ base: string; readonly: boolean }>()
 const emit = defineEmits<{ saved: [] }>()
 const { t } = useI18n(); const data = ref<MediaSet>(); const busy = ref(false); const label = ref(''); const isPublic = ref(false)
-async function load() { data.value = (await listMedia(props.base)).data }
-watch(() => props.base, () => { data.value = undefined; void load().catch(() => {}) }, { immediate: true })
+const error = ref(''); const needsRefresh = ref(false)
+async function load() {
+  const key = props.base; const result = (await listMedia(props.base)).data
+  if (key !== (props.base)) return
+  data.value = result; needsRefresh.value = false; error.value = ''
+}
+async function refresh() {
+  if (busy.value) return
+  busy.value = true
+  try { await load() } catch { needsRefresh.value = true; error.value = t('passportMedia.loadFailed') } finally { busy.value = false }
+}
+watch(() => props.base, () => { data.value = undefined; needsRefresh.value = true; void load().catch(() => { error.value = t('passportMedia.loadFailed') }) }, { immediate: true })
 async function upload(event: Event) {
   const input = event.target as HTMLInputElement; const file = input.files?.[0]
-  if (!file || busy.value || props.readonly) return
-  busy.value = true
-  try { await load(); await uploadMedia(props.base, file, data.value!.token, label.value, isPublic.value); await load(); emit('saved') } catch { /* Request interceptor reports failures. */ } finally { busy.value = false; input.value = '' }
+  if (!file || busy.value || props.readonly || needsRefresh.value) return
+  busy.value = true; error.value = ''
+  let submitted = false; let saved = false
+  const base = props.base
+  try {
+    await load()
+    submitted = true
+    await uploadMedia(base, file, data.value!.token, label.value, isPublic.value)
+    saved = true; label.value = ''; emit('saved')
+    await load()
+  } catch {
+    needsRefresh.value = true
+    error.value = t(saved ? 'passportMedia.savedPreviewFailed' : submitted ? 'passportMedia.operationUncertain' : 'passportMedia.loadFailed')
+  } finally { busy.value = false; input.value = '' }
 }
 async function remove(id: string) {
-  if (busy.value || props.readonly || !data.value) return
-  busy.value = true
-  try { await detachMedia(props.base, id, data.value.token); await load(); emit('saved') } catch { /* Request interceptor reports failures. */ } finally { busy.value = false }
+  if (busy.value || props.readonly || needsRefresh.value) return
+  busy.value = true; error.value = ''
+  try { await load(); await detachMedia(props.base, id, data.value!.token); emit('saved'); await load() } catch { needsRefresh.value = true; error.value = t('passportMedia.operationUncertain') } finally { busy.value = false }
 }
 </script>
 <style scoped>
