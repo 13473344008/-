@@ -1,5 +1,5 @@
 <template>
-  <aside class="draft-preview" data-testid="table-draft-preview" :aria-label="t('passportSections.livePreview')">
+  <section class="draft-preview" data-testid="table-draft-preview" :aria-label="t('passportSections.livePreview')">
     <div class="preview-heading"><strong>{{ t('passportSections.livePreview') }}</strong><span>{{ language }}</span></div>
     <p class="preview-help">{{ t('passportSections.previewHelp') }}</p>
     <h4>{{ title.trim() || t('passportSections.untitledTable') }}</h4>
@@ -13,7 +13,7 @@
         </tbody>
       </table>
     </div>
-  </aside>
+  </section>
 </template>
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
@@ -22,8 +22,8 @@ defineProps<{ content: SectionBody; title: string; language: string }>()
 const { t } = useI18n()
 </script>
 <style scoped>
-.draft-preview { position:sticky;top:16px;min-width:0;border:1px solid var(--el-border-color);border-radius:8px;padding:16px;background:var(--el-fill-color-light); }
+.draft-preview { display:block;position:relative;min-width:0;border:1px solid var(--el-border-color);border-radius:8px;padding:16px;background:var(--el-fill-color-light); }
 .preview-heading { display:flex;justify-content:space-between;gap:12px; }.preview-heading span,.preview-help,.preview-counts { color:var(--el-text-color-secondary);font-size:13px; }.preview-help { line-height:1.6; }.draft-preview h4 { margin:16px 0 8px;overflow-wrap:anywhere; }
 .preview-scroll { overflow:auto;max-height:55vh; }table { border-collapse:collapse;width:100%;background:var(--el-bg-color); }th,td { border:1px solid var(--el-border-color);padding:10px;min-width:90px;max-width:280px;white-space:pre-wrap;overflow-wrap:anywhere;text-align:start; }th { background:var(--el-fill-color);font-weight:600; }.empty-cell { color:var(--el-text-color-placeholder);font-style:italic; }
-@media(max-width:900px){.draft-preview{position:static}.preview-scroll{max-height:40vh}}
+@media(max-width:900px){.draft-preview{position:relative}.preview-scroll{max-height:40vh}}
 </style>
