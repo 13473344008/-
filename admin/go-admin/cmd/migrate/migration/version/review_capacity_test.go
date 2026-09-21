@@ -5,6 +5,7 @@ package version
 import (
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
+	"gorm.io/plugin/dbresolver"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -13,6 +14,15 @@ import (
 func TestReviewCapacityPreservesRecordsAndGuards(t *testing.T) {
 	db, e := gorm.Open(sqlite.Open(filepath.Join(t.TempDir(), "test.db")+"?_foreign_keys=on"), &gorm.Config{})
 	if e != nil {
+		t.Fatal(e)
+	}
+	pool, e := db.DB()
+	if e != nil {
+		t.Fatal(e)
+	}
+	defer pool.Close()
+	pool.SetMaxOpenConns(1)
+	if e = db.Use(dbresolver.Register(dbresolver.Config{})); e != nil {
 		t.Fatal(e)
 	}
 	sql := `CREATE TABLE sys_migration(version TEXT, apply_time DATETIME); CREATE TABLE review_records(id TEXT PRIMARY KEY,candidate_input TEXT CHECK(json_valid(candidate_input) AND length(CAST(candidate_input AS BLOB))<=4194304)); CREATE TABLE pointer(id TEXT REFERENCES review_records(id)); CREATE INDEX review_idx ON review_records(id); CREATE TRIGGER frozen BEFORE DELETE ON review_records BEGIN SELECT RAISE(ABORT,'frozen'); END; INSERT INTO review_records VALUES('old','{}'); INSERT INTO pointer VALUES('old');`
