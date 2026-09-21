@@ -23,7 +23,7 @@
       </div>
     </div>
     <el-empty v-if="!display.length" :description="t('passportSections.empty')" />
-    <el-dialog v-model="editing" :title="t('passportSections.editor')" width="min(900px, 95vw)" :close-on-click-modal="false" :before-close="close" destroy-on-close>
+    <el-dialog v-model="editing" :title="t('passportSections.editor')" :width="form.section_type === 'table' ? 'min(1280px, 95vw)' : 'min(900px, 95vw)'" :close-on-click-modal="false" :before-close="close" destroy-on-close>
       <el-form label-position="top" :disabled="readonly || busy" data-testid="section-editor">
         <el-checkbox v-model="advanced">{{ t('passportSections.advanced') }}</el-checkbox>
         <div class="section-grid">
@@ -53,13 +53,15 @@
               <el-button :disabled="(translation.content.items?.length ?? 0) >= 100" @click="addItem">{{ t('passportSections.addItem') }}</el-button>
             </template>
             <template v-if="form.section_type === 'table'">
-              <div v-for="(col, i) in translation.content.columns" :key="i" class="section-grid">
-                <el-input v-if="advanced" v-model="col.key" :placeholder="t('passportSections.key')" :disabled="language !== set?.source_language" @change="align" /><el-input v-model="col.label" :placeholder="t('passportSections.label')" maxlength="200" />
-                <el-button :disabled="translation.content.columns?.length === 1" @click="removeColumn(i)">{{ t('common.delete') }}</el-button>
-              </div>
-              <el-button :disabled="(translation.content.columns?.length ?? 0) >= 20" @click="addColumn">{{ t('passportSections.addColumn') }}</el-button>
-              <p>{{ t('passportSections.tableHelp') }}</p><div class="section-table"><div v-for="(row, i) in translation.content.rows" :key="i" class="section-cells"><el-input v-for="(_, j) in row.cells" :key="j" v-model="row.cells[j]" :placeholder="translation.content.columns?.[j]?.label" maxlength="2000" /><el-button @click="removeRow(i)">{{ t('common.delete') }}</el-button></div></div>
-              <el-button :disabled="(translation.content.rows?.length ?? 0) >= 200" @click="addRow">{{ t('passportSections.addRow') }}</el-button>
+              <div class="table-workspace"><div class="table-editor">
+                <div v-for="(col, i) in translation.content.columns" :key="i" class="section-grid">
+                  <el-input v-if="advanced" v-model="col.key" :placeholder="t('passportSections.key')" :disabled="language !== set?.source_language" @change="align" /><el-input v-model="col.label" :placeholder="t('passportSections.label')" maxlength="200" />
+                  <el-button :disabled="translation.content.columns?.length === 1" @click="removeColumn(i)">{{ t('common.delete') }}</el-button>
+                </div>
+                <el-button :disabled="(translation.content.columns?.length ?? 0) >= 20" @click="addColumn">{{ t('passportSections.addColumn') }}</el-button>
+                <p>{{ t('passportSections.tableHelp') }}</p><div class="section-table"><div v-for="(row, i) in translation.content.rows" :key="i" class="section-cells"><el-input v-for="(_, j) in row.cells" :key="j" v-model="row.cells[j]" :placeholder="translation.content.columns?.[j]?.label" maxlength="2000" /><el-button @click="removeRow(i)">{{ t('common.delete') }}</el-button></div></div>
+                <el-button :disabled="(translation.content.rows?.length ?? 0) >= 200" @click="addRow">{{ t('passportSections.addRow') }}</el-button>
+              </div><TableDraftPreview :content="translation.content" :title="translation.title" :language="t(`passportSections.language_${language}`)" /></div>
             </template>
           </template>
         </div>
@@ -77,6 +79,7 @@ import { deleteSection, listSections, putSection, reorderSections, type Section,
 import type { Language } from '@/api/passport/products'
 import MediaPanel from '../media/MediaPanel.vue'
 import SectionPreview from './SectionPreview.vue'
+import TableDraftPreview from './TableDraftPreview.vue'
 const props = defineProps<{ base: string; readonly: boolean; batch?: boolean }>()
 const emit = defineEmits<{ saved: []; dirty: [value: boolean] }>()
 const { t } = useI18n()
@@ -123,5 +126,6 @@ function unload(e: BeforeUnloadEvent) { if (dirty.value) { e.preventDefault(); e
 onMounted(() => window.addEventListener('beforeunload', unload)); onBeforeUnmount(() => window.removeEventListener('beforeunload', unload))
 </script>
 <style scoped>
+.table-workspace { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:24px; align-items:start; }.table-editor { min-width:0; }@media(max-width:900px){.table-workspace{grid-template-columns:minmax(0,1fr)}}
 .section-manager { margin-top: 20px; }.section-toolbar { display:flex;gap:10px;flex-wrap:wrap;margin:12px 0; }.section-toolbar .el-select { width:120px; }.section-row { border-bottom:1px solid var(--el-border-color);padding:16px 0;overflow-wrap:anywhere; }.section-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0; }.section-table { overflow-x:auto; }.section-cells { display:flex;gap:8px;margin:8px 0; }.section-cells .el-input { min-width:140px; }small { color:var(--el-text-color-secondary); }@media(max-width:600px){.section-grid{grid-template-columns:1fr}}
 </style>

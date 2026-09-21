@@ -1,4 +1,12 @@
 export default {
+  'livePreview': '实时表格预览',
+  'previewHelp': '随填写即时更新；这里只是编辑预览，尚未发布。',
+  'previewCounts': '{rows} 行 × {columns} 列',
+  'untitledTable': '未填写标题',
+  'unnamedColumn': '第 {index} 列（未命名）',
+  'emptyCell': '待填写',
+  'emptyRows': '还没有数据行，点击“添加行”即可看到。',
+
   'addSpecs': '添加理化指标',
   'advanced': '高级设置',
   'language_zh-CN': '中文',

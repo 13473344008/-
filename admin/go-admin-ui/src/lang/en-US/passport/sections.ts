@@ -1,4 +1,12 @@
 export default {
+  'livePreview': 'Live table preview',
+  'previewHelp': 'Updates as you type. This editing preview is not published.',
+  'previewCounts': '{rows} rows × {columns} columns',
+  'untitledTable': 'Untitled table',
+  'unnamedColumn': 'Column {index} (unnamed)',
+  'emptyCell': 'Not entered',
+  'emptyRows': 'No data rows yet. Add a row to see it here.',
+
   'addSpecs': 'Add physicochemical specifications',
   'advanced': 'Advanced settings',
   'language_zh-CN': '中文',
