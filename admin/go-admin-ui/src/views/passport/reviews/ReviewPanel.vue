@@ -52,11 +52,12 @@
       <el-collapse><el-collapse-item :title="t('passportReview.audit')"><el-table :data="detail.audit"><el-table-column :label="t('passportBatch.updated')" min-width="90"><template #default="{ row }"><DateCell :value="row.created_at" /></template></el-table-column><el-table-column min-width="150"><template #default="{ row }">{{ te(`passportReview.${row.event_type}`) ? t(`passportReview.${row.event_type}`) : row.event_type }}</template></el-table-column><el-table-column prop="actor_user_id" :label="t('passportBatch.actor')" min-width="80" /></el-table></el-collapse-item></el-collapse>
     </template>
     <el-dialog v-model="dialog" :title="t(`passportReview.${action}`)" width="min(560px, 92vw)" :close-on-click-modal="false">
-      <el-form label-position="top" @submit.prevent="confirm"><el-form-item v-if="action === 'reject' || action === 'return'" :label="t('passportReview.reason')" required><el-input v-model="reason" type="textarea" maxlength="2000" show-word-limit data-testid="review-reason" /></el-form-item><el-form-item v-if="action === 'approve' || action === 'reject'" :label="t('passportReview.comment')"><el-input v-model="comment" type="textarea" maxlength="2000" data-testid="review-comment" /></el-form-item><p>{{ t('passportReview.confirm') }}</p><el-button type="primary" native-type="submit" :loading="busy" data-testid="review-confirm">{{ t('common.dialogConfirm') }}</el-button></el-form>
+      <el-form label-position="top" @submit.prevent="confirm"><el-form-item v-if="action === 'reject' || action === 'return'" :label="t('passportReview.reason')" required><el-input v-model="reason" type="textarea" maxlength="2000" show-word-limit data-testid="review-reason" /></el-form-item><el-form-item v-if="action === 'approve' || action === 'reject'" :label="t('passportReview.comment')"><el-input v-model="comment" type="textarea" maxlength="2000" data-testid="review-comment" /></el-form-item><el-alert v-if="operationError" :title="operationError" type="error" :closable="false" /><p>{{ t('passportReview.confirm') }}</p><el-button type="primary" native-type="submit" :loading="busy" data-testid="review-confirm">{{ t('common.dialogConfirm') }}</el-button></el-form>
     </el-dialog>
   </el-card>
 </template>
 <script setup lang="ts">
+
 import { ref, computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { ElMessage } from 'element-plus'
@@ -66,6 +67,7 @@ import PublishPanel from '../publication/PublishPanel.vue'
 import SectionPreview from '../sections/SectionPreview.vue'
 import { getReview, getReadiness, reviewAction } from '@/api/passport/reviews'
 import type { ReviewDetail, Readiness } from '@/api/passport/reviews'
+const operationError = ref('')
 const props = defineProps<{ batchId: string; editVersion?: number; dirty?: boolean }>()
 const emit = defineEmits<{ saved: [] }>(); const { t, te } = useI18n()
 const detail = ref<ReviewDetail | null>(null); const readiness = ref<Readiness | null>(null); const busy = ref(false); const dialog = ref(false); const action = ref('submit'); const reason = ref(''); const comment = ref(''); const panels = ref(['preview'])
@@ -78,8 +80,8 @@ async function published() { await load(); emit('saved') }
 async function load() { detail.value = (await getReview(props.batchId)).data }
 watch(() => props.batchId, () => { void load().catch(() => {}) }, { immediate: true })
 async function check() { busy.value = true; try { readiness.value = (await getReadiness(props.batchId)).data } catch { /* API reports */ } finally { busy.value = false } }
-async function act(value: string) { if (value === 'submit') { await check(); if (!readiness.value?.ready) return }; action.value = value; reason.value = ''; comment.value = ''; dialog.value = true }
-async function confirm() { if (busy.value) return; if (['reject', 'return'].includes(action.value) && !reason.value.trim()) { ElMessage.warning(t('passportReview.reasonRequired')); return }; busy.value = true; try { const current = detail.value?.current; const data = action.value === 'submit' ? { expected_edit_version: props.editVersion } : action.value === 'return' ? { review_id: current?.id, reason: reason.value } : action.value === 'archive' ? {} : { review_id: current?.id, candidate_hash: current?.candidate_hash, comment: comment.value, ...(action.value === 'reject' ? { rejection_reason: reason.value } : {}) }; await reviewAction(props.batchId, action.value, data); dialog.value = false; readiness.value = null; await load(); emit('saved'); ElMessage.success(t('passportReview.saved')) } catch { if (action.value === 'submit') { try { readiness.value = (await getReadiness(props.batchId)).data } catch { /* API reports */ } } } finally { busy.value = false } }
+async function act(value: string) { if (value === 'submit') { await check(); if (!readiness.value?.ready) return }; operationError.value = ''; action.value = value; reason.value = ''; comment.value = ''; dialog.value = true }
+async function confirm() { if (busy.value) return; if (['reject', 'return'].includes(action.value) && !reason.value.trim()) { ElMessage.warning(t('passportReview.reasonRequired')); return }; busy.value = true; try { const current = detail.value?.current; const data = action.value === 'submit' ? { expected_edit_version: props.editVersion } : action.value === 'return' ? { review_id: current?.id, reason: reason.value } : action.value === 'archive' ? {} : { review_id: current?.id, candidate_hash: current?.candidate_hash, comment: comment.value, ...(action.value === 'reject' ? { rejection_reason: reason.value } : {}) }; await reviewAction(props.batchId, action.value, data); dialog.value = false; readiness.value = null; await load(); emit('saved'); ElMessage.success(t('passportReview.saved')) } catch(e) { operationError.value = e instanceof Error ? e.message : 'Error'; if (action.value === 'submit') { try { readiness.value = (await getReadiness(props.batchId)).data } catch { /* API reports */ } } } finally { busy.value = false } }
 </script>
 <style scoped>
 .review-panel { margin:20px 0;overflow-wrap:anywhere; }.actions { display:flex;flex-wrap:wrap;gap:10px;margin:16px 0; }.hash { font-family:monospace;overflow-wrap:anywhere; }dl { display:grid;grid-template-columns:minmax(100px, 1fr) minmax(0, 3fr);gap:8px; }dd { margin:0;white-space:pre-wrap; }.value-row { display:grid;grid-template-columns:1fr 2fr auto;gap:12px;padding:8px 0; }.el-card { margin-bottom:12px; }@media(max-width:768px) { .value-row,dl { grid-template-columns:1fr; } }

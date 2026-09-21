@@ -1,5 +1,6 @@
 <template>
   <el-card class="preview-panel" data-testid="passport-previews">
+    <el-alert v-if="operationError" :title="operationError" type="error" :closable="false" />
     <h3>{{ t('passportPreview.message1') }}</h3>
     <p>{{ t('passportPreview.message2') }}</p>
     <div class="controls">
@@ -29,6 +30,7 @@
   </el-card>
 </template>
 <script setup lang="ts">
+
 import BatchQRCode from './BatchQRCode.vue'
 import { ref, computed, watch, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -43,6 +45,7 @@ import { label as publicLabel } from '../../../../../../public-site/js/i18n.mjs'
 import { renderPassport } from '../../../../../../public-site/js/render.mjs'
 import { publicURL } from '../../../../../../public-site/js/urls.mjs'
 import css from '../../../../../../public-site/css/passport.css?inline'
+const operationError = ref('')
 const props = defineProps<{ batchId: string; state: string; dirty?: boolean; editVersion?: number }>()
 const { t, locale } = useI18n()
 const mode = import.meta.env.VUE_APP_PUBLIC_MODE || 'production'
@@ -57,7 +60,7 @@ watch(() => [props.batchId, props.state, props.editVersion], async() => {
   opened.value = false; result.value = null; code.value = ''; versions.value = []; version.value = null
   try { const [b, h] = await Promise.all([getBatch(props.batchId), getHistory(props.batchId)]); code.value = b.data.batch.batch_code; isTest.value = b.data.batch.record_type === 'test'; reviews.value = h.data.reviews; reviewId.value = reviews.value.at(-1)?.id || ''; versions.value = h.data.versions.map(v => v.revision.version_number); version.value = versions.value[0] || null; urlError.value = !stable.value } catch { /* API reports errors */ }
 }, { immediate: true })
-async function preview(kind: Preview['kind']) { if (busy.value || (kind === 'working' && props.dirty)) return; busy.value = true; try { result.value = (await getPreview(props.batchId, kind, kind === 'review' ? reviewId.value : undefined)).data; opened.value = true; await nextTick(); draw() } catch { /* API reports errors */ } finally { busy.value = false } }
+async function preview(kind: Preview['kind']) { if (busy.value || (kind === 'working' && props.dirty)) return; busy.value = true; operationError.value = ''; try { result.value = (await getPreview(props.batchId, kind, kind === 'review' ? reviewId.value : undefined)).data; opened.value = true; await nextTick(); draw() } catch(e) { operationError.value = e instanceof Error ? e.message : t('passportPreview.message16') } finally { busy.value = false } }
 function draw() { if (!mount.value || !result.value) return; const shadow = mount.value.shadowRoot || mount.value.attachShadow({ mode: 'open' }); const style = document.createElement('style'); style.textContent = ':host{display:block;color:#193d35;background:#f6f7f2;padding:20px;font-family:Arial,sans-serif}' + css; const main = document.createElement('main'); shadow.replaceChildren(style, main); try { renderPassport(main, result.value.payload, { language: language.value, previewKind: result.value.kind, privateAssets: result.value.assets }) } catch { main.textContent = t('passportPreview.message16') } }
 async function copy(value: string) { try { if (!navigator.clipboard?.writeText) throw new Error('unavailable'); await navigator.clipboard.writeText(value); ElMessage.success(t('passportPreview.message17')) } catch { ElMessage.warning(t('passportPreview.message18')) } }
 </script>
