@@ -80,6 +80,7 @@ import type { Language } from '@/api/passport/products'
 import MediaPanel from '../media/MediaPanel.vue'
 import SectionPreview from './SectionPreview.vue'
 import TableDraftPreview from './TableDraftPreview.vue'
+import { msgError } from '@/utils/message'
 const props = defineProps<{ base: string; readonly: boolean; batch?: boolean }>()
 const emit = defineEmits<{ saved: []; dirty: [value: boolean] }>()
 const { t } = useI18n()
@@ -90,6 +91,8 @@ const language = ref<Language>('en'); const previewLanguage = ref<Language>('en'
 const body = (type: SectionType): SectionBody => type === 'text' ? { text: '' } : type === 'asset_gallery' ? { caption: '' } : type === 'key_value' ? { items: [] } : { columns: [{ key: 'column_1', label: '' }], rows: [] }
 const blank = (): SectionInput => ({ section_key: `section_${crypto.randomUUID().replaceAll('-', '')}`, operation: 'add', section_type: 'text', sort_order: 0, is_visible: true, is_public: false, allow_hide: false, status: 'draft', translations: [] })
 const form = ref<SectionInput>(blank()); const snapshot = ref('')
+const editBaseline = ref('')
+const sectionState = (value: SectionSet) => JSON.stringify([value.sections, value.base_sections, value.source_language, value.base_revision_id])
 const dirty = computed(() => editing.value && JSON.stringify(form.value) !== snapshot.value)
 watch(dirty, value => emit('dirty', value))
 const translation = computed(() => form.value.translations.find(x => x.language_code === language.value))
@@ -100,7 +103,7 @@ async function mediaSaved() { await load(); emit('saved') }
 async function load() { set.value = (await listSections(props.base, previewLanguage.value)).data }
 watch(() => props.base, () => { editing.value = false; void load().catch(() => {}) }, { immediate: true })
 function input(row: Section): SectionInput { const d = blank(); for (const k of Object.keys(d)) Object.assign(d, { [k]: JSON.parse(JSON.stringify(row[k as keyof SectionInput])) }); return d }
-function start(key?: string) { advanced.value = false; const row = key ? own(key) ?? baseRow(key) : undefined; editingId.value = key ? own(key)?.id ?? '' : ''; inherited.value = !!(key && baseRow(key)); form.value = row ? input(row) : blank(); if (props.batch && inherited.value) { form.value.operation = 'replace'; form.value.allow_hide = false; if (!form.value.translations.length) form.value.translations = JSON.parse(JSON.stringify(baseRow(key!)?.translations ?? [])); form.value.translations = form.value.translations.map(x => ({ language_code: x.language_code, translation_status: x.translation_status, title: x.title, content: x.content })) }; language.value = set.value?.source_language ?? 'en'; if (!form.value.translations.length) addLanguage(); else form.value.translations = form.value.translations.map(x => ({ language_code: x.language_code, translation_status: x.translation_status, title: x.title, content: x.content })); snapshot.value = JSON.stringify(form.value); editing.value = true }
+function start(key?: string) { editBaseline.value = set.value ? sectionState(set.value) : ''; advanced.value = false; const row = key ? own(key) ?? baseRow(key) : undefined; editingId.value = key ? own(key)?.id ?? '' : ''; inherited.value = !!(key && baseRow(key)); form.value = row ? input(row) : blank(); if (props.batch && inherited.value) { form.value.operation = 'replace'; form.value.allow_hide = false; if (!form.value.translations.length) form.value.translations = JSON.parse(JSON.stringify(baseRow(key!)?.translations ?? [])); form.value.translations = form.value.translations.map(x => ({ language_code: x.language_code, translation_status: x.translation_status, title: x.title, content: x.content })) }; language.value = set.value?.source_language ?? 'en'; if (!form.value.translations.length) addLanguage(); else form.value.translations = form.value.translations.map(x => ({ language_code: x.language_code, translation_status: x.translation_status, title: x.title, content: x.content })); snapshot.value = JSON.stringify(form.value); editing.value = true }
 function addLanguage() { if (translation.value) return; const source = form.value.translations.find(x => x.language_code === set.value?.source_language); form.value.translations.push({ language_code: language.value, translation_status: 'draft', title: '', content: source ? JSON.parse(JSON.stringify(source.content)) : body(form.value.section_type) }) }
 function changeType() { form.value.translations.forEach(x => { x.content = body(form.value.section_type) }) }
 function align() { const source = form.value.translations.find(x => x.language_code === set.value?.source_language); if (!source) return; for (const tr of form.value.translations) { if (tr === source) continue; if (source.content.items) tr.content.items = source.content.items.map((x, i) => ({ key: x.key, label: tr.content.items?.[i]?.label ?? '', value: tr.content.items?.[i]?.value ?? '' })); if (source.content.columns) { tr.content.columns = source.content.columns.map((x, i) => ({ key: x.key, label: tr.content.columns?.[i]?.label ?? '' })); tr.content.rows = source.content.rows?.map((row, i) => ({ cells: row.cells.map((_, j) => tr.content.rows?.[i]?.cells[j] ?? '') })) } } }
@@ -117,7 +120,18 @@ function startSpecs() {
   snapshot.value = JSON.stringify(form.value)
 }
 async function run(fn: () => Promise<unknown>) { if (busy.value || props.readonly) return; busy.value = true; try { await fn(); editing.value = false; await load(); emit('saved') } catch { /* request interceptor reports errors; preserve the draft */ } finally { busy.value = false } }
-async function save() { if (!set.value) return; await run(() => putSection(props.base, editingId.value, set.value!.token, form.value)) }
+async function save() {
+  if (!set.value) return
+  await run(async() => {
+    const latest = (await listSections(props.base, previewLanguage.value)).data
+    // Refresh media-only token changes, but never overwrite concurrent module edits.
+    if (sectionState(latest) !== editBaseline.value) {
+      msgError(t('passportSections.concurrentChange'))
+      throw new Error('Section content changed during editing')
+    }
+    await putSection(props.base, editingId.value, latest.token, form.value)
+  })
+}
 async function command(action: string, key: string) { if (!set.value) return; const row = own(key); if (action === 'remove' && row) { try { await ElMessageBox.confirm(t('passportSections.removeConfirm'), t('common.dialogConfirm')) } catch { return }; await run(() => deleteSection(props.base, row.id, set.value!.token)) } else if (action === 'hide') { const source = baseRow(key); if (!source) return; const d = input(source); d.operation = 'hide'; d.is_visible = false; d.allow_hide = false; d.translations = []; await run(() => putSection(props.base, row?.id ?? '', set.value!.token, d)) } else if (row) { const keys = set.value.sections.map(x => x.section_key); const i = keys.indexOf(key); const j = action === 'up' ? i - 1 : i + 1; if (j < 0 || j >= keys.length) return; [keys[i], keys[j]] = [keys[j]!, keys[i]!]; await run(() => reorderSections(props.base, keys, set.value!.token)) } }
 async function leave() { if (!dirty.value) return true; try { await ElMessageBox.confirm(t('passportSections.unsaved'), t('common.dialogConfirm')); return true } catch { return false } }
 async function close(done?: () => void) { if (await leave()) { editing.value = false; done?.() } }

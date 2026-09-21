@@ -9,6 +9,7 @@ import zh from '@/lang/zh-CN/passport/sections'
 import en from '@/lang/en-US/passport/sections'
 const api = vi.hoisted(() => ({ listSections: vi.fn(), putSection: vi.fn(), deleteSection: vi.fn(), reorderSections: vi.fn() }))
 vi.mock('@/api/passport/sections', () => api)
+vi.mock('@/utils/message', () => ({ msgError: vi.fn() }))
 vi.mock('vue-router', () => ({ onBeforeRouteLeave: vi.fn(), onBeforeRouteUpdate: vi.fn() }))
 const mount = () => shallowMount(SectionManager, { props: { base: '/sections', readonly: false }, global: { renderStubDefaultSlot: true, stubs: { ElDialog: { template: '<div><slot /><slot name="footer" /></div>' }}, plugins: [createI18n({ legacy: false, locale: 'zh-CN', messages: { 'zh-CN': { passportSections: zh }, 'en-US': { passportSections: en }}})], directives: { permisaction: {}, loading: {}}}})
 describe('simple specification editor', () => {
@@ -35,5 +36,24 @@ describe('simple specification editor', () => {
     expect(vm.form.translations.map((x) => x.content.columns!.length)).toEqual([5, 5])
     await w.get('[data-testid=section-save]').trigger('click'); await flushPromises()
     expect(api.putSection).toHaveBeenCalledOnce()
+  })
+  it('refreshes a media-only token change without losing typed table cells', async() => {
+    const w = mount(); await flushPromises(); await w.get('[data-testid=section-specs]').trigger('click')
+    const vm = w.vm as unknown as { form: SectionInput }
+    vm.form.translations[0].content.rows![0].cells[0] = '水分'
+    api.listSections.mockResolvedValue({ data: { token: 'after-upload', source_language: 'en', sections: [], base_sections: [], effective: [], hidden: [] }})
+    await w.get('[data-testid=section-save]').trigger('click'); await flushPromises()
+    expect(api.putSection).toHaveBeenCalledWith('/sections', '', 'after-upload', expect.objectContaining({ translations: vm.form.translations }))
+    expect(vm.form.translations[0].content.rows![0].cells[0]).toBe('水分')
+  })
+  it('preserves the draft and refuses to overwrite concurrent module changes', async() => {
+    const w = mount(); await flushPromises(); await w.get('[data-testid=section-specs]').trigger('click')
+    const vm = w.vm as unknown as { form: SectionInput; editing: boolean }
+    vm.form.translations[0].content.rows![0].cells[0] = '水分'
+    api.listSections.mockResolvedValue({ data: { token: 'concurrent', source_language: 'en', sections: [{ id: 'other' }], base_sections: [], effective: [], hidden: [] }})
+    await w.get('[data-testid=section-save]').trigger('click'); await flushPromises()
+    expect(api.putSection).not.toHaveBeenCalled()
+    expect(vm.editing).toBe(true)
+    expect(vm.form.translations[0].content.rows![0].cells[0]).toBe('水分')
   })
 })

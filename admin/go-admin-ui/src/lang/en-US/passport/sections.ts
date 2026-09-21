@@ -57,5 +57,6 @@ export default {
   'addColumn': 'Add column',
   'addRow': 'Add row',
   'removeConfirm': 'Delete this local section operation? Inherited content will return after reset.',
+  'concurrentChange': 'Module content has changed. Your unsaved input is preserved. Copy it before reopening the module to compare.',
   'unsaved': 'Discard unsaved section changes?'
 }

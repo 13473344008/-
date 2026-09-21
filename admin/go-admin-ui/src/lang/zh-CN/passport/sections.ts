@@ -57,5 +57,6 @@ export default {
   'addColumn': '添加列',
   'addRow': '添加行',
   'removeConfirm': '删除此自有模块操作？重置后将恢复基础继承内容。',
+  'concurrentChange': '模块内容已被修改，未保存的填写仍保留。请先复制内容，再重新打开模块核对。',
   'unsaved': '放弃未保存的模块修改？'
 }
