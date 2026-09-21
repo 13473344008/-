@@ -1,4 +1,11 @@
 export default {
+  uploadSaved: 'Image saved',
+  preparing: 'Preparing and saving related content…',
+  uploading: 'Uploading. Please do not select again…',
+  savedLoading: 'Image saved. Loading preview…',
+  uploadComplete: 'Image added successfully',
+  nameRequired: 'Enter an image name before choosing a file.',
+
   savedPreviewFailed: 'Image saved, but its preview could not load. Refresh images; do not upload again.',
   operationUncertain: 'The result is not confirmed. Refresh the image list before another operation.',
   refresh: 'Refresh images',

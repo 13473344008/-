@@ -3,6 +3,7 @@ import { flushPromises, shallowMount } from '@vue/test-utils'
 import MediaPanel from '@/views/passport/media/MediaPanel.vue'
 const api = vi.hoisted(() => ({ listMedia: vi.fn(), uploadMedia: vi.fn(), detachMedia: vi.fn() }))
 vi.mock('@/api/passport/media', () => api)
+vi.mock('@/utils/message', () => ({ msgSuccess: vi.fn() }))
 vi.mock('vue-i18n', () => ({ useI18n: () => ({ t: (x: string) => x }) }))
 const mount = (readonly = false) => shallowMount(MediaPanel, { props: { base: '/api/v1/scoped/media', readonly }, global: { directives: { loading: {}, permisaction: {}}, stubs: { ElCard: { template: '<div><slot /></div>' }, ElInput: { props: ['modelValue'], template: '<input :value="modelValue" @input="$emit(\'update:modelValue\', $event.target.value)" />' }}}})
 describe('Scoped MediaPanel', () => {

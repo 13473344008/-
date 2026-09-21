@@ -3,6 +3,7 @@ import { flushPromises, shallowMount } from '@vue/test-utils'
 import InlineImages from '@/views/passport/media/InlineImages.vue'
 const api = vi.hoisted(() => ({ listMedia: vi.fn(), uploadMedia: vi.fn(), detachMedia: vi.fn() }))
 vi.mock('@/api/passport/media', () => api)
+vi.mock('@/utils/message', () => ({ msgSuccess: vi.fn() }))
 vi.mock('vue-i18n', () => ({ useI18n: () => ({ t: (x: string) => x }) }))
 describe('optional contextual images', () => {
   beforeEach(() => { vi.clearAllMocks(); api.listMedia.mockResolvedValue({ data: { token: 'fresh', items: [] }}); api.uploadMedia.mockResolvedValue({ data: { id: 'image' }}) })
@@ -29,5 +30,21 @@ describe('optional contextual images', () => {
     await w.get('[data-testid=media-refresh]').trigger('click'); await flushPromises()
     expect(api.uploadMedia).toHaveBeenCalledTimes(1)
     expect(w.find('[role=alert]').exists()).toBe(false)
+  })
+  it('shows preparation and upload status immediately, then waits for server acknowledgement', async() => {
+    let ready!: () => void; let saved!: (value: unknown) => void
+    const before = vi.fn(() => new Promise<void>(resolve => { ready = resolve }))
+    api.uploadMedia.mockImplementationOnce(() => new Promise(resolve => { saved = resolve }))
+    const w = mount(false, before); await flushPromises()
+    const input = w.get('input[type=file]'); Object.defineProperty(input.element, 'files', { value: [new File(['x'], 'photo.png')] })
+    await input.trigger('change')
+    expect(w.get('[role=status]').text()).toContain('passportMedia.preparing')
+    expect(w.get('[role=status]').text()).toContain('photo.png')
+    ready(); await flushPromises()
+    expect(w.get('[role=status]').text()).toContain('passportMedia.uploading')
+    expect(w.emitted('saved')).toBeUndefined()
+    saved({ data: { id: 'new' }}); await flushPromises()
+    expect(w.get('[role=status]').text()).toContain('passportMedia.uploadComplete')
+    expect(w.emitted('saved')).toHaveLength(1)
   })
 })

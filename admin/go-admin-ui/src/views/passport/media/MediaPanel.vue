@@ -1,13 +1,15 @@
 <template>
-  <el-card v-loading="busy" class="media-panel" data-testid="media-panel">
+  <el-card :aria-busy="busy" class="media-panel" data-testid="media-panel">
     <h4>{{ t('passportMedia.title') }}</h4>
     <p>{{ t('passportMedia.help') }}</p>
+    <p v-if="phase && !error" role="status" aria-live="polite" data-testid="upload-status">{{ filename }} · {{ t(`passportMedia.${phase}`) }}</p>
     <p v-if="error" role="alert">{{ error }}</p>
     <el-button v-if="error || needsRefresh" :disabled="busy" data-testid="media-refresh" @click="refresh">{{ t('passportMedia.refresh') }}</el-button>
     <template v-if="!readonly">
       <div v-permisaction="['passport:media:write']">
         <el-input v-model="label" :disabled="busy || needsRefresh" :placeholder="t('passportMedia.label')" maxlength="200" data-testid="media-label" />
         <el-checkbox v-model="isPublic" :disabled="busy || needsRefresh" data-testid="media-public">{{ t('passportMedia.public') }}</el-checkbox>
+        <small v-if="!label.trim()">{{ t('passportMedia.nameRequired') }}</small>
         <label class="upload-label">{{ t('passportMedia.upload') }}<input type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg" :disabled="busy || needsRefresh || !label.trim()" data-testid="media-upload" @change="upload"></label>
       </div>
     </template>
@@ -22,12 +24,14 @@
 </template>
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import { msgSuccess } from '@/utils/message'
 import { useI18n } from 'vue-i18n'
 import { listMedia, uploadMedia, detachMedia, type MediaSet } from '@/api/passport/media'
 const props = defineProps<{ base: string; readonly: boolean }>()
 const emit = defineEmits<{ saved: [] }>()
 const { t } = useI18n(); const data = ref<MediaSet>(); const busy = ref(false); const label = ref(''); const isPublic = ref(false)
 const error = ref(''); const needsRefresh = ref(false)
+const phase = ref(''); const filename = ref('')
 async function load() {
   const key = props.base; const result = (await listMedia(props.base)).data
   if (key !== (props.base)) return
@@ -35,30 +39,30 @@ async function load() {
 }
 async function refresh() {
   if (busy.value) return
-  busy.value = true
+  busy.value = true; phase.value = ''; filename.value = ''
   try { await load() } catch { needsRefresh.value = true; error.value = t('passportMedia.loadFailed') } finally { busy.value = false }
 }
-watch(() => props.base, () => { data.value = undefined; needsRefresh.value = true; void load().catch(() => { error.value = t('passportMedia.loadFailed') }) }, { immediate: true })
+watch(() => props.base, () => { data.value = undefined; phase.value = ''; filename.value = ''; needsRefresh.value = true; void load().catch(() => { error.value = t('passportMedia.loadFailed') }) }, { immediate: true })
 async function upload(event: Event) {
   const input = event.target as HTMLInputElement; const file = input.files?.[0]
   if (!file || busy.value || props.readonly || needsRefresh.value) return
-  busy.value = true; error.value = ''
+  busy.value = true; error.value = ''; filename.value = file.name; phase.value = 'preparing'
   let submitted = false; let saved = false
   const base = props.base
   try {
     await load()
-    submitted = true
+    submitted = true; phase.value = 'uploading'
     await uploadMedia(base, file, data.value!.token, label.value, isPublic.value)
-    saved = true; label.value = ''; emit('saved')
-    await load()
+    saved = true; phase.value = 'savedLoading'; msgSuccess(t('passportMedia.uploadSaved')); label.value = ''; emit('saved')
+    await load(); phase.value = 'uploadComplete'
   } catch {
-    needsRefresh.value = true
+    phase.value = ''; needsRefresh.value = true
     error.value = t(saved ? 'passportMedia.savedPreviewFailed' : submitted ? 'passportMedia.operationUncertain' : 'passportMedia.loadFailed')
   } finally { busy.value = false; input.value = '' }
 }
 async function remove(id: string) {
   if (busy.value || props.readonly || needsRefresh.value) return
-  busy.value = true; error.value = ''
+  busy.value = true; error.value = ''; phase.value = ''; filename.value = ''
   try { await load(); await detachMedia(props.base, id, data.value!.token); emit('saved'); await load() } catch { needsRefresh.value = true; error.value = t('passportMedia.operationUncertain') } finally { busy.value = false }
 }
 </script>

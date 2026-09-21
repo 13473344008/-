@@ -1,6 +1,7 @@
 <template>
   <div class="inline-images" data-testid="inline-images">
     <div class="image-heading">{{ t('passportMedia.optionalImages') }}</div>
+    <p v-if="phase && !error" role="status" aria-live="polite" data-testid="upload-status">{{ filename }} · {{ t(`passportMedia.${phase}`) }}</p>
     <p v-if="error" role="alert">{{ error }}</p>
     <el-button v-if="error || needsRefresh" :disabled="busy" data-testid="media-refresh" @click="refresh">{{ t('passportMedia.refresh') }}</el-button>
     <div class="image-list">
@@ -20,6 +21,7 @@
 </template>
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import { msgSuccess } from '@/utils/message'
 import { useI18n } from 'vue-i18n'
 import { listMedia, uploadMedia, detachMedia, type MediaSet } from '@/api/passport/media'
 const props = defineProps<{ base: string; target: string; label: string; readonly: boolean; beforeUpload?: () => Promise<void> }>()
@@ -27,6 +29,7 @@ const emit = defineEmits<{ saved: [] }>()
 const { t } = useI18n()
 const data = ref<MediaSet>(); const busy = ref(false); const caption = ref(''); const customer = ref(true); const error = ref('')
 const needsRefresh = ref(false)
+const phase = ref(''); const filename = ref('')
 async function load() {
   const key = props.base + '|' + props.target; const result = (await listMedia(props.base, props.target)).data
   if (key !== (props.base + '|' + props.target)) return
@@ -34,30 +37,30 @@ async function load() {
 }
 async function refresh() {
   if (busy.value) return
-  busy.value = true
+  busy.value = true; phase.value = ''; filename.value = ''
   try { await load() } catch { needsRefresh.value = true; error.value = t('passportMedia.loadFailed') } finally { busy.value = false }
 }
-watch(() => props.base + '|' + props.target, () => { data.value = undefined; needsRefresh.value = true; void load().catch(() => { error.value = t('passportMedia.loadFailed') }) }, { immediate: true })
+watch(() => props.base + '|' + props.target, () => { data.value = undefined; phase.value = ''; filename.value = ''; needsRefresh.value = true; void load().catch(() => { error.value = t('passportMedia.loadFailed') }) }, { immediate: true })
 async function upload(event: Event) {
   const input = event.target as HTMLInputElement; const file = input.files?.[0]
   if (!file || busy.value || props.readonly || needsRefresh.value) return
-  busy.value = true; error.value = ''
+  busy.value = true; error.value = ''; filename.value = file.name; phase.value = 'preparing'
   let submitted = false; let saved = false
   const base = props.base
   try {
     await props.beforeUpload?.(); await load()
-    submitted = true
+    submitted = true; phase.value = 'uploading'
     await uploadMedia(base, file, data.value!.token, caption.value.trim() || props.label, customer.value, props.target)
-    saved = true; caption.value = ''; emit('saved')
-    await load()
+    saved = true; phase.value = 'savedLoading'; msgSuccess(t('passportMedia.uploadSaved')); caption.value = ''; emit('saved')
+    await load(); phase.value = 'uploadComplete'
   } catch {
-    needsRefresh.value = true
+    phase.value = ''; needsRefresh.value = true
     error.value = t(saved ? 'passportMedia.savedPreviewFailed' : submitted ? 'passportMedia.operationUncertain' : 'passportMedia.loadFailed')
   } finally { busy.value = false; input.value = '' }
 }
 async function remove(id: string) {
   if (busy.value || props.readonly || needsRefresh.value) return
-  busy.value = true; error.value = ''
+  busy.value = true; error.value = ''; phase.value = ''; filename.value = ''
   try { await load(); await detachMedia(props.base, id, data.value!.token); emit('saved'); await load() } catch { needsRefresh.value = true; error.value = t('passportMedia.operationUncertain') } finally { busy.value = false }
 }
 </script>

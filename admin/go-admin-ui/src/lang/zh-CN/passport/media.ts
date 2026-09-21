@@ -1,4 +1,11 @@
 export default {
+  uploadSaved: '图片已保存',
+  preparing: '正在准备并保存关联内容…',
+  uploading: '正在上传，请勿重复选择…',
+  savedLoading: '图片已保存，正在加载预览…',
+  uploadComplete: '图片添加成功',
+  nameRequired: '请先填写图片名称，再选择文件。',
+
   savedPreviewFailed: '图片已保存，但预览加载失败。请刷新图片，不要重复上传。',
   operationUncertain: '操作结果尚未确认，请先刷新图片列表后再操作。',
   refresh: '刷新图片',
