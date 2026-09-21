@@ -19,7 +19,7 @@ export function renderPassport(container,payload,options={}){
  if(p.notice)container.append(el('p',p.record_type==='test'?t('test_notice'):p.notice,'test-notice'));
  function image(a,eager=false){const f=el('figure'),box=el('div',null,'image-box'),im=el('img');
   let src=assetPath(a);
-  if(privatePreview){const b64=options.privateAssets?.[a.key];if(typeof b64!=='string'||!/^[A-Za-z0-9+/]+={0,2}$/.test(b64)){box.append(el('span',t('missing_image'),'asset-unavailable'));f.append(box);return f;}src='data:image/png;base64,'+b64;}
+  if(privatePreview){const b64=options.privateAssets?.[a.key];if(typeof b64!=='string'||!/^[A-Za-z0-9+/]+={0,2}$/.test(b64)){box.append(el('span',t('missing_image'),'asset-unavailable'));f.append(box);return f;}const mime=options.privateAssetMimeTypes?.[a.key]??'image/png';if(!['image/png','image/jpeg'].includes(mime))throw Error('invalid_preview_image');src='data:'+mime+';base64,'+b64;}
   im.alt=a.label||t('assets');im.loading=eager?'eager':'lazy';im.decoding='async';im.width=640;im.height=480;
   im.addEventListener('error',()=>box.replaceChildren(el('span',t('missing_image'),'asset-unavailable')),{once:true});im.src=src;box.append(im);f.append(box,el('figcaption',a.label));return f;
  }

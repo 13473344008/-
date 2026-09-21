@@ -13,7 +13,17 @@ import (
 
 // PreviewJPEG is display-only: it never changes stored originals or publication hashes.
 func PreviewJPEG(source []byte, mime string) ([]byte, error) {
-	if len(source) == 0 || len(source) > MaxSourceBytes {
+	return previewJPEG(source, mime, MaxSourceBytes, 480, 75, 256*1024)
+}
+
+// DisplayPreviewJPEG derives a screen-sized image from a verified frozen PNG.
+// It does not replace the source bytes or their publication hash.
+func DisplayPreviewJPEG(source []byte) ([]byte, error) {
+	return previewJPEG(source, "image/png", MaxNormalizedBytes, 1200, 85, 2*1024*1024)
+}
+
+func previewJPEG(source []byte, mime string, maxBytes, edge, quality, maxOutput int) ([]byte, error) {
+	if len(source) == 0 || len(source) > maxBytes {
 		return nil, fmt.Errorf("source size")
 	}
 	cfg, format, err := image.DecodeConfig(bytes.NewReader(source))
@@ -28,21 +38,21 @@ func PreviewJPEG(source []byte, mime string) ([]byte, error) {
 		return nil, err
 	}
 	w, h := cfg.Width, cfg.Height
-	if w > 480 || h > 480 {
+	if w > edge || h > edge {
 		if w >= h {
-			h, w = max(1, h*480/w), 480
+			h, w = max(1, h*edge/w), edge
 		} else {
-			w, h = max(1, w*480/h), 480
+			w, h = max(1, w*edge/h), edge
 		}
 	}
 	dst := image.NewRGBA(image.Rect(0, 0, w, h))
 	draw.Draw(dst, dst.Bounds(), image.NewUniform(color.White), image.Point{}, draw.Src)
 	xdraw.ApproxBiLinear.Scale(dst, dst.Bounds(), im, im.Bounds(), draw.Over, nil)
 	var out bytes.Buffer
-	if err = jpeg.Encode(&out, dst, &jpeg.Options{Quality: 75}); err != nil {
+	if err = jpeg.Encode(&out, dst, &jpeg.Options{Quality: quality}); err != nil {
 		return nil, err
 	}
-	if out.Len() > 256*1024 {
+	if out.Len() > maxOutput {
 		return nil, fmt.Errorf("preview size")
 	}
 	return out.Bytes(), nil

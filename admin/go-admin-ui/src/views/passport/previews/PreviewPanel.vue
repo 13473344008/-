@@ -4,9 +4,9 @@
     <h3>{{ t('passportPreview.message1') }}</h3>
     <p>{{ t('passportPreview.message2') }}</p>
     <div class="controls">
-      <span v-if="state === 'draft'"><el-button v-permisaction="['passport:preview:read']" :disabled="dirty || busy" data-testid="preview-working" @click="preview('working')">{{ t('passportPreview.message3') }}</el-button></span>
+      <span v-if="state === 'draft'"><el-button v-permisaction="['passport:preview:read']" :disabled="dirty || busy"  :loading="busy" data-testid="preview-working" @click="preview('working')">{{ t('passportPreview.message3') }}</el-button></span>
       <label v-if="reviews.length">{{ t('passportPreview.message4') }}<select v-model="reviewId" data-testid="preview-review-select"><option v-for="r in reviews" :key="r.id" :value="r.id">#{{ r.attempt_number }} · {{ r.decision }}</option></select></label>
-      <span v-if="reviews.length"><el-button v-permisaction="['passport:preview:read']" :disabled="busy || !reviewId" data-testid="preview-review" @click="preview('review')">{{ t('passportPreview.message5') }}</el-button></span>
+      <span v-if="reviews.length"><el-button v-permisaction="['passport:preview:read']" :disabled="busy || !reviewId" :loading="busy" data-testid="preview-review" @click="preview('review')">{{ t('passportPreview.message5') }}</el-button></span>
     </div>
     <el-alert v-if="urlError" :title="t('passportPreview.message6')" type="warning" :closable="false" />
     <template v-if="stable">
@@ -61,7 +61,7 @@ watch(() => [props.batchId, props.state, props.editVersion], async() => {
   try { const [b, h] = await Promise.all([getBatch(props.batchId), getHistory(props.batchId)]); code.value = b.data.batch.batch_code; isTest.value = b.data.batch.record_type === 'test'; reviews.value = h.data.reviews; reviewId.value = reviews.value.at(-1)?.id || ''; versions.value = h.data.versions.map(v => v.revision.version_number); version.value = versions.value[0] || null; urlError.value = !stable.value } catch { /* API reports errors */ }
 }, { immediate: true })
 async function preview(kind: Preview['kind']) { if (busy.value || (kind === 'working' && props.dirty)) return; busy.value = true; operationError.value = ''; try { result.value = (await getPreview(props.batchId, kind, kind === 'review' ? reviewId.value : undefined)).data; opened.value = true; await nextTick(); draw() } catch(e) { operationError.value = e instanceof Error ? e.message : t('passportPreview.message16') } finally { busy.value = false } }
-function draw() { if (!mount.value || !result.value) return; const shadow = mount.value.shadowRoot || mount.value.attachShadow({ mode: 'open' }); const style = document.createElement('style'); style.textContent = ':host{display:block;color:#193d35;background:#f6f7f2;padding:20px;font-family:Arial,sans-serif}' + css; const main = document.createElement('main'); shadow.replaceChildren(style, main); try { renderPassport(main, result.value.payload, { language: language.value, previewKind: result.value.kind, privateAssets: result.value.assets }) } catch { main.textContent = t('passportPreview.message16') } }
+function draw() { if (!mount.value || !result.value) return; const shadow = mount.value.shadowRoot || mount.value.attachShadow({ mode: 'open' }); const style = document.createElement('style'); style.textContent = ':host{display:block;color:#193d35;background:#f6f7f2;padding:20px;font-family:Arial,sans-serif}' + css; const main = document.createElement('main'); shadow.replaceChildren(style, main); try { renderPassport(main, result.value.payload, { language: language.value, previewKind: result.value.kind, privateAssets: result.value.assets, privateAssetMimeTypes: result.value.asset_mime_types }) } catch { main.textContent = t('passportPreview.message16') } }
 async function copy(value: string) { try { if (!navigator.clipboard?.writeText) throw new Error('unavailable'); await navigator.clipboard.writeText(value); ElMessage.success(t('passportPreview.message17')) } catch { ElMessage.warning(t('passportPreview.message18')) } }
 </script>
 <style scoped>
