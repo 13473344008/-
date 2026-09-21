@@ -18,7 +18,7 @@ type Batch struct {
 	EditVersion               int64   `gorm:"column:edit_version" json:"edit_version"`
 	SubmittedEditVersion      *int64  `gorm:"column:submitted_edit_version" json:"submitted_edit_version"`
 	SubmittedContentHash      *string `gorm:"column:submitted_content_hash" json:"submitted_content_hash"`
-	SubmittedInput            *string `gorm:"column:submitted_input" json:"submitted_input"`
+	SubmittedInput            *string `gorm:"column:submitted_input" json:"-"`
 	SubmittedSchemaVersion    *string `gorm:"column:submitted_schema_version" json:"submitted_schema_version"`
 	SubmittedBuilderVersion   *string `gorm:"column:submitted_builder_version" json:"submitted_builder_version"`
 	SubmittedPreviewHash      *string `gorm:"column:submitted_preview_hash" json:"submitted_preview_hash"`

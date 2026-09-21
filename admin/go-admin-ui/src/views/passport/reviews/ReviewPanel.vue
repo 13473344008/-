@@ -1,8 +1,10 @@
 <template>
-  <el-card v-loading="busy" class="review-panel" data-testid="review-panel">
+  <el-card v-loading="busy || loading" class="review-panel" data-testid="review-panel">
     <h3>{{ t('passportReview.title') }}</h3>
     <el-alert :title="t('passportReview.notice')" type="warning" :closable="false" />
     <p>{{ t('passportReview.selfRule') }}</p>
+    <el-alert v-if="loadError" :title="loadError" type="error" :closable="false" />
+    <el-button v-if="loadError" @click="load().catch(() => {})">{{ t('common.refresh') }}</el-button>
     <template v-if="detail">
       <PreviewPanel :batch-id="batchId" :state="detail.state" :dirty="dirty" :edit-version="editVersion" />
       <el-tag data-testid="review-state">{{ t(`passportReview.${detail.state}`) }}</el-tag>
@@ -67,7 +69,7 @@ import PublishPanel from '../publication/PublishPanel.vue'
 import SectionPreview from '../sections/SectionPreview.vue'
 import { getReview, getReadiness, reviewAction } from '@/api/passport/reviews'
 import type { ReviewDetail, Readiness } from '@/api/passport/reviews'
-const operationError = ref('')
+const operationError = ref(''); const loading = ref(false); const loadError = ref('')
 const props = defineProps<{ batchId: string; editVersion?: number; dirty?: boolean }>()
 const emit = defineEmits<{ saved: [] }>(); const { t, te } = useI18n()
 const detail = ref<ReviewDetail | null>(null); const readiness = ref<Readiness | null>(null); const busy = ref(false); const dialog = ref(false); const action = ref('submit'); const reason = ref(''); const comment = ref(''); const panels = ref(['preview'])
@@ -77,7 +79,7 @@ function display(value: unknown): string { if (value === null || value === undef
 function businessValues(value: object) { return Object.fromEntries(Object.entries(value).filter(([key]) => !['id', 'created_at', 'created_by', 'updated_at', 'updated_by', 'batch_id'].includes(key))) }
 function anyLabel(key: string) { if (key === 'product_name') return t('passport.products.name'); for (const group of ['passportReview', 'passportBatch', 'passport.products.fields']) if (te(`${group}.${key}`)) return t(`${group}.${key}`); return key }
 async function published() { await load(); emit('saved') }
-async function load() { detail.value = (await getReview(props.batchId)).data }
+async function load() { loading.value = true; loadError.value = ''; try { detail.value = (await getReview(props.batchId)).data } catch(e) { loadError.value = e instanceof Error ? e.message : 'Error'; throw e } finally { loading.value = false } }
 watch(() => props.batchId, () => { void load().catch(() => {}) }, { immediate: true })
 async function check() { busy.value = true; try { readiness.value = (await getReadiness(props.batchId)).data } catch { /* API reports */ } finally { busy.value = false } }
 async function act(value: string) { if (value === 'submit') { await check(); if (!readiness.value?.ready) return }; operationError.value = ''; action.value = value; reason.value = ''; comment.value = ''; dialog.value = true }
