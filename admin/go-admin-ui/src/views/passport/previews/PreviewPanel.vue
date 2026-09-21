@@ -4,7 +4,7 @@
     <h3>{{ t('passportPreview.message1') }}</h3>
     <p>{{ t('passportPreview.message2') }}</p>
     <div class="controls">
-      <span v-if="state === 'draft'"><el-button v-permisaction="['passport:preview:read']" :disabled="dirty || busy"  :loading="busy" data-testid="preview-working" @click="preview('working')">{{ t('passportPreview.message3') }}</el-button></span>
+      <span v-if="state === 'draft'"><el-button v-permisaction="['passport:preview:read']" :disabled="dirty || busy" :loading="busy" data-testid="preview-working" @click="preview('working')">{{ t('passportPreview.message3') }}</el-button></span>
       <label v-if="reviews.length">{{ t('passportPreview.message4') }}<select v-model="reviewId" data-testid="preview-review-select"><option v-for="r in reviews" :key="r.id" :value="r.id">#{{ r.attempt_number }} · {{ r.decision }}</option></select></label>
       <span v-if="reviews.length"><el-button v-permisaction="['passport:preview:read']" :disabled="busy || !reviewId" :loading="busy" data-testid="preview-review" @click="preview('review')">{{ t('passportPreview.message5') }}</el-button></span>
     </div>
@@ -22,10 +22,16 @@
         <el-button v-if="versionLink" data-testid="copy-version" @click="copy(versionLink)">{{ t('passportPreview.message14') }}</el-button>
       </div>
     </template>
-    <el-dialog v-model="opened" :title="t('passportPreview.message15')" width="min(1100px, 96vw)" destroy-on-close @opened="draw">
+    <el-dialog v-model="opened" :title="t('passportPreview.message15')" width="min(1180px, 96vw)" destroy-on-close @opened="draw">
       <p v-if="result"><code>{{ result.kind }} · {{ result.source_hash }}</code></p>
-      <label>{{ publicLabel('language', language) }} <select v-model="language" @change="draw"><option v-for="l in ['en','zh-CN']" :key="l" :value="l">{{ LOCALES.find(item => item.value === (l === 'en' ? 'en-US' : l))?.label }}</option></select></label>
-      <div ref="mount" data-testid="private-passport" />
+      <div class="preview-toolbar">
+        <div role="group" :aria-label="t('passportPreview.device')">
+          <el-button :type="device === 'mobile' ? 'primary' : 'default'" :aria-pressed="device === 'mobile'" data-testid="preview-mobile" @click="device = 'mobile'">{{ t('passportPreview.mobile') }}</el-button>
+          <el-button :type="device === 'desktop' ? 'primary' : 'default'" :aria-pressed="device === 'desktop'" data-testid="preview-desktop" @click="device = 'desktop'">{{ t('passportPreview.desktop') }}</el-button>
+        </div>
+        <label>{{ publicLabel('language', language) }} <select v-model="language" @change="draw"><option v-for="l in ['en','zh-CN']" :key="l" :value="l">{{ LOCALES.find(item => item.value === (l === 'en' ? 'en-US' : l))?.label }}</option></select></label>
+      </div>
+      <div class="preview-stage"><div ref="mount" class="preview-viewport" :class="device" data-testid="private-passport" /></div>
     </el-dialog>
   </el-card>
 </template>
@@ -44,8 +50,10 @@ import { LOCALES } from '@/lang/locales'
 import { label as publicLabel } from '../../../../../../public-site/js/i18n.mjs'
 import { renderPassport } from '../../../../../../public-site/js/render.mjs'
 import { publicURL } from '../../../../../../public-site/js/urls.mjs'
+import { previewStyles } from './previewStyles'
 import css from '../../../../../../public-site/css/passport.css?inline'
 const operationError = ref('')
+const device = ref<'mobile' | 'desktop'>('mobile')
 const props = defineProps<{ batchId: string; state: string; dirty?: boolean; editVersion?: number }>()
 const { t, locale } = useI18n()
 const mode = import.meta.env.VUE_APP_PUBLIC_MODE || 'production'
@@ -60,10 +68,12 @@ watch(() => [props.batchId, props.state, props.editVersion], async() => {
   opened.value = false; result.value = null; code.value = ''; versions.value = []; version.value = null
   try { const [b, h] = await Promise.all([getBatch(props.batchId), getHistory(props.batchId)]); code.value = b.data.batch.batch_code; isTest.value = b.data.batch.record_type === 'test'; reviews.value = h.data.reviews; reviewId.value = reviews.value.at(-1)?.id || ''; versions.value = h.data.versions.map(v => v.revision.version_number); version.value = versions.value[0] || null; urlError.value = !stable.value } catch { /* API reports errors */ }
 }, { immediate: true })
-async function preview(kind: Preview['kind']) { if (busy.value || (kind === 'working' && props.dirty)) return; busy.value = true; operationError.value = ''; try { result.value = (await getPreview(props.batchId, kind, kind === 'review' ? reviewId.value : undefined)).data; opened.value = true; await nextTick(); draw() } catch(e) { operationError.value = e instanceof Error ? e.message : t('passportPreview.message16') } finally { busy.value = false } }
-function draw() { if (!mount.value || !result.value) return; const shadow = mount.value.shadowRoot || mount.value.attachShadow({ mode: 'open' }); const style = document.createElement('style'); style.textContent = ':host{display:block;color:#193d35;background:#f6f7f2;padding:20px;font-family:Arial,sans-serif}' + css; const main = document.createElement('main'); shadow.replaceChildren(style, main); try { renderPassport(main, result.value.payload, { language: language.value, previewKind: result.value.kind, privateAssets: result.value.assets, privateAssetMimeTypes: result.value.asset_mime_types }) } catch { main.textContent = t('passportPreview.message16') } }
+async function preview(kind: Preview['kind']) { if (busy.value || (kind === 'working' && props.dirty)) return; busy.value = true; operationError.value = ''; try { result.value = (await getPreview(props.batchId, kind, kind === 'review' ? reviewId.value : undefined)).data; device.value = 'mobile'; opened.value = true; await nextTick(); draw() } catch(e) { operationError.value = e instanceof Error ? e.message : t('passportPreview.message16') } finally { busy.value = false } }
+function draw() { if (!mount.value || !result.value) return; const shadow = mount.value.shadowRoot || mount.value.attachShadow({ mode: 'open' }); const style = document.createElement('style'); style.textContent = ':host{display:block;color:#193d35;background:#f6f7f2;padding:14px;font-family:Arial,sans-serif;container-type:inline-size;container-name:passportviewport}' + previewStyles(css); const main = document.createElement('main'); shadow.replaceChildren(style, main); try { renderPassport(main, result.value.payload, { language: language.value, previewKind: result.value.kind, privateAssets: result.value.assets, privateAssetMimeTypes: result.value.asset_mime_types }) } catch { main.textContent = t('passportPreview.message16') } }
 async function copy(value: string) { try { if (!navigator.clipboard?.writeText) throw new Error('unavailable'); await navigator.clipboard.writeText(value); ElMessage.success(t('passportPreview.message17')) } catch { ElMessage.warning(t('passportPreview.message18')) } }
 </script>
 <style scoped>
 .preview-panel{margin:20px 0;overflow-wrap:anywhere}.controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0}select{padding:8px;max-width:100%;margin-inline-start:8px}code{direction:ltr;unicode-bidi:isolate}a{color:var(--el-color-primary);text-decoration:underline}
+
+.preview-toolbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:1;background:var(--el-bg-color);padding:12px 0}.preview-stage{overflow:auto;max-height:72vh;background:#e8edea;padding:16px;border-radius:12px}.preview-viewport{margin:auto;box-shadow:0 8px 30px #17372b18}.preview-viewport.mobile{width:390px;max-width:100%}.preview-viewport.desktop{width:1040px;min-width:1040px}
 </style>

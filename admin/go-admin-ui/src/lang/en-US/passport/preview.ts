@@ -1,4 +1,8 @@
 export default {
+  'device': 'Preview device',
+  'mobile': 'Mobile',
+  'desktop': 'Desktop',
+
   'message1': 'Passport previews and stable links',
   'message2': 'Internal previews use saved content only.',
   'message3': 'Preview Draft',
