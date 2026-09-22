@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 vi.mock('../../../../../public-site/js/schema.mjs', () => ({ validatePayload: (p: unknown) => p, assetPath: () => '/image.png' }))
 import { renderPassport } from '../../../../../public-site/js/render.mjs'
-const payload = () => ({ record_type: 'test', product: { name: '马铃薯雪花粉', category_code: '001', country_of_origin: 'CN' }, batch: { code: 'TEST-001', record_type: 'test', production_date: '2026-09-01', quality_status: 'pending' }, notice: 'TEST RECORD — NOT FOR COMMERCIAL USE', raw_material: { origin: '自有基地' }, packaging: { type_code: 'bag' }, storage: { conditions: '气调储存' }, manufacturer: { name: '测试企业' }, process: Array.from({ length: 19 }, (_, i) => ({ step_key: `STEP_${i}`, label: `工艺${i + 1}` })), inspection: [], certifications: [], custom_sections: [], assets: [{ key: 'photo', role: 'section_image', display_target: 'process:STEP_0', label: '工艺1' }], localization: { translations: [] }})
+const payload = () => ({ record_type: 'test', product: { code: 'INTERNAL-PRODUCT-001', name: '马铃薯雪花粉', category_code: '001', country_of_origin: 'CN' }, batch: { code: 'TEST-001', record_type: 'test', production_date: '2026-09-01', quality_status: 'pending' }, notice: 'TEST RECORD — NOT FOR COMMERCIAL USE', raw_material: { origin: '自有基地' }, packaging: { type_code: 'bag' }, storage: { conditions: '气调储存' }, manufacturer: { name: '测试企业' }, process: Array.from({ length: 19 }, (_, i) => ({ step_key: `STEP_${i}`, label: `工艺${i + 1}` })), inspection: [], certifications: [], custom_sections: [], assets: [{ key: 'photo', role: 'section_image', display_target: 'process:STEP_0', label: '工艺1' }], localization: { translations: [] }})
 describe('passport language and compact process', () => {
   it('uses Chinese field labels and notices in Chinese preview', () => {
     const main = document.createElement('main'); renderPassport(main, payload(), { language: 'zh-CN', previewKind: 'review' })
@@ -43,6 +43,9 @@ it('omits category and duplicate image labels while retaining entered text and c
   const main = document.createElement('main')
   renderPassport(main, p, { language: 'zh-CN' })
   expect(main.querySelector('[data-field=category_code]')).toBeNull()
+  expect(main.querySelector('[data-module=product] [data-field=code]')).toBeNull()
+  expect(main.textContent).not.toContain('INTERNAL-PRODUCT-001')
+  expect(main.querySelector('[data-module=batch] [data-field=code]')?.textContent).toContain('TEST-001')
   expect(main.querySelector('[data-field=description] dt')?.textContent).toBe('原料描述')
   expect(main.querySelector('[data-field=origin] dt')?.textContent).toBe('原料来源说明')
   expect(main.textContent).toContain('用户保存的原料正文')
