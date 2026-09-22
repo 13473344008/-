@@ -15,6 +15,10 @@ import (
 const TransformVersion = "image-png-v1-go1.26"
 const MaxSourceBytes = 2 * 1024 * 1024
 
+// Decoded JPEGs can grow when encoded as lossless PNG. Keep the upload
+// limit separate; 16 million RGBA pixels fit within this bounded output.
+const MaxNormalizedBytes = 64 * 1024 * 1024
+
 // ReadPrivate refuses symlinks and non-regular files; the Root also confines lookup against traversal.
 func ReadPrivate(rootDir, key string) ([]byte, error) {
 	r, e := os.OpenRoot(rootDir)
@@ -83,7 +87,7 @@ func Normalize(source []byte, mime string) ([]byte, error) {
 	if e = png.Encode(&out, im); e != nil {
 		return nil, e
 	}
-	if out.Len() > MaxSourceBytes {
+	if out.Len() > MaxNormalizedBytes {
 		return nil, fmt.Errorf("normalized image too large")
 	}
 	return out.Bytes(), nil

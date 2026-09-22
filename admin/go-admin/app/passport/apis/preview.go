@@ -18,6 +18,10 @@ func (e Reviews) Preview(c *gin.Context) {
 	if s == nil {
 		return
 	}
-	p, err := s.Preview(c.Param("id"), c.Query("kind"), c.Query("review_id"))
+	preview := s.Preview
+	if c.Query("images") == "display" {
+		preview = s.DisplayPreview
+	}
+	p, err := preview(c.Param("id"), c.Query("kind"), c.Query("review_id"))
 	e.reviewResult(p, err)
 }

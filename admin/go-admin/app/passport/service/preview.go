@@ -11,16 +11,25 @@ import (
 // Preview contains no release identifiers. Publication metadata inside Payload is
 // only a builder placeholder; the shared private renderer never displays it.
 type Preview struct {
-	Kind        string            `json:"kind"`
-	SourceHash  string            `json:"source_hash"`
-	EditVersion int64             `json:"edit_version"`
-	ReviewID    string            `json:"review_id,omitempty"`
-	Payload     json.RawMessage   `json:"payload"`
-	Assets      map[string][]byte `json:"assets"`
+	Kind           string            `json:"kind"`
+	SourceHash     string            `json:"source_hash"`
+	EditVersion    int64             `json:"edit_version"`
+	ReviewID       string            `json:"review_id,omitempty"`
+	Payload        json.RawMessage   `json:"payload"`
+	Assets         map[string][]byte `json:"assets"`
+	AssetMimeTypes map[string]string `json:"asset_mime_types,omitempty"`
 }
 
 func (s *Reviews) Preview(id, kind, reviewID string) (Preview, error) {
-	out := Preview{Kind: kind, Assets: map[string][]byte{}}
+	return s.preview(id, kind, reviewID, false)
+}
+
+func (s *Reviews) DisplayPreview(id, kind, reviewID string) (Preview, error) {
+	return s.preview(id, kind, reviewID, true)
+}
+
+func (s *Reviews) preview(id, kind, reviewID string, compact bool) (Preview, error) {
+	out := Preview{Kind: kind, Assets: map[string][]byte{}, AssetMimeTypes: map[string]string{}}
 	err := s.Orm.Transaction(func(tx *gorm.DB) error {
 		b, e := s.batch(tx, id)
 		if e != nil {
@@ -79,6 +88,16 @@ func (s *Reviews) Preview(id, kind, reviewID string) (Preview, error) {
 					return conflict("预览图片摘要不匹配")
 				}
 				out.Assets[a.AssetKey] = a.NormalizedPreview
+				if compact {
+					display, err := publishing.DisplayPreviewJPEG(a.NormalizedPreview)
+					if err != nil {
+						return invalid("预览图片无法生成")
+					}
+					if len(display) < len(a.NormalizedPreview) {
+						out.Assets[a.AssetKey] = display
+						out.AssetMimeTypes[a.AssetKey] = "image/jpeg"
+					}
+				}
 			}
 		}
 		out.Payload = built.Payload

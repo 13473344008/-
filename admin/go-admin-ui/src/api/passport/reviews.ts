@@ -10,7 +10,7 @@ export interface Readiness { ready: boolean; edit_version: number; errors: { cod
 export interface QueueRow { id: string; batch_code: string; product_code: string; base_number: number; submitter: string; submitted_at: string; decision: string; candidate_hash: string }
 export interface ReviewQuery { search?: string; state?: string }
 const base = (id: string) => `/api/v1/passport-batches/${id}/review`
-export const getReview = (id: string) => request<ApiResponse<ReviewDetail>>({ url: base(id) })
-export const getReadiness = (id: string) => request<ApiResponse<Readiness>>({ url: `${base(id)}/readiness` })
-export const reviewAction = (id: string, action: string, data: object) => request<ApiResponse<null>>({ url: `${base(id)}/${action}`, method: 'post', data })
-export const listReviews = (params: ReviewQuery & PageQuery) => request<ApiResponse<PageResult<QueueRow>>>({ url: '/api/v1/passport-reviews', params })
+export const getReview = (id: string) => request<ApiResponse<ReviewDetail>>({ timeout: 90000, url: base(id) })
+export const getReadiness = (id: string) => request<ApiResponse<Readiness>>({ timeout: 90000, url: `${base(id)}/readiness` })
+export const reviewAction = (id: string, action: string, data: object) => request<ApiResponse<null>>({ timeout: 90000, url: `${base(id)}/${action}`, method: 'post', data })
+export const listReviews = (params: ReviewQuery & PageQuery) => request<ApiResponse<PageResult<QueueRow>>>({ timeout: 90000, url: '/api/v1/passport-reviews', params })

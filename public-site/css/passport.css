@@ -11,3 +11,36 @@
 .passport summary::-webkit-details-marker{display:none}.passport .step-count{margin-left:auto;color:#72867c;font-size:12px;font-weight:400}.passport .process-fold>summary:after,.passport .step-detail>summary:after{content:'⌄';color:#6e8679;transition:transform .15s}.passport details[open]>summary:after{transform:rotate(180deg)}
 .passport summary:focus-visible{outline:3px solid #709783;outline-offset:3px}.passport .process{display:block;margin-top:10px}.passport .process li{background:transparent;border-bottom:1px solid #edf0ed;border-radius:0;padding:11px 4px;gap:12px;align-items:baseline}.passport .process li:last-child{border-bottom:0}.passport .step-detail{flex:1;min-width:0}.passport .step-detail>summary{display:flex;justify-content:space-between;gap:18px;cursor:pointer;list-style:none;font-size:14px}.passport .process-body{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),300px));gap:14px;padding:6px 0 12px}.passport .process-body figcaption{display:none}
 @media(max-width:699px){.passport .card{padding:18px}.passport .hero{padding:20px 0}.passport .fields{grid-template-columns:1fr}.passport .process-fold>summary{padding:12px}.passport .process-body{grid-template-columns:1fr}.passport .image-box{max-height:300px}}
+
+/* Narrative fields occupy their own row; photos never stretch adjacent facts. */
+.passport .field-long{grid-column:1/-1}
+.passport .field-with-images{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);column-gap:28px;grid-template-rows:auto 1fr;align-items:start}
+.passport .field-with-images>dt,.passport .field-with-images>dd{grid-column:1}
+.passport .field-with-images>dd{align-self:start}
+.passport .field-pictures{grid-column:2;grid-row:1/span 2;display:grid;gap:16px}
+.passport .image-box{aspect-ratio:auto;background:transparent;border:0;border-radius:0;max-height:none}
+.passport .image-box img{height:auto;max-height:380px;object-fit:contain}
+.passport .field-pictures figcaption{display:none}
+@media(max-width:699px){.passport .field-with-images{display:block}.passport .field-pictures{margin-top:14px}.passport .image-box img{max-height:320px}}
+
+/* Shared public and private passport design, based on the mobile reference. */
+.passport{--ink:#21473b;--muted:#70877c;--line:#dce8e1;--paper:#f4f7f4;color:var(--ink)}
+.passport .hero{background:linear-gradient(135deg,#193f32,#378d69);color:#fff;border-radius:0 0 20px 20px;padding:28px 24px;margin-bottom:24px}
+.passport .hero .eyebrow{color:#d1e8da;letter-spacing:.14em;font-size:10px}.passport .hero h1{font-size:32px;font-weight:750;letter-spacing:.01em}.passport .hero .badge{color:#fff;background:#ffffff18;border-color:#ffffff42;border-radius:6px}
+.passport .grid{counter-reset:modules;gap:24px 16px}.passport .card{counter-increment:modules;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:none}
+.passport .card>h2{display:flex;align-items:center;gap:10px;font-size:16px;color:#2b5946;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:18px}
+.passport .card>h2:before{content:counter(modules,decimal-leading-zero);font-size:10px;line-height:1.3;border:1px solid #78aa90;border-radius:4px;padding:2px 4px;color:#408267;flex:none}
+.passport dt{color:var(--muted);font-size:11px}.passport dd{font-size:14px;line-height:1.8}.passport .field{border:0;padding-bottom:0}.passport .fields{gap:16px 24px}
+.passport [data-field=quality_status] dd{color:#6a541e;background:#fff2d7;display:table;border-radius:5px;padding:1px 8px;font-size:12px;font-weight:650}.passport [data-status=rejected] dd{color:#883a30;background:#fce7e2}.passport [data-status=released] dd{display:table;color:#245f3e;background:#d9f2de;border-radius:5px;padding:1px 8px;font-size:12px;font-weight:650}
+.passport [data-module=raw_material] .fields{display:flex;flex-wrap:wrap;gap:12px 18px}.passport [data-module=raw_material] .field:not(.field-long){display:flex;align-items:baseline;gap:6px;padding:3px 10px;background:#edf6ef;border:1px solid #d8e9df;border-radius:20px}.passport [data-module=raw_material] .field:not(.field-long) dd{margin:0;font-size:12px;font-weight:600}.passport [data-module=raw_material] .field-long{width:100%}
+.passport [data-module=packaging] .fields{grid-template-columns:repeat(3,minmax(0,1fr))}.passport [data-module=packaging] [data-field=quantity],.passport [data-module=packaging] [data-field=type_code],.passport [data-module=packaging] [data-field=unit]{text-align:center;padding:12px 8px;border:1px solid #d7e8dc;border-radius:10px;background:#eef7f0}.passport [data-module=packaging] dd.technical{display:block}.passport [data-module=packaging] [data-field=quantity] dd{font-size:20px;font-weight:700}
+.passport [data-module=storage] [data-field=shelf_life_days],.passport [data-module=storage] [data-field=shelf_life_description]{padding:12px 14px;background:#1e4938;border-radius:10px;color:#fff;grid-column:auto}.passport [data-module=storage] [data-field^=shelf_life] dt{color:#c9dfd1}.passport [data-module=storage] [data-field^=shelf_life] dd{font-size:20px;font-weight:650}
+.passport .field-pictures{gap:14px}.passport .image-box{border:0;background:none}.passport .image-box img{height:auto;max-height:none;border-radius:10px;object-fit:contain}.passport .field-pictures figcaption{display:block;font-size:10px;padding:6px 0;color:#718579}.passport .gallery figcaption{font-size:11px}
+.passport .table-scroll{border:0;border-radius:9px}.passport table{font-size:12px}.passport table caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.passport th{background:#2e7054;color:#fff;font-weight:650}.passport th,.passport td{padding:11px 9px;border-bottom:1px solid #dce8df}.passport tbody tr:nth-child(even){background:#eef6ef}.passport tbody tr:nth-child(odd){background:#f8faf7}
+@media(max-width:699px){
+ .masthead,body>.passport,body>footer{width:calc(100% - 28px)}.masthead{padding:12px 0;gap:8px}.brand{letter-spacing:.04em}.language{font-size:11px}
+ .passport .hero{padding:24px 20px;margin-bottom:20px;gap:16px}.passport .hero h1{font-size:28px}.passport .grid{grid-template-columns:1fr;gap:18px}.passport .card{padding:16px;border-radius:14px}.passport .card>h2{font-size:15px;margin-bottom:16px}.passport .fields{grid-template-columns:1fr;gap:14px}.passport dd{font-size:14px;line-height:1.85}
+ .passport .field-with-images{display:block}.passport .field-pictures{margin-top:16px}.passport .image-box img{max-height:none;width:100%;height:auto}
+ .passport [data-module=storage] .fields{grid-template-columns:repeat(2,minmax(0,1fr))}.passport [data-module=storage] .field-long{grid-column:1/-1}.passport [data-module=storage] [data-field^=shelf_life]{grid-column:auto}
+ .passport [data-columns="1"] table,.passport [data-columns="2"] table,.passport [data-columns="3"] table,.passport [data-columns="4"] table{min-width:0;table-layout:fixed}.passport th,.passport td{padding:10px 6px;font-size:11px;line-height:1.6}
+}

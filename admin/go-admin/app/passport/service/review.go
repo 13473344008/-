@@ -276,8 +276,8 @@ func (s *Reviews) readiness(tx *gorm.DB, id string) (Readiness, ReviewCandidate,
 	if e := freezeReviewAssets(tx, &candidate); e != nil {
 		add("invalid_review_assets", "assets", e)
 	}
-	if len(encode(candidate)) > 4*1024*1024 {
-		add("candidate_too_large", "candidate", fmt.Errorf("审核输入不得超过 4 MiB"))
+	if len(encode(candidate)) > 32*1024*1024 {
+		add("candidate_too_large", "candidate", fmt.Errorf("审核输入不得超过 32 MiB"))
 	}
 	result.Ready = len(result.Errors) == 0
 	return result, candidate, nil

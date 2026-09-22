@@ -300,7 +300,7 @@ func (s *Publishing) build(store *publishing.Store, v *PublishEntry) error {
 		if e = publishing.Immutable(store.Public, assetPath, normalized, 0644); e != nil {
 			return e
 		}
-		actual, e := publishing.ReadRegular(store.Public, assetPath, publishing.MaxSourceBytes)
+		actual, e := publishing.ReadRegular(store.Public, assetPath, publishing.MaxNormalizedBytes)
 		if e != nil || publishing.Hash(actual) != a.NormalizedSHA256 {
 			return fmt.Errorf("published asset verification failed")
 		}
@@ -453,7 +453,7 @@ func (s *Publishing) verifyPrepared(store *publishing.Store, v PublishEntry) ([]
 	}
 	manifest := []interface{}{}
 	for _, a := range rows {
-		raw, e := publishing.ReadRegular(store.Public, a.PublishedPath, publishing.MaxSourceBytes)
+		raw, e := publishing.ReadRegular(store.Public, a.PublishedPath, publishing.MaxNormalizedBytes)
 		if e != nil || int64(len(raw)) != a.FileSize || publishing.Hash(raw) != a.SHA256 {
 			return nil, "", fmt.Errorf("published asset missing or changed")
 		}

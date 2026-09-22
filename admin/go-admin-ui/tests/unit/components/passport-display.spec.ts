@@ -21,3 +21,12 @@ describe('passport language and compact process', () => {
     expect(main.textContent).toContain('Review preview · Not published'); expect(main.textContent).toContain('View process steps'); expect(main.textContent).toContain('19 steps')
   })
 })
+
+it('uses explicit JPEG for compact private images and retains legacy PNG support', () => {
+  const main = document.createElement('main')
+  renderPassport(main, payload(), { previewKind: 'review', privateAssets: { photo: 'YWJj' }, privateAssetMimeTypes: { photo: 'image/jpeg' }})
+  expect(main.querySelector('img')?.src).toBe('data:image/jpeg;base64,YWJj')
+  renderPassport(main, payload(), { previewKind: 'review', privateAssets: { photo: 'YWJj' }})
+  expect(main.querySelector('img')?.src).toBe('data:image/png;base64,YWJj')
+  expect(() => renderPassport(main, payload(), { previewKind: 'review', privateAssets: { photo: 'YWJj' }, privateAssetMimeTypes: { photo: 'text/html' }})).toThrow()
+})

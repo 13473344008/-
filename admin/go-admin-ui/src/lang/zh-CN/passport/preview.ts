@@ -1,4 +1,8 @@
 export default {
+  'device': '预览设备',
+  'mobile': '手机',
+  'desktop': '电脑',
+
   'message1': '数字身份证预览与稳定链接',
   'message2': '内部预览仅使用已保存内容。',
   'message3': '预览草稿',

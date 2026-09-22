@@ -3,6 +3,7 @@ import { flushPromises, shallowMount } from '@vue/test-utils'
 import MediaPanel from '@/views/passport/media/MediaPanel.vue'
 const api = vi.hoisted(() => ({ listMedia: vi.fn(), uploadMedia: vi.fn(), detachMedia: vi.fn() }))
 vi.mock('@/api/passport/media', () => api)
+vi.mock('@/utils/message', () => ({ msgSuccess: vi.fn() }))
 vi.mock('vue-i18n', () => ({ useI18n: () => ({ t: (x: string) => x }) }))
 const mount = (readonly = false) => shallowMount(MediaPanel, { props: { base: '/api/v1/scoped/media', readonly }, global: { directives: { loading: {}, permisaction: {}}, stubs: { ElCard: { template: '<div><slot /></div>' }, ElInput: { props: ['modelValue'], template: '<input :value="modelValue" @input="$emit(\'update:modelValue\', $event.target.value)" />' }}}})
 describe('Scoped MediaPanel', () => {
@@ -16,6 +17,19 @@ describe('Scoped MediaPanel', () => {
   })
   it('does not emit success when upload rejects', async() => {
     api.uploadMedia.mockRejectedValue(new Error('locked')); const w = mount(); await flushPromises(); await w.get('[data-testid=media-label]').setValue('Test')
-    const input = w.get('[data-testid=media-upload]'); Object.defineProperty(input.element, 'files', { value: [new File(['x'], 'x.png')] }); await input.trigger('change'); await flushPromises(); expect(w.emitted('saved')).toBeUndefined(); expect(input.attributes('disabled')).toBeUndefined()
+    const input = w.get('[data-testid=media-upload]'); Object.defineProperty(input.element, 'files', { value: [new File(['x'], 'x.png')] }); await input.trigger('change'); await flushPromises(); expect(w.emitted('saved')).toBeUndefined(); expect(input.attributes('disabled')).toBeDefined(); expect(w.text()).toContain('passportMedia.operationUncertain')
+  })
+  it('reports saved when only the following preview fails, and refresh never uploads again', async() => {
+    const w = mount(); await flushPromises(); await w.get('[data-testid=media-label]').setValue('Test')
+    api.listMedia.mockResolvedValueOnce({ data: { token: 'fresh', items: [] }}).mockRejectedValueOnce(new Error('timeout'))
+    const input = w.get('input[type=file]'); Object.defineProperty(input.element, 'files', { value: [new File(['x'], 'x.png', { type: 'image/png' })] })
+    await input.trigger('change'); await flushPromises()
+    expect(w.emitted('saved')).toHaveLength(1)
+    expect(w.text()).toContain('passportMedia.savedPreviewFailed')
+    expect(input.attributes('disabled')).toBeDefined()
+    api.listMedia.mockResolvedValue({ data: { token: 'after-save', items: [] }})
+    await w.get('[data-testid=media-refresh]').trigger('click'); await flushPromises()
+    expect(api.uploadMedia).toHaveBeenCalledTimes(1)
+    expect(w.find('[role=alert]').exists()).toBe(false)
   })
 })
