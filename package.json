@@ -1,0 +1,1 @@
+{"name":"gesture-stardust","version":"1.0.0","private":true,"type":"module","scripts":{"start":"python3 -m http.server 4173 --bind 127.0.0.1 --directory dist","check":"node --check dist/app.js && node --check dist/engine.js && node --check dist/glow.js && node --check dist/surface.js && node --check dist/hand-worker.js && node --test tests/*.test.mjs"}}

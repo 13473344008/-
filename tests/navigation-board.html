@@ -1,0 +1,27 @@
+<!doctype html><meta charset="utf-8"><title>自然跟随检查</title><style>body{background:#08080c;color:#ecd5ba;font:13px system-ui;margin:24px}button{background:#382e29;color:inherit;border:1px solid #6a5545;border-radius:6px;padding:10px}#frames{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}figure{margin:0}canvas{width:100%}figcaption{font-size:11px}pre{white-space:pre-wrap}</style><h2>自然跟随 · 合成输入检查</h2><button id="run">运行检查</button><button id="model">验证本地手势模型</button><p id="modelStatus"></p><pre id="report">合成输入不能代替真人摄像头验证。</pre><section id="frames"></section><script type="module">
+import {PalmFollow,GestureGate,identity,quatAngle} from '/motion.mjs?v=orbit';import {ParticleEngine} from '/engine.js?v=orbit';
+import {VIEW_SCALE} from '/geometry.mjs?v=orbit';
+const board=document.getElementById('frames'),report=document.getElementById('report'),button=document.getElementById('run'),canvas=document.createElement('canvas'),engine=new ParticleEngine(canvas);
+function render(s,time=0){engine.render(time,1,.25,.2,VIEW_SCALE,0,0,0,s.rotation);const g=engine.gl,p=new Uint8Array(canvas.width*canvas.height*4);g.readPixels(0,0,canvas.width,canvas.height,g.RGBA,g.UNSIGNED_BYTE,p);if(g.getError())throw Error('WebGL error');return p;}
+function capture(label){const f=document.createElement('figure'),c=document.createElement('canvas');c.width=480;c.height=300;c.getContext('2d').drawImage(canvas,0,0,480,300);const t=document.createElement('figcaption');t.textContent=label;f.append(c,t);board.append(f);}
+button.onclick=()=>{try{
+ board.replaceChildren();const f=new PalmFollow(),pose=(a,size=3)=>({rotation:[0,Math.sin(a/2),0,Math.cos(a/2)],size,hand:'Right'});let t=0;
+ const feed=(p,n)=>{for(let i=0;i<n;i++)f.update(p,t+=40);return f.snapshot();};
+ feed(pose(0),8);const turned=feed(pose(.6),45);render(turned);capture('转掌：防抖跟随');
+ f.suspend();t+=500;const back=feed(pose(-.7,2),16);const reentryError=quatAngle(turned.rotation,back.rotation);const baseline=render(back);capture('改变角度入镜：不跳转');
+ const near=feed(pose(-.7,8),45),nearPixels=render(near);capture('手掌靠近：大小保持固定');const far=feed(pose(-.7,.5),55),farPixels=render(far);capture('手掌远离：大小保持固定');
+ let changes=0;for(let i=0;i<baseline.length;i++)if(baseline[i]!==nearPixels[i]||baseline[i]!==farPixels[i])changes++;
+ const tremor=new PalmFollow();for(let i=0;i<8;i++)tremor.update(pose(0),i*40);let angle=0;
+ for(let i=0;i<200;i++){const r=tremor.update(pose(.035*Math.sin(i*1.7)),320+i*40);angle=Math.max(angle,quatAngle(r.rotation,identity()));}
+ const gate=new GestureGate(),confirmation=[0,40,80].map(t=>gate.update(0,t,1));
+ report.textContent=JSON.stringify({pass:reentryError<1e-7&&changes===0&&angle<.006&&confirmation[2]===0,reentryError,distanceMovementPixelChanges:changes,tremorOutputDegrees:angle*180/Math.PI,gestureConfirmMs:80,fixedViewScale:VIEW_SCALE,webglErrors:0},null,2);
+}catch(e){report.textContent=e.message;}};
+document.getElementById('model').onclick=()=>{
+ const status=document.getElementById('modelStatus');status.textContent='模型加载中…';const worker=new Worker('/hand-worker.js?v=orbit');
+ const timer=setTimeout(()=>{status.textContent='模型检查超时';worker.terminate();},45000);
+ worker.onerror=()=>{clearTimeout(timer);status.textContent='模型检查失败';worker.terminate();};
+ worker.onmessage=async({data})=>{if(data.type==='ready'){const c=document.createElement('canvas');c.width=640;c.height=360;const ctx=c.getContext('2d');ctx.fillStyle='#000';ctx.fillRect(0,0,640,360);const frame=await createImageBitmap(c);worker.postMessage({type:'frame',frame,time:performance.now()},[frame]);}
+ if(data.type==='result'){clearTimeout(timer);status.textContent=data.landmarks===null&&data.worldLandmarks===null&&Number.isFinite(data.time)?'本地模型通过：空画面返回正常，三维坐标字段已接通':'模型返回字段异常';worker.terminate();}
+ if(data.type==='error'){clearTimeout(timer);status.textContent='模型失败：'+data.message;worker.terminate();}};worker.postMessage({type:'init'});
+};
+</script>
